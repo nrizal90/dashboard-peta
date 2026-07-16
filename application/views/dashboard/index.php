@@ -49,9 +49,9 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 					<?php endforeach; ?>
 				</div>
 
-				<div class="row">
+				<div class="row" id="dashRow">
 					<!-- ===== SIDEBAR FILTER (kiri) ===== -->
-					<div class="col-lg-3 mb-4">
+					<div class="col-lg-3 mb-4" id="colFilter">
 						<div class="card shadow h-100">
 							<div class="card-header py-3 d-flex justify-content-between align-items-center">
 								<h6 class="m-0 font-weight-bold text-primary">Filter</h6>
@@ -135,11 +135,16 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 					</div>
 
 					<!-- ===== PETA (tengah) ===== -->
-					<div class="col-lg-6 mb-4">
+					<div class="col-lg-6 mb-4" id="colMap">
 						<div class="card shadow h-100">
 							<div class="card-header py-3 d-flex justify-content-between align-items-center">
 								<h6 class="m-0 font-weight-bold text-primary">Peta Interaktif</h6>
-								<small class="text-muted">marker cluster · warna = ownership</small>
+								<div class="d-flex align-items-center">
+									<small class="text-muted mr-3 d-none d-xl-inline">marker cluster · warna = ownership</small>
+									<button id="btnToggleFilter" class="btn btn-sm btn-outline-secondary py-0" title="Sembunyikan panel filter agar peta lebih dominan">
+										<i class="fas fa-expand-arrows-alt"></i> Perbesar Peta
+									</button>
+								</div>
 							</div>
 							<div class="card-body position-relative">
 								<div id="map"></div>
@@ -151,7 +156,7 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 					</div>
 
 					<!-- ===== CHART PANEL (kanan) ===== -->
-					<div class="col-lg-3 mb-4">
+					<div class="col-lg-3 mb-4" id="colChart">
 						<div class="dash-scroll">
 							<div class="card shadow mini-chart-card">
 								<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Backlog Verifikasi</h6></div>

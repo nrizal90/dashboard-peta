@@ -401,6 +401,31 @@
 	}
 
 	// -----------------------------------------------------------------
+	// Mode "Perbesar Peta" — sembunyikan panel filter & chart, peta dominan
+	// (berguna saat dashboard dipajang di layar command center)
+	// -----------------------------------------------------------------
+	(function () {
+		var btn = document.getElementById('btnToggleFilter');
+		if (!btn) return;
+		var colFilter = document.getElementById('colFilter');
+		var colChart = document.getElementById('colChart');
+		var colMap = document.getElementById('colMap');
+		var expanded = false;
+		btn.addEventListener('click', function () {
+			expanded = !expanded;
+			colFilter.classList.toggle('d-none', expanded);
+			colChart.classList.toggle('d-none', expanded);
+			colMap.classList.toggle('col-lg-6', !expanded);
+			colMap.classList.toggle('col-lg-12', expanded);
+			btn.innerHTML = expanded
+				? '<i class="fas fa-compress-arrows-alt"></i> Tampilkan Panel'
+				: '<i class="fas fa-expand-arrows-alt"></i> Perbesar Peta';
+			// Leaflet perlu hitung ulang ukuran setelah lebar kontainer berubah.
+			setTimeout(function () { map.invalidateSize(); }, 60);
+		});
+	})();
+
+	// -----------------------------------------------------------------
 	// Boot
 	// -----------------------------------------------------------------
 	loadStateFromUrl();

@@ -91,6 +91,8 @@ usort($gap, function ($a, $b) { return $b['sektor_tersedia'] - $a['sektor_tersed
 		#ctl .progress > i { display:block; height:100%; width:0; background:var(--accent); }
 		#ctl .mode { font-size:.95rem; color:var(--muted); }
 		#ctl .mode.manual { color:#f6c23e; }
+		#ctl .opbtn { text-decoration:none; color:var(--txt); background:var(--card); border:1px solid var(--line); border-radius:8px; padding:7px 14px; font-size:1rem; white-space:nowrap; }
+		#ctl .opbtn:hover { background:var(--line); }
 	</style>
 </head>
 <body>
@@ -149,7 +151,7 @@ usort($gap, function ($a, $b) { return $b['sektor_tersedia'] - $a['sektor_tersed
 
 		<!-- Scene 3: Chart -->
 		<section class="scene" id="sceneChart" data-name="Statistik">
-			<div class="scene-title" style="position:static;padding-bottom:0"></div>
+			<div class="scene-title"><i class="fas fa-chart-bar"></i> Statistik Nasional</div>
 			<div class="chart-box"><h3>Backlog Verifikasi</h3><div class="cwrap"><canvas id="wFunnel"></canvas></div></div>
 			<div class="chart-box"><h3>Top 10 Sektor</h3><div class="cwrap"><canvas id="wSektor"></canvas></div></div>
 			<div class="chart-box"><h3>Ownership</h3><div class="cwrap"><canvas id="wOwnership"></canvas></div></div>
@@ -166,6 +168,9 @@ usort($gap, function ($a, $b) { return $b['sektor_tersedia'] - $a['sektor_tersed
 		<button id="btnNext" title="Berikutnya"><i class="fas fa-step-forward"></i></button>
 		<div class="progress"><i id="progressBar"></i></div>
 		<span class="mode" id="modeText">Auto-rotasi</span>
+		<a href="<?= site_url('dashboard') ?>" class="opbtn" title="Buka mode operator (filter interaktif)">
+			<i class="fas fa-sliders-h"></i> Mode Operator
+		</a>
 	</div>
 </div>
 

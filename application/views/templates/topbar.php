@@ -21,6 +21,17 @@
 
 				<!-- Topbar Navbar -->
 				<ul class="navbar-nav ml-auto">
+
+					<!-- Pindah ke mode Command Center (kiosk) -->
+					<li class="nav-item mr-3 d-flex align-items-center">
+						<a href="<?= site_url('wall') ?>" target="_blank" rel="noopener"
+							class="btn btn-outline-primary btn-sm shadow-sm" title="Buka mode command center (kiosk) di tab baru">
+							<i class="fas fa-tv fa-sm"></i> Mode Layar Penuh
+						</a>
+					</li>
+
+					<div class="topbar-divider d-none d-sm-block"></div>
+
 					<li class="nav-item dropdown no-arrow">
 						<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
