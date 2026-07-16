@@ -18,8 +18,8 @@ uploads/*
 !uploads/index.html
 
 # ===== Konfigurasi sensitif =====
-# Aktifkan jika kredensial DB tidak ingin ikut ter-commit
-# application/config/database.php
+# Kredensial DB tidak ikut ter-commit
+application/config/database.php
 
 # Environment
 .env
