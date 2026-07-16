@@ -1,0 +1,67 @@
+# ===== CodeIgniter 3 =====
+# Logs
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+
+# Cache
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+# Session files
+application/sessions/*
+!application/sessions/index.html
+
+# User uploads
+uploads/*
+!uploads/index.html
+
+# ===== Konfigurasi sensitif =====
+# Aktifkan jika kredensial DB tidak ingin ikut ter-commit
+# application/config/database.php
+
+# Environment
+.env
+*.env
+
+# ===== Dependencies =====
+/vendor/
+node_modules/
+startbootstrap-sb-admin-2-gh-pages/node_modules/
+
+# ===== Build / compiled assets =====
+*.map
+
+# ===== Database dumps (opsional, hapus jika ingin commit) =====
+# sql/
+# *.sql
+
+# ===== IDE & Editor =====
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ===== OS =====
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ===== Folder dokumen =====
+dokumen/
+
+# ===== Log & temp lain =====
+*.log
+*.tmp
+*.bak
