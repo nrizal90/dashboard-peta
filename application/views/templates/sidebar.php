@@ -12,7 +12,7 @@
 
 		<hr class="sidebar-divider my-0">
 
-		<!-- Nav Item - Dashboard -->
+		<!-- Nav Item - Peta -->
 		<li class="nav-item <?= $active === 'dashboard' ? 'active' : '' ?>">
 			<a class="nav-link" href="<?= site_url('dashboard') ?>">
 				<i class="fas fa-fw fa-map"></i>
@@ -22,21 +22,20 @@
 
 		<hr class="sidebar-divider">
 
-		<div class="sidebar-heading">Data</div>
+		<div class="sidebar-heading">Analisis</div>
 
-		<li class="nav-item">
-			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseData"
-				aria-expanded="true" aria-controls="collapseData">
-				<i class="fas fa-fw fa-database"></i>
-				<span>Master Lokasi</span>
+		<li class="nav-item <?= $active === 'gap' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('gap') ?>">
+				<i class="fas fa-fw fa-th"></i>
+				<span>Gap Analysis</span>
 			</a>
-			<div id="collapseData" class="collapse" aria-labelledby="headingData" data-parent="#accordionSidebar">
-				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">Kelola:</h6>
-					<a class="collapse-item" href="#">Daftar Lokasi</a>
-					<a class="collapse-item" href="#">Tambah Lokasi</a>
-				</div>
-			</div>
+		</li>
+
+		<li class="nav-item <?= $active === 'tentang' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('tentang') ?>">
+				<i class="fas fa-fw fa-info-circle"></i>
+				<span>Tentang Data</span>
+			</a>
 		</li>
 
 		<hr class="sidebar-divider d-none d-md-block">

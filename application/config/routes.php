@@ -51,7 +51,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'dashboard';
 
-// API endpoint untuk data marker peta (GeoJSON)
+// --- API data vokasi (JSON) ---
+$route['api/summary']       = 'api/summary';
+$route['api/refs']          = 'api/refs';
+$route['api/points']        = 'api/points';
+$route['api/lembaga/(:num)']= 'api/lembaga/$1';
+$route['api/choropleth']    = 'api/choropleth';
+$route['api/stats']         = 'api/stats';
+$route['api/gap']           = 'api/gap';
+
+// Halaman gap analysis & tentang data
+$route['gap']               = 'dashboard/gap';
+$route['tentang']           = 'dashboard/tentang';
+
+// API endpoint lama (scaffold GeoJSON) — dipertahankan untuk kompatibilitas
 $route['api/lokasi'] = 'dashboard/lokasi';
 
 // Mode wall/kiosk untuk video wall command center

@@ -2,31 +2,28 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Dashboard Peta
+ * Dashboard Peta Lembaga Vokasi
  *
- * Controller utama yang merender halaman dashboard dan menyediakan
- * data lokasi dalam format GeoJSON untuk digambar oleh Leaflet.
+ * Merender halaman dashboard peta interaktif. Data disajikan lewat controller
+ * Api (JSON) dan digambar di sisi klien oleh dashboard.js (Leaflet + Chart.js).
  */
 class Dashboard extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Lokasi_model', 'lokasi');
+		$this->load->library('Vokasi_repo', NULL, 'repo');
 	}
 
-	/**
-	 * Halaman dashboard peta.
-	 */
+	/** Halaman dashboard utama. */
 	public function index()
 	{
 		$data = array(
-			'title'        => 'Dashboard Peta',
-			'active'       => 'dashboard',
-			// Titik tengah & zoom awal peta (default: Indonesia).
-			'map_center'   => array(-2.5489, 118.0149),
-			'map_zoom'     => 5,
-			'total_lokasi' => $this->lokasi->count_all(),
+			'title'      => 'Dashboard Peta Vokasi',
+			'active'     => 'dashboard',
+			'map_center' => array(-2.5, 118.0),
+			'map_zoom'   => 5,
+			'summary'    => $this->repo->summary(),
 		);
 
 		$this->load->view('templates/header', $data);
@@ -37,51 +34,57 @@ class Dashboard extends CI_Controller {
 	}
 
 	/**
-	 * Mode "wall" / kiosk untuk video wall command center.
-	 * Peta fullscreen tanpa sidebar/topbar, dengan auto-refresh ringan.
-	 * Akses: /wall  (atau /dashboard/wall)
+	 * Mode Command Center (kiosk fullscreen, auto-rotasi panel).
+	 * Peta → Gap Analysis → Chart, bergantian otomatis, tetap bisa dioperasikan.
+	 * Akses: /wall
 	 */
 	public function wall()
 	{
 		$data = array(
-			'title'        => 'Command Center — Peta',
-			'map_center'   => array(-2.5489, 118.0149),
-			'map_zoom'     => 5,
-			// Interval auto-refresh data (milidetik). Ubah sesuai kebutuhan.
-			'refresh_ms'   => 30000,
-			'total_lokasi' => $this->lokasi->count_all(),
+			'title'      => 'Command Center — Peta Vokasi',
+			'map_center' => array(-2.5, 118.0),
+			'map_zoom'   => 5,
+			'rotate_ms'  => 20000, // durasi tiap panel sebelum rotasi
+			'summary'    => $this->repo->summary(),
+			'gap'        => $this->repo->aggProvinsiSektor(),
+			'sektor'     => $this->repo->refs()['sektor'],
 		);
 
-		// View mandiri (tidak memakai layout header/sidebar/footer).
+		// View mandiri (tanpa layout header/sidebar/footer).
 		$this->load->view('dashboard/wall', $data);
 	}
 
-	/**
-	 * Endpoint JSON (GeoJSON FeatureCollection) untuk marker peta.
-	 * Dipanggil oleh Leaflet via AJAX: GET /api/lokasi
-	 */
-	public function lokasi()
+	/** Halaman gap analysis (provinsi x sektor). */
+	public function gap()
 	{
-		$json = json_encode($this->lokasi->as_geojson());
+		$data = array(
+			'title'   => 'Gap Analysis — Sektor per Provinsi',
+			'active'  => 'gap',
+			'summary' => $this->repo->summary(),
+			'gap'     => $this->repo->aggProvinsiSektor(),
+			'sektor'  => $this->repo->refs()['sektor'],
+		);
 
-		// ETag = sidik jari isi data. Kalau isi tidak berubah, ETag sama,
-		// sehingga refresh berikutnya cukup dibalas 304 (tanpa body).
-		$etag = '"' . md5($json) . '"';
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/gap', $data);
+		$this->load->view('templates/footer', $data);
+	}
 
-		$client_etag = $this->input->get_request_header('If-None-Match');
+	/** Halaman "Tentang Data" — keterbatasan data secara jujur. */
+	public function tentang()
+	{
+		$data = array(
+			'title'   => 'Tentang Data',
+			'active'  => 'tentang',
+			'summary' => $this->repo->summary(),
+		);
 
-		$this->output->set_header('Cache-Control: no-cache, must-revalidate');
-		$this->output->set_header('ETag: ' . $etag);
-
-		// Data tidak berubah → 304 Not Modified, body kosong (paling hemat).
-		if ($client_etag !== NULL && trim($client_etag) === $etag)
-		{
-			$this->output->set_status_header(304);
-			return;
-		}
-
-		$this->output
-			->set_content_type('application/json')
-			->set_output($json);
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/tentang', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }

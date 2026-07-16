@@ -1,0 +1,8 @@
+# Blokir akses langsung ke file data JSON.
+# Data hanya boleh diakses lewat controller (Api.php / Vokasi_repo).
+<IfModule authz_core_module>
+    Require all denied
+</IfModule>
+<IfModule !authz_core_module>
+    Deny from all
+</IfModule>

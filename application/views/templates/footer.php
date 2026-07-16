@@ -5,7 +5,7 @@
 		<footer class="sticky-footer bg-white">
 			<div class="container my-auto">
 				<div class="copyright text-center my-auto">
-					<span>Dashboard Peta &copy; <?= date('Y') ?></span>
+					<span>Dashboard Peta Vokasi &copy; <?= date('Y') ?> · Sumber: hasil cleaning <code>clean_vokasi.py</code></span>
 				</div>
 			</div>
 		</footer>
@@ -30,46 +30,25 @@
 	<!-- SB Admin 2 -->
 	<script src="<?= base_url('assets/js/sb-admin-2.min.js') ?>"></script>
 
-	<!-- Leaflet -->
+	<!-- Chart.js -->
+	<script src="<?= base_url('assets/vendor/chart.js/Chart.min.js') ?>"></script>
+
+	<!-- Leaflet + plugin -->
 	<script src="<?= base_url('assets/vendor/leaflet/leaflet.js') ?>"></script>
+	<script src="<?= base_url('assets/vendor/leaflet.markercluster/leaflet.markercluster.js') ?>"></script>
 
 	<script>
-		// Konfigurasi peta dari controller.
-		var MAP_CONFIG = {
-			center: <?= json_encode(isset($map_center) ? $map_center : array(-2.5489, 118.0149)) ?>,
-			zoom:   <?= isset($map_zoom) ? (int) $map_zoom : 5 ?>,
-			apiUrl: '<?= site_url('api/lokasi') ?>'
+		// Konfigurasi global untuk dashboard.js
+		window.APP = {
+			apiBase: '<?= site_url('api') ?>',
+			siteUrl: '<?= rtrim(site_url(), '/') ?>',
+			mapCenter: <?= json_encode(isset($map_center) ? $map_center : array(-2.5, 118.0)) ?>,
+			mapZoom: <?= isset($map_zoom) ? (int) $map_zoom : 5 ?>
 		};
-
-		(function () {
-			var map = L.map('map').setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
-
-			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				maxZoom: 19,
-				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-			}).addTo(map);
-
-			// Ambil data lokasi (GeoJSON) lalu gambar marker.
-			fetch(MAP_CONFIG.apiUrl)
-				.then(function (res) { return res.json(); })
-				.then(function (geojson) {
-					var layer = L.geoJSON(geojson, {
-						onEachFeature: function (feature, lyr) {
-							var p = feature.properties || {};
-							var html = '<strong>' + (p.nama || '-') + '</strong>' +
-								'<br><span class="badge badge-primary">' + (p.kategori || '') + '</span>' +
-								'<br>' + (p.keterangan || '');
-							lyr.bindPopup(html);
-						}
-					}).addTo(map);
-
-					if (geojson.features && geojson.features.length) {
-						map.fitBounds(layer.getBounds().pad(0.2));
-					}
-				})
-				.catch(function (err) { console.error('Gagal memuat data lokasi:', err); });
-		})();
 	</script>
+
+	<!-- Logika dashboard (map cluster, filter, chart) -->
+	<script src="<?= base_url('assets/js/dashboard.js') ?>"></script>
 
 </body>
 </html>

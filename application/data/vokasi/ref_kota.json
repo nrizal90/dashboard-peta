@@ -1,0 +1,1658 @@
+[
+  {
+    "slug": "kabupaten-aceh-barat",
+    "nama": "Kabupaten Aceh Barat",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-aceh-besar",
+    "nama": "Kabupaten Aceh Besar",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-aceh-selatan",
+    "nama": "Kabupaten Aceh Selatan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-aceh-tamiang",
+    "nama": "Kabupaten Aceh Tamiang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-aceh-tenggara",
+    "nama": "Kabupaten Aceh Tenggara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-aceh-timur",
+    "nama": "Kabupaten Aceh Timur",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-aceh-utara",
+    "nama": "Kabupaten Aceh Utara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-badung",
+    "nama": "Kabupaten Badung",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 9,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bandung",
+    "nama": "Kabupaten Bandung",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bandung-barat",
+    "nama": "Kabupaten Bandung Barat",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bangka-tengah",
+    "nama": "Kabupaten Bangka Tengah",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "19",
+    "provinsi": "Kepulauan Bangka Belitung",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bangkalan",
+    "nama": "Kabupaten Bangkalan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bangli",
+    "nama": "Kabupaten Bangli",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-banjar",
+    "nama": "Kabupaten Banjar",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "63",
+    "provinsi": "Kalimantan Selatan",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-banjarnegara",
+    "nama": "Kabupaten Banjarnegara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bantul",
+    "nama": "Kabupaten Bantul",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "34",
+    "provinsi": "DI YOGYAKARTA",
+    "jumlah_lembaga": 8,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-banyuasin",
+    "nama": "Kabupaten Banyuasin",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "16",
+    "provinsi": "Sumatera Selatan",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-banyumas",
+    "nama": "Kabupaten Banyumas",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 9,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-banyuwangi",
+    "nama": "Kabupaten Banyuwangi",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-barito-kuala",
+    "nama": "Kabupaten Barito Kuala",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "63",
+    "provinsi": "Kalimantan Selatan",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-batang",
+    "nama": "Kabupaten Batang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bekasi",
+    "nama": "Kabupaten Bekasi",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 9,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bengkalis",
+    "nama": "Kabupaten Bengkalis",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "14",
+    "provinsi": "Riau",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bengkulu-tengah",
+    "nama": "Kabupaten Bengkulu Tengah",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "17",
+    "provinsi": "Bengkulu",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-blitar",
+    "nama": "Kabupaten Blitar",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-blora",
+    "nama": "Kabupaten Blora",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bogor",
+    "nama": "Kabupaten Bogor",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 13,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-boyolali",
+    "nama": "Kabupaten Boyolali",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-brebes",
+    "nama": "Kabupaten Brebes",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-buleleng",
+    "nama": "Kabupaten Buleleng",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-bulukumba",
+    "nama": "Kabupaten Bulukumba",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "73",
+    "provinsi": "Sulawesi Selatan",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-ciamis",
+    "nama": "Kabupaten Ciamis",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-cianjur",
+    "nama": "Kabupaten Cianjur",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 8,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-cilacap",
+    "nama": "Kabupaten Cilacap",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 24,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-cirebon",
+    "nama": "Kabupaten Cirebon",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 16,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-deli-serdang",
+    "nama": "Kabupaten Deli Serdang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "12",
+    "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-garut",
+    "nama": "Kabupaten Garut",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-gianyar",
+    "nama": "Kabupaten Gianyar",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 15,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-gowa",
+    "nama": "Kabupaten Gowa",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "73",
+    "provinsi": "Sulawesi Selatan",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-gresik",
+    "nama": "Kabupaten Gresik",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-grobogan",
+    "nama": "Kabupaten Grobogan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 14,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-gunungkidul",
+    "nama": "Kabupaten Gunungkidul",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "34",
+    "provinsi": "DI YOGYAKARTA",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-humbang-hasundutan",
+    "nama": "Kabupaten Humbang Hasundutan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "12",
+    "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-indramayu",
+    "nama": "Kabupaten Indramayu",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 14,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-jember",
+    "nama": "Kabupaten Jember",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 8,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-jembrana",
+    "nama": "Kabupaten Jembrana",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-jombang",
+    "nama": "Kabupaten Jombang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-karanganyar",
+    "nama": "Kabupaten Karanganyar",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 13,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-karangasem",
+    "nama": "Kabupaten Karangasem",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-karawang",
+    "nama": "Kabupaten Karawang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 11,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-karimun",
+    "nama": "Kabupaten Karimun",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "21",
+    "provinsi": "Kepulauan Riau",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kebumen",
+    "nama": "Kabupaten Kebumen",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kediri",
+    "nama": "Kabupaten Kediri",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kendal",
+    "nama": "Kabupaten Kendal",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 9,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-klaten",
+    "nama": "Kabupaten Klaten",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 8,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kotawaringin-barat",
+    "nama": "Kabupaten Kotawaringin Barat",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "62",
+    "provinsi": "Kalimantan Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kotawaringin-timur",
+    "nama": "Kabupaten Kotawaringin Timur",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "62",
+    "provinsi": "Kalimantan Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kubu-raya",
+    "nama": "Kabupaten Kubu Raya",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "61",
+    "provinsi": "Kalimantan Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kudus",
+    "nama": "Kabupaten Kudus",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kulon-progo",
+    "nama": "Kabupaten Kulon Progo",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "34",
+    "provinsi": "DI YOGYAKARTA",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-labuhanbatu",
+    "nama": "Kabupaten Labuhanbatu",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "12",
+    "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lamandau",
+    "nama": "Kabupaten Lamandau",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "62",
+    "provinsi": "Kalimantan Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lamongan",
+    "nama": "Kabupaten Lamongan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lampung-selatan",
+    "nama": "Kabupaten Lampung Selatan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "18",
+    "provinsi": "Lampung",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lampung-tengah",
+    "nama": "Kabupaten Lampung Tengah",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "18",
+    "provinsi": "Lampung",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lampung-timur",
+    "nama": "Kabupaten Lampung Timur",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "18",
+    "provinsi": "Lampung",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lima-puluh-kota",
+    "nama": "Kabupaten Lima Puluh Kota",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "13",
+    "provinsi": "Sumatera Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lombok-barat",
+    "nama": "Kabupaten Lombok Barat",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "52",
+    "provinsi": "Nusa Tenggara Barat",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lombok-tengah",
+    "nama": "Kabupaten Lombok Tengah",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "52",
+    "provinsi": "Nusa Tenggara Barat",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lombok-timur",
+    "nama": "Kabupaten Lombok Timur",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "52",
+    "provinsi": "Nusa Tenggara Barat",
+    "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-lumajang",
+    "nama": "Kabupaten Lumajang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-madiun",
+    "nama": "Kabupaten Madiun",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-magelang",
+    "nama": "Kabupaten Magelang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 9,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-magetan",
+    "nama": "Kabupaten Magetan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-majalengka",
+    "nama": "Kabupaten Majalengka",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-malang",
+    "nama": "Kabupaten Malang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-mamuju",
+    "nama": "Kabupaten Mamuju",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "76",
+    "provinsi": "Sulawesi Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-minahasa",
+    "nama": "Kabupaten Minahasa",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "71",
+    "provinsi": "Sulawesi Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-mojokerto",
+    "nama": "Kabupaten Mojokerto",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-murung-raya",
+    "nama": "Kabupaten Murung Raya",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "62",
+    "provinsi": "Kalimantan Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-musi-banyuasin",
+    "nama": "Kabupaten Musi Banyuasin",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "16",
+    "provinsi": "Sumatera Selatan",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-musi-rawas-utara",
+    "nama": "Kabupaten Musi Rawas Utara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "16",
+    "provinsi": "Sumatera Selatan",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-nganjuk",
+    "nama": "Kabupaten Nganjuk",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-ngawi",
+    "nama": "Kabupaten Ngawi",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-nunukan",
+    "nama": "Kabupaten Nunukan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "65",
+    "provinsi": "Kalimantan Utara",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-ogan-komering-ilir",
+    "nama": "Kabupaten Ogan Komering Ilir",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "16",
+    "provinsi": "Sumatera Selatan",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-ogan-komering-ulu-timur",
+    "nama": "Kabupaten Ogan Komering Ulu Timur",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "16",
+    "provinsi": "Sumatera Selatan",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-padang-pariaman",
+    "nama": "Kabupaten Padang Pariaman",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "13",
+    "provinsi": "Sumatera Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-pandeglang",
+    "nama": "Kabupaten Pandeglang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "36",
+    "provinsi": "Banten",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-pangkajene-dan-kepulauan",
+    "nama": "Kabupaten Pangkajene Dan Kepulauan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "73",
+    "provinsi": "Sulawesi Selatan",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-pasuruan",
+    "nama": "Kabupaten Pasuruan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-pati",
+    "nama": "Kabupaten Pati",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 10,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-pemalang",
+    "nama": "Kabupaten Pemalang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-pesisir-selatan",
+    "nama": "Kabupaten Pesisir Selatan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "13",
+    "provinsi": "Sumatera Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-ponorogo",
+    "nama": "Kabupaten Ponorogo",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-pringsewu",
+    "nama": "Kabupaten Pringsewu",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "18",
+    "provinsi": "Lampung",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-purbalingga",
+    "nama": "Kabupaten Purbalingga",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-purwakarta",
+    "nama": "Kabupaten Purwakarta",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-purworejo",
+    "nama": "Kabupaten Purworejo",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sambas",
+    "nama": "Kabupaten Sambas",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "61",
+    "provinsi": "Kalimantan Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-semarang",
+    "nama": "Kabupaten Semarang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-serang",
+    "nama": "Kabupaten Serang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "36",
+    "provinsi": "Banten",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-siak",
+    "nama": "Kabupaten Siak",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "14",
+    "provinsi": "Riau",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sidoarjo",
+    "nama": "Kabupaten Sidoarjo",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sinjai",
+    "nama": "Kabupaten Sinjai",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "73",
+    "provinsi": "Sulawesi Selatan",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sleman",
+    "nama": "Kabupaten Sleman",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "34",
+    "provinsi": "DI YOGYAKARTA",
+    "jumlah_lembaga": 18,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sragen",
+    "nama": "Kabupaten Sragen",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 8,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-subang",
+    "nama": "Kabupaten Subang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sukabumi",
+    "nama": "Kabupaten Sukabumi",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sukoharjo",
+    "nama": "Kabupaten Sukoharjo",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 13,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sumbawa",
+    "nama": "Kabupaten Sumbawa",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "52",
+    "provinsi": "Nusa Tenggara Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sumedang",
+    "nama": "Kabupaten Sumedang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tabanan",
+    "nama": "Kabupaten Tabanan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tangerang",
+    "nama": "Kabupaten Tangerang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "36",
+    "provinsi": "Banten",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tanggamus",
+    "nama": "Kabupaten Tanggamus",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "18",
+    "provinsi": "Lampung",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tapanuli-utara",
+    "nama": "Kabupaten Tapanuli Utara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "12",
+    "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tasikmalaya",
+    "nama": "Kabupaten Tasikmalaya",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-temanggung",
+    "nama": "Kabupaten Temanggung",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-toba",
+    "nama": "Kabupaten Toba",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "12",
+    "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-trenggalek",
+    "nama": "Kabupaten Trenggalek",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tuban",
+    "nama": "Kabupaten Tuban",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tulang-bawang",
+    "nama": "Kabupaten Tulang Bawang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "18",
+    "provinsi": "Lampung",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tulungagung",
+    "nama": "Kabupaten Tulungagung",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-wonogiri",
+    "nama": "Kabupaten Wonogiri",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-wonosobo",
+    "nama": "Kabupaten Wonosobo",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-banda-aceh",
+    "nama": "Kota Banda Aceh",
+    "tipe": "Kota",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 8,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-bandar-lampung",
+    "nama": "Kota Bandar Lampung",
+    "tipe": "Kota",
+    "provinsi_kode": "18",
+    "provinsi": "Lampung",
+    "jumlah_lembaga": 15,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-bandung",
+    "nama": "Kota Bandung",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 19,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-banjar",
+    "nama": "Kota Banjar",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-banjarbaru",
+    "nama": "Kota Banjarbaru",
+    "tipe": "Kota",
+    "provinsi_kode": "63",
+    "provinsi": "Kalimantan Selatan",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-banjarmasin",
+    "nama": "Kota Banjarmasin",
+    "tipe": "Kota",
+    "provinsi_kode": "63",
+    "provinsi": "Kalimantan Selatan",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-batam",
+    "nama": "Kota Batam",
+    "tipe": "Kota",
+    "provinsi_kode": "21",
+    "provinsi": "Kepulauan Riau",
+    "jumlah_lembaga": 9,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-bekasi",
+    "nama": "Kota Bekasi",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 28,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-bengkulu",
+    "nama": "Kota Bengkulu",
+    "tipe": "Kota",
+    "provinsi_kode": "17",
+    "provinsi": "Bengkulu",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-blitar",
+    "nama": "Kota Blitar",
+    "tipe": "Kota",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-bogor",
+    "nama": "Kota Bogor",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-bukittinggi",
+    "nama": "Kota Bukittinggi",
+    "tipe": "Kota",
+    "provinsi_kode": "13",
+    "provinsi": "Sumatera Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-cimahi",
+    "nama": "Kota Cimahi",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-cirebon",
+    "nama": "Kota Cirebon",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-denpasar",
+    "nama": "Kota Denpasar",
+    "tipe": "Kota",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 20,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-depok",
+    "nama": "Kota Depok",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-dumai",
+    "nama": "Kota Dumai",
+    "tipe": "Kota",
+    "provinsi_kode": "14",
+    "provinsi": "Riau",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-jakarta-barat",
+    "nama": "Kota Jakarta Barat",
+    "tipe": "Kota",
+    "provinsi_kode": "31",
+    "provinsi": "DKI JAKARTA",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-jakarta-pusat",
+    "nama": "Kota Jakarta Pusat",
+    "tipe": "Kota",
+    "provinsi_kode": "31",
+    "provinsi": "DKI JAKARTA",
+    "jumlah_lembaga": 9,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-jakarta-selatan",
+    "nama": "Kota Jakarta Selatan",
+    "tipe": "Kota",
+    "provinsi_kode": "31",
+    "provinsi": "DKI JAKARTA",
+    "jumlah_lembaga": 13,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-jakarta-timur",
+    "nama": "Kota Jakarta Timur",
+    "tipe": "Kota",
+    "provinsi_kode": "31",
+    "provinsi": "DKI JAKARTA",
+    "jumlah_lembaga": 10,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-jakarta-utara",
+    "nama": "Kota Jakarta Utara",
+    "tipe": "Kota",
+    "provinsi_kode": "31",
+    "provinsi": "DKI JAKARTA",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-jambi",
+    "nama": "Kota Jambi",
+    "tipe": "Kota",
+    "provinsi_kode": "15",
+    "provinsi": "Jambi",
+    "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-kediri",
+    "nama": "Kota Kediri",
+    "tipe": "Kota",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-kendari",
+    "nama": "Kota Kendari",
+    "tipe": "Kota",
+    "provinsi_kode": "74",
+    "provinsi": "Sulawesi Tenggara",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-kupang",
+    "nama": "Kota Kupang",
+    "tipe": "Kota",
+    "provinsi_kode": "53",
+    "provinsi": "Nusa Tenggara Timur",
+    "jumlah_lembaga": 11,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-langsa",
+    "nama": "Kota Langsa",
+    "tipe": "Kota",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-lhokseumawe",
+    "nama": "Kota Lhokseumawe",
+    "tipe": "Kota",
+    "provinsi_kode": "11",
+    "provinsi": "Aceh",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-magelang",
+    "nama": "Kota Magelang",
+    "tipe": "Kota",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-makassar",
+    "nama": "Kota Makassar",
+    "tipe": "Kota",
+    "provinsi_kode": "73",
+    "provinsi": "Sulawesi Selatan",
+    "jumlah_lembaga": 8,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-malang",
+    "nama": "Kota Malang",
+    "tipe": "Kota",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 15,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-manado",
+    "nama": "Kota Manado",
+    "tipe": "Kota",
+    "provinsi_kode": "71",
+    "provinsi": "Sulawesi Utara",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-mataram",
+    "nama": "Kota Mataram",
+    "tipe": "Kota",
+    "provinsi_kode": "52",
+    "provinsi": "Nusa Tenggara Barat",
+    "jumlah_lembaga": 12,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-medan",
+    "nama": "Kota Medan",
+    "tipe": "Kota",
+    "provinsi_kode": "12",
+    "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 14,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-metro",
+    "nama": "Kota Metro",
+    "tipe": "Kota",
+    "provinsi_kode": "18",
+    "provinsi": "Lampung",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-padang",
+    "nama": "Kota Padang",
+    "tipe": "Kota",
+    "provinsi_kode": "13",
+    "provinsi": "Sumatera Barat",
+    "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-palembang",
+    "nama": "Kota Palembang",
+    "tipe": "Kota",
+    "provinsi_kode": "16",
+    "provinsi": "Sumatera Selatan",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-palopo",
+    "nama": "Kota Palopo",
+    "tipe": "Kota",
+    "provinsi_kode": "73",
+    "provinsi": "Sulawesi Selatan",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-palu",
+    "nama": "Kota Palu",
+    "tipe": "Kota",
+    "provinsi_kode": "72",
+    "provinsi": "Sulawesi Tengah",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-pangkal-pinang",
+    "nama": "Kota Pangkal Pinang",
+    "tipe": "Kota",
+    "provinsi_kode": "19",
+    "provinsi": "Kepulauan Bangka Belitung",
+    "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-pekalongan",
+    "nama": "Kota Pekalongan",
+    "tipe": "Kota",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-pekanbaru",
+    "nama": "Kota Pekanbaru",
+    "tipe": "Kota",
+    "provinsi_kode": "14",
+    "provinsi": "Riau",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-pontianak",
+    "nama": "Kota Pontianak",
+    "tipe": "Kota",
+    "provinsi_kode": "61",
+    "provinsi": "Kalimantan Barat",
+    "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-probolinggo",
+    "nama": "Kota Probolinggo",
+    "tipe": "Kota",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-salatiga",
+    "nama": "Kota Salatiga",
+    "tipe": "Kota",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-samarinda",
+    "nama": "Kota Samarinda",
+    "tipe": "Kota",
+    "provinsi_kode": "64",
+    "provinsi": "Kalimantan Timur",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-semarang",
+    "nama": "Kota Semarang",
+    "tipe": "Kota",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 7,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-serang",
+    "nama": "Kota Serang",
+    "tipe": "Kota",
+    "provinsi_kode": "36",
+    "provinsi": "Banten",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-sukabumi",
+    "nama": "Kota Sukabumi",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-surabaya",
+    "nama": "Kota Surabaya",
+    "tipe": "Kota",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 9,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-surakarta",
+    "nama": "Kota Surakarta",
+    "tipe": "Kota",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 15,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-tangerang",
+    "nama": "Kota Tangerang",
+    "tipe": "Kota",
+    "provinsi_kode": "36",
+    "provinsi": "Banten",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-tangerang-selatan",
+    "nama": "Kota Tangerang Selatan",
+    "tipe": "Kota",
+    "provinsi_kode": "36",
+    "provinsi": "Banten",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-tarakan",
+    "nama": "Kota Tarakan",
+    "tipe": "Kota",
+    "provinsi_kode": "65",
+    "provinsi": "Kalimantan Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-tasikmalaya",
+    "nama": "Kota Tasikmalaya",
+    "tipe": "Kota",
+    "provinsi_kode": "32",
+    "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 5,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-tebing-tinggi",
+    "nama": "Kota Tebing Tinggi",
+    "tipe": "Kota",
+    "provinsi_kode": "12",
+    "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-tegal",
+    "nama": "Kota Tegal",
+    "tipe": "Kota",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 4,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-ternate",
+    "nama": "Kota Ternate",
+    "tipe": "Kota",
+    "provinsi_kode": "82",
+    "provinsi": "Maluku Utara",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-yogyakarta",
+    "nama": "Kota Yogyakarta",
+    "tipe": "Kota",
+    "provinsi_kode": "34",
+    "provinsi": "DI YOGYAKARTA",
+    "jumlah_lembaga": 19,
+    "bps_kode": null
+  }
+]

@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-07-16T06:45:35.735761+00:00",
+  "log": [
+    {
+      "step": "load",
+      "detail_rows": 887,
+      "sektor_rows": 3608
+    },
+    {
+      "step": "normalisasi_wilayah",
+      "provinsi_sebelum": 38,
+      "provinsi_sesudah": 30,
+      "kota_sebelum": 198,
+      "kota_sesudah": 184,
+      "provinsi_tanpa_kode_bps": []
+    },
+    {
+      "step": "bersihkan_field",
+      "jenis_invalid_dinullkan": 1,
+      "kapasitas_nol_dinullkan": 1,
+      "iqr_fence": 550.0,
+      "outlier_count": 76
+    },
+    {
+      "step": "validasi_koordinat",
+      "valid": 600,
+      "kosong": 262,
+      "di_luar_bbox": 25
+    },
+    {
+      "step": "fallback_centroid",
+      "original": 600,
+      "centroid_kota": 248,
+      "centroid_provinsi": 39
+    },
+    {
+      "step": "dedup_flag",
+      "grup_duplikat": 93,
+      "baris_terlibat": 204,
+      "ditandai_non_primary": 111
+    },
+    {
+      "step": "build_relasi",
+      "baris": 3547,
+      "duplikat_dibuang": 61,
+      "orphan": 0
+    }
+  ],
+  "isu": [
+    {
+      "kode": "COORD_MISSING",
+      "severity": "high",
+      "jumlah": 262,
+      "deskripsi": "lat/long kosong di sumber",
+      "penanganan": "diisi centroid kabupaten/provinsi, ditandai coord_source"
+    },
+    {
+      "kode": "COORD_OUT_OF_BBOX",
+      "severity": "high",
+      "jumlah": 25,
+      "deskripsi": "koordinat di luar bounding box Indonesia (mis. long=-4555)",
+      "penanganan": "koordinat mentah dibuang, diganti centroid; audit di _rejected_coords.json"
+    },
+    {
+      "kode": "REGION_INCONSISTENT",
+      "severity": "medium",
+      "jumlah": 8,
+      "deskripsi": "varian penulisan provinsi (JAWA TIMUR vs Jawa Timur)",
+      "penanganan": "dinormalisasi + diberi kode BPS"
+    },
+    {
+      "kode": "KOTA_TRUNCATED",
+      "severity": "medium",
+      "jumlah": 3,
+      "deskripsi": "nama kota terpotong di 32 karakter, indikasi varchar(32) di sumber",
+      "penanganan": "diperbaiki via mapping manual; PERBAIKI DI HULU"
+    },
+    {
+      "kode": "DUPLICATE_LEMBAGA",
+      "severity": "high",
+      "jumlah": 204,
+      "deskripsi": "lembaga sama terdaftar dengan email berbeda, data bisa berbeda",
+      "penanganan": "ditandai dup_group + is_primary, TIDAK dihapus. Perlu keputusan bisnis"
+    },
+    {
+      "kode": "KAPASITAS_OUTLIER",
+      "severity": "medium",
+      "jumlah": 76,
+      "deskripsi": "kapasitas di atas IQR fence (550)",
+      "penanganan": "ditandai kapasitas_outlier; gunakan skala log untuk bubble map"
+    },
+    {
+      "kode": "JENIS_INVALID",
+      "severity": "low",
+      "jumlah": 1,
+      "deskripsi": "nilai jenis tidak valid ('Apa saja lah')",
+      "penanganan": "di-null-kan; perlu validasi input di hulu"
+    },
+    {
+      "kode": "KAPASITAS_ZERO",
+      "severity": "low",
+      "jumlah": 1,
+      "deskripsi": "kapasitas = 0",
+      "penanganan": "di-null-kan"
+    }
+  ],
+  "catatan_penting": [
+    "SUM(kapasitas) HARUS dihitung dari lembaga.json, JANGAN dari lembaga_sektor.json (akan double-count).",
+    "Agregat default memakai is_primary = true untuk menghindari double-count duplikat.",
+    "ref_kota.bps_kode masih null - perlu mapping manual jika ingin choropleth level kab/kota.",
+    "coord_source != 'original' berarti titik adalah aproksimasi, WAJIB ditandai di UI."
+  ]
+}
