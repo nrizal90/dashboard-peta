@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Gap Analysis — Sektor per Provinsi</title>
+
+	<link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/vendor/nunito/nunito.css" rel="stylesheet">
+	<link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+
+	<style>
+		.gap-table td, .gap-table th { text-align: center; font-size: .72rem; padding: .3rem .25rem; white-space: nowrap; }
+		.gap-table th.prov { text-align: left; position: sticky; left: 0; background: #f8f9fc; z-index: 1; }
+		.gap-cell-empty { background: #f8d7da; color: #f8d7da; }
+		.gap-cell-fill { background: #d4edda; color: #155724; font-weight: 700; }
+	</style>
+</head>
+
+<body id="page-top">
+<div id="wrapper">
+
+	<!-- Sidebar -->
+	<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+			<div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-map-marked-alt"></i></div>
+			<div class="sidebar-brand-text mx-3">Dashboard Peta</div>
+		</a>
+		<hr class="sidebar-divider my-0">
+		<li class="nav-item">
+			<a class="nav-link" href="index.html"><i class="fas fa-fw fa-map"></i> <span>Peta</span></a>
+		</li>
+		<hr class="sidebar-divider">
+		<div class="sidebar-heading">Analisis</div>
+		<li class="nav-item active">
+			<a class="nav-link" href="gap.html"><i class="fas fa-fw fa-th"></i> <span>Gap Analysis</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="tentang.html"><i class="fas fa-fw fa-info-circle"></i> <span>Tentang Data</span></a>
+		</li>
+		<hr class="sidebar-divider d-none d-md-block">
+		<div class="text-center d-none d-md-inline">
+			<button class="rounded-circle border-0" id="sidebarToggle"></button>
+		</div>
+	</ul>
+	<!-- End of Sidebar -->
+
+	<div id="content-wrapper" class="d-flex flex-column">
+	<div id="content">
+
+		<!-- Topbar -->
+		<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+			<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"><i class="fa fa-bars"></i></button>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item mr-3 d-flex align-items-center">
+					<a href="wall.html" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm shadow-sm">
+						<i class="fas fa-tv fa-sm"></i> Mode Layar Penuh
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- End of Topbar -->
+
+		<div class="container-fluid">
+			<div class="d-sm-flex align-items-center justify-content-between mb-3">
+				<h1 class="h3 mb-0 text-gray-800">Gap Analysis — Sektor per Provinsi</h1>
+				<a href="index.html" class="btn btn-sm btn-outline-primary shadow-sm"><i class="fas fa-map fa-sm"></i> Kembali ke Peta</a>
+			</div>
+
+			<div class="alert alert-info" id="gapAlert">Memuat…</div>
+
+			<div class="card shadow mb-4">
+				<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Matriks Ketersediaan Sektor</h6></div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered gap-table mb-0">
+							<thead><tr id="gapHead"></tr></thead>
+							<tbody id="gapBody"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<footer class="sticky-footer bg-white">
+		<div class="container my-auto"><div class="copyright text-center my-auto">
+			<span>Dashboard Peta Vokasi &copy; 2026 · Sumber: hasil cleaning <code>clean_vokasi.py</code></span>
+		</div></div>
+	</footer>
+	</div>
+</div>
+
+<a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="assets/js/sb-admin-2.min.js"></script>
+<script src="assets/js/vokasi-api.js"></script>
+<script>
+	function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+	VokasiApi.init().then(function () {
+		var gap = (VokasiApi.gap() || []).slice();
+		var sektor = (VokasiApi.refs().sektor) || [];
+		var s = VokasiApi.summary() || {};
+		var gs = s.gap_sektor || {};
+		var totalSel = gs.total_sel || 0;
+		var totalKosong = gs.sel_kosong || 0;
+
+		// Urutkan provinsi: paling lengkap dulu.
+		gap.sort(function (a, b) { return b.sektor_tersedia - a.sektor_tersedia; });
+
+		document.getElementById('gapAlert').innerHTML =
+			'Dari <strong>' + totalSel + '</strong> kombinasi (' + gap.length + ' provinsi × ' + sektor.length + ' sektor), ' +
+			'<strong>' + (totalSel - totalKosong) + '</strong> terisi dan ' +
+			'<strong class="text-danger">' + totalKosong + ' kosong</strong>. ' +
+			'Sel merah = sektor tidak tersedia di provinsi itu — insight kebijakan paling bernilai.';
+
+		// Header
+		var head = '<th class="prov">Provinsi</th>';
+		sektor.forEach(function (sk) {
+			head += '<th title="' + esc(sk.nama) + '">' + esc(sk.nama.substr(0, 10)) + '</th>';
+		});
+		head += '<th>Terisi</th>';
+		document.getElementById('gapHead').innerHTML = head;
+
+		// Body
+		var body = '';
+		gap.forEach(function (row) {
+			body += '<tr><th class="prov">' + esc(row.provinsi) + '</th>';
+			sektor.forEach(function (sk) {
+				var v = (row.sektor && row.sektor[sk.slug]) ? parseInt(row.sektor[sk.slug], 10) : 0;
+				var cls = v > 0 ? 'gap-cell-fill' : 'gap-cell-empty';
+				body += '<td class="' + cls + '" title="' + esc(sk.nama) + ': ' + v + '">' + (v > 0 ? v : '·') + '</td>';
+			});
+			body += '<td class="font-weight-bold">' + (row.sektor_tersedia | 0) + '/' + sektor.length + '</td></tr>';
+		});
+		document.getElementById('gapBody').innerHTML = body;
+	});
+</script>
+
+</body>
+</html>

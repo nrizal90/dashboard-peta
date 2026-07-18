@@ -1,0 +1,116 @@
+[
+  {
+    "slug": "bahasa",
+    "nama": "Bahasa",
+    "jumlah_lembaga": 393,
+    "jumlah_jabatan": 7
+  },
+  {
+    "slug": "tourism-travel-dan-hospitality",
+    "nama": "Tourism, Travel, dan Hospitality",
+    "jumlah_lembaga": 221,
+    "jumlah_jabatan": 79
+  },
+  {
+    "slug": "teknologi-informasi",
+    "nama": "Teknologi Informasi",
+    "jumlah_lembaga": 149,
+    "jumlah_jabatan": 3
+  },
+  {
+    "slug": "kesehatan",
+    "nama": "Kesehatan",
+    "jumlah_lembaga": 136,
+    "jumlah_jabatan": 36
+  },
+  {
+    "slug": "bisnis-dan-manajemen",
+    "nama": "Bisnis dan Manajemen",
+    "jumlah_lembaga": 128,
+    "jumlah_jabatan": 5
+  },
+  {
+    "slug": "seni-dan-ekonomi-kreatif",
+    "nama": "Seni dan Ekonomi Kreatif",
+    "jumlah_lembaga": 78,
+    "jumlah_jabatan": 7
+  },
+  {
+    "slug": "welder",
+    "nama": "Welder",
+    "jumlah_lembaga": 71,
+    "jumlah_jabatan": 14
+  },
+  {
+    "slug": "manufaktur",
+    "nama": "Manufaktur",
+    "jumlah_lembaga": 64,
+    "jumlah_jabatan": 5
+  },
+  {
+    "slug": "industri",
+    "nama": "Industri",
+    "jumlah_lembaga": 61,
+    "jumlah_jabatan": 2
+  },
+  {
+    "slug": "pertanian-peternakan",
+    "nama": "Pertanian & Peternakan",
+    "jumlah_lembaga": 54,
+    "jumlah_jabatan": 35
+  },
+  {
+    "slug": "konstruksi",
+    "nama": "Konstruksi",
+    "jumlah_lembaga": 53,
+    "jumlah_jabatan": 58
+  },
+  {
+    "slug": "adminstrasi-dan-keuangan",
+    "nama": "Adminstrasi dan Keuangan",
+    "jumlah_lembaga": 47,
+    "jumlah_jabatan": 1
+  },
+  {
+    "slug": "domestic-worker",
+    "nama": "Domestic Worker",
+    "jumlah_lembaga": 47,
+    "jumlah_jabatan": 9
+  },
+  {
+    "slug": "informal-worker",
+    "nama": "Informal Worker",
+    "jumlah_lembaga": 43,
+    "jumlah_jabatan": 2
+  },
+  {
+    "slug": "worker",
+    "nama": "Worker",
+    "jumlah_lembaga": 34,
+    "jumlah_jabatan": 8
+  },
+  {
+    "slug": "transportasi-darat",
+    "nama": "Transportasi (Darat)",
+    "jumlah_lembaga": 18,
+    "jumlah_jabatan": 10
+  },
+  {
+    "slug": "kelautan-dan-perikanan",
+    "nama": "Kelautan dan Perikanan",
+    "jumlah_lembaga": 15,
+    "jumlah_jabatan": 6
+  },
+  {
+    "slug": "transportasi-udara",
+    "nama": "Transportasi (Udara)",
+    "jumlah_lembaga": 7,
+    "jumlah_jabatan": 22
+  },
+  {
+    "slug": "transportasi-laut",
+    "nama": "Transportasi (Laut)",
+    "jumlah_lembaga": 5,
+    "jumlah_jabatan": 8
+  }
+]

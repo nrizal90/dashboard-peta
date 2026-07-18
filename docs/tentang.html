@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Tentang Data</title>
+
+	<link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/vendor/nunito/nunito.css" rel="stylesheet">
+	<link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+<div id="wrapper">
+
+	<!-- Sidebar -->
+	<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+			<div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-map-marked-alt"></i></div>
+			<div class="sidebar-brand-text mx-3">Dashboard Peta</div>
+		</a>
+		<hr class="sidebar-divider my-0">
+		<li class="nav-item">
+			<a class="nav-link" href="index.html"><i class="fas fa-fw fa-map"></i> <span>Peta</span></a>
+		</li>
+		<hr class="sidebar-divider">
+		<div class="sidebar-heading">Analisis</div>
+		<li class="nav-item">
+			<a class="nav-link" href="gap.html"><i class="fas fa-fw fa-th"></i> <span>Gap Analysis</span></a>
+		</li>
+		<li class="nav-item active">
+			<a class="nav-link" href="tentang.html"><i class="fas fa-fw fa-info-circle"></i> <span>Tentang Data</span></a>
+		</li>
+		<hr class="sidebar-divider d-none d-md-block">
+		<div class="text-center d-none d-md-inline">
+			<button class="rounded-circle border-0" id="sidebarToggle"></button>
+		</div>
+	</ul>
+	<!-- End of Sidebar -->
+
+	<div id="content-wrapper" class="d-flex flex-column">
+	<div id="content">
+
+		<!-- Topbar -->
+		<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+			<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"><i class="fa fa-bars"></i></button>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item mr-3 d-flex align-items-center">
+					<a href="wall.html" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm shadow-sm">
+						<i class="fas fa-tv fa-sm"></i> Mode Layar Penuh
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- End of Topbar -->
+
+		<div class="container-fluid">
+			<div class="d-sm-flex align-items-center justify-content-between mb-3">
+				<h1 class="h3 mb-0 text-gray-800">Tentang Data</h1>
+				<a href="index.html" class="btn btn-sm btn-outline-primary shadow-sm"><i class="fas fa-map fa-sm"></i> Kembali ke Peta</a>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="card shadow mb-4">
+						<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Keterbatasan yang perlu Anda ketahui</h6></div>
+						<div class="card-body">
+							<h6 class="font-weight-bold">1. Cakupan koordinat</h6>
+							<p>Hanya <strong><span id="tAsli">—</span> dari <span id="tTotal">—</span> (<span id="tPersen">—</span>%)</strong> titik memakai koordinat asli.
+							Sisanya adalah <strong>aproksimasi</strong> (centroid kabupaten/kota atau provinsi) dan ditandai
+							dengan marker <em>dashed</em> + label "Lokasi perkiraan". Jangan perlakukan titik aproksimasi sebagai lokasi presisi.</p>
+							<ul>
+								<li>Koordinat asli: <strong id="tAsli2">—</strong></li>
+								<li>Centroid kota (aproksimasi): <strong id="tCentKota">—</strong></li>
+								<li>Centroid provinsi (aproksimasi kasar): <strong id="tCentProv">—</strong></li>
+							</ul>
+							<hr>
+							<h6 class="font-weight-bold">2. Lembaga duplikat</h6>
+							<p>Terdapat <strong id="tDup">—</strong> baris duplikat
+							(lembaga sama mendaftar dengan email berbeda). Semua hitungan &amp; agregat default hanya
+							menghitung baris "terbaik" tiap grup (<strong id="tPrimary">—</strong> lembaga unik).
+							Halaman detail/pencarian bisa menampilkan seluruh <span id="tTotal2">—</span> baris dengan badge duplikat.</p>
+							<hr>
+							<h6 class="font-weight-bold">3. Utang teknis</h6>
+							<ul>
+								<li>Choropleth kabupaten/kota belum tersedia — 184 nama kota belum dipetakan ke kode BPS.</li>
+								<li>Geocoding presisi tinggi belum dijalankan untuk <span id="tGeocode">—</span> lembaga.</li>
+								<li>Beberapa masalah berakar di sistem input sumber (nama kota terpotong, field free-text). Perlu perbaikan di hulu.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="card shadow mb-4">
+						<div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Ringkasan Sumber</h6></div>
+						<div class="card-body">
+							<p class="mb-1"><small class="text-muted">Digenerate:</small><br><span id="tGen">—</span></p>
+							<p class="mb-1"><small class="text-muted">Sumber:</small></p>
+							<ul class="pl-3" id="tSumber"></ul>
+							<p class="text-muted mb-0"><small>Pipeline: <code>clean_vokasi.py</code></small></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<footer class="sticky-footer bg-white">
+		<div class="container my-auto"><div class="copyright text-center my-auto">
+			<span>Dashboard Peta Vokasi &copy; 2026 · Sumber: hasil cleaning <code>clean_vokasi.py</code></span>
+		</div></div>
+	</footer>
+	</div>
+</div>
+
+<a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="assets/js/sb-admin-2.min.js"></script>
+<script src="assets/js/vokasi-api.js"></script>
+<script>
+	function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+	function set(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+
+	VokasiApi.init().then(function () {
+		var s = VokasiApi.summary() || {};
+		var k = s.koordinat || {}, l = s.lembaga || {};
+		var total = l.total_baris || 0;
+		var centKota = k.centroid_kota || 0, centProv = k.centroid_provinsi || 0;
+
+		set('tAsli', k.asli || 0); set('tAsli2', k.asli || 0);
+		set('tTotal', total); set('tTotal2', total);
+		set('tPersen', k.persen_asli || 0);
+		set('tCentKota', centKota);
+		set('tCentProv', centProv);
+		set('tDup', l.duplikat_ditandai || 0);
+		set('tPrimary', l.unik_primary || 0);
+		set('tGeocode', centKota + centProv);
+		set('tGen', s.generated_at || '-');
+
+		var ul = document.getElementById('tSumber');
+		(s.sumber || []).forEach(function (src) {
+			var li = document.createElement('li');
+			li.innerHTML = '<small>' + esc(src) + '</small>';
+			ul.appendChild(li);
+		});
+	});
+</script>
+
+</body>
+</html>

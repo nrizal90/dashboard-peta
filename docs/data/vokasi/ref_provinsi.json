@@ -1,0 +1,182 @@
+[
+  {
+    "kode": "11",
+    "nama": "Aceh",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 27
+  },
+  {
+    "kode": "12",
+    "nama": "Sumatera Utara",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 20
+  },
+  {
+    "kode": "13",
+    "nama": "Sumatera Barat",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 10
+  },
+  {
+    "kode": "14",
+    "nama": "Riau",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 12
+  },
+  {
+    "kode": "15",
+    "nama": "Jambi",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 6
+  },
+  {
+    "kode": "16",
+    "nama": "Sumatera Selatan",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 15
+  },
+  {
+    "kode": "17",
+    "nama": "Bengkulu",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 3
+  },
+  {
+    "kode": "18",
+    "nama": "Lampung",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 37
+  },
+  {
+    "kode": "19",
+    "nama": "Kepulauan Bangka Belitung",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 7
+  },
+  {
+    "kode": "21",
+    "nama": "Kepulauan Riau",
+    "pulau": "Sumatera",
+    "jumlah_lembaga": 12
+  },
+  {
+    "kode": "31",
+    "nama": "DKI JAKARTA",
+    "pulau": "Jawa",
+    "jumlah_lembaga": 39
+  },
+  {
+    "kode": "32",
+    "nama": "Jawa Barat",
+    "pulau": "Jawa",
+    "jumlah_lembaga": 181
+  },
+  {
+    "kode": "33",
+    "nama": "Jawa Tengah",
+    "pulau": "Jawa",
+    "jumlah_lembaga": 185
+  },
+  {
+    "kode": "34",
+    "nama": "DI YOGYAKARTA",
+    "pulau": "Jawa",
+    "jumlah_lembaga": 51
+  },
+  {
+    "kode": "35",
+    "nama": "Jawa Timur",
+    "pulau": "Jawa",
+    "jumlah_lembaga": 107
+  },
+  {
+    "kode": "36",
+    "nama": "Banten",
+    "pulau": "Jawa",
+    "jumlah_lembaga": 13
+  },
+  {
+    "kode": "51",
+    "nama": "Bali",
+    "pulau": "Bali & Nusa Tenggara",
+    "jumlah_lembaga": 57
+  },
+  {
+    "kode": "52",
+    "nama": "Nusa Tenggara Barat",
+    "pulau": "Bali & Nusa Tenggara",
+    "jumlah_lembaga": 28
+  },
+  {
+    "kode": "53",
+    "nama": "Nusa Tenggara Timur",
+    "pulau": "Bali & Nusa Tenggara",
+    "jumlah_lembaga": 11
+  },
+  {
+    "kode": "61",
+    "nama": "Kalimantan Barat",
+    "pulau": "Kalimantan",
+    "jumlah_lembaga": 8
+  },
+  {
+    "kode": "62",
+    "nama": "Kalimantan Tengah",
+    "pulau": "Kalimantan",
+    "jumlah_lembaga": 6
+  },
+  {
+    "kode": "63",
+    "nama": "Kalimantan Selatan",
+    "pulau": "Kalimantan",
+    "jumlah_lembaga": 11
+  },
+  {
+    "kode": "64",
+    "nama": "Kalimantan Timur",
+    "pulau": "Kalimantan",
+    "jumlah_lembaga": 3
+  },
+  {
+    "kode": "65",
+    "nama": "Kalimantan Utara",
+    "pulau": "Kalimantan",
+    "jumlah_lembaga": 4
+  },
+  {
+    "kode": "71",
+    "nama": "Sulawesi Utara",
+    "pulau": "Sulawesi",
+    "jumlah_lembaga": 4
+  },
+  {
+    "kode": "72",
+    "nama": "Sulawesi Tengah",
+    "pulau": "Sulawesi",
+    "jumlah_lembaga": 4
+  },
+  {
+    "kode": "73",
+    "nama": "Sulawesi Selatan",
+    "pulau": "Sulawesi",
+    "jumlah_lembaga": 18
+  },
+  {
+    "kode": "74",
+    "nama": "Sulawesi Tenggara",
+    "pulau": "Sulawesi",
+    "jumlah_lembaga": 5
+  },
+  {
+    "kode": "76",
+    "nama": "Sulawesi Barat",
+    "pulau": "Sulawesi",
+    "jumlah_lembaga": 1
+  },
+  {
+    "kode": "82",
+    "nama": "Maluku Utara",
+    "pulau": "Maluku",
+    "jumlah_lembaga": 2
+  }
+]

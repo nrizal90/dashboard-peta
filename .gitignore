@@ -38,6 +38,7 @@ startbootstrap-sb-admin-2-gh-pages/node_modules/
 # *.sql
 
 # ===== IDE & Editor =====
+.claude/
 .idea/
 .vscode/
 *.sublime-project

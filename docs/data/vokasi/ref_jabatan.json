@@ -1,0 +1,2489 @@
+[
+  {
+    "slug": "bahasa-jepang",
+    "nama": "Bahasa Jepang",
+    "sektor": [
+      "Bahasa"
+    ],
+    "jumlah_lembaga": 268
+  },
+  {
+    "slug": "bahasa-inggris",
+    "nama": "Bahasa Inggris",
+    "sektor": [
+      "Bahasa"
+    ],
+    "jumlah_lembaga": 139
+  },
+  {
+    "slug": "bahasa-korea",
+    "nama": "Bahasa Korea",
+    "sektor": [
+      "Bahasa"
+    ],
+    "jumlah_lembaga": 107
+  },
+  {
+    "slug": "caregiver",
+    "nama": "Caregiver",
+    "sektor": [
+      "Domestic Worker",
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 88
+  },
+  {
+    "slug": "teknik-jaringan-komputer-dan-telekomunikasi",
+    "nama": "Teknik Jaringan Komputer dan Telekomunikasi",
+    "sektor": [
+      "Teknologi Informasi"
+    ],
+    "jumlah_lembaga": 82
+  },
+  {
+    "slug": "room-attendant",
+    "nama": "Room Attendant",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 76
+  },
+  {
+    "slug": "operator-komputer",
+    "nama": "Operator Komputer",
+    "sektor": [
+      "Teknologi Informasi"
+    ],
+    "jumlah_lembaga": 70
+  },
+  {
+    "slug": "manajemen-perkantoran-dan-layanan-bisnis",
+    "nama": "Manajemen Perkantoran dan Layanan Bisnis",
+    "sektor": [
+      "Bisnis dan Manajemen"
+    ],
+    "jumlah_lembaga": 67
+  },
+  {
+    "slug": "barista",
+    "nama": "Barista",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 61
+  },
+  {
+    "slug": "pemasaran",
+    "nama": "Pemasaran",
+    "sektor": [
+      "Bisnis dan Manajemen"
+    ],
+    "jumlah_lembaga": 56
+  },
+  {
+    "slug": "front-desk-attendant",
+    "nama": "Front Desk Attendant",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 55
+  },
+  {
+    "slug": "bartender",
+    "nama": "Bartender",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 52
+  },
+  {
+    "slug": "housekeeping-order-taker",
+    "nama": "Housekeeping Order Taker",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 49
+  },
+  {
+    "slug": "teknisi-pengelasan-welder",
+    "nama": "Teknisi Pengelasan (Welder)",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 48
+  },
+  {
+    "slug": "keperawatan",
+    "nama": "Keperawatan",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 47
+  },
+  {
+    "slug": "officer",
+    "nama": "Officer",
+    "sektor": [
+      "Adminstrasi dan Keuangan"
+    ],
+    "jumlah_lembaga": 47
+  },
+  {
+    "slug": "server-restaurant",
+    "nama": "Server Restaurant",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 45
+  },
+  {
+    "slug": "otomotif",
+    "nama": "Otomotif",
+    "sektor": [
+      "Industri"
+    ],
+    "jumlah_lembaga": 43
+  },
+  {
+    "slug": "desain-komunikasi-visual",
+    "nama": "Desain Komunikasi Visual",
+    "sektor": [
+      "Seni dan Ekonomi Kreatif"
+    ],
+    "jumlah_lembaga": 41
+  },
+  {
+    "slug": "public-area-attendant",
+    "nama": "Public Area Attendant",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 40
+  },
+  {
+    "slug": "teknik-pengelasan",
+    "nama": "Teknik Pengelasan",
+    "sektor": [
+      "Manufaktur",
+      "Worker"
+    ],
+    "jumlah_lembaga": 38
+  },
+  {
+    "slug": "pastry-cook",
+    "nama": "Pastry Cook",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 37
+  },
+  {
+    "slug": "laundry-attendant",
+    "nama": "Laundry Attendant",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 36
+  },
+  {
+    "slug": "busana",
+    "nama": "Busana",
+    "sektor": [
+      "Seni dan Ekonomi Kreatif"
+    ],
+    "jumlah_lembaga": 35
+  },
+  {
+    "slug": "front-office-cashier-outlet-cashier-night-auditor",
+    "nama": "Front Office Cashier / Outlet Cashier / Night Auditor",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 35
+  },
+  {
+    "slug": "housekeeper",
+    "nama": "Housekeeper",
+    "sektor": [
+      "Informal Worker"
+    ],
+    "jumlah_lembaga": 35
+  },
+  {
+    "slug": "akuntansi-dan-keuangan-lembaga",
+    "nama": "Akuntansi dan Keuangan Lembaga",
+    "sektor": [
+      "Bisnis dan Manajemen"
+    ],
+    "jumlah_lembaga": 34
+  },
+  {
+    "slug": "steward",
+    "nama": "Steward",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 34
+  },
+  {
+    "slug": "assistant-food-and-beverage-director",
+    "nama": "Assistant Food and Beverage Director",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 33
+  },
+  {
+    "slug": "caretaker",
+    "nama": "Caretaker",
+    "sektor": [
+      "Informal Worker"
+    ],
+    "jumlah_lembaga": 30
+  },
+  {
+    "slug": "executive-housekeeper",
+    "nama": "Executive Housekeeper",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 28
+  },
+  {
+    "slug": "housekeeper-and-family-cook",
+    "nama": "Housekeeper And Family Cook",
+    "sektor": [
+      "Domestic Worker"
+    ],
+    "jumlah_lembaga": 28
+  },
+  {
+    "slug": "linen-attendant",
+    "nama": "Linen Attendant",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 27
+  },
+  {
+    "slug": "server-banquet",
+    "nama": "Server Banquet",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 26
+  },
+  {
+    "slug": "bahasa-mandarin",
+    "nama": "Bahasa Mandarin",
+    "sektor": [
+      "Bahasa"
+    ],
+    "jumlah_lembaga": 25
+  },
+  {
+    "slug": "concierge",
+    "nama": "Concierge",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 25
+  },
+  {
+    "slug": "pengolahan-makanan",
+    "nama": "Pengolahan Makanan",
+    "sektor": [
+      "Industri"
+    ],
+    "jumlah_lembaga": 25
+  },
+  {
+    "slug": "bell-boy",
+    "nama": "Bell Boy",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 24
+  },
+  {
+    "slug": "pengembangan-perangkat-lunak-dan-gim",
+    "nama": "Pengembangan Perangkat Lunak dan Gim",
+    "sektor": [
+      "Teknologi Informasi"
+    ],
+    "jumlah_lembaga": 24
+  },
+  {
+    "slug": "server-room-service",
+    "nama": "Server Room Service",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 24
+  },
+  {
+    "slug": "garmenttailor",
+    "nama": "Garment/Tailor",
+    "sektor": [
+      "Manufaktur"
+    ],
+    "jumlah_lembaga": 23
+  },
+  {
+    "slug": "indonesian-cook",
+    "nama": "Indonesian Cook",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 23
+  },
+  {
+    "slug": "fb-admin",
+    "nama": "FB Admin",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 22
+  },
+  {
+    "slug": "baby-sitter",
+    "nama": "Baby Sitter",
+    "sektor": [
+      "Domestic Worker"
+    ],
+    "jumlah_lembaga": 21
+  },
+  {
+    "slug": "kebidanan",
+    "nama": "Kebidanan",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 21
+  },
+  {
+    "slug": "asian-cook",
+    "nama": "Asian Cook",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 20
+  },
+  {
+    "slug": "chef-de-partie",
+    "nama": "Chef de Partie",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 19
+  },
+  {
+    "slug": "commis-1",
+    "nama": "Commis 1",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 19
+  },
+  {
+    "slug": "plate-welder-smaw-3g-uppf",
+    "nama": "Plate Welder SMAW 3G UP/PF",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 19
+  },
+  {
+    "slug": "reservation",
+    "nama": "Reservation",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 19
+  },
+  {
+    "slug": "agribisnis",
+    "nama": "Agribisnis",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 18
+  },
+  {
+    "slug": "bahasa-jerman",
+    "nama": "Bahasa Jerman",
+    "sektor": [
+      "Bahasa"
+    ],
+    "jumlah_lembaga": 18
+  },
+  {
+    "slug": "front-office-order-taker",
+    "nama": "Front Office Order Taker",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 18
+  },
+  {
+    "slug": "server-bar",
+    "nama": "Server Bar",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 18
+  },
+  {
+    "slug": "baker",
+    "nama": "Baker",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 17
+  },
+  {
+    "slug": "butcher",
+    "nama": "Butcher",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 17
+  },
+  {
+    "slug": "care-taker",
+    "nama": "Care Taker",
+    "sektor": [
+      "Domestic Worker"
+    ],
+    "jumlah_lembaga": 17
+  },
+  {
+    "slug": "european-cook",
+    "nama": "European Cook",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 17
+  },
+  {
+    "slug": "commis-3",
+    "nama": "Commis 3",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 16
+  },
+  {
+    "slug": "food-and-beverage-manager",
+    "nama": "Food and Beverage Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 16
+  },
+  {
+    "slug": "ners",
+    "nama": "Ners",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 16
+  },
+  {
+    "slug": "spa-therapist",
+    "nama": "Spa Therapist",
+    "sektor": [
+      "Kesehatan",
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 16
+  },
+  {
+    "slug": "hortikultura",
+    "nama": "Hortikultura",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 15
+  },
+  {
+    "slug": "teknik-fabrikasi-logam-dan-manufaktur",
+    "nama": "Teknik Fabrikasi Logam dan Manufaktur",
+    "sektor": [
+      "Manufaktur",
+      "Worker"
+    ],
+    "jumlah_lembaga": 15
+  },
+  {
+    "slug": "commis-2",
+    "nama": "Commis 2",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 13
+  },
+  {
+    "slug": "farmasis",
+    "nama": "Farmasis",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 13
+  },
+  {
+    "slug": "gizi",
+    "nama": "Gizi",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 13
+  },
+  {
+    "slug": "reservation-agent",
+    "nama": "Reservation Agent",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 13
+  },
+  {
+    "slug": "teknik-pemesinan",
+    "nama": "Teknik Pemesinan",
+    "sektor": [
+      "Worker"
+    ],
+    "jumlah_lembaga": 13
+  },
+  {
+    "slug": "executive-chef",
+    "nama": "Executive Chef",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 12
+  },
+  {
+    "slug": "teknisi-budidaya-tanaman-pangan-hortikultura-dan-perkebunan",
+    "nama": "Teknisi budidaya tanaman pangan, hortikultura, dan perkebunan",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 12
+  },
+  {
+    "slug": "teknologi-konstruksi-bangunan",
+    "nama": "Teknologi Konstruksi Bangunan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 12
+  },
+  {
+    "slug": "fillet-welder-smaw-3f",
+    "nama": "Fillet Welder SMAW 3F",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 11
+  },
+  {
+    "slug": "hr",
+    "nama": "HR",
+    "sektor": [
+      "Bisnis dan Manajemen"
+    ],
+    "jumlah_lembaga": 11
+  },
+  {
+    "slug": "plate-welder-smaw-2gpc",
+    "nama": "Plate Welder SMAW 2G/PC",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 11
+  },
+  {
+    "slug": "public-relation",
+    "nama": "Public Relation",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 11
+  },
+  {
+    "slug": "social-worker",
+    "nama": "Social Worker",
+    "sektor": [
+      "Bisnis dan Manajemen"
+    ],
+    "jumlah_lembaga": 11
+  },
+  {
+    "slug": "buttler",
+    "nama": "Buttler",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "fcaw-pipa",
+    "nama": "FCAW Pipa",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "house-maid",
+    "nama": "House Maid",
+    "sektor": [
+      "Domestic Worker"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "kesehatan-gigi",
+    "nama": "Kesehatan Gigi",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "kesehatan-lingkungan",
+    "nama": "Kesehatan Lingkungan",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "perawat",
+    "nama": "Perawat",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "pipe-welder-smaw-gtaw-6g",
+    "nama": "Pipe Welder SMAW-GTAW 6G",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "smaw-plat",
+    "nama": "SMAW Plat",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "teknisi-laboratorium-medis-analis-kesehatan",
+    "nama": "Teknisi Laboratorium Medis (Analis Kesehatan)",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "teknisi-pengelasan",
+    "nama": "Teknisi Pengelasan",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "tour-operation-manager",
+    "nama": "Tour Operation Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 10
+  },
+  {
+    "slug": "bahasa-kantonis",
+    "nama": "Bahasa Kantonis",
+    "sektor": [
+      "Bahasa"
+    ],
+    "jumlah_lembaga": 9
+  },
+  {
+    "slug": "domestic-helper",
+    "nama": "Domestic Helper",
+    "sektor": [
+      "Domestic Worker"
+    ],
+    "jumlah_lembaga": 9
+  },
+  {
+    "slug": "gmaw-pipa",
+    "nama": "GMAW Pipa",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 9
+  },
+  {
+    "slug": "gtaw-plat",
+    "nama": "GTAW Plat",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 9
+  },
+  {
+    "slug": "italian-cook",
+    "nama": "Italian Cook",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 9
+  },
+  {
+    "slug": "pengelola-operasional-restorancatering-serviceindustri-jasa-boga",
+    "nama": "Pengelola Operasional Restoran/Catering Service/Industri Jasa Boga",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 9
+  },
+  {
+    "slug": "pengolahan-hasil-pertanian",
+    "nama": "Pengolahan Hasil Pertanian",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 9
+  },
+  {
+    "slug": "peternakan",
+    "nama": "Peternakan",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 9
+  },
+  {
+    "slug": "guest-relation-officer",
+    "nama": "Guest Relation Officer",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 8
+  },
+  {
+    "slug": "jalan-dan-jembatan",
+    "nama": "Jalan dan Jembatan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 8
+  },
+  {
+    "slug": "pipe-welder-smaw-6g-up-hillhlo-45",
+    "nama": "Pipe Welder SMAW 6G-UP HILL/HLO-45",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 8
+  },
+  {
+    "slug": "teknik-pengendalian-produksi",
+    "nama": "Teknik Pengendalian Produksi",
+    "sektor": [
+      "Manufaktur",
+      "Worker"
+    ],
+    "jumlah_lembaga": 8
+  },
+  {
+    "slug": "desain-dan-produksi-kriya",
+    "nama": "Desain dan Produksi Kriya",
+    "sektor": [
+      "Seni dan Ekonomi Kreatif"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "general-manager",
+    "nama": "General Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "pengelola-operasiona",
+    "nama": "Pengelola Operasiona",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "penyuluhan-pertanian",
+    "nama": "Penyuluhan Pertanian",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "pertanian-organik",
+    "nama": "Pertanian Organik",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "pool-side-attendant",
+    "nama": "Pool Side Attendant",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "smaw-pipa",
+    "nama": "SMAW Pipa",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "teknik-mekanik-industri",
+    "nama": "Teknik Mekanik Industri",
+    "sektor": [
+      "Worker"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "tenaga-ahli-konstruksi",
+    "nama": "Tenaga Ahli Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "travel-consultant",
+    "nama": "Travel Consultant",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 7
+  },
+  {
+    "slug": "animasi",
+    "nama": "Animasi",
+    "sektor": [
+      "Seni dan Ekonomi Kreatif"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "assistant-front-office-manager",
+    "nama": "Assistant Front Office Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "assistant-outlet-manager",
+    "nama": "Assistant Outlet Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "bidan",
+    "nama": "Bidan",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "elderly-caretaker",
+    "nama": "Elderly Caretaker",
+    "sektor": [
+      "Domestic Worker"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "fisioterapi",
+    "nama": "Fisioterapi",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "fruit-carver",
+    "nama": "Fruit Carver",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "home-care-assistant",
+    "nama": "Home Care Assistant",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "instalasi-listrik",
+    "nama": "Instalasi Listrik",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "juru-gambar-konstruksi",
+    "nama": "Juru Gambar Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "k3",
+    "nama": "K3",
+    "sektor": [
+      "Kesehatan",
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "laundry-manager",
+    "nama": "Laundry Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "manajemen-usaha-tani",
+    "nama": "Manajemen Usaha Tani",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "operator-alat-berat",
+    "nama": "Operator Alat Berat",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "pengelola-destinasi-pariwisata",
+    "nama": "Pengelola Destinasi Pariwisata",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "pengembang-destinasi-pariwisata",
+    "nama": "Pengembang Destinasi Pariwisata",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "petani-profesional-dengan-spesialisasi-organik-hidroponik-urban-farming",
+    "nama": "Petani profesional dengan spesialisasi (organik, hidroponik, urban farming)",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "sales-admin",
+    "nama": "Sales Admin",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "sous-chef",
+    "nama": "Sous Chef",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "store-keeper",
+    "nama": "Store Keeper",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "tanaman-pangan",
+    "nama": "Tanaman Pangan",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "terapis-okupasi",
+    "nama": "Terapis Okupasi",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "wirausahawan-pemula-bidang-perikanan",
+    "nama": "Wirausahawan Pemula Bidang Perikanan",
+    "sektor": [
+      "Kelautan dan Perikanan"
+    ],
+    "jumlah_lembaga": 6
+  },
+  {
+    "slug": "analis-kesehatan",
+    "nama": "Analis Kesehatan",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "asisten-budidaya-perikanan",
+    "nama": "Asisten Budidaya Perikanan",
+    "sektor": [
+      "Kelautan dan Perikanan"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "broadcasting-dan-perfilman",
+    "nama": "Broadcasting dan Perfilman",
+    "sektor": [
+      "Seni dan Ekonomi Kreatif"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "domestic-worker",
+    "nama": "Domestic Worker",
+    "sektor": [
+      "Domestic Worker"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "elderly-care-assistant",
+    "nama": "Elderly Care Assistant",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "general-cashier",
+    "nama": "General Cashier",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "ground-handling-staf",
+    "nama": "Ground handling staf",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "japanese-cook",
+    "nama": "Japanese Cook",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "juru-las",
+    "nama": "Juru Las",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "pendamping-destinasi-pariwisata",
+    "nama": "Pendamping Destinasi Pariwisata",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "pengelola-kebun-modern-smart-farming-operator",
+    "nama": "Pengelola kebun modern / smart farming operator",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "purchasing-staff",
+    "nama": "Purchasing Staff",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "receiving-staff",
+    "nama": "Receiving Staff",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "sales-manager",
+    "nama": "Sales Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "seni-pertunjukan",
+    "nama": "Seni Pertunjukan",
+    "sektor": [
+      "Seni dan Ekonomi Kreatif"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "seni-rupa",
+    "nama": "Seni Rupa",
+    "sektor": [
+      "Seni dan Ekonomi Kreatif"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "show-manager",
+    "nama": "Show Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "teknik-bangunan-gedung",
+    "nama": "Teknik Bangunan Gedung",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "teknik-pengecoran-logam",
+    "nama": "Teknik Pengecoran Logam",
+    "sektor": [
+      "Manufaktur",
+      "Worker"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "transport-planner",
+    "nama": "Transport Planner",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "truck-driver-internasional",
+    "nama": "Truck Driver Internasional",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 5
+  },
+  {
+    "slug": "ahli-gizi",
+    "nama": "Ahli Gizi",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "cashier",
+    "nama": "Cashier",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "fcaw-plat",
+    "nama": "FCAW Plat",
+    "sektor": [
+      "Worker"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "income-auditor",
+    "nama": "Income Auditor",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "keselamatan-kerja",
+    "nama": "Keselamatan Kerja",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "konstruksi-gedung",
+    "nama": "Konstruksi Gedung",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "maid",
+    "nama": "Maid",
+    "sektor": [
+      "Domestic Worker"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "manajemen-konstruksi",
+    "nama": "Manajemen Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "mekanisasi-pertanian",
+    "nama": "Mekanisasi Pertanian",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "pascapanen",
+    "nama": "Pascapanen",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "pengawasan-proyek",
+    "nama": "Pengawasan Proyek",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "project-manager",
+    "nama": "Project Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "promotor-kesehatan",
+    "nama": "Promotor Kesehatan",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "sanitarian",
+    "nama": "Sanitarian",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "surveyor",
+    "nama": "Surveyor",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "teknologi-pertanian",
+    "nama": "Teknologi Pertanian",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "tenaga-kesehatan-lingkungan",
+    "nama": "Tenaga Kesehatan Lingkungan",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "terapis-gigi",
+    "nama": "Terapis Gigi",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "transport-supervisor",
+    "nama": "Transport Supervisor",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "tukang-kayu-konstruksi",
+    "nama": "Tukang Kayu Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "tukang-pasang-bata-dan-plesteran",
+    "nama": "Tukang Pasang Bata dan Plesteran",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "urban-mobility-specialist",
+    "nama": "Urban Mobility Specialist",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "wirausahawan-pemula",
+    "nama": "Wirausahawan Pemula",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 4
+  },
+  {
+    "slug": "agribisnis-tanaman",
+    "nama": "Agribisnis Tanaman",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "apron-movement-control-officer",
+    "nama": "Apron movement control officer",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "assistant-accounting-manager",
+    "nama": "Assistant Accounting Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "awak-kapal",
+    "nama": "Awak Kapal",
+    "sektor": [
+      "Transportasi (Laut)"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "bahasa-arab",
+    "nama": "Bahasa Arab",
+    "sektor": [
+      "Bahasa"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "food-safety-officer-haccp-iso-global-gap",
+    "nama": "Food safety officer (HACCP, ISO, Global G.A.P)",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "health-care-assistant",
+    "nama": "Health Care Assistant",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "konstruksi-jalan",
+    "nama": "Konstruksi Jalan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "machining",
+    "nama": "Machining",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "mexican-cook",
+    "nama": "Mexican Cook",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "nursing-assistant",
+    "nama": "Nursing Assistant",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "operator-produksi",
+    "nama": "Operator Produksi",
+    "sektor": [
+      "Welder"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "operator-scaffolding",
+    "nama": "Operator Scaffolding",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "operator-tambak",
+    "nama": "Operator Tambak",
+    "sektor": [
+      "Kelautan dan Perikanan"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "pelaksana-lapangan-pekerjaan-gedung",
+    "nama": "Pelaksana Lapangan Pekerjaan Gedung",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "pelaksana-lapangan-pekerjaan-saluran-irigasi",
+    "nama": "Pelaksana Lapangan Pekerjaan Saluran Irigasi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "pengawas-lapangan",
+    "nama": "Pengawas Lapangan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "petugas-k3-konstruksi",
+    "nama": "Petugas K3 Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "petugas-keamanan-dan-penanganan-bagasi",
+    "nama": "Petugas Keamanan dan Penanganan Bagasi",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "psikolog",
+    "nama": "Psikolog",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "purchasing-manager",
+    "nama": "Purchasing Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "reservation-manager",
+    "nama": "Reservation Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "spesialis-irigasi-dan-mekanisasi-pertanian",
+    "nama": "Spesialis irigasi dan mekanisasi pertanian",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "staff-operasional-pelayanan-penumpang-passenger-service-officer",
+    "nama": "Staff operasional pelayanan penumpang (passenger service officer)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 3
+  },
+  {
+    "slug": "airport-rescue-fire-fighting-officer-arff",
+    "nama": "Airport Rescue & Fire Fighting Officer (ARFF)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "aquaculture-specialist-budidaya-ikan-udang-lobster-dll",
+    "nama": "Aquaculture specialist (budidaya ikan, udang, lobster, dll.)",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "asisten-nutrisionis",
+    "nama": "Asisten Nutrisionis",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "cabin-crew",
+    "nama": "Cabin Crew",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "director-of-finance-accounting-manager-financial-controller",
+    "nama": "Director of Finance / Accounting Manager / Financial Controller",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "freight-forwarding-specialist",
+    "nama": "Freight Forwarding Specialist",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "ground-controller-pengatur-pergerakan-di-apron-taxiway",
+    "nama": "Ground Controller (pengatur pergerakan di apron & taxiway)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "inseminasi-buatan",
+    "nama": "Inseminasi Buatan",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "k3-konstruksi",
+    "nama": "K3 Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "k3-specialist",
+    "nama": "K3 Specialist",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "k3-umum",
+    "nama": "K3 Umum",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "kepala-tukang-bangunan-gedung",
+    "nama": "Kepala Tukang Bangunan Gedung",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "kesehatan-hewan",
+    "nama": "Kesehatan Hewan",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "konstruksi-infrastruktur-dasar",
+    "nama": "Konstruksi Infrastruktur Dasar",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "manajer-operasional-industri-pengolahan-hasil-laut",
+    "nama": "Manajer Operasional Industri Pengolahan Hasil Laut",
+    "sektor": [
+      "Kelautan dan Perikanan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "operator-vibrator-roller",
+    "nama": "Operator Vibrator Roller",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "operator-alat-dan-mesin-pertanian-alsintan",
+    "nama": "Operator alat dan mesin pertanian (Alsintan)",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "pakan-ternak",
+    "nama": "Pakan Ternak",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "pakan-ternak-dan-nutrisionis-hewan",
+    "nama": "Pakan ternak dan nutrisionis hewan",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "pengelola-kawasan-konservasi-laut",
+    "nama": "Pengelola Kawasan Konservasi Laut",
+    "sektor": [
+      "Kelautan dan Perikanan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "pertanian-presisi",
+    "nama": "Pertanian Presisi",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "petugas-kesehatan-hewan-lapangan",
+    "nama": "Petugas kesehatan hewan lapangan",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "product-manager",
+    "nama": "Product Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "production-manager",
+    "nama": "Production Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "quality-control",
+    "nama": "Quality Control",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "rekam-medis",
+    "nama": "Rekam Medis",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "road-safety-engineer",
+    "nama": "Road Safety Engineer",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "sales-executive",
+    "nama": "Sales Executive",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "senior-caregiver",
+    "nama": "Senior Caregiver",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "teknisi-peternakan-unggas-ruminansia-kambing-sapi-perah",
+    "nama": "Teknisi peternakan (unggas, ruminansia, kambing, sapi perah)",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "tenaga-kesehatan-kegawatdaruratan",
+    "nama": "Tenaga Kesehatan Kegawatdaruratan",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "ticketing-manager",
+    "nama": "Ticketing Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "traffic-engineer",
+    "nama": "Traffic Engineer",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "transport-policy-advisor",
+    "nama": "Transport Policy Advisor",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "tukang-besi-beton",
+    "nama": "Tukang Besi Beton",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "tukang-cat-bangunan-gedung",
+    "nama": "Tukang Cat Bangunan Gedung",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "tukang-pasang-rangka-baja-ringan",
+    "nama": "Tukang Pasang Rangka Baja Ringan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "warehouse-distribution-supervisor",
+    "nama": "Warehouse & Distribution Supervisor",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 2
+  },
+  {
+    "slug": "account-payable",
+    "nama": "Account Payable",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "account-receivable",
+    "nama": "Account Receivable",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "aerodrome-controller-tower",
+    "nama": "Aerodrome Controller (Tower)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "agronomis",
+    "nama": "Agronomis",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "ahli-akupunktur",
+    "nama": "Ahli Akupunktur",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "approach-controller-pengatur-pesawat-saat-mendekati-bandara",
+    "nama": "Approach Controller (pengatur pesawat saat mendekati bandara)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "art-ice-carver",
+    "nama": "Art Ice Carver",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "asisten-pelaksana-plambing-dan-pompa-mekanik",
+    "nama": "Asisten Pelaksana Plambing dan Pompa Mekanik",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "bim",
+    "nama": "BIM",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "cost-controller-account-payable",
+    "nama": "Cost Controller / Account Payable",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "credit-manager",
+    "nama": "Credit Manager",
+    "sektor": [
+      "Tourism, Travel, dan Hospitality"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "drainase",
+    "nama": "Drainase",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "electrical-engineer-bandara",
+    "nama": "Electrical Engineer bandara",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "engineer-perawatan-pesawat-avionicengineairframe",
+    "nama": "Engineer perawatan pesawat (Avionic/Engine/Airframe)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "first-officer",
+    "nama": "First Officer",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "freight-forwarderlogistics-officer",
+    "nama": "Freight Forwarder/Logistics Officer",
+    "sektor": [
+      "Transportasi (Laut)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "infrastruktur-dasar",
+    "nama": "Infrastruktur Dasar",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "juru-ukur-konstruksi",
+    "nama": "Juru Ukur Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "kepala-tukang-pasang-perancah-dan-acuancetakan-beton",
+    "nama": "Kepala Tukang Pasang Perancah dan Acuan/Cetakan Beton",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "keselamatan-konstruksi",
+    "nama": "Keselamatan Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "manajemen-proyek",
+    "nama": "Manajemen Proyek",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "manajemen-proyek-konstruksi",
+    "nama": "Manajemen Proyek Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "manajer-pengelolaan-bandara-administrasi-bandar-udara",
+    "nama": "Manajer Pengelolaan Bandara / Administrasi Bandar Udara",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "manajer-agribisnis",
+    "nama": "Manajer agribisnis",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "mandor-konstruksi-bangunan-gedung",
+    "nama": "Mandor Konstruksi Bangunan Gedung",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "mandor-pemeliharaan-jalan",
+    "nama": "Mandor Pemeliharaan Jalan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "marine-engineer",
+    "nama": "Marine Engineer",
+    "sektor": [
+      "Transportasi (Laut)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "masinis-kapal-i-ii-iii",
+    "nama": "Masinis Kapal (I, II, III)",
+    "sektor": [
+      "Transportasi (Laut)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "mekanik-engine",
+    "nama": "Mekanik Engine",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "mekanik-engine-pemula-tingkat-dasar",
+    "nama": "Mekanik Engine Pemula Tingkat Dasar",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "mualim-i-ii-iii",
+    "nama": "Mualim (I, II, III)",
+    "sektor": [
+      "Transportasi (Laut)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "operator-backhoe-loader",
+    "nama": "Operator Backhoe Loader",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "operator-survei-terestris",
+    "nama": "Operator Survei Terestris",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "operator-tandem-roller",
+    "nama": "Operator Tandem Roller",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "operator-wheel-excavator",
+    "nama": "Operator Wheel Excavator",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "ortotis-dan-prostetis",
+    "nama": "Ortotis dan Prostetis",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "passenger-service-officer",
+    "nama": "Passenger service officer",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "patient-care-assistant",
+    "nama": "Patient Care Assistant",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "pelaksana-lapangan-konstruksi-spam",
+    "nama": "Pelaksana Lapangan Konstruksi SPAM",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "pelaksana-lapangan-pekerjaan-jalan",
+    "nama": "Pelaksana Lapangan Pekerjaan Jalan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "pelaksana-pekerjaan-pemeliharaan-sungai",
+    "nama": "Pelaksana Pekerjaan Pemeliharaan Sungai",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "penelitiakademisi-bidang-kelautan-dan-perikanan",
+    "nama": "Peneliti/Akademisi Bidang Kelautan dan Perikanan",
+    "sektor": [
+      "Kelautan dan Perikanan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "pengadaan-jasa-konstruksi",
+    "nama": "Pengadaan Jasa Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "penyuluh-pertanian-lapangan",
+    "nama": "Penyuluh pertanian lapangan",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "pertanian-lahan-kering",
+    "nama": "Pertanian Lahan Kering",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "perwira-deck-deck-officer",
+    "nama": "Perwira Deck (Deck Officer)",
+    "sektor": [
+      "Transportasi (Laut)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "perwira-radiogmdss-operator",
+    "nama": "Perwira Radio/GMDSS Operator",
+    "sektor": [
+      "Transportasi (Laut)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "petugas-keselamatan-konstruksi",
+    "nama": "Petugas Keselamatan Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "petugas-pelayanan-penumpang-customer-service",
+    "nama": "Petugas Pelayanan Penumpang (Customer Service)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "petugas-pengatur-lalu-lintas-udara-air-traffic-controller",
+    "nama": "Petugas pengatur lalu lintas udara (Air Traffic Controller)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "quality-control-qc-hasil-pertanian",
+    "nama": "Quality control (QC) hasil pertanian",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "radiologi",
+    "nama": "Radiologi",
+    "sektor": [
+      "Kesehatan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "shipping-agency-officer",
+    "nama": "Shipping Agency Officer",
+    "sektor": [
+      "Transportasi (Laut)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "struktur-bangunan",
+    "nama": "Struktur Bangunan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "supply-chain-manager",
+    "nama": "Supply Chain Manager",
+    "sektor": [
+      "Transportasi (Darat)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknik-bangunan",
+    "nama": "Teknik Bangunan",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknik-konstruksi",
+    "nama": "Teknik Konstruksi",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknik-pemesinan-pesawat-udara",
+    "nama": "Teknik Pemesinan Pesawat Udara",
+    "sektor": [
+      "Worker"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknisi-instalasi-listrik-bandara",
+    "nama": "Teknisi instalasi listrik bandara",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknisi-listrik-bandara",
+    "nama": "Teknisi listrik bandara",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknisi-pascapanen",
+    "nama": "Teknisi pascapanen",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknisi-peralatan-airfield-lighting-lampu-runway-taxiway",
+    "nama": "Teknisi peralatan airfield lighting (lampu runway & taxiway)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknisi-peralatan-komunikasi-penerbangan",
+    "nama": "Teknisi peralatan komunikasi penerbangan",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknisi-radar-surveillance-system",
+    "nama": "Teknisi radar & surveillance system",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknisi-sistem-navigasi-udara-navaids",
+    "nama": "Teknisi sistem navigasi udara (navaids)",
+    "sektor": [
+      "Transportasi (Udara)"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknolog-pertanian-precision-farming-drone-agriculture",
+    "nama": "Teknolog pertanian (precision farming, drone agriculture)",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknologi-beton",
+    "nama": "Teknologi Beton",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "teknologi-produksi-pertanian",
+    "nama": "Teknologi Produksi Pertanian",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "tukang-pasang-pipa",
+    "nama": "Tukang Pasang Pipa",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "tukang-pasang-ubinkeramik",
+    "nama": "Tukang Pasang Ubin/Keramik",
+    "sektor": [
+      "Konstruksi"
+    ],
+    "jumlah_lembaga": 1
+  },
+  {
+    "slug": "wirausaha-agripreneur",
+    "nama": "Wirausaha agripreneur",
+    "sektor": [
+      "Pertanian & Peternakan"
+    ],
+    "jumlah_lembaga": 1
+  }
+]

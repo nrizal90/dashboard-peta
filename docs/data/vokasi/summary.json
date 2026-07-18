@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-07-16T06:45:35.735761+00:00",
+  "sumber": [
+    "view_vokasi_detail_20260712.xlsx",
+    "view_vokasi_detail_sektor_20260712.xlsx"
+  ],
+  "lembaga": {
+    "total_baris": 887,
+    "unik_primary": 776,
+    "duplikat_ditandai": 111
+  },
+  "kapasitas": {
+    "total": 242631,
+    "median": 100,
+    "max": 40000,
+    "iqr_fence": 550.0
+  },
+  "koordinat": {
+    "asli": 600,
+    "centroid_kota": 248,
+    "centroid_provinsi": 39,
+    "tidak_ada": 0,
+    "persen_asli": 67.6
+  },
+  "wilayah": {
+    "provinsi": 30,
+    "kota": 184
+  },
+  "sektor": {
+    "total_sektor": 19,
+    "total_jabatan": 310,
+    "total_relasi": 3547
+  },
+  "verifikasi": {
+    "legalitas": {
+      "accepted": 438,
+      "rejected": 333,
+      "pending": 5
+    },
+    "fasilitas": {
+      "not_submitted": 650,
+      "accepted": 109,
+      "pending": 16,
+      "revised": 1
+    },
+    "program": {
+      "not_submitted": 718,
+      "accepted": 35,
+      "pending": 23
+    }
+  },
+  "gap_sektor": {
+    "total_sel": 570,
+    "sel_terisi": 328,
+    "sel_kosong": 242
+  }
+}

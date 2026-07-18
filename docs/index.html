@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Dashboard Peta Lembaga Vokasi Indonesia">
+
+	<title>Dashboard Peta Vokasi</title>
+
+	<link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/vendor/nunito/nunito.css" rel="stylesheet">
+	<link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+	<link href="assets/vendor/leaflet/leaflet.css" rel="stylesheet">
+	<link href="assets/vendor/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
+	<link href="assets/vendor/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
+
+	<style>
+		#map { height: calc(100vh - 210px); min-height: 460px; width: 100%; border-radius: .35rem; z-index: 0; }
+		.dash-scroll { max-height: calc(100vh - 200px); overflow-y: auto; }
+		.filter-group { border-bottom: 1px solid #eaecf4; padding: .6rem 0; }
+		.filter-group:last-child { border-bottom: 0; }
+		.filter-group label.head { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: #b7b9cc; font-weight: 700; margin-bottom: .35rem; }
+		.checklist { max-height: 180px; overflow-y: auto; }
+		.checklist.tall { max-height: 240px; }
+		.checklist .form-check { margin-bottom: .15rem; }
+		.checklist .form-check-label { font-size: .82rem; }
+		.map-legend { background: #fff; padding: 8px 10px; border-radius: .35rem; box-shadow: 0 0 12px rgba(0,0,0,.15); font-size: .78rem; line-height: 1.5; }
+		.legend-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+		.legend-dot.approx { border: 2px dashed #888; opacity: .6; background: transparent; }
+		.result-badge { font-size: .95rem; }
+		.mini-chart-card { margin-bottom: 1rem; }
+		.mini-chart-card canvas { max-height: 190px; }
+		.loading-overlay { position: absolute; inset: 0; background: rgba(255,255,255,.6); display: flex; align-items: center; justify-content: center; z-index: 500; border-radius: .35rem; }
+	</style>
+</head>
+
+<body id="page-top">
+<div id="wrapper">
+
+	<!-- Sidebar -->
+	<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+			<div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-map-marked-alt"></i></div>
+			<div class="sidebar-brand-text mx-3">Dashboard Peta</div>
+		</a>
+		<hr class="sidebar-divider my-0">
+		<li class="nav-item active">
+			<a class="nav-link" href="index.html"><i class="fas fa-fw fa-map"></i> <span>Peta</span></a>
+		</li>
+		<hr class="sidebar-divider">
+		<div class="sidebar-heading">Analisis</div>
+		<li class="nav-item">
+			<a class="nav-link" href="gap.html"><i class="fas fa-fw fa-th"></i> <span>Gap Analysis</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="tentang.html"><i class="fas fa-fw fa-info-circle"></i> <span>Tentang Data</span></a>
+		</li>
+		<hr class="sidebar-divider d-none d-md-block">
+		<div class="text-center d-none d-md-inline">
+			<button class="rounded-circle border-0" id="sidebarToggle"></button>
+		</div>
+	</ul>
+	<!-- End of Sidebar -->
+
+	<div id="content-wrapper" class="d-flex flex-column">
+	<div id="content">
+
+		<!-- Topbar -->
+		<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+			<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"><i class="fa fa-bars"></i></button>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item mr-3 d-flex align-items-center">
+					<a href="wall.html" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm shadow-sm" title="Buka mode command center (kiosk) di tab baru">
+						<i class="fas fa-tv fa-sm"></i> Mode Layar Penuh
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- End of Topbar -->
+
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
+			<div class="d-sm-flex align-items-center justify-content-between mb-3">
+				<h1 class="h3 mb-0 text-gray-800">Peta Sebaran Lembaga Vokasi</h1>
+				<a href="gap.html" class="btn btn-sm btn-outline-primary shadow-sm"><i class="fas fa-th fa-sm"></i> Gap Analysis</a>
+			</div>
+
+			<!-- ===== KPI HEADER (diisi dari summary.json) ===== -->
+			<div class="row">
+				<div class="col-md col-6 mb-3"><div class="card border-left-primary shadow h-100 py-2"><div class="card-body py-2"><div class="row no-gutters align-items-center"><div class="col mr-2"><div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Lembaga (primary)</div><div class="h6 mb-0 font-weight-bold text-gray-800" id="kpiLembaga">—</div></div><div class="col-auto"><i class="fas fa-building fa-lg text-gray-300"></i></div></div></div></div></div>
+				<div class="col-md col-6 mb-3"><div class="card border-left-success shadow h-100 py-2"><div class="card-body py-2"><div class="row no-gutters align-items-center"><div class="col mr-2"><div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Kapasitas</div><div class="h6 mb-0 font-weight-bold text-gray-800" id="kpiKapasitas">—</div></div><div class="col-auto"><i class="fas fa-users fa-lg text-gray-300"></i></div></div></div></div></div>
+				<div class="col-md col-6 mb-3"><div class="card border-left-info shadow h-100 py-2"><div class="card-body py-2"><div class="row no-gutters align-items-center"><div class="col mr-2"><div class="text-xs font-weight-bold text-info text-uppercase mb-1">Provinsi</div><div class="h6 mb-0 font-weight-bold text-gray-800" id="kpiProvinsi">—</div></div><div class="col-auto"><i class="fas fa-map-marked-alt fa-lg text-gray-300"></i></div></div></div></div></div>
+				<div class="col-md col-6 mb-3"><div class="card border-left-warning shadow h-100 py-2"><div class="card-body py-2"><div class="row no-gutters align-items-center"><div class="col mr-2"><div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Sektor / Jabatan</div><div class="h6 mb-0 font-weight-bold text-gray-800" id="kpiSektorJabatan">—</div></div><div class="col-auto"><i class="fas fa-layer-group fa-lg text-gray-300"></i></div></div></div></div></div>
+				<div class="col-md col-6 mb-3"><div class="card border-left-danger shadow h-100 py-2"><div class="card-body py-2"><div class="row no-gutters align-items-center"><div class="col mr-2"><div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Koordinat Presisi</div><div class="h6 mb-0 font-weight-bold text-gray-800" id="kpiPresisi">—</div></div><div class="col-auto"><i class="fas fa-crosshairs fa-lg text-gray-300"></i></div></div></div></div></div>
+			</div>
+
+			<div class="row" id="dashRow">
+				<!-- ===== SIDEBAR FILTER (kiri) ===== -->
+				<div class="col-lg-3 mb-4" id="colFilter">
+					<div class="card shadow h-100">
+						<div class="card-header py-3 d-flex justify-content-between align-items-center">
+							<h6 class="m-0 font-weight-bold text-primary">Filter</h6>
+							<button id="btnReset" class="btn btn-sm btn-outline-secondary py-0">Reset</button>
+						</div>
+						<div class="card-body dash-scroll">
+							<div class="text-center mb-2">
+								<span class="badge badge-primary result-badge px-3 py-2"><span id="resultCount">—</span> lembaga</span>
+							</div>
+							<div class="filter-group">
+								<label class="head">Cari nama</label>
+								<input type="text" id="fQ" class="form-control form-control-sm" placeholder="ketik nama lembaga…">
+							</div>
+							<div class="filter-group">
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="fOnlyOriginal">
+									<label class="form-check-label" for="fOnlyOriginal">Hanya koordinat asli (presisi)</label>
+								</div>
+							</div>
+							<div class="filter-group">
+								<label class="head">Ownership</label>
+								<select id="fOwnership" class="form-control form-control-sm">
+									<option value="">Semua</option>
+									<option value="Pemerintah">Pemerintah</option>
+									<option value="Non Pemerintah">Non Pemerintah</option>
+								</select>
+							</div>
+							<div class="filter-group">
+								<label class="head">Status Legalitas</label>
+								<select id="fLegalitas" class="form-control form-control-sm">
+									<option value="">Semua</option>
+									<option value="accepted">Accepted</option>
+									<option value="rejected">Rejected</option>
+									<option value="pending">Pending</option>
+								</select>
+							</div>
+							<div class="filter-group">
+								<label class="head">Pulau</label>
+								<select id="fPulau" class="form-control form-control-sm"><option value="">Semua</option></select>
+							</div>
+							<div class="filter-group">
+								<label class="head">Provinsi</label>
+								<select id="fProvinsi" class="form-control form-control-sm"><option value="">Semua</option></select>
+							</div>
+							<div class="filter-group">
+								<label class="head">Kota / Kabupaten</label>
+								<input type="text" id="fKotaSearch" class="form-control form-control-sm mb-1" placeholder="cari kota…">
+								<select id="fKota" class="form-control form-control-sm"><option value="">Semua</option></select>
+							</div>
+							<div class="filter-group">
+								<label class="head">Kapasitas</label>
+								<div class="d-flex align-items-center" style="gap:.4rem">
+									<input type="number" id="fKapMin" class="form-control form-control-sm" placeholder="min" min="0">
+									<span>–</span>
+									<input type="number" id="fKapMax" class="form-control form-control-sm" placeholder="max" min="0">
+								</div>
+							</div>
+							<div class="filter-group">
+								<label class="head">Sektor</label>
+								<div id="fSektor" class="checklist"></div>
+							</div>
+							<div class="filter-group">
+								<label class="head">Jabatan / Program</label>
+								<input type="text" id="fJabatanSearch" class="form-control form-control-sm mb-1" placeholder="cari jabatan (310)…">
+								<div id="fJabatan" class="checklist tall"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ===== PETA (tengah) ===== -->
+				<div class="col-lg-6 mb-4" id="colMap">
+					<div class="card shadow h-100">
+						<div class="card-header py-3 d-flex justify-content-between align-items-center">
+							<h6 class="m-0 font-weight-bold text-primary">Peta Interaktif</h6>
+							<div class="d-flex align-items-center">
+								<small class="text-muted mr-3 d-none d-xl-inline">marker cluster · warna = ownership</small>
+								<button id="btnToggleFilter" class="btn btn-sm btn-outline-secondary py-0" title="Sembunyikan panel filter agar peta lebih dominan">
+									<i class="fas fa-expand-arrows-alt"></i> Perbesar Peta
+								</button>
+							</div>
+						</div>
+						<div class="card-body position-relative">
+							<div id="map"></div>
+							<div id="mapLoading" class="loading-overlay" style="display:none">
+								<div class="spinner-border text-primary" role="status"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ===== CHART PANEL (kanan) ===== -->
+				<div class="col-lg-3 mb-4" id="colChart">
+					<div class="dash-scroll">
+						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Backlog Verifikasi</h6></div><div class="card-body py-2"><canvas id="chartFunnel"></canvas></div></div>
+						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Ownership</h6></div><div class="card-body py-2"><canvas id="chartOwnership"></canvas></div></div>
+						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Sektor</h6></div><div class="card-body py-2"><canvas id="chartSektor"></canvas></div></div>
+						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Jabatan</h6></div><div class="card-body py-2"><canvas id="chartJabatan"></canvas></div></div>
+						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Provinsi</h6></div><div class="card-body py-2"><canvas id="chartProvinsi"></canvas></div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.container-fluid -->
+
+	</div>
+	<!-- End of Main Content -->
+
+	<footer class="sticky-footer bg-white">
+		<div class="container my-auto">
+			<div class="copyright text-center my-auto">
+				<span>Dashboard Peta Vokasi &copy; 2026 · Sumber: hasil cleaning <code>clean_vokasi.py</code></span>
+			</div>
+		</div>
+	</footer>
+	</div>
+</div>
+
+<a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="assets/js/sb-admin-2.min.js"></script>
+<script src="assets/vendor/chart.js/Chart.min.js"></script>
+<script src="assets/vendor/leaflet/leaflet.js"></script>
+<script src="assets/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
+<script>
+	window.APP = { apiBase: 'api', siteUrl: '', mapCenter: [-2.5, 118.0], mapZoom: 5 };
+</script>
+<!-- Backend statis (pengganti PHP): harus dimuat SEBELUM dashboard.js -->
+<script src="assets/js/vokasi-api.js"></script>
+<script>
+	// Isi KPI header dari summary.json.
+	VokasiApi.init().then(function () {
+		var s = VokasiApi.summary() || {};
+		function fmt(n) { return (n || 0).toLocaleString('id-ID'); }
+		function set(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+		set('kpiLembaga', fmt(((s.lembaga || {}).unik_primary) || 0));
+		set('kpiKapasitas', fmt(((s.kapasitas || {}).total) || 0));
+		set('kpiProvinsi', ((s.wilayah || {}).provinsi) || 0);
+		set('kpiSektorJabatan', (((s.sektor || {}).total_sektor) || 0) + ' / ' + (((s.sektor || {}).total_jabatan) || 0));
+		set('kpiPresisi', (((s.koordinat || {}).persen_asli) || 0) + '%');
+	});
+</script>
+<script src="assets/js/dashboard.js"></script>
+
+</body>
+</html>
