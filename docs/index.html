@@ -31,6 +31,8 @@
 		.result-badge { font-size: .95rem; }
 		.mini-chart-card { margin-bottom: 1rem; }
 		.mini-chart-card canvas { max-height: 190px; }
+		#colChart .mini-chart-card .card-body { height: 210px; }
+		#colChart .mini-chart-card canvas { max-height: 100%; }
 		.loading-overlay { position: absolute; inset: 0; background: rgba(255,255,255,.6); display: flex; align-items: center; justify-content: center; z-index: 500; border-radius: .35rem; }
 	</style>
 </head>
@@ -121,8 +123,8 @@
 								<label class="head">Ownership</label>
 								<select id="fOwnership" class="form-control form-control-sm">
 									<option value="">Semua</option>
-									<option value="Pemerintah">Pemerintah</option>
 									<option value="Non Pemerintah">Non Pemerintah</option>
+									<option value="Pemerintah">Pemerintah</option>
 								</select>
 							</div>
 							<div class="filter-group">
@@ -130,8 +132,8 @@
 								<select id="fLegalitas" class="form-control form-control-sm">
 									<option value="">Semua</option>
 									<option value="accepted">Accepted</option>
-									<option value="rejected">Rejected</option>
 									<option value="pending">Pending</option>
+									<option value="rejected">Rejected</option>
 								</select>
 							</div>
 							<div class="filter-group">
@@ -168,8 +170,8 @@
 					</div>
 				</div>
 
-				<!-- ===== PETA (tengah) ===== -->
-				<div class="col-lg-6 mb-4" id="colMap">
+				<!-- ===== PETA (kanan, lebar) ===== -->
+				<div class="col-lg-9 mb-4" id="colMap">
 					<div class="card shadow h-100">
 						<div class="card-header py-3 d-flex justify-content-between align-items-center">
 							<h6 class="m-0 font-weight-bold text-primary">Peta Interaktif</h6>
@@ -189,17 +191,16 @@
 					</div>
 				</div>
 
-				<!-- ===== CHART PANEL (kanan) ===== -->
-				<div class="col-lg-3 mb-4" id="colChart">
-					<div class="dash-scroll">
-						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Backlog Verifikasi</h6></div><div class="card-body py-2"><canvas id="chartFunnel"></canvas></div></div>
-						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Ownership</h6></div><div class="card-body py-2"><canvas id="chartOwnership"></canvas></div></div>
-						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Sektor</h6></div><div class="card-body py-2"><canvas id="chartSektor"></canvas></div></div>
-						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Jabatan</h6></div><div class="card-body py-2"><canvas id="chartJabatan"></canvas></div></div>
-						<div class="card shadow mini-chart-card"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Provinsi</h6></div><div class="card-body py-2"><canvas id="chartProvinsi"></canvas></div></div>
-					</div>
-				</div>
 			</div>
+
+				<!-- ===== CHART PANEL (baris bawah, horizontal) ===== -->
+				<div class="row" id="colChart">
+					<div class="col-6 col-lg mb-4"><div class="card shadow mini-chart-card h-100"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Backlog Verifikasi</h6></div><div class="card-body py-2"><canvas id="chartFunnel"></canvas></div></div></div>
+					<div class="col-6 col-lg mb-4"><div class="card shadow mini-chart-card h-100"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Ownership</h6></div><div class="card-body py-2"><canvas id="chartOwnership"></canvas></div></div></div>
+					<div class="col-6 col-lg mb-4"><div class="card shadow mini-chart-card h-100"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Sektor</h6></div><div class="card-body py-2"><canvas id="chartSektor"></canvas></div></div></div>
+					<div class="col-6 col-lg mb-4"><div class="card shadow mini-chart-card h-100"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Jabatan</h6></div><div class="card-body py-2"><canvas id="chartJabatan"></canvas></div></div></div>
+					<div class="col-6 col-lg mb-4"><div class="card shadow mini-chart-card h-100"><div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Provinsi</h6></div><div class="card-body py-2"><canvas id="chartProvinsi"></canvas></div></div></div>
+				</div>
 		</div>
 		<!-- /.container-fluid -->
 
@@ -217,6 +218,59 @@
 </div>
 
 <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+<!-- ===== MODAL: List Lembaga Vokasi (muncul saat cluster peta diklik) ===== -->
+<div class="modal fade" id="modalList" tabindex="-1" role="dialog" aria-labelledby="modalListLabel" aria-hidden="true">
+	<div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-primary text-white py-2">
+				<h5 class="modal-title" id="modalListLabel"><i class="fas fa-university mr-2"></i>List Lembaga Vokasi</h5>
+				<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body p-0">
+				<div class="table-responsive">
+					<table class="table table-sm table-hover mb-0">
+						<thead class="thead-light">
+							<tr>
+								<th class="text-center">No</th>
+								<th>Nama</th>
+								<th>Provinsi</th>
+								<th>Kabupaten/Kota</th>
+								<th>Kepemilikan</th>
+								<th>No Registrasi</th>
+								<th>No Legalitas</th>
+								<th class="text-center">Aksi</th>
+							</tr>
+						</thead>
+						<tbody id="listBody"></tbody>
+					</table>
+				</div>
+			</div>
+			<div class="modal-footer py-2 justify-content-between">
+				<small class="text-muted">Total data: <b id="listTotal">0</b> lembaga</small>
+				<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ===== MODAL: Detail Lembaga Vokasi ===== -->
+<div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-primary text-white py-2">
+				<h5 class="modal-title" id="modalDetailLabel"><i class="fas fa-university mr-2"></i>Detail Lembaga Vokasi</h5>
+				<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body" id="detailBody">
+				<div class="text-center text-muted py-4">Memuat…</div>
+			</div>
+			<div class="modal-footer py-2">
+				<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -19,7 +19,7 @@
 	var realFetch = window.fetch ? window.fetch.bind(window) : null;
 	var BASE = 'data/vokasi/';
 	var FILES = [
-		'lembaga', 'lembaga_sektor', 'summary', 'agg_provinsi',
+		'lembaga', 'lembaga_sektor', 'lembaga_katalog', 'summary', 'agg_provinsi',
 		'agg_provinsi_sektor', 'ref_provinsi', 'ref_kota', 'ref_sektor', 'ref_jabatan'
 	];
 
@@ -61,6 +61,44 @@
 	function sektorOf(id) {
 		id = +id;
 		return get('lembaga_sektor').filter(function (rel) { return +rel.lembaga_id === id; });
+	}
+
+	function katalogIndex() {
+		if (derived.katalogByLembaga) { return derived.katalogByLembaga; }
+		var idx = {};
+		get('lembaga_katalog').forEach(function (k) {
+			var lid = +k.lembaga_id;
+			(idx[lid] = idx[lid] || []).push(k);
+		});
+		derived.katalogByLembaga = idx;
+		return idx;
+	}
+
+	function katalogOf(id) {
+		var out = (katalogIndex()[+id] || []).slice();
+		out.sort(function (a, b) {
+			return String(a.tanggal_mulai).localeCompare(String(b.tanggal_mulai));
+		});
+		return out;
+	}
+
+	// Subset kolom untuk popup "List Lembaga Vokasi" (cluster diklik).
+	function listByIds(ids) {
+		if (!ids || !ids.length) { return []; }
+		var idx = indexById(), seen = {}, out = [];
+		ids.forEach(function (i) {
+			var id = +i;
+			if (seen[id] || !idx[id]) { return; }
+			seen[id] = true;
+			var r = idx[id];
+			out.push({
+				id: r.id, nama: r.nama, provinsi: r.provinsi, kota: r.kota,
+				ownership: r.ownership, nomor_registrasi: r.nomor_registrasi,
+				nomor_legalitas: r.nomor_legalitas
+			});
+		});
+		out.sort(function (a, b) { return String(a.nama).localeCompare(String(b.nama), 'id', { sensitivity: 'base' }); });
+		return out;
 	}
 
 	function dupGroupOf(row) {
@@ -239,7 +277,7 @@
 		if (id == null || !/^\d+$/.test(String(id))) { return { error: 'ID tidak valid' }; }
 		var row = find(id);
 		if (!row) { return { error: 'Lembaga tidak ditemukan' }; }
-		return { lembaga: row, sektor: sektorOf(id), duplikat: dupGroupOf(row) };
+		return { lembaga: row, sektor: sektorOf(id), katalog: katalogOf(id), duplikat: dupGroupOf(row) };
 	}
 
 	function choropleth(metric) {
@@ -261,6 +299,7 @@
 		points: points,
 		stats: stats,
 		lembaga: lembaga,
+		lembagaList: listByIds,
 		choropleth: choropleth,
 		gap: function () { return get('agg_provinsi_sektor'); }
 	};
@@ -285,6 +324,12 @@
 		if (r === 'summary') { return api.summary(); }
 		if (r === 'choropleth') { return choropleth(params.metric); }
 		if (r === 'gap') { return api.gap(); }
+		if (r === 'lembaga_list') {
+			var ids = (params.ids ? String(params.ids).split(',') : [])
+				.map(function (x) { return x.trim(); })
+				.filter(function (x) { return /^\d+$/.test(x); });
+			return listByIds(ids);
+		}
 		if (r.indexOf('lembaga/') === 0) { return lembaga(r.split('/')[1]); }
 		return null;
 	}
