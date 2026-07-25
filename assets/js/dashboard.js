@@ -38,8 +38,18 @@
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
-	var cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50 });
+	var cluster = L.markerClusterGroup({
+		chunkedLoading: true,
+		maxClusterRadius: 50,
+		zoomToBoundsOnClick: false,  // klik cluster -> tampilkan List Lembaga (Hasil Review #4)
+		spiderfyOnMaxZoom: false
+	});
 	map.addLayer(cluster);
+
+	// Klik bubble cluster (angka jumlah lembaga) -> popup List Lembaga Vokasi.
+	cluster.on('clusterclick', function (a) {
+		openList(a.layer.getAllChildMarkers());
+	});
 
 	// Legend
 	var legend = L.control({ position: 'bottomright' });
@@ -69,6 +79,7 @@
 			fillOpacity: isApprox ? 0.25 : 0.75,
 			opacity: isApprox ? 0.6 : 1
 		});
+		m._lid = pt.id; // dipakai saat cluster diklik (List Lembaga)
 		m.bindPopup('<strong>' + esc(pt.n) + '</strong><br><small class="text-muted">memuat…</small>');
 		m.on('click', function () { loadPopup(m, pt.id); });
 		return m;
@@ -97,6 +108,7 @@
 				'<div class="mt-1"><b>Jabatan (' + jabatanList.length + '):</b> <small>' +
 					jabatanList.slice(0, 8).map(esc).join(' · ') + (jabatanList.length > 8 ? ' …' : '') + '</small></div>' +
 				(d.duplikat && d.duplikat.length ? '<div class="mt-1"><span class="badge badge-secondary">' + d.duplikat.length + ' duplikat</span></div>' : '') +
+				'<div class="mt-2"><button class="btn btn-sm btn-primary py-0" data-detail="' + L0.id + '">Lihat Detail</button></div>' +
 				'</div>';
 			marker.setPopupContent(html);
 		}).catch(function () {
@@ -107,6 +119,152 @@
 	function statusBadge(label, v) {
 		var cls = { accepted: 'success', rejected: 'danger', pending: 'warning', revised: 'info', not_submitted: 'secondary' }[v] || 'secondary';
 		return '<span class="badge badge-' + cls + '">' + label + ': ' + (v || 'n/a') + '</span>';
+	}
+
+	// -----------------------------------------------------------------
+	// Hasil Review #4 — klik cluster -> List Lembaga -> Detail Lembaga
+	// -----------------------------------------------------------------
+	function ownBadge(o) {
+		var cls = (o === 'Pemerintah') ? 'primary' : 'secondary';
+		return '<span class="badge badge-' + cls + '">' + esc(o || '-') + '</span>';
+	}
+
+	function katBadge(v) {
+		var cls = { accepted: 'success', rejected: 'danger', pending: 'warning', revised: 'info' }[v] || 'secondary';
+		return '<span class="badge badge-' + cls + '">' + esc(v || 'n/a') + '</span>';
+	}
+
+	function fmtDate(s) {
+		if (!s) return '-';
+		var d = new Date(s);
+		if (isNaN(d.getTime())) return esc(s);
+		return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+	}
+
+	function rupiah(n) { return 'Rp' + (Number(n) || 0).toLocaleString('id-ID'); }
+
+	// Buka popup List Lembaga dari marker-marker anak sebuah cluster.
+	function openList(childMarkers) {
+		var ids = [];
+		(childMarkers || []).forEach(function (m) { if (m._lid != null) ids.push(m._lid); });
+		if (!ids.length) return;
+
+		var body = document.getElementById('listBody');
+		body.innerHTML = '<tr><td colspan="8" class="text-center text-muted py-4">Memuat…</td></tr>';
+		document.getElementById('listTotal').textContent = '…';
+		window.jQuery && window.jQuery('#modalList').modal('show');
+
+		fetch(API + '/lembaga_list?ids=' + ids.join(',')).then(function (r) { return r.json(); }).then(function (rows) {
+			renderList(rows);
+		}).catch(function () {
+			body.innerHTML = '<tr><td colspan="8" class="text-center text-danger py-4">Gagal memuat data.</td></tr>';
+		});
+	}
+
+	function renderList(rows) {
+		var body = document.getElementById('listBody');
+		if (!rows || !rows.length) {
+			body.innerHTML = '<tr><td colspan="8" class="text-center text-muted py-4">Tidak ada data.</td></tr>';
+			document.getElementById('listTotal').textContent = '0';
+			return;
+		}
+		body.innerHTML = rows.map(function (r, i) {
+			return '<tr>' +
+				'<td class="text-center">' + (i + 1) + '</td>' +
+				'<td>' + esc(r.nama) + '</td>' +
+				'<td>' + esc(r.provinsi || '-') + '</td>' +
+				'<td>' + esc(r.kota || '-') + '</td>' +
+				'<td>' + ownBadge(r.ownership) + '</td>' +
+				'<td>' + esc(r.nomor_registrasi || '-') + '</td>' +
+				'<td>' + esc(r.nomor_legalitas || '-') + '</td>' +
+				'<td class="text-center"><button class="btn btn-sm btn-outline-primary py-0" data-detail="' + r.id + '">Detail</button></td>' +
+				'</tr>';
+		}).join('');
+		document.getElementById('listTotal').textContent = numfmt(rows.length);
+	}
+
+	// Buka modal Detail Lembaga Vokasi (3 seksi: Lembaga · Sektor&Jabatan · Katalog).
+	function openDetail(id) {
+		var body = document.getElementById('detailBody');
+		body.innerHTML = '<div class="text-center text-muted py-4">Memuat…</div>';
+		window.jQuery && window.jQuery('#modalDetail').modal('show');
+
+		fetch(API + '/lembaga/' + id).then(function (r) { return r.json(); }).then(function (d) {
+			body.innerHTML = renderDetail(d);
+		}).catch(function () {
+			body.innerHTML = '<div class="text-center text-danger py-4">Gagal memuat detail.</div>';
+		});
+	}
+
+	function renderDetail(d) {
+		var L0 = d.lembaga || {};
+
+		function field(label, val) {
+			return '<div class="col-md-6 mb-2">' +
+				'<div class="text-xs text-uppercase text-muted font-weight-bold">' + label + '</div>' +
+				'<div>' + esc(val == null || val === '' ? '-' : val) + '</div></div>';
+		}
+
+		// Seksi 2: Sektor & Jabatan (dikelompokkan per sektor)
+		var groups = {};
+		(d.sektor || []).forEach(function (s) {
+			if (!groups[s.sektor]) groups[s.sektor] = [];
+			groups[s.sektor].push(s.jabatan);
+		});
+		var sektorKeys = Object.keys(groups);
+		var sektorHtml = sektorKeys.length
+			? sektorKeys.map(function (sk) {
+				return '<div class="col-md-6 mb-3">' +
+					'<div class="font-weight-bold text-primary">' + esc(sk) + '</div>' +
+					'<ul class="mb-0 pl-3">' + groups[sk].map(function (j) { return '<li>' + esc(j) + '</li>'; }).join('') + '</ul>' +
+					'</div>';
+			}).join('')
+			: '<div class="col-12 text-muted">Tidak ada data sektor/jabatan.</div>';
+
+		// Seksi 3: Katalog Pelatihan (bisa banyak per lembaga)
+		var katHtml = (d.katalog && d.katalog.length)
+			? d.katalog.map(function (k) {
+				return '<div class="border rounded p-2 mb-2">' +
+					'<div class="font-weight-bold">' + esc(k.judul) + ' ' + katBadge(k.status) + '</div>' +
+					(k.deskripsi ? '<div class="small text-muted mb-1">' + esc(k.deskripsi) + '</div>' : '') +
+					'<div class="small">' +
+						'<b>Periode:</b> ' + fmtDate(k.tanggal_mulai) + ' – ' + fmtDate(k.tanggal_selesai) +
+						' &middot; <b>Biaya:</b> ' + rupiah(k.biaya) +
+						' &middot; <b>Jam:</b> ' + numfmt(k.jam_pelatihan) + ' JP' +
+						' &middot; <b>Kuota:</b> ' + numfmt(k.kuota) +
+					'</div></div>';
+			}).join('')
+			: '<div class="text-muted">Belum ada katalog pelatihan.</div>';
+
+		return '' +
+			'<h6 class="text-primary font-weight-bold border-bottom pb-1 mb-3"><i class="fas fa-landmark mr-1"></i> Lembaga</h6>' +
+			'<div class="row mb-2">' +
+				field('Nama Lembaga Vokasi', L0.nama) + field('Kepemilikan', L0.ownership) +
+				field('Provinsi', L0.provinsi) + field('Jenis', L0.jenis) +
+				field('Kabupaten/Kota', L0.kota) + field('Nomor Registrasi', L0.nomor_registrasi) +
+				field('Email', L0.email) + field('Nomor Legalitas', L0.nomor_legalitas) +
+			'</div>' +
+			'<h6 class="text-primary font-weight-bold border-bottom pb-1 mb-3 mt-4"><i class="fas fa-briefcase mr-1"></i> Sektor &amp; Jabatan</h6>' +
+			'<div class="row mb-2">' + sektorHtml + '</div>' +
+			'<h6 class="text-primary font-weight-bold border-bottom pb-1 mb-3 mt-4"><i class="fas fa-book mr-1"></i> Katalog Pelatihan</h6>' +
+			katHtml;
+	}
+
+	// Delegasi klik tombol "Detail" (di popup marker maupun tabel List).
+	document.addEventListener('click', function (e) {
+		var btn = e.target.closest ? e.target.closest('[data-detail]') : null;
+		if (btn) { openDetail(btn.getAttribute('data-detail')); }
+	});
+
+	// Dukung modal bertumpuk (List -> Detail) agar backdrop & z-index benar.
+	if (window.jQuery) {
+		window.jQuery(document).on('show.bs.modal', '.modal', function () {
+			var z = 1040 + (10 * window.jQuery('.modal:visible').length);
+			window.jQuery(this).css('z-index', z);
+			setTimeout(function () {
+				window.jQuery('.modal-backdrop').not('.modal-stack').css('z-index', z - 1).addClass('modal-stack');
+			}, 0);
+		});
 	}
 
 	// -----------------------------------------------------------------

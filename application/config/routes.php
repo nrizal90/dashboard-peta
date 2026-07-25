@@ -55,6 +55,7 @@ $route['default_controller'] = 'dashboard';
 $route['api/summary']       = 'api/summary';
 $route['api/refs']          = 'api/refs';
 $route['api/points']        = 'api/points';
+$route['api/lembaga_list']  = 'api/lembaga_list';
 $route['api/lembaga/(:num)']= 'api/lembaga/$1';
 $route['api/choropleth']    = 'api/choropleth';
 $route['api/stats']         = 'api/stats';

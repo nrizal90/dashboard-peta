@@ -14,7 +14,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "11",
     "provinsi": "Aceh",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 5,
     "bps_kode": null
   },
   {
@@ -23,7 +23,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "11",
     "provinsi": "Aceh",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -68,7 +68,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "51",
     "provinsi": "Bali",
-    "jumlah_lembaga": 9,
+    "jumlah_lembaga": 11,
     "bps_kode": null
   },
   {
@@ -77,7 +77,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 7,
+    "jumlah_lembaga": 9,
     "bps_kode": null
   },
   {
@@ -86,7 +86,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 5,
     "bps_kode": null
   },
   {
@@ -122,7 +122,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "63",
     "provinsi": "Kalimantan Selatan",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -131,7 +131,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 6,
     "bps_kode": null
   },
   {
@@ -140,7 +140,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "34",
     "provinsi": "DI YOGYAKARTA",
-    "jumlah_lembaga": 8,
+    "jumlah_lembaga": 9,
     "bps_kode": null
   },
   {
@@ -158,7 +158,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 9,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -167,7 +167,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 7,
+    "jumlah_lembaga": 8,
     "bps_kode": null
   },
   {
@@ -176,7 +176,25 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "63",
     "provinsi": "Kalimantan Selatan",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-barito-selatan",
+    "nama": "Kabupaten Barito Selatan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "62",
+    "provinsi": "Kalimantan Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-barito-utara",
+    "nama": "Kabupaten Barito Utara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "62",
+    "provinsi": "Kalimantan Tengah",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -194,7 +212,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 9,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -221,7 +239,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -257,7 +275,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 5,
+    "jumlah_lembaga": 6,
     "bps_kode": null
   },
   {
@@ -266,7 +284,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "51",
     "provinsi": "Bali",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -275,7 +293,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "73",
     "provinsi": "Sulawesi Selatan",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 6,
     "bps_kode": null
   },
   {
@@ -293,7 +311,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 8,
+    "jumlah_lembaga": 13,
     "bps_kode": null
   },
   {
@@ -302,7 +320,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 24,
+    "jumlah_lembaga": 29,
     "bps_kode": null
   },
   {
@@ -311,7 +329,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 16,
+    "jumlah_lembaga": 19,
     "bps_kode": null
   },
   {
@@ -320,6 +338,24 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "12",
     "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-demak",
+    "nama": "Kabupaten Demak",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-dompu",
+    "nama": "Kabupaten Dompu",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "52",
+    "provinsi": "Nusa Tenggara Barat",
     "jumlah_lembaga": 1,
     "bps_kode": null
   },
@@ -329,7 +365,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 6,
+    "jumlah_lembaga": 11,
     "bps_kode": null
   },
   {
@@ -338,7 +374,16 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "51",
     "provinsi": "Bali",
-    "jumlah_lembaga": 15,
+    "jumlah_lembaga": 21,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-gorontalo-utara",
+    "nama": "Kabupaten Gorontalo Utara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "75",
+    "provinsi": "Gorontalo",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -347,7 +392,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "73",
     "provinsi": "Sulawesi Selatan",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -365,7 +410,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 14,
+    "jumlah_lembaga": 17,
     "bps_kode": null
   },
   {
@@ -378,11 +423,29 @@
     "bps_kode": null
   },
   {
+    "slug": "kabupaten-hulu-sungai-utara",
+    "nama": "Kabupaten Hulu Sungai Utara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "63",
+    "provinsi": "Kalimantan Selatan",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
     "slug": "kabupaten-humbang-hasundutan",
     "nama": "Kabupaten Humbang Hasundutan",
     "tipe": "Kabupaten",
     "provinsi_kode": "12",
     "provinsi": "Sumatera Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-indragiri-hulu",
+    "nama": "Kabupaten Indragiri Hulu",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "14",
+    "provinsi": "Riau",
     "jumlah_lembaga": 1,
     "bps_kode": null
   },
@@ -401,7 +464,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 8,
+    "jumlah_lembaga": 11,
     "bps_kode": null
   },
   {
@@ -410,7 +473,16 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "51",
     "provinsi": "Bali",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-jepara",
+    "nama": "Kabupaten Jepara",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -423,12 +495,21 @@
     "bps_kode": null
   },
   {
+    "slug": "kabupaten-kapuas",
+    "nama": "Kabupaten Kapuas",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "62",
+    "provinsi": "Kalimantan Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
     "slug": "kabupaten-karanganyar",
     "nama": "Kabupaten Karanganyar",
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 13,
+    "jumlah_lembaga": 17,
     "bps_kode": null
   },
   {
@@ -437,7 +518,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "51",
     "provinsi": "Bali",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -446,7 +527,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 11,
+    "jumlah_lembaga": 12,
     "bps_kode": null
   },
   {
@@ -459,12 +540,21 @@
     "bps_kode": null
   },
   {
+    "slug": "kabupaten-katingan",
+    "nama": "Kabupaten Katingan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "62",
+    "provinsi": "Kalimantan Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
     "slug": "kabupaten-kebumen",
     "nama": "Kabupaten Kebumen",
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 7,
     "bps_kode": null
   },
   {
@@ -473,7 +563,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 5,
     "bps_kode": null
   },
   {
@@ -486,12 +576,39 @@
     "bps_kode": null
   },
   {
+    "slug": "kabupaten-kepulauan-sangihe",
+    "nama": "Kabupaten Kepulauan Sangihe",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "71",
+    "provinsi": "Sulawesi Utara",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-kerinci",
+    "nama": "Kabupaten Kerinci",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "15",
+    "provinsi": "Jambi",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
     "slug": "kabupaten-klaten",
     "nama": "Kabupaten Klaten",
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 8,
+    "jumlah_lembaga": 10,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-klungkung",
+    "nama": "Kabupaten Klungkung",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "51",
+    "provinsi": "Bali",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -500,7 +617,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "62",
     "provinsi": "Kalimantan Tengah",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -509,7 +626,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "62",
     "provinsi": "Kalimantan Tengah",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -536,7 +653,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "34",
     "provinsi": "DI YOGYAKARTA",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -572,7 +689,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "18",
     "provinsi": "Lampung",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -581,7 +698,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "18",
     "provinsi": "Lampung",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -599,7 +716,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "13",
     "provinsi": "Sumatera Barat",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -608,7 +725,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "52",
     "provinsi": "Nusa Tenggara Barat",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 9,
     "bps_kode": null
   },
   {
@@ -617,7 +734,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "52",
     "provinsi": "Nusa Tenggara Barat",
-    "jumlah_lembaga": 5,
+    "jumlah_lembaga": 11,
     "bps_kode": null
   },
   {
@@ -626,7 +743,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "52",
     "provinsi": "Nusa Tenggara Barat",
-    "jumlah_lembaga": 6,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -635,6 +752,15 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-luwu-timur",
+    "nama": "Kabupaten Luwu Timur",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "73",
+    "provinsi": "Sulawesi Selatan",
     "jumlah_lembaga": 1,
     "bps_kode": null
   },
@@ -653,7 +779,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 9,
+    "jumlah_lembaga": 15,
     "bps_kode": null
   },
   {
@@ -662,7 +788,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 5,
+    "jumlah_lembaga": 7,
     "bps_kode": null
   },
   {
@@ -698,6 +824,15 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "71",
     "provinsi": "Sulawesi Utara",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-minahasa-selatan",
+    "nama": "Kabupaten Minahasa Selatan",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "71",
+    "provinsi": "Sulawesi Utara",
     "jumlah_lembaga": 1,
     "bps_kode": null
   },
@@ -711,12 +846,21 @@
     "bps_kode": null
   },
   {
+    "slug": "kabupaten-muaro-jambi",
+    "nama": "Kabupaten Muaro Jambi",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "15",
+    "provinsi": "Jambi",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
     "slug": "kabupaten-murung-raya",
     "nama": "Kabupaten Murung Raya",
     "tipe": "Kabupaten",
     "provinsi_kode": "62",
     "provinsi": "Kalimantan Tengah",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -761,12 +905,21 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "65",
     "provinsi": "Kalimantan Utara",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
     "slug": "kabupaten-ogan-komering-ilir",
     "nama": "Kabupaten Ogan Komering Ilir",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "16",
+    "provinsi": "Sumatera Selatan",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-ogan-komering-ulu",
+    "nama": "Kabupaten Ogan Komering Ulu",
     "tipe": "Kabupaten",
     "provinsi_kode": "16",
     "provinsi": "Sumatera Selatan",
@@ -779,7 +932,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "16",
     "provinsi": "Sumatera Selatan",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -810,6 +963,24 @@
     "bps_kode": null
   },
   {
+    "slug": "kabupaten-parigi-moutong",
+    "nama": "Kabupaten Parigi Moutong",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "72",
+    "provinsi": "Sulawesi Tengah",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-pasaman",
+    "nama": "Kabupaten Pasaman",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "13",
+    "provinsi": "Sumatera Barat",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
     "slug": "kabupaten-pasuruan",
     "nama": "Kabupaten Pasuruan",
     "tipe": "Kabupaten",
@@ -824,7 +995,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 10,
+    "jumlah_lembaga": 14,
     "bps_kode": null
   },
   {
@@ -833,7 +1004,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -842,7 +1013,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "13",
     "provinsi": "Sumatera Barat",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -851,7 +1022,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 7,
+    "jumlah_lembaga": 9,
     "bps_kode": null
   },
   {
@@ -878,7 +1049,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 5,
     "bps_kode": null
   },
   {
@@ -888,6 +1059,15 @@
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
     "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-rembang",
+    "nama": "Kabupaten Rembang",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -914,7 +1094,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "36",
     "provinsi": "Banten",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -932,7 +1112,16 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 5,
+    "jumlah_lembaga": 8,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-sigi",
+    "nama": "Kabupaten Sigi",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "72",
+    "provinsi": "Sulawesi Tengah",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -941,7 +1130,16 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "73",
     "provinsi": "Sulawesi Selatan",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-situbondo",
+    "nama": "Kabupaten Situbondo",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -950,7 +1148,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "34",
     "provinsi": "DI YOGYAKARTA",
-    "jumlah_lembaga": 18,
+    "jumlah_lembaga": 21,
     "bps_kode": null
   },
   {
@@ -959,7 +1157,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 8,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -968,7 +1166,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 7,
+    "jumlah_lembaga": 9,
     "bps_kode": null
   },
   {
@@ -977,7 +1175,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -986,7 +1184,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 13,
+    "jumlah_lembaga": 16,
     "bps_kode": null
   },
   {
@@ -995,7 +1193,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "52",
     "provinsi": "Nusa Tenggara Barat",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -1004,6 +1202,15 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tabalong",
+    "nama": "Kabupaten Tabalong",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "63",
+    "provinsi": "Kalimantan Selatan",
     "jumlah_lembaga": 2,
     "bps_kode": null
   },
@@ -1017,12 +1224,30 @@
     "bps_kode": null
   },
   {
+    "slug": "kabupaten-tanah-bumbu",
+    "nama": "Kabupaten Tanah Bumbu",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "63",
+    "provinsi": "Kalimantan Selatan",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-tanah-laut",
+    "nama": "Kabupaten Tanah Laut",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "63",
+    "provinsi": "Kalimantan Selatan",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
     "slug": "kabupaten-tangerang",
     "nama": "Kabupaten Tangerang",
     "tipe": "Kabupaten",
     "provinsi_kode": "36",
     "provinsi": "Banten",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -1031,7 +1256,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "18",
     "provinsi": "Lampung",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -1040,7 +1265,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "12",
     "provinsi": "Sumatera Utara",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -1053,12 +1278,21 @@
     "bps_kode": null
   },
   {
+    "slug": "kabupaten-tegal",
+    "nama": "Kabupaten Tegal",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "33",
+    "provinsi": "Jawa Tengah",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
     "slug": "kabupaten-temanggung",
     "nama": "Kabupaten Temanggung",
     "tipe": "Kabupaten",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 5,
     "bps_kode": null
   },
   {
@@ -1068,6 +1302,15 @@
     "provinsi_kode": "12",
     "provinsi": "Sumatera Utara",
     "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
+    "slug": "kabupaten-toli-toli",
+    "nama": "Kabupaten Toli-Toli",
+    "tipe": "Kabupaten",
+    "provinsi_kode": "72",
+    "provinsi": "Sulawesi Tengah",
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -1085,7 +1328,7 @@
     "tipe": "Kabupaten",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -1125,12 +1368,30 @@
     "bps_kode": null
   },
   {
+    "slug": "kota-ambon",
+    "nama": "Kota Ambon",
+    "tipe": "Kota",
+    "provinsi_kode": "81",
+    "provinsi": "Maluku",
+    "jumlah_lembaga": 3,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-balikpapan",
+    "nama": "Kota Balikpapan",
+    "tipe": "Kota",
+    "provinsi_kode": "64",
+    "provinsi": "Kalimantan Timur",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
     "slug": "kota-banda-aceh",
     "nama": "Kota Banda Aceh",
     "tipe": "Kota",
     "provinsi_kode": "11",
     "provinsi": "Aceh",
-    "jumlah_lembaga": 8,
+    "jumlah_lembaga": 15,
     "bps_kode": null
   },
   {
@@ -1139,7 +1400,7 @@
     "tipe": "Kota",
     "provinsi_kode": "18",
     "provinsi": "Lampung",
-    "jumlah_lembaga": 15,
+    "jumlah_lembaga": 16,
     "bps_kode": null
   },
   {
@@ -1148,7 +1409,7 @@
     "tipe": "Kota",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 19,
+    "jumlah_lembaga": 25,
     "bps_kode": null
   },
   {
@@ -1157,7 +1418,7 @@
     "tipe": "Kota",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -1166,7 +1427,7 @@
     "tipe": "Kota",
     "provinsi_kode": "63",
     "provinsi": "Kalimantan Selatan",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 7,
     "bps_kode": null
   },
   {
@@ -1175,7 +1436,7 @@
     "tipe": "Kota",
     "provinsi_kode": "63",
     "provinsi": "Kalimantan Selatan",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -1184,7 +1445,7 @@
     "tipe": "Kota",
     "provinsi_kode": "21",
     "provinsi": "Kepulauan Riau",
-    "jumlah_lembaga": 9,
+    "jumlah_lembaga": 12,
     "bps_kode": null
   },
   {
@@ -1193,7 +1454,7 @@
     "tipe": "Kota",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 28,
+    "jumlah_lembaga": 29,
     "bps_kode": null
   },
   {
@@ -1220,7 +1481,7 @@
     "tipe": "Kota",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -1238,7 +1499,7 @@
     "tipe": "Kota",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -1247,7 +1508,7 @@
     "tipe": "Kota",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 5,
     "bps_kode": null
   },
   {
@@ -1256,7 +1517,7 @@
     "tipe": "Kota",
     "provinsi_kode": "51",
     "provinsi": "Bali",
-    "jumlah_lembaga": 20,
+    "jumlah_lembaga": 21,
     "bps_kode": null
   },
   {
@@ -1278,12 +1539,21 @@
     "bps_kode": null
   },
   {
+    "slug": "kota-gorontalo",
+    "nama": "Kota Gorontalo",
+    "tipe": "Kota",
+    "provinsi_kode": "75",
+    "provinsi": "Gorontalo",
+    "jumlah_lembaga": 1,
+    "bps_kode": null
+  },
+  {
     "slug": "kota-jakarta-barat",
     "nama": "Kota Jakarta Barat",
     "tipe": "Kota",
     "provinsi_kode": "31",
     "provinsi": "DKI JAKARTA",
-    "jumlah_lembaga": 5,
+    "jumlah_lembaga": 6,
     "bps_kode": null
   },
   {
@@ -1292,7 +1562,7 @@
     "tipe": "Kota",
     "provinsi_kode": "31",
     "provinsi": "DKI JAKARTA",
-    "jumlah_lembaga": 9,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -1301,7 +1571,7 @@
     "tipe": "Kota",
     "provinsi_kode": "31",
     "provinsi": "DKI JAKARTA",
-    "jumlah_lembaga": 13,
+    "jumlah_lembaga": 19,
     "bps_kode": null
   },
   {
@@ -1310,7 +1580,7 @@
     "tipe": "Kota",
     "provinsi_kode": "31",
     "provinsi": "DKI JAKARTA",
-    "jumlah_lembaga": 10,
+    "jumlah_lembaga": 15,
     "bps_kode": null
   },
   {
@@ -1319,7 +1589,7 @@
     "tipe": "Kota",
     "provinsi_kode": "31",
     "provinsi": "DKI JAKARTA",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 4,
     "bps_kode": null
   },
   {
@@ -1329,6 +1599,15 @@
     "provinsi_kode": "15",
     "provinsi": "Jambi",
     "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-jayapura",
+    "nama": "Kota Jayapura",
+    "tipe": "Kota",
+    "provinsi_kode": "94",
+    "provinsi": "Papua",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -1346,7 +1625,7 @@
     "tipe": "Kota",
     "provinsi_kode": "74",
     "provinsi": "Sulawesi Tenggara",
-    "jumlah_lembaga": 5,
+    "jumlah_lembaga": 8,
     "bps_kode": null
   },
   {
@@ -1364,7 +1643,7 @@
     "tipe": "Kota",
     "provinsi_kode": "11",
     "provinsi": "Aceh",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -1373,7 +1652,7 @@
     "tipe": "Kota",
     "provinsi_kode": "11",
     "provinsi": "Aceh",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -1382,7 +1661,7 @@
     "tipe": "Kota",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 3,
     "bps_kode": null
   },
   {
@@ -1391,7 +1670,7 @@
     "tipe": "Kota",
     "provinsi_kode": "73",
     "provinsi": "Sulawesi Selatan",
-    "jumlah_lembaga": 8,
+    "jumlah_lembaga": 20,
     "bps_kode": null
   },
   {
@@ -1400,7 +1679,7 @@
     "tipe": "Kota",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 15,
+    "jumlah_lembaga": 19,
     "bps_kode": null
   },
   {
@@ -1418,7 +1697,7 @@
     "tipe": "Kota",
     "provinsi_kode": "52",
     "provinsi": "Nusa Tenggara Barat",
-    "jumlah_lembaga": 12,
+    "jumlah_lembaga": 18,
     "bps_kode": null
   },
   {
@@ -1427,7 +1706,7 @@
     "tipe": "Kota",
     "provinsi_kode": "12",
     "provinsi": "Sumatera Utara",
-    "jumlah_lembaga": 14,
+    "jumlah_lembaga": 16,
     "bps_kode": null
   },
   {
@@ -1436,7 +1715,7 @@
     "tipe": "Kota",
     "provinsi_kode": "18",
     "provinsi": "Lampung",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 7,
     "bps_kode": null
   },
   {
@@ -1445,7 +1724,7 @@
     "tipe": "Kota",
     "provinsi_kode": "13",
     "provinsi": "Sumatera Barat",
-    "jumlah_lembaga": 6,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -1454,7 +1733,7 @@
     "tipe": "Kota",
     "provinsi_kode": "16",
     "provinsi": "Sumatera Selatan",
-    "jumlah_lembaga": 7,
+    "jumlah_lembaga": 11,
     "bps_kode": null
   },
   {
@@ -1472,7 +1751,7 @@
     "tipe": "Kota",
     "provinsi_kode": "72",
     "provinsi": "Sulawesi Tengah",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 9,
     "bps_kode": null
   },
   {
@@ -1482,6 +1761,15 @@
     "provinsi_kode": "19",
     "provinsi": "Kepulauan Bangka Belitung",
     "jumlah_lembaga": 6,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-pasuruan",
+    "nama": "Kota Pasuruan",
+    "tipe": "Kota",
+    "provinsi_kode": "35",
+    "provinsi": "Jawa Timur",
+    "jumlah_lembaga": 1,
     "bps_kode": null
   },
   {
@@ -1499,7 +1787,7 @@
     "tipe": "Kota",
     "provinsi_kode": "14",
     "provinsi": "Riau",
-    "jumlah_lembaga": 7,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -1526,7 +1814,7 @@
     "tipe": "Kota",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 5,
     "bps_kode": null
   },
   {
@@ -1544,7 +1832,7 @@
     "tipe": "Kota",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 7,
+    "jumlah_lembaga": 11,
     "bps_kode": null
   },
   {
@@ -1553,6 +1841,15 @@
     "tipe": "Kota",
     "provinsi_kode": "36",
     "provinsi": "Banten",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
+    "slug": "kota-sorong",
+    "nama": "Kota Sorong",
+    "tipe": "Kota",
+    "provinsi_kode": "92",
+    "provinsi": "Papua Barat Daya",
     "jumlah_lembaga": 1,
     "bps_kode": null
   },
@@ -1562,7 +1859,7 @@
     "tipe": "Kota",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 9,
     "bps_kode": null
   },
   {
@@ -1571,7 +1868,7 @@
     "tipe": "Kota",
     "provinsi_kode": "35",
     "provinsi": "Jawa Timur",
-    "jumlah_lembaga": 9,
+    "jumlah_lembaga": 10,
     "bps_kode": null
   },
   {
@@ -1580,7 +1877,7 @@
     "tipe": "Kota",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 15,
+    "jumlah_lembaga": 18,
     "bps_kode": null
   },
   {
@@ -1589,7 +1886,7 @@
     "tipe": "Kota",
     "provinsi_kode": "36",
     "provinsi": "Banten",
-    "jumlah_lembaga": 3,
+    "jumlah_lembaga": 5,
     "bps_kode": null
   },
   {
@@ -1602,12 +1899,21 @@
     "bps_kode": null
   },
   {
+    "slug": "kota-tanjung-pinang",
+    "nama": "Kota Tanjung Pinang",
+    "tipe": "Kota",
+    "provinsi_kode": "21",
+    "provinsi": "Kepulauan Riau",
+    "jumlah_lembaga": 2,
+    "bps_kode": null
+  },
+  {
     "slug": "kota-tarakan",
     "nama": "Kota Tarakan",
     "tipe": "Kota",
     "provinsi_kode": "65",
     "provinsi": "Kalimantan Utara",
-    "jumlah_lembaga": 1,
+    "jumlah_lembaga": 2,
     "bps_kode": null
   },
   {
@@ -1616,7 +1922,7 @@
     "tipe": "Kota",
     "provinsi_kode": "32",
     "provinsi": "Jawa Barat",
-    "jumlah_lembaga": 5,
+    "jumlah_lembaga": 6,
     "bps_kode": null
   },
   {
@@ -1634,7 +1940,7 @@
     "tipe": "Kota",
     "provinsi_kode": "33",
     "provinsi": "Jawa Tengah",
-    "jumlah_lembaga": 4,
+    "jumlah_lembaga": 6,
     "bps_kode": null
   },
   {
@@ -1643,7 +1949,7 @@
     "tipe": "Kota",
     "provinsi_kode": "82",
     "provinsi": "Maluku Utara",
-    "jumlah_lembaga": 2,
+    "jumlah_lembaga": 6,
     "bps_kode": null
   },
   {
@@ -1652,7 +1958,7 @@
     "tipe": "Kota",
     "provinsi_kode": "34",
     "provinsi": "DI YOGYAKARTA",
-    "jumlah_lembaga": 19,
+    "jumlah_lembaga": 23,
     "bps_kode": null
   }
 ]

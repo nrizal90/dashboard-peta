@@ -1,57 +1,63 @@
 {
-  "generated_at": "2026-07-16T06:45:35.735761+00:00",
+  "generated_at": "2026-07-25T13:15:48.452798+00:00",
   "sumber": [
-    "view_vokasi_detail_20260712.xlsx",
-    "view_vokasi_detail_sektor_20260712.xlsx"
+    "VOKASI_detail_20260724.xlsx",
+    "VOKASI_detail_sektor_20260724.xlsx",
+    "KATALOG_detail_20260724.xlsx"
   ],
   "lembaga": {
-    "total_baris": 887,
-    "unik_primary": 776,
-    "duplikat_ditandai": 111
+    "total_baris": 1209,
+    "unik_primary": 1048,
+    "duplikat_ditandai": 161
+  },
+  "katalog": {
+    "total_katalog": 47,
+    "lembaga_punya_katalog": 20,
+    "persen_lembaga_ada_katalog": 1.9
   },
   "kapasitas": {
-    "total": 242631,
+    "total": 323503,
     "median": 100,
     "max": 40000,
-    "iqr_fence": 550.0
+    "iqr_fence": 565.0
   },
   "koordinat": {
-    "asli": 600,
-    "centroid_kota": 248,
-    "centroid_provinsi": 39,
+    "asli": 839,
+    "centroid_kota": 336,
+    "centroid_provinsi": 34,
     "tidak_ada": 0,
-    "persen_asli": 67.6
+    "persen_asli": 69.4
   },
   "wilayah": {
-    "provinsi": 30,
-    "kota": 184
+    "provinsi": 34,
+    "kota": 218
   },
   "sektor": {
     "total_sektor": 19,
-    "total_jabatan": 310,
-    "total_relasi": 3547
+    "total_jabatan": 353,
+    "total_relasi": 4959
   },
   "verifikasi": {
     "legalitas": {
-      "accepted": 438,
-      "rejected": 333,
-      "pending": 5
+      "accepted": 668,
+      "rejected": 370,
+      "pending": 10
     },
     "fasilitas": {
-      "not_submitted": 650,
-      "accepted": 109,
-      "pending": 16,
+      "not_submitted": 806,
+      "accepted": 232,
+      "pending": 9,
       "revised": 1
     },
     "program": {
-      "not_submitted": 718,
-      "accepted": 35,
-      "pending": 23
+      "not_submitted": 936,
+      "accepted": 60,
+      "pending": 52
     }
   },
   "gap_sektor": {
-    "total_sel": 570,
-    "sel_terisi": 328,
-    "sel_kosong": 242
+    "total_sel": 646,
+    "sel_terisi": 388,
+    "sel_kosong": 258
   }
 }

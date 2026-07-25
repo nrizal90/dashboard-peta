@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 695,
     "n": "AKADEMI PARIWISATA NUSANTARA BERDAYA",
     "lat": -5.428345,
     "lng": 105.235579,
@@ -10,7 +10,17 @@
     "cs": "o"
   },
   {
-    "id": 2,
+    "id": 1749,
+    "n": "AKADEMI TAMANSISWA",
+    "lat": -6.918607,
+    "lng": 106.935231,
+    "p": "32",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 966,
     "n": "AKUN COBA - COBA",
     "lat": -6.330609,
     "lng": 106.697341,
@@ -20,17 +30,27 @@
     "cs": "o"
   },
   {
-    "id": 3,
+    "id": 890,
     "n": "ALAN PUTRA SAHAPORY",
-    "lat": -6.297902,
-    "lng": 106.954465,
+    "lat": -6.297207,
+    "lng": 106.952796,
     "p": "32",
     "o": "N",
     "k": 900,
     "cs": "c"
   },
   {
-    "id": 4,
+    "id": 1630,
+    "n": "ALLWELD",
+    "lat": -7.595936,
+    "lng": 110.294087,
+    "p": "33",
+    "o": "N",
+    "k": 300,
+    "cs": "o"
+  },
+  {
+    "id": 1043,
     "n": "AMANAH GLOBAL INDOSERVIS",
     "lat": -6.359762,
     "lng": 106.916504,
@@ -40,17 +60,37 @@
     "cs": "o"
   },
   {
-    "id": 5,
+    "id": 1706,
+    "n": "ANANTA SESA BALI COLLEGE ( ASBCollege)",
+    "lat": -8.144385,
+    "lng": 115.074667,
+    "p": "51",
+    "o": "N",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 1368,
     "n": "ARATANA KIBOU",
-    "lat": -1.614973,
-    "lng": 103.600475,
+    "lat": -1.608864,
+    "lng": 103.623268,
     "p": "15",
     "o": "N",
     "k": 700,
     "cs": "c"
   },
   {
-    "id": 6,
+    "id": 1632,
+    "n": "ARFIT KARYA UTAMA",
+    "lat": -7.897683,
+    "lng": 111.408041,
+    "p": "35",
+    "o": "N",
+    "k": 800,
+    "cs": "o"
+  },
+  {
+    "id": 1012,
     "n": "ASRI CIPTA TENAGA KARYA",
     "lat": -7.865631,
     "lng": 112.68298,
@@ -60,7 +100,7 @@
     "cs": "o"
   },
   {
-    "id": 7,
+    "id": 1353,
     "n": "AZUMY GAKUIN CENTRE",
     "lat": -6.743117,
     "lng": 107.042314,
@@ -70,7 +110,7 @@
     "cs": "o"
   },
   {
-    "id": 8,
+    "id": 711,
     "n": "Abdi Bangsa Institute",
     "lat": -6.814118,
     "lng": 107.131875,
@@ -80,7 +120,7 @@
     "cs": "o"
   },
   {
-    "id": 9,
+    "id": 1482,
     "n": "Akademi Keperawatan Teungku Fakinah Banda Aceh",
     "lat": 5.52965,
     "lng": 95.304148,
@@ -90,17 +130,17 @@
     "cs": "o"
   },
   {
-    "id": 11,
+    "id": 1226,
     "n": "Akademi Komunitas Negeri Aceh Barat",
-    "lat": 4.342417,
-    "lng": 97.141246,
+    "lat": 5.204741,
+    "lng": 96.445198,
     "p": "11",
     "o": "P",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 12,
+    "id": 1532,
     "n": "Akademi Penerbang Indonesia Banyuwangi",
     "lat": -8.314049,
     "lng": 114.343548,
@@ -110,17 +150,17 @@
     "cs": "o"
   },
   {
-    "id": 13,
+    "id": 807,
     "n": "Akademi Tata Boga Bandung",
-    "lat": -6.978873,
-    "lng": 107.67903,
+    "lat": -6.983686,
+    "lng": 107.602356,
     "p": "32",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 14,
+    "id": 1415,
     "n": "Akpar Nusantara Tasikmalaya",
     "lat": -7.317524,
     "lng": 108.220688,
@@ -130,7 +170,7 @@
     "cs": "o"
   },
   {
-    "id": 15,
+    "id": 1252,
     "n": "Alfabank",
     "lat": -7.805038,
     "lng": 110.388428,
@@ -140,27 +180,37 @@
     "cs": "o"
   },
   {
-    "id": 16,
+    "id": 1127,
     "n": "Almahyra Education Center",
-    "lat": -6.539525,
-    "lng": 107.440803,
+    "lat": -6.841108,
+    "lng": 107.512473,
     "p": "32",
     "o": "N",
     "k": 30,
     "cs": "c"
   },
   {
-    "id": 17,
+    "id": 1770,
+    "n": "Amani Rumah Belajar",
+    "lat": 1.045136,
+    "lng": 103.982565,
+    "p": "21",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1295,
     "n": "Argaraya Overseas",
-    "lat": -7.964887,
-    "lng": 112.643749,
+    "lat": -7.965397,
+    "lng": 112.641013,
     "p": "35",
     "o": "N",
     "k": 400,
     "cs": "c"
   },
   {
-    "id": 18,
+    "id": 1218,
     "n": "Ayaka Jossei Center",
     "lat": -7.610043,
     "lng": 110.30622,
@@ -170,27 +220,67 @@
     "cs": "o"
   },
   {
-    "id": 19,
+    "id": 1409,
     "n": "Ayani Kursus",
     "lat": -2.535865,
-    "lng": 112.924618,
+    "lng": 112.9455,
     "p": "62",
     "o": "N",
     "k": 70,
     "cs": "c"
   },
   {
-    "id": 22,
+    "id": 1816,
+    "n": "BALAI LATIHAN KERJA",
+    "lat": -3.446942,
+    "lng": 114.86086,
+    "p": "63",
+    "o": "P",
+    "k": 48,
+    "cs": "o"
+  },
+  {
+    "id": 1752,
+    "n": "BALAI LATIHAN KERJA SITUBONDO",
+    "lat": -7.830775,
+    "lng": 112.624314,
+    "p": "35",
+    "o": "P",
+    "k": 9,
+    "cs": "c"
+  },
+  {
+    "id": 1712,
+    "n": "BALAI PELATIHAN DAN PENYULUHAN PERIKANAN TEGAL",
+    "lat": -6.871861,
+    "lng": 109.126236,
+    "p": "33",
+    "o": "P",
+    "k": 420,
+    "cs": "c"
+  },
+  {
+    "id": 1007,
     "n": "BATC",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 23,
+    "id": 1822,
+    "n": "BBPPMPV Bidang Otomotif dan Elektronika",
+    "lat": -7.965397,
+    "lng": 112.641013,
+    "p": "35",
+    "o": "P",
+    "k": 500,
+    "cs": "c"
+  },
+  {
+    "id": 647,
     "n": "BBPVP Serang",
     "lat": -6.139753,
     "lng": 106.161577,
@@ -200,7 +290,7 @@
     "cs": "o"
   },
   {
-    "id": 24,
+    "id": 788,
     "n": "BEC ACADEMY",
     "lat": -8.616366,
     "lng": 115.160998,
@@ -210,7 +300,17 @@
     "cs": "o"
   },
   {
-    "id": 25,
+    "id": 1861,
+    "n": "BEC ACADEMY GIANYAR",
+    "lat": -8.561741,
+    "lng": 115.272285,
+    "p": "51",
+    "o": "N",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1301,
     "n": "BEI",
     "lat": -8.589985,
     "lng": 116.266969,
@@ -220,7 +320,17 @@
     "cs": "o"
   },
   {
-    "id": 26,
+    "id": 1711,
+    "n": "BERSAMA KIAN SUKSES",
+    "lat": -7.598016,
+    "lng": 110.947194,
+    "p": "33",
+    "o": "N",
+    "k": 500,
+    "cs": "o"
+  },
+  {
+    "id": 1429,
     "n": "BIMA SURYA MANDIRI",
     "lat": -8.164342,
     "lng": 111.843135,
@@ -230,7 +340,7 @@
     "cs": "c"
   },
   {
-    "id": 28,
+    "id": 965,
     "n": "BINA DINAMITA RAMA",
     "lat": -7.952619,
     "lng": 112.624314,
@@ -240,7 +350,7 @@
     "cs": "o"
   },
   {
-    "id": 29,
+    "id": 1136,
     "n": "BINA NUSANTARA SEJAHTERA",
     "lat": -7.848711,
     "lng": 111.464431,
@@ -250,7 +360,37 @@
     "cs": "c"
   },
   {
-    "id": 30,
+    "id": 1676,
+    "n": "BKK \"SMEKENSA\"",
+    "lat": -3.323942,
+    "lng": 114.578877,
+    "p": "63",
+    "o": "P",
+    "k": 1,
+    "cs": "c"
+  },
+  {
+    "id": 1661,
+    "n": "BKK SMK NEGERI 71 JAKARTA",
+    "lat": -6.257585,
+    "lng": 106.865603,
+    "p": "31",
+    "o": "P",
+    "k": 3,
+    "cs": "c"
+  },
+  {
+    "id": 1669,
+    "n": "BKK SMKN 2 BANJARBARU",
+    "lat": -3.446941,
+    "lng": 114.812778,
+    "p": "63",
+    "o": "P",
+    "k": 381,
+    "cs": "o"
+  },
+  {
+    "id": 1369,
     "n": "BLAMBANGAN COLLEGE",
     "lat": -5.896428,
     "lng": 107.032177,
@@ -260,7 +400,27 @@
     "cs": "o"
   },
   {
-    "id": 31,
+    "id": 1615,
+    "n": "BLK 14 Juni 2026",
+    "lat": -6.24339,
+    "lng": 106.856213,
+    "p": "31",
+    "o": "P",
+    "k": 1998,
+    "cs": "o"
+  },
+  {
+    "id": 1617,
+    "n": "BLK 14-07-2026",
+    "lat": -6.24339,
+    "lng": 106.856213,
+    "p": "31",
+    "o": "P",
+    "k": 998,
+    "cs": "o"
+  },
+  {
+    "id": 1418,
     "n": "BLK ANDINI MITRA SEJAHTERA",
     "lat": -7.848711,
     "lng": 111.464431,
@@ -270,7 +430,17 @@
     "cs": "c"
   },
   {
-    "id": 32,
+    "id": 1638,
+    "n": "BLK Amuntai",
+    "lat": -2.430996,
+    "lng": 115.240762,
+    "p": "63",
+    "o": "P",
+    "k": 704,
+    "cs": "o"
+  },
+  {
+    "id": 678,
     "n": "BLK Bandar Lampung",
     "lat": -5.433945,
     "lng": 105.25574,
@@ -280,7 +450,17 @@
     "cs": "o"
   },
   {
-    "id": 33,
+    "id": 1721,
+    "n": "BLK KABUPATEN KATINGAN",
+    "lat": -1.87233,
+    "lng": 113.420159,
+    "p": "62",
+    "o": "P",
+    "k": 16,
+    "cs": "o"
+  },
+  {
+    "id": 995,
     "n": "BLK KOMUNITAS RAUDLATUL MUTTAQIN",
     "lat": -7.122928,
     "lng": 112.922605,
@@ -290,7 +470,17 @@
     "cs": "o"
   },
   {
-    "id": 34,
+    "id": 1797,
+    "n": "BLK Komunitas Fadilatul Islamiyah",
+    "lat": -8.515642,
+    "lng": 118.319964,
+    "p": "52",
+    "o": "N",
+    "k": 16,
+    "cs": "o"
+  },
+  {
+    "id": 1402,
     "n": "BLK Pusdatin Opersaional",
     "lat": -6.243454,
     "lng": 106.851099,
@@ -300,7 +490,17 @@
     "cs": "o"
   },
   {
-    "id": 35,
+    "id": 1,
+    "n": "BLK Pusdatin Opersaional 2",
+    "lat": -6.243454,
+    "lng": 106.851099,
+    "p": "31",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1485,
     "n": "BLK-LN DIAZ SUKSES",
     "lat": -7.759248,
     "lng": 111.535294,
@@ -310,7 +510,7 @@
     "cs": "o"
   },
   {
-    "id": 36,
+    "id": 753,
     "n": "BLK-LN PRIMA DUTA SEJATI KENDAL",
     "lat": -6.962861,
     "lng": 110.259875,
@@ -320,27 +520,47 @@
     "cs": "o"
   },
   {
-    "id": 37,
+    "id": 949,
     "n": "BLKLN ALIS JAYA",
-    "lat": -6.31629,
-    "lng": 107.776675,
+    "lat": -6.444484,
+    "lng": 107.753673,
     "p": "32",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 38,
+    "id": 1263,
     "n": "BLKLN BERHASIL LANGGENG KENCANA",
-    "lat": -6.801351,
-    "lng": 108.524513,
+    "lat": -6.764683,
+    "lng": 108.530895,
     "p": "32",
     "o": "N",
     "k": 400,
     "cs": "c"
   },
   {
-    "id": 39,
+    "id": 1829,
+    "n": "BLKLN JAYASRI SUKSES MANDIRI",
+    "lat": -7.400649,
+    "lng": 109.622045,
+    "p": "33",
+    "o": "N",
+    "k": 120,
+    "cs": "o"
+  },
+  {
+    "id": 1695,
+    "n": "BLKLN LOMBOK MANDIRI",
+    "lat": -8.649836,
+    "lng": 116.118245,
+    "p": "52",
+    "o": "N",
+    "k": 400,
+    "cs": "o"
+  },
+  {
+    "id": 994,
     "n": "BLKLN Maharani",
     "lat": -7.077692,
     "lng": 110.901462,
@@ -350,17 +570,17 @@
     "cs": "o"
   },
   {
-    "id": 40,
+    "id": 1320,
     "n": "BLKLN NUR FAUZAN SEJAHTERA",
-    "lat": -6.31629,
-    "lng": 107.776675,
+    "lat": -6.444484,
+    "lng": 107.753673,
     "p": "32",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 41,
+    "id": 907,
     "n": "BLKLN PERWITA NUSARAYA",
     "lat": -7.408423,
     "lng": 112.550254,
@@ -370,7 +590,17 @@
     "cs": "o"
   },
   {
-    "id": 42,
+    "id": 1775,
+    "n": "BLKLN PUTRA DEWANGGA",
+    "lat": -7.390941,
+    "lng": 109.720586,
+    "p": "33",
+    "o": "N",
+    "k": 480,
+    "cs": "o"
+  },
+  {
+    "id": 908,
     "n": "BLKLN TIARAMAS RONAGEMILANG",
     "lat": -6.801351,
     "lng": 108.524513,
@@ -380,7 +610,17 @@
     "cs": "o"
   },
   {
-    "id": 43,
+    "id": 1853,
+    "n": "BLKN DUTA KENCANA BANJARNEGARA",
+    "lat": -7.399226,
+    "lng": 109.649447,
+    "p": "33",
+    "o": "N",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 769,
     "n": "BLUE OCEAN",
     "lat": -7.565434,
     "lng": 110.801775,
@@ -390,7 +630,17 @@
     "cs": "o"
   },
   {
-    "id": 44,
+    "id": 1946,
+    "n": "BSPJI PEKANBARU",
+    "lat": 0.515668,
+    "lng": 101.484811,
+    "p": "14",
+    "o": "P",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 1531,
     "n": "BUDI LUHUR",
     "lat": -8.539724,
     "lng": 116.082872,
@@ -400,7 +650,7 @@
     "cs": "o"
   },
   {
-    "id": 45,
+    "id": 747,
     "n": "BUDI MULIA DUA CULINARY SCHOOL",
     "lat": -7.735832,
     "lng": 110.434509,
@@ -410,7 +660,17 @@
     "cs": "o"
   },
   {
-    "id": 46,
+    "id": 1627,
+    "n": "BUSAN",
+    "lat": -7.61512,
+    "lng": 110.308034,
+    "p": "33",
+    "o": "N",
+    "k": 300,
+    "cs": "o"
+  },
+  {
+    "id": 791,
     "n": "BUSAN WONOSOBO",
     "lat": -7.397488,
     "lng": 109.890508,
@@ -420,17 +680,17 @@
     "cs": "o"
   },
   {
-    "id": 47,
+    "id": 1140,
     "n": "Baiturrahim Migran Center",
-    "lat": -1.614973,
-    "lng": 103.600475,
+    "lat": -1.608864,
+    "lng": 103.623268,
     "p": "15",
     "o": "N",
     "k": 500,
     "cs": "c"
   },
   {
-    "id": 48,
+    "id": 645,
     "n": "Balai Besar Pelatihan Pertanian (BBPP) Ketindan",
     "lat": -7.83083,
     "lng": 112.66639,
@@ -440,17 +700,17 @@
     "cs": "o"
   },
   {
-    "id": 49,
+    "id": 1407,
     "n": "Balai Besar Pelatihan Pertanian Batangkaluku",
-    "lat": -5.122265,
-    "lng": 119.453204,
+    "lat": -5.208939,
+    "lng": 119.467484,
     "p": "73",
     "o": "P",
     "k": 149,
     "cs": "c"
   },
   {
-    "id": 50,
+    "id": 646,
     "n": "Balai Besar Pelatihan Pertanian Ketindan",
     "lat": -7.830775,
     "lng": 112.686811,
@@ -460,7 +720,17 @@
     "cs": "o"
   },
   {
-    "id": 51,
+    "id": 1689,
+    "n": "Balai Besar Standardisasi dan Pelayanan Jasa Industri Kerajinan dan Batik",
+    "lat": -7.801521,
+    "lng": 110.381936,
+    "p": "34",
+    "o": "P",
+    "k": 150,
+    "cs": "o"
+  },
+  {
+    "id": 1460,
     "n": "Balai DIklat Industri Padang",
     "lat": -0.864086,
     "lng": 100.342349,
@@ -470,7 +740,7 @@
     "cs": "o"
   },
   {
-    "id": 52,
+    "id": 1151,
     "n": "Balai Diklat Industri Denpasar",
     "lat": -8.638659,
     "lng": 115.255192,
@@ -480,7 +750,7 @@
     "cs": "o"
   },
   {
-    "id": 53,
+    "id": 653,
     "n": "Balai Diklat Industri Jakarta",
     "lat": -6.345442,
     "lng": 106.859351,
@@ -490,7 +760,7 @@
     "cs": "o"
   },
   {
-    "id": 54,
+    "id": 1404,
     "n": "Balai Diklat Industri Makassar",
     "lat": -5.085352,
     "lng": 119.518887,
@@ -500,7 +770,7 @@
     "cs": "o"
   },
   {
-    "id": 55,
+    "id": 959,
     "n": "Balai Diklat Industri Medan",
     "lat": 3.536601,
     "lng": 98.732562,
@@ -510,7 +780,7 @@
     "cs": "o"
   },
   {
-    "id": 56,
+    "id": 893,
     "n": "Balai Diklat Industri Surabaya",
     "lat": -7.330543,
     "lng": 112.721809,
@@ -520,7 +790,7 @@
     "cs": "o"
   },
   {
-    "id": 57,
+    "id": 1053,
     "n": "Balai Diklat Industri Yogyakarta",
     "lat": -7.81633,
     "lng": 110.401779,
@@ -530,7 +800,7 @@
     "cs": "o"
   },
   {
-    "id": 58,
+    "id": 648,
     "n": "Balai Jasa Konstruksi Wilayah IV Surabaya",
     "lat": -7.2899,
     "lng": 112.68833,
@@ -540,7 +810,7 @@
     "cs": "o"
   },
   {
-    "id": 59,
+    "id": 844,
     "n": "Balai Kerja Mataram",
     "lat": -8.597144,
     "lng": 116.147045,
@@ -550,9 +820,9 @@
     "cs": "o"
   },
   {
-    "id": 60,
+    "id": 688,
     "n": "Balai Latihan Kerja dan Pengembangan Produktivitas DIY",
-    "lat": -7.8036,
+    "lat": -7.801866,
     "lng": 110.382493,
     "p": "34",
     "o": "P",
@@ -560,7 +830,17 @@
     "cs": "c"
   },
   {
-    "id": 62,
+    "id": 1565,
+    "n": "Balai Latihan Pendidikan Teknik",
+    "lat": -7.781635,
+    "lng": 110.354171,
+    "p": "34",
+    "o": "P",
+    "k": 150,
+    "cs": "o"
+  },
+  {
+    "id": 1385,
     "n": "Balai Pelatihan Pertanian Lampung",
     "lat": -6.107201,
     "lng": 106.732373,
@@ -570,7 +850,37 @@
     "cs": "o"
   },
   {
-    "id": 64,
+    "id": 1625,
+    "n": "Balai Pelatihan Vokasi dan Produktivitas Banda Aceh",
+    "lat": 5.528437,
+    "lng": 95.308473,
+    "p": "11",
+    "o": "P",
+    "k": 2438,
+    "cs": "o"
+  },
+  {
+    "id": 1592,
+    "n": "Balai Pendidikan dan Pelatihan Keagamaan Surabaya",
+    "lat": -7.277602,
+    "lng": 112.737595,
+    "p": "35",
+    "o": "P",
+    "k": 300,
+    "cs": "c"
+  },
+  {
+    "id": 1668,
+    "n": "Bali Crystal College",
+    "lat": -8.437215,
+    "lng": 115.307664,
+    "p": "51",
+    "o": "N",
+    "k": 541,
+    "cs": "o"
+  },
+  {
+    "id": 806,
     "n": "Bali Saraswati Spa Academy",
     "lat": -8.587057,
     "lng": 115.347385,
@@ -580,7 +890,7 @@
     "cs": "o"
   },
   {
-    "id": 65,
+    "id": 804,
     "n": "Bali Saraswati Spa Academy (BSSA)",
     "lat": -8.587035,
     "lng": 115.347043,
@@ -590,7 +900,7 @@
     "cs": "o"
   },
   {
-    "id": 66,
+    "id": 1104,
     "n": "Barada",
     "lat": -6.463547,
     "lng": 108.440233,
@@ -600,9 +910,9 @@
     "cs": "o"
   },
   {
-    "id": 67,
+    "id": 1209,
     "n": "Batam Tourism Polytechnic",
-    "lat": 1.072672,
+    "lat": 1.106721,
     "lng": 104.04935,
     "p": "21",
     "o": "N",
@@ -610,7 +920,7 @@
     "cs": "c"
   },
   {
-    "id": 68,
+    "id": 714,
     "n": "Bhakti Nusa",
     "lat": -6.988983,
     "lng": 110.418051,
@@ -620,7 +930,7 @@
     "cs": "o"
   },
   {
-    "id": 69,
+    "id": 892,
     "n": "Bina Insani MTC Magelang",
     "lat": -7.574575,
     "lng": 110.25766,
@@ -630,7 +940,7 @@
     "cs": "o"
   },
   {
-    "id": 70,
+    "id": 1164,
     "n": "Bina Insani MTC Yogyakarta",
     "lat": -7.806163,
     "lng": 110.382737,
@@ -640,17 +950,17 @@
     "cs": "o"
   },
   {
-    "id": 72,
+    "id": 1444,
     "n": "Bina Insani Surakarta",
-    "lat": -7.561145,
-    "lng": 110.80797,
+    "lat": -7.554628,
+    "lng": 110.804733,
     "p": "33",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 74,
+    "id": 1072,
     "n": "Bina Mandiri Welding Training Centre",
     "lat": -7.345896,
     "lng": 109.915132,
@@ -660,17 +970,17 @@
     "cs": "c"
   },
   {
-    "id": 75,
+    "id": 1123,
     "n": "Bina Teknologi",
-    "lat": -6.539525,
-    "lng": 107.440803,
+    "lat": -6.841108,
+    "lng": 107.512473,
     "p": "32",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 76,
+    "id": 1552,
     "n": "Binnabil jaya abadi",
     "lat": -8.593135,
     "lng": 116.58207,
@@ -680,7 +990,17 @@
     "cs": "o"
   },
   {
-    "id": 77,
+    "id": 1782,
+    "n": "Bright English institute ( BEI )",
+    "lat": -8.589699,
+    "lng": 116.266623,
+    "p": "52",
+    "o": "N",
+    "k": 39,
+    "cs": "o"
+  },
+  {
+    "id": 1493,
     "n": "Budi Luhur Migrant Center",
     "lat": -6.905922,
     "lng": 107.519928,
@@ -690,7 +1010,7 @@
     "cs": "o"
   },
   {
-    "id": 78,
+    "id": 997,
     "n": "Bumi Kreatif Institute",
     "lat": -6.911155,
     "lng": 106.936171,
@@ -700,27 +1020,47 @@
     "cs": "o"
   },
   {
-    "id": 79,
+    "id": 1260,
     "n": "CAHAYA GLOBAL",
-    "lat": -6.978873,
-    "lng": 107.67903,
+    "lat": -6.983686,
+    "lng": 107.602356,
     "p": "32",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 81,
+    "id": 1472,
+    "n": "CAHAYA SINAR GEMILANG",
+    "lat": -7.091294,
+    "lng": 110.905446,
+    "p": "33",
+    "o": "N",
+    "k": 150,
+    "cs": "c"
+  },
+  {
+    "id": 1733,
+    "n": "CATUR TRANING CENTRE",
+    "lat": 1.1128,
+    "lng": 104.091772,
+    "p": "21",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 729,
     "n": "CEREMONY COLLEGE TEGAL",
-    "lat": -6.874281,
-    "lng": 109.10896,
+    "lat": -6.871861,
+    "lng": 109.126236,
     "p": "33",
     "o": "N",
     "k": 60,
     "cs": "c"
   },
   {
-    "id": 82,
+    "id": 929,
     "n": "CITRA ABDI NUSA",
     "lat": -7.932935,
     "lng": 112.658355,
@@ -730,7 +1070,7 @@
     "cs": "o"
   },
   {
-    "id": 83,
+    "id": 872,
     "n": "CV Ar'rahman Sukses Mandiri",
     "lat": -6.309956,
     "lng": 106.865603,
@@ -740,17 +1080,7 @@
     "cs": "o"
   },
   {
-    "id": 84,
-    "n": "Cahaya Sinar Gemilang",
-    "lat": -7.091294,
-    "lng": 110.90544,
-    "p": "33",
-    "o": "N",
-    "k": 150,
-    "cs": "c"
-  },
-  {
-    "id": 85,
+    "id": 1088,
     "n": "Cimahi Hotel Institute",
     "lat": -6.873406,
     "lng": 107.562124,
@@ -760,7 +1090,17 @@
     "cs": "o"
   },
   {
-    "id": 86,
+    "id": 1743,
+    "n": "Citra International Tourism Institute",
+    "lat": -6.595868,
+    "lng": 106.785485,
+    "p": "32",
+    "o": "N",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1371,
     "n": "Citra Media Indonesia Garut",
     "lat": -7.204193,
     "lng": 107.904844,
@@ -770,19 +1110,19 @@
     "cs": "o"
   },
   {
-    "id": 87,
+    "id": 1257,
     "n": "Creativemu Academy",
-    "lat": -7.857214,
-    "lng": 110.386956,
+    "lat": -7.845485,
+    "lng": 110.374576,
     "p": "34",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 88,
+    "id": 1096,
     "n": "Credible College",
-    "lat": 1.072672,
+    "lat": 1.106721,
     "lng": 104.04935,
     "p": "21",
     "o": "N",
@@ -790,7 +1130,7 @@
     "cs": "c"
   },
   {
-    "id": 89,
+    "id": 922,
     "n": "DAEMANG INKOR",
     "lat": -7.145221,
     "lng": 110.970401,
@@ -800,7 +1140,7 @@
     "cs": "o"
   },
   {
-    "id": 91,
+    "id": 661,
     "n": "DEWA AKSARA NUSANTARA",
     "lat": -6.379087,
     "lng": 106.872559,
@@ -810,17 +1150,17 @@
     "cs": "o"
   },
   {
-    "id": 92,
-    "n": "DINAS TENAGA KERJA DAN TRANSMIGRASI PROVINSI JAMBI",
-    "lat": -1.621015,
-    "lng": 103.577673,
-    "p": "15",
+    "id": 1639,
+    "n": "DINAS TENAGA KERJA DAN TRANSMIGRASI PROV. SULSEL",
+    "lat": -5.140957,
+    "lng": 119.436444,
+    "p": "73",
     "o": "P",
-    "k": 100,
-    "cs": "o"
+    "k": 200,
+    "cs": "c"
   },
   {
-    "id": 93,
+    "id": 1520,
     "n": "DINAS TENAGA KERJA KAB. PATI",
     "lat": -6.752716,
     "lng": 111.036914,
@@ -830,7 +1170,17 @@
     "cs": "o"
   },
   {
-    "id": 95,
+    "id": 1655,
+    "n": "DORYOUKU",
+    "lat": -8.590297,
+    "lng": 116.118582,
+    "p": "52",
+    "o": "N",
+    "k": 200,
+    "cs": "c"
+  },
+  {
+    "id": 1061,
     "n": "DREAMILE INTERNATIONAL",
     "lat": -8.105378,
     "lng": 112.173193,
@@ -840,7 +1190,7 @@
     "cs": "o"
   },
   {
-    "id": 97,
+    "id": 1360,
     "n": "Demo BLK Pusdatin",
     "lat": -6.243454,
     "lng": 106.851099,
@@ -850,7 +1200,7 @@
     "cs": "o"
   },
   {
-    "id": 99,
+    "id": 719,
     "n": "Digunakan untk pentest, jangan dihapus!",
     "lat": -6.184118,
     "lng": 106.819382,
@@ -860,7 +1210,7 @@
     "cs": "o"
   },
   {
-    "id": 100,
+    "id": 1159,
     "n": "Dinas Ketenagakerjaan dan Transmigrasi Kabupaten Bengkulu Tengah",
     "lat": -3.796798,
     "lng": 102.271985,
@@ -870,7 +1220,7 @@
     "cs": "c"
   },
   {
-    "id": 101,
+    "id": 1148,
     "n": "Dinas Tenaga Kerja Kota Pangkal Pinang",
     "lat": -2.143123,
     "lng": 106.116537,
@@ -880,7 +1230,7 @@
     "cs": "o"
   },
   {
-    "id": 102,
+    "id": 1197,
     "n": "Djajuli Okiagaru Agripreneur",
     "lat": -6.990058,
     "lng": 108.322812,
@@ -890,7 +1240,7 @@
     "cs": "o"
   },
   {
-    "id": 103,
+    "id": 703,
     "n": "Duta International",
     "lat": -7.487515,
     "lng": 110.923478,
@@ -900,7 +1250,7 @@
     "cs": "o"
   },
   {
-    "id": 104,
+    "id": 694,
     "n": "Duta Persada",
     "lat": -7.8036,
     "lng": 110.368762,
@@ -910,7 +1260,7 @@
     "cs": "o"
   },
   {
-    "id": 105,
+    "id": 1060,
     "n": "EKA JAYA BERRINDO",
     "lat": -6.736783,
     "lng": 108.549737,
@@ -920,7 +1270,17 @@
     "cs": "o"
   },
   {
-    "id": 106,
+    "id": 1939,
+    "n": "EKA MANAGEMENT CIPTA SEJAHTERA",
+    "lat": -7.839106,
+    "lng": 111.503318,
+    "p": "35",
+    "o": "N",
+    "k": 180,
+    "cs": "o"
+  },
+  {
+    "id": 1333,
     "n": "EKA MANAGEMENT CIPTA SEJAHTERA PONOROGO",
     "lat": -7.848711,
     "lng": 111.464431,
@@ -930,7 +1290,7 @@
     "cs": "c"
   },
   {
-    "id": 107,
+    "id": 1448,
     "n": "EKKLESIA KOMPUTER",
     "lat": -10.154546,
     "lng": 123.600384,
@@ -940,7 +1300,7 @@
     "cs": "c"
   },
   {
-    "id": 108,
+    "id": 838,
     "n": "EL RAHMA BENGKULU",
     "lat": -3.796798,
     "lng": 102.271985,
@@ -950,7 +1310,7 @@
     "cs": "o"
   },
   {
-    "id": 109,
+    "id": 1337,
     "n": "EL RAHMA EDUCATION CENTRE CILEUNGSI",
     "lat": -6.423748,
     "lng": 106.96849,
@@ -960,7 +1320,7 @@
     "cs": "c"
   },
   {
-    "id": 110,
+    "id": 742,
     "n": "ELIN CENTER",
     "lat": -10.154546,
     "lng": 123.627496,
@@ -970,17 +1330,17 @@
     "cs": "o"
   },
   {
-    "id": 111,
+    "id": 915,
     "n": "ENTER",
-    "lat": -2.535865,
-    "lng": 112.924618,
+    "lat": -2.25417,
+    "lng": 113.185261,
     "p": "62",
     "o": "N",
     "k": 500,
     "cs": "c"
   },
   {
-    "id": 112,
+    "id": 1250,
     "n": "Elizabeth International Denpasar",
     "lat": -8.66571,
     "lng": 115.241504,
@@ -990,7 +1350,7 @@
     "cs": "o"
   },
   {
-    "id": 113,
+    "id": 1251,
     "n": "Elizabeth International Gianyar",
     "lat": -8.565949,
     "lng": 115.305938,
@@ -1000,7 +1360,57 @@
     "cs": "o"
   },
   {
-    "id": 114,
+    "id": 1882,
+    "n": "English Corner",
+    "lat": -4.135895,
+    "lng": 104.748377,
+    "p": "16",
+    "o": "N",
+    "k": 74,
+    "cs": "c"
+  },
+  {
+    "id": 1757,
+    "n": "English One",
+    "lat": -8.431714,
+    "lng": 114.210658,
+    "p": "35",
+    "o": "N",
+    "k": 250,
+    "cs": "o"
+  },
+  {
+    "id": 1574,
+    "n": "Essentia Spa Wellness Academy",
+    "lat": -6.244378,
+    "lng": 106.84688,
+    "p": "31",
+    "o": "N",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 1934,
+    "n": "Fakultas Keperawatan Universitas Syiah Kuala",
+    "lat": 5.567214,
+    "lng": 95.371456,
+    "p": "11",
+    "o": "P",
+    "k": 60,
+    "cs": "o"
+  },
+  {
+    "id": 1750,
+    "n": "Fakultas Vokasi UMM",
+    "lat": -7.965397,
+    "lng": 112.641013,
+    "p": "35",
+    "o": "N",
+    "k": 150,
+    "cs": "c"
+  },
+  {
+    "id": 827,
     "n": "GAJAH MADA 94",
     "lat": -7.598229,
     "lng": 110.956538,
@@ -1010,37 +1420,27 @@
     "cs": "o"
   },
   {
-    "id": 115,
-    "n": "GALUH ESSA INTERNASINAL COLLEGE",
-    "lat": -6.539525,
-    "lng": 107.440803,
-    "p": "32",
-    "o": "N",
-    "k": 500,
-    "cs": "c"
-  },
-  {
-    "id": 116,
+    "id": 1230,
     "n": "GALUH ESSA INTERNATIONAL COLLEGE",
-    "lat": -6.539525,
-    "lng": 107.440803,
+    "lat": -6.899843,
+    "lng": 108.035067,
     "p": "32",
     "o": "N",
     "k": 1500,
     "cs": "c"
   },
   {
-    "id": 117,
+    "id": 1321,
     "n": "GIMB Academy",
-    "lat": -6.907376,
-    "lng": 107.600973,
+    "lat": -6.90963,
+    "lng": 107.607083,
     "p": "32",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 119,
+    "id": 1038,
     "n": "GRAND TALENT",
     "lat": -6.764686,
     "lng": 108.465746,
@@ -1050,7 +1450,7 @@
     "cs": "o"
   },
   {
-    "id": 121,
+    "id": 727,
     "n": "Global Hospitality Institute",
     "lat": -7.416792,
     "lng": 109.216703,
@@ -1060,7 +1460,7 @@
     "cs": "o"
   },
   {
-    "id": 122,
+    "id": 905,
     "n": "Global Persada Institute",
     "lat": -0.534864,
     "lng": 117.125991,
@@ -1070,7 +1470,7 @@
     "cs": "o"
   },
   {
-    "id": 123,
+    "id": 1388,
     "n": "Graha Latih Ekselenta",
     "lat": -7.768168,
     "lng": 110.406794,
@@ -1080,7 +1480,7 @@
     "cs": "o"
   },
   {
-    "id": 125,
+    "id": 851,
     "n": "Graha Wisata",
     "lat": -6.982942,
     "lng": 110.396022,
@@ -1090,7 +1490,7 @@
     "cs": "o"
   },
   {
-    "id": 126,
+    "id": 1310,
     "n": "Graha Wisata Surakarta",
     "lat": -0.742357,
     "lng": 100.482738,
@@ -1100,7 +1500,7 @@
     "cs": "o"
   },
   {
-    "id": 127,
+    "id": 810,
     "n": "HANAKO WIRA SUKSES",
     "lat": -6.371445,
     "lng": 106.921507,
@@ -1110,7 +1510,7 @@
     "cs": "o"
   },
   {
-    "id": 128,
+    "id": 718,
     "n": "HANAMAN NIHON",
     "lat": -6.461118,
     "lng": 108.450937,
@@ -1120,17 +1520,17 @@
     "cs": "o"
   },
   {
-    "id": 129,
+    "id": 1318,
     "n": "HANGUKO VOCATIONAL EDU",
-    "lat": -6.801351,
-    "lng": 108.524513,
+    "lat": -6.764683,
+    "lng": 108.530895,
     "p": "32",
     "o": "N",
     "k": 60,
     "cs": "c"
   },
   {
-    "id": 131,
+    "id": 775,
     "n": "HANIL JAPANESE & KOREAN CENTER",
     "lat": -7.598222,
     "lng": 110.95654,
@@ -1140,7 +1540,7 @@
     "cs": "c"
   },
   {
-    "id": 133,
+    "id": 1009,
     "n": "HARVEST KOREAN COURSE",
     "lat": -7.603671,
     "lng": 110.963971,
@@ -1150,17 +1550,27 @@
     "cs": "o"
   },
   {
-    "id": 135,
+    "id": 1659,
+    "n": "HOTEL & CRUISE INTERNATIONAL (H.I)",
+    "lat": -8.1444,
+    "lng": 115.104499,
+    "p": "51",
+    "o": "N",
+    "k": 550,
+    "cs": "o"
+  },
+  {
+    "id": 1354,
     "n": "HSC - ATC COLLEGE",
-    "lat": -8.232684,
-    "lng": 114.343548,
+    "lat": -8.232792,
+    "lng": 114.342196,
     "p": "35",
     "o": "N",
     "k": 75,
     "cs": "c"
   },
   {
-    "id": 136,
+    "id": 758,
     "n": "Hana Tayo Mandiri",
     "lat": -7.620012,
     "lng": 109.140889,
@@ -1170,7 +1580,7 @@
     "cs": "o"
   },
   {
-    "id": 137,
+    "id": 816,
     "n": "Harajuku",
     "lat": -6.45145,
     "lng": 108.383155,
@@ -1180,7 +1590,7 @@
     "cs": "c"
   },
   {
-    "id": 138,
+    "id": 1346,
     "n": "Hayashi Partindo Makmur",
     "lat": -6.303796,
     "lng": 106.766052,
@@ -1190,7 +1600,7 @@
     "cs": "o"
   },
   {
-    "id": 140,
+    "id": 960,
     "n": "Hideo Gakkou Indonesia",
     "lat": -6.971825,
     "lng": 110.108002,
@@ -1200,19 +1610,19 @@
     "cs": "c"
   },
   {
-    "id": 142,
+    "id": 1807,
     "n": "Hotel Academy Cianjur",
-    "lat": -6.814118,
-    "lng": 107.123844,
+    "lat": -6.816141,
+    "lng": 107.127338,
     "p": "32",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 143,
+    "id": 754,
     "n": "Hyeong Nim",
-    "lat": -6.679685,
+    "lat": -6.753059,
     "lng": 111.052731,
     "p": "33",
     "o": "N",
@@ -1220,7 +1630,7 @@
     "cs": "c"
   },
   {
-    "id": 145,
+    "id": 1326,
     "n": "IBTI TRAINING CENTER",
     "lat": -6.348731,
     "lng": 110.249305,
@@ -1230,7 +1640,7 @@
     "cs": "o"
   },
   {
-    "id": 146,
+    "id": 1018,
     "n": "INDIANA HOSPITALITY MANAGEMENT SCHOOL",
     "lat": -8.542583,
     "lng": 115.268677,
@@ -1240,7 +1650,7 @@
     "cs": "o"
   },
   {
-    "id": 147,
+    "id": 1313,
     "n": "INES SALON",
     "lat": -5.410386,
     "lng": 105.287969,
@@ -1250,7 +1660,7 @@
     "cs": "o"
   },
   {
-    "id": 148,
+    "id": 1509,
     "n": "INSTITUT BISNIS & INFORMATIKA KOSGORO 1957",
     "lat": -6.334255,
     "lng": 106.833242,
@@ -1260,7 +1670,7 @@
     "cs": "o"
   },
   {
-    "id": 149,
+    "id": 1466,
     "n": "INTAN PARIWISATA GARUT",
     "lat": -7.201228,
     "lng": 107.885226,
@@ -1270,17 +1680,17 @@
     "cs": "o"
   },
   {
-    "id": 150,
+    "id": 746,
     "n": "ISP Cruiseships and Hotel School",
-    "lat": -7.561145,
-    "lng": 110.80797,
+    "lat": -7.554628,
+    "lng": 110.804733,
     "p": "33",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 151,
+    "id": 991,
     "n": "ISTANA EDUCATION COLLEGE",
     "lat": 0.669403,
     "lng": 101.602677,
@@ -1290,17 +1700,27 @@
     "cs": "c"
   },
   {
-    "id": 152,
+    "id": 1667,
+    "n": "Idea Indonesia Cabang Lampung",
+    "lat": -5.104489,
+    "lng": 105.292293,
+    "p": "18",
+    "o": "N",
+    "k": 700,
+    "cs": "c"
+  },
+  {
+    "id": 1110,
     "n": "Inasaba",
-    "lat": -7.502927,
-    "lng": 110.447496,
+    "lat": -7.43395,
+    "lng": 110.464423,
     "p": "33",
     "o": "N",
     "k": 15,
     "cs": "c"
   },
   {
-    "id": 154,
+    "id": 927,
     "n": "Independent Cruise Ships and Hotel School",
     "lat": -7.583284,
     "lng": 110.784049,
@@ -1310,7 +1730,7 @@
     "cs": "o"
   },
   {
-    "id": 155,
+    "id": 1484,
     "n": "Indipreneur Kreatif Madani",
     "lat": -8.171056,
     "lng": 113.713291,
@@ -1320,7 +1740,7 @@
     "cs": "o"
   },
   {
-    "id": 156,
+    "id": 1352,
     "n": "Indira Edukasi Kompeten",
     "lat": -3.386732,
     "lng": 112.885145,
@@ -1330,7 +1750,7 @@
     "cs": "c"
   },
   {
-    "id": 157,
+    "id": 737,
     "n": "Indocrew Training Center",
     "lat": -7.786845,
     "lng": 110.360913,
@@ -1340,7 +1760,7 @@
     "cs": "o"
   },
   {
-    "id": 158,
+    "id": 824,
     "n": "Indonaker Mandiri",
     "lat": -7.954942,
     "lng": 112.665826,
@@ -1350,7 +1770,7 @@
     "cs": "o"
   },
   {
-    "id": 159,
+    "id": 898,
     "n": "Indonesia Hotel School",
     "lat": -6.107201,
     "lng": 106.732373,
@@ -1360,9 +1780,19 @@
     "cs": "c"
   },
   {
-    "id": 160,
+    "id": 1860,
+    "n": "Infinity Training Centre",
+    "lat": -8.599258,
+    "lng": 115.186388,
+    "p": "51",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1284,
     "n": "Institusi Pengembangan Teknologi Terapan Indonesia (IPTTI) Yogyakarta",
-    "lat": -7.8036,
+    "lat": -7.801866,
     "lng": 110.382493,
     "p": "34",
     "o": "N",
@@ -1370,7 +1800,17 @@
     "cs": "c"
   },
   {
-    "id": 161,
+    "id": 1569,
+    "n": "Institut Ilmu Sosial dan Manajemen STIAMI",
+    "lat": -6.176982,
+    "lng": 106.858275,
+    "p": "31",
+    "o": "N",
+    "k": 30,
+    "cs": "o"
+  },
+  {
+    "id": 1080,
     "n": "JAPAN INDONESIA COLLEGE",
     "lat": -6.441818,
     "lng": 108.17647,
@@ -1380,17 +1820,17 @@
     "cs": "o"
   },
   {
-    "id": 162,
+    "id": 708,
     "n": "JAPINKO LANGUAGE CENTER",
     "lat": -7.418901,
     "lng": 109.592878,
     "p": "33",
     "o": "N",
-    "k": 250,
+    "k": 200,
     "cs": "o"
   },
   {
-    "id": 163,
+    "id": 790,
     "n": "JN EDUCATION CENTER",
     "lat": -7.5336,
     "lng": 110.826153,
@@ -1400,17 +1840,27 @@
     "cs": "o"
   },
   {
-    "id": 164,
+    "id": 1374,
     "n": "Japan Education Hub",
-    "lat": 0.531909,
-    "lng": 101.434642,
+    "lat": 0.524542,
+    "lng": 101.44908,
     "p": "14",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 165,
+    "id": 1674,
+    "n": "Jogja Tama Tri Cita",
+    "lat": -7.766119,
+    "lng": 110.3574,
+    "p": "34",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1416,
     "n": "Jolly Roger International",
     "lat": -8.543474,
     "lng": 115.115792,
@@ -1420,7 +1870,7 @@
     "cs": "o"
   },
   {
-    "id": 166,
+    "id": 820,
     "n": "KALLIAN JAYA LOMBOK",
     "lat": -8.65025,
     "lng": 116.54878,
@@ -1430,7 +1880,7 @@
     "cs": "o"
   },
   {
-    "id": 167,
+    "id": 906,
     "n": "KAMPUH WELDING CIKARANG",
     "lat": -6.231356,
     "lng": 107.233601,
@@ -1440,7 +1890,7 @@
     "cs": "o"
   },
   {
-    "id": 168,
+    "id": 1548,
     "n": "KANIVA INTERNATIONAL",
     "lat": -8.538943,
     "lng": 115.170654,
@@ -1450,7 +1900,7 @@
     "cs": "o"
   },
   {
-    "id": 169,
+    "id": 1305,
     "n": "KARYA INSANI BAROKAH",
     "lat": -6.452634,
     "lng": 106.303637,
@@ -1460,7 +1910,7 @@
     "cs": "o"
   },
   {
-    "id": 170,
+    "id": 1008,
     "n": "KARYA SEMESTA SEJAHTERA",
     "lat": -6.343556,
     "lng": 106.927831,
@@ -1470,17 +1920,17 @@
     "cs": "o"
   },
   {
-    "id": 171,
+    "id": 1176,
     "n": "KASHIWADO HASANATI WIJAYA",
-    "lat": -6.294912,
-    "lng": 107.297835,
+    "lat": -6.298801,
+    "lng": 107.283947,
     "p": "32",
     "o": "N",
     "k": 330,
     "cs": "c"
   },
   {
-    "id": 172,
+    "id": 836,
     "n": "KOBA MIRAI JAPAN",
     "lat": -6.392679,
     "lng": 106.845313,
@@ -1490,7 +1940,7 @@
     "cs": "o"
   },
   {
-    "id": 173,
+    "id": 762,
     "n": "KOMIHWA PONOROGO",
     "lat": -7.900185,
     "lng": 111.467402,
@@ -1500,7 +1950,7 @@
     "cs": "o"
   },
   {
-    "id": 174,
+    "id": 1540,
     "n": "KOREANINDO SUKOHARJO HOFUNA",
     "lat": -7.724908,
     "lng": 110.827016,
@@ -1510,7 +1960,7 @@
     "cs": "o"
   },
   {
-    "id": 176,
+    "id": 1303,
     "n": "KPK TCC",
     "lat": -8.164342,
     "lng": 111.843135,
@@ -1520,7 +1970,7 @@
     "cs": "c"
   },
   {
-    "id": 177,
+    "id": 664,
     "n": "Kampuh Teknik Madani",
     "lat": -7.262785,
     "lng": 112.646827,
@@ -1530,7 +1980,7 @@
     "cs": "o"
   },
   {
-    "id": 178,
+    "id": 663,
     "n": "Kampuh welding Indonesia",
     "lat": -7.26675,
     "lng": 112.647093,
@@ -1540,7 +1990,7 @@
     "cs": "o"
   },
   {
-    "id": 179,
+    "id": 1162,
     "n": "Kana Sakura",
     "lat": 5.535557,
     "lng": 95.31306,
@@ -1550,7 +2000,7 @@
     "cs": "o"
   },
   {
-    "id": 180,
+    "id": 1067,
     "n": "Karya Profesi Utama / Caregiver Indonesia",
     "lat": -6.567502,
     "lng": 106.866058,
@@ -1560,7 +2010,7 @@
     "cs": "o"
   },
   {
-    "id": 181,
+    "id": 707,
     "n": "Kastara Ocean Indonesia",
     "lat": -7.874804,
     "lng": 109.99672,
@@ -1570,7 +2020,7 @@
     "cs": "o"
   },
   {
-    "id": 182,
+    "id": 1373,
     "n": "Kelembagaan BP3MI Kalimantan Barat",
     "lat": -6.004096,
     "lng": 106.724169,
@@ -1580,7 +2030,17 @@
     "cs": "o"
   },
   {
-    "id": 183,
+    "id": 1726,
+    "n": "Kepri Tourism Training Centre",
+    "lat": 1.135198,
+    "lng": 104.045335,
+    "p": "21",
+    "o": "N",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 767,
     "n": "Kimssaem Language Center",
     "lat": -7.89842,
     "lng": 111.988433,
@@ -1590,7 +2050,7 @@
     "cs": "o"
   },
   {
-    "id": 184,
+    "id": 726,
     "n": "Komihwa Cianjur",
     "lat": -6.768496,
     "lng": 107.195283,
@@ -1600,7 +2060,7 @@
     "cs": "o"
   },
   {
-    "id": 185,
+    "id": 1339,
     "n": "Kopidukasi",
     "lat": -5.171337,
     "lng": 119.417564,
@@ -1610,7 +2070,7 @@
     "cs": "o"
   },
   {
-    "id": 186,
+    "id": 1024,
     "n": "LANCAR MANDIRI UTAMA",
     "lat": -7.59199,
     "lng": 112.280753,
@@ -1620,7 +2080,7 @@
     "cs": "o"
   },
   {
-    "id": 187,
+    "id": 1517,
     "n": "LANGGENG TJIPTA MANDIRI",
     "lat": -6.320906,
     "lng": 108.319348,
@@ -1630,7 +2090,7 @@
     "cs": "o"
   },
   {
-    "id": 188,
+    "id": 1365,
     "n": "LB LIA Yogyakarta",
     "lat": -6.82775,
     "lng": 107.811584,
@@ -1640,7 +2100,7 @@
     "cs": "o"
   },
   {
-    "id": 190,
+    "id": 1084,
     "n": "LCC -LENTERA AZZAHRA CENTER",
     "lat": -6.423748,
     "lng": 106.96849,
@@ -1650,17 +2110,27 @@
     "cs": "c"
   },
   {
-    "id": 191,
+    "id": 1027,
     "n": "LE CENTRE D EDUCATION",
     "lat": -7.766764,
     "lng": 113.196723,
     "p": "35",
     "o": "N",
-    "k": 30,
-    "cs": "c"
+    "k": 50,
+    "cs": "o"
   },
   {
-    "id": 193,
+    "id": 1685,
+    "n": "LEGEND BALI COLLEGE",
+    "lat": -8.129288,
+    "lng": 115.085443,
+    "p": "51",
+    "o": "N",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 1114,
     "n": "LEMBAGA KURSUS DAN PELATIHAN BINTANG",
     "lat": -7.226761,
     "lng": 109.336581,
@@ -1670,7 +2140,7 @@
     "cs": "o"
   },
   {
-    "id": 194,
+    "id": 1528,
     "n": "LEMBAGA PELATIHAN KERJA AL FAZZA SUMBAWA",
     "lat": -8.475777,
     "lng": 117.394528,
@@ -1680,7 +2150,7 @@
     "cs": "o"
   },
   {
-    "id": 195,
+    "id": 1505,
     "n": "LEMBAGA PELATIHAN KERJA BALI CEMPAKA COLLEGE CABANG NTB",
     "lat": -8.595184,
     "lng": 116.123458,
@@ -1690,7 +2160,7 @@
     "cs": "o"
   },
   {
-    "id": 196,
+    "id": 805,
     "n": "LEMBAGA PELATIHAN KERJA GERBANG ASA",
     "lat": -6.046197,
     "lng": 106.055832,
@@ -1700,7 +2170,7 @@
     "cs": "o"
   },
   {
-    "id": 197,
+    "id": 926,
     "n": "LEMBAGA PELATIHAN KERJA GLOBAL ICHSAN MANDIRI",
     "lat": -6.29134,
     "lng": 106.688555,
@@ -1710,7 +2180,7 @@
     "cs": "c"
   },
   {
-    "id": 198,
+    "id": 750,
     "n": "LEMBAGA PELATIHAN KERJA SWASTA CHANGMUN HAKKYO",
     "lat": -7.091293,
     "lng": 110.90544,
@@ -1720,7 +2190,7 @@
     "cs": "o"
   },
   {
-    "id": 199,
+    "id": 704,
     "n": "LEMBAGA PELATIHAN KERJA SWASTA KOREANINDO",
     "lat": -7.143269,
     "lng": 111.030666,
@@ -1730,7 +2200,17 @@
     "cs": "o"
   },
   {
-    "id": 200,
+    "id": 1609,
+    "n": "LIA DEVELOPMENT CENTER",
+    "lat": -6.248356,
+    "lng": 106.859666,
+    "p": "31",
+    "o": "N",
+    "k": 199,
+    "cs": "o"
+  },
+  {
+    "id": 1146,
     "n": "LIBERTY INTERNATIONAL COLLEGE KARANGASEM",
     "lat": -8.440152,
     "lng": 115.589937,
@@ -1740,27 +2220,27 @@
     "cs": "o"
   },
   {
-    "id": 201,
+    "id": 736,
     "n": "LKP ADAM MULIA",
-    "lat": -7.561141,
-    "lng": 110.739457,
+    "lat": -7.583236,
+    "lng": 110.784049,
     "p": "33",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 202,
+    "id": 917,
     "n": "LKP Adi Busana",
-    "lat": -6.297902,
-    "lng": 106.954465,
+    "lat": -6.297207,
+    "lng": 106.952796,
     "p": "32",
     "o": "N",
     "k": 40,
     "cs": "c"
   },
   {
-    "id": 203,
+    "id": 1319,
     "n": "LKP Barokah",
     "lat": -7.684705,
     "lng": 110.531709,
@@ -1770,7 +2250,27 @@
     "cs": "o"
   },
   {
-    "id": 204,
+    "id": 1928,
+    "n": "LKP Bina Cerdas",
+    "lat": -6.931149,
+    "lng": 109.135043,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1620,
+    "n": "LKP Bina Cerdas Tegal",
+    "lat": -6.931149,
+    "lng": 109.135043,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 828,
     "n": "LKP DANISH ADYATAMA",
     "lat": -7.345896,
     "lng": 109.915132,
@@ -1780,7 +2280,7 @@
     "cs": "c"
   },
   {
-    "id": 205,
+    "id": 833,
     "n": "LKP DESY EDUCATION",
     "lat": -8.216472,
     "lng": 114.366841,
@@ -1790,17 +2290,17 @@
     "cs": "o"
   },
   {
-    "id": 206,
+    "id": 795,
     "n": "LKP EXCELLENT HOSPITALITY COLLEGE",
-    "lat": -7.648256,
-    "lng": 109.140878,
+    "lat": -7.620012,
+    "lng": 109.053581,
     "p": "33",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 208,
+    "id": 1152,
     "n": "LKP GAYATRI BINAR ABADI",
     "lat": -6.321565,
     "lng": 106.780865,
@@ -1810,17 +2310,17 @@
     "cs": "o"
   },
   {
-    "id": 209,
+    "id": 715,
     "n": "LKP GRAHA WISATA SURAKARTA",
-    "lat": -7.561141,
-    "lng": 110.739457,
+    "lat": -7.583236,
+    "lng": 110.784049,
     "p": "33",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 210,
+    "id": 789,
     "n": "LKP Gangga mandiri international HCTC",
     "lat": -8.566033,
     "lng": 115.118655,
@@ -1830,7 +2330,7 @@
     "cs": "o"
   },
   {
-    "id": 212,
+    "id": 1126,
     "n": "LKP HOUSE OF LEARNING",
     "lat": -5.381534,
     "lng": 104.967287,
@@ -1840,17 +2340,27 @@
     "cs": "c"
   },
   {
-    "id": 214,
+    "id": 919,
     "n": "LKP Harapan Mandiri",
-    "lat": -8.183703,
-    "lng": 113.648074,
+    "lat": -8.183695,
+    "lng": 113.662775,
     "p": "35",
     "o": "N",
     "k": 160,
     "cs": "c"
   },
   {
-    "id": 215,
+    "id": 1806,
+    "n": "LKP KEPRI TRAINEE CENTRE",
+    "lat": 0.919855,
+    "lng": 104.505408,
+    "p": "21",
+    "o": "N",
+    "k": 50,
+    "cs": "o"
+  },
+  {
+    "id": 778,
     "n": "LKP KONGBUHAPSIDA",
     "lat": -7.302007,
     "lng": 110.177906,
@@ -1860,7 +2370,27 @@
     "cs": "o"
   },
   {
-    "id": 216,
+    "id": 1647,
+    "n": "LKP MULTIKOM",
+    "lat": -6.285855,
+    "lng": 106.840377,
+    "p": "31",
+    "o": "N",
+    "k": 12,
+    "cs": "o"
+  },
+  {
+    "id": 1593,
+    "n": "LKP NT RANTETANIS",
+    "lat": -5.198104,
+    "lng": 119.394337,
+    "p": "73",
+    "o": "N",
+    "k": 30,
+    "cs": "o"
+  },
+  {
+    "id": 1463,
     "n": "LKP P4M",
     "lat": -8.588047,
     "lng": 116.100222,
@@ -1870,27 +2400,47 @@
     "cs": "o"
   },
   {
-    "id": 217,
+    "id": 1670,
+    "n": "LKP Prima Kendari",
+    "lat": -4.004204,
+    "lng": 122.533984,
+    "p": "74",
+    "o": "N",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 1387,
     "n": "LKP SARI TEKNOLOGI",
-    "lat": -6.183726,
-    "lng": 106.751404,
+    "lat": -6.169287,
+    "lng": 106.748858,
     "p": "31",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 218,
+    "id": 1895,
+    "n": "LKP Sekolah Bahasa Bolasugi",
+    "lat": -5.175276,
+    "lng": 119.443516,
+    "p": "73",
+    "o": "N",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 1351,
     "n": "LKP TEMATIK APERTA NUSANTARA",
-    "lat": -7.317524,
-    "lng": 108.220688,
+    "lat": -7.318958,
+    "lng": 108.209462,
     "p": "32",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 219,
+    "id": 889,
     "n": "LKP. Intermedia Training Center",
     "lat": 2.090422,
     "lng": 99.835047,
@@ -1900,7 +2450,7 @@
     "cs": "o"
   },
   {
-    "id": 220,
+    "id": 924,
     "n": "LOKA AMERTA ANUGERAH",
     "lat": -6.301576,
     "lng": 106.956133,
@@ -1910,17 +2460,17 @@
     "cs": "o"
   },
   {
-    "id": 221,
+    "id": 1331,
     "n": "LP3 SIHI",
-    "lat": -6.31629,
-    "lng": 107.776675,
+    "lat": -6.444484,
+    "lng": 107.753673,
     "p": "32",
     "o": "N",
     "k": 40,
     "cs": "c"
   },
   {
-    "id": 222,
+    "id": 1175,
     "n": "LP3I COLLEGE KARAWANG - PENDIDIKAN ANAK INDONESIA",
     "lat": -6.291023,
     "lng": 107.280254,
@@ -1930,7 +2480,7 @@
     "cs": "o"
   },
   {
-    "id": 224,
+    "id": 1231,
     "n": "LP3I College",
     "lat": -6.539525,
     "lng": 107.440803,
@@ -1940,7 +2490,7 @@
     "cs": "o"
   },
   {
-    "id": 225,
+    "id": 1440,
     "n": "LP3I College Purwakarta",
     "lat": -6.534023,
     "lng": 107.441796,
@@ -1950,27 +2500,37 @@
     "cs": "o"
   },
   {
-    "id": 227,
+    "id": 1268,
     "n": "LP3I KUPANG",
     "lat": -7.81185,
     "lng": 107.437942,
     "p": "53",
     "o": "N",
-    "k": 4,
+    "k": 150,
     "cs": "o"
   },
   {
-    "id": 229,
+    "id": 1228,
     "n": "LP3I Lampung",
-    "lat": -5.423018,
-    "lng": 105.267774,
+    "lat": -5.41769,
+    "lng": 105.271174,
     "p": "18",
     "o": "N",
     "k": 3,
     "cs": "c"
   },
   {
-    "id": 230,
+    "id": 1930,
+    "n": "LP3I TASIKMALAYA",
+    "lat": -7.320392,
+    "lng": 108.198236,
+    "p": "32",
+    "o": "N",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 884,
     "n": "LP3M MANDIRI",
     "lat": -8.760305,
     "lng": 116.349485,
@@ -1980,17 +2540,37 @@
     "cs": "o"
   },
   {
-    "id": 231,
+    "id": 1738,
+    "n": "LPIA HOTEL & KAPAL PESIAR",
+    "lat": -6.257585,
+    "lng": 106.865603,
+    "p": "31",
+    "o": "N",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1698,
+    "n": "LPK AICHI NIHONGO CENTER",
+    "lat": -5.135275,
+    "lng": 119.514565,
+    "p": "73",
+    "o": "N",
+    "k": 36,
+    "cs": "o"
+  },
+  {
+    "id": 1356,
     "n": "LPK AIRPORT SERVICE TRAINING",
-    "lat": -7.857214,
-    "lng": 110.386956,
+    "lat": -7.845485,
+    "lng": 110.374576,
     "p": "34",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 232,
+    "id": 1019,
     "n": "LPK AISHIRO GAKUEN",
     "lat": -7.005202,
     "lng": 110.467081,
@@ -2000,7 +2580,7 @@
     "cs": "o"
   },
   {
-    "id": 233,
+    "id": 1366,
     "n": "LPK AKARA WIRA YUTAKA",
     "lat": -6.103726,
     "lng": 106.475077,
@@ -2010,7 +2590,7 @@
     "cs": "o"
   },
   {
-    "id": 234,
+    "id": 977,
     "n": "LPK AKSELA",
     "lat": -8.67028,
     "lng": 115.2274,
@@ -2020,7 +2600,17 @@
     "cs": "o"
   },
   {
-    "id": 235,
+    "id": 1777,
+    "n": "LPK AL ZUBARA MANPOWER INDONESIA",
+    "lat": -6.260053,
+    "lng": 106.947677,
+    "p": "32",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 781,
     "n": "LPK ALL WELD",
     "lat": -7.595766,
     "lng": 110.29413,
@@ -2030,7 +2620,7 @@
     "cs": "o"
   },
   {
-    "id": 236,
+    "id": 931,
     "n": "LPK ALLPRO MIRAI INDONESIA",
     "lat": -6.233357,
     "lng": 106.504202,
@@ -2040,7 +2630,7 @@
     "cs": "o"
   },
   {
-    "id": 237,
+    "id": 956,
     "n": "LPK AMALIA ROZIKIN JAYA",
     "lat": -7.979878,
     "lng": 112.650628,
@@ -2050,7 +2640,7 @@
     "cs": "o"
   },
   {
-    "id": 238,
+    "id": 1028,
     "n": "LPK AN NUR EDUCATION CENTER",
     "lat": -7.331247,
     "lng": 110.860986,
@@ -2060,7 +2650,7 @@
     "cs": "o"
   },
   {
-    "id": 239,
+    "id": 1031,
     "n": "LPK ANDALAN NUSANTARA",
     "lat": -6.867586,
     "lng": 107.580149,
@@ -2070,7 +2660,7 @@
     "cs": "o"
   },
   {
-    "id": 240,
+    "id": 1180,
     "n": "LPK ANSAN KENDAL",
     "lat": -6.971825,
     "lng": 110.108002,
@@ -2080,7 +2670,7 @@
     "cs": "c"
   },
   {
-    "id": 241,
+    "id": 812,
     "n": "LPK ANUGERAH USAHA JAYA",
     "lat": -7.929115,
     "lng": 112.655431,
@@ -2090,7 +2680,7 @@
     "cs": "o"
   },
   {
-    "id": 242,
+    "id": 800,
     "n": "LPK ARIGATOU INDONESIA",
     "lat": -7.521456,
     "lng": 106.308786,
@@ -2100,7 +2690,7 @@
     "cs": "o"
   },
   {
-    "id": 243,
+    "id": 882,
     "n": "LPK ARRAHMAN SUKSES MANDIRI",
     "lat": -6.309956,
     "lng": 106.865603,
@@ -2110,7 +2700,7 @@
     "cs": "o"
   },
   {
-    "id": 244,
+    "id": 999,
     "n": "LPK ARUM",
     "lat": -6.874281,
     "lng": 109.10896,
@@ -2120,17 +2710,17 @@
     "cs": "o"
   },
   {
-    "id": 245,
+    "id": 1299,
     "n": "LPK ARUMI EDUKASI INDONESIA",
-    "lat": -7.502927,
-    "lng": 110.447496,
+    "lat": -7.43395,
+    "lng": 110.464423,
     "p": "33",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 246,
+    "id": 899,
     "n": "LPK ASA JAYA GLOBAL",
     "lat": -8.045217,
     "lng": 112.29295,
@@ -2140,17 +2730,17 @@
     "cs": "o"
   },
   {
-    "id": 247,
+    "id": 976,
     "n": "LPK ASTA KARYA",
-    "lat": -6.907376,
-    "lng": 107.600973,
+    "lat": -6.90963,
+    "lng": 107.607083,
     "p": "32",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 248,
+    "id": 870,
     "n": "LPK ATLANTIS INTERNATIONAL COLLEGE",
     "lat": -8.629892,
     "lng": 115.187627,
@@ -2160,27 +2750,27 @@
     "cs": "o"
   },
   {
-    "id": 249,
+    "id": 813,
     "n": "LPK AULIA SUKSES MANDIRI",
-    "lat": -6.231871,
-    "lng": 106.675027,
+    "lat": -6.167773,
+    "lng": 106.664097,
     "p": "36",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 250,
+    "id": 1436,
     "n": "LPK Akbar Bumi Indonesia",
-    "lat": -3.965908,
-    "lng": 122.512887,
+    "lat": -3.977336,
+    "lng": 122.51293,
     "p": "74",
     "o": "N",
     "k": 60,
     "cs": "c"
   },
   {
-    "id": 251,
+    "id": 1120,
     "n": "LPK Al Himmah",
     "lat": -6.323314,
     "lng": 106.767948,
@@ -2190,7 +2780,7 @@
     "cs": "o"
   },
   {
-    "id": 252,
+    "id": 1506,
     "n": "LPK Al-Hikmah",
     "lat": -7.376513,
     "lng": 108.654839,
@@ -2200,7 +2790,17 @@
     "cs": "o"
   },
   {
-    "id": 253,
+    "id": 1660,
+    "n": "LPK Alfa Prima Singaraja",
+    "lat": -8.144385,
+    "lng": 115.074667,
+    "p": "51",
+    "o": "N",
+    "k": 25,
+    "cs": "c"
+  },
+  {
+    "id": 858,
     "n": "LPK Amuya Layanan Prima",
     "lat": -6.154972,
     "lng": 106.84024,
@@ -2210,7 +2810,7 @@
     "cs": "o"
   },
   {
-    "id": 254,
+    "id": 972,
     "n": "LPK Anugerah Sannin Abadi (LPK ASA)",
     "lat": -6.194311,
     "lng": 106.854778,
@@ -2220,7 +2820,37 @@
     "cs": "o"
   },
   {
-    "id": 255,
+    "id": 1584,
+    "n": "LPK Ariyanti",
+    "lat": -6.90513,
+    "lng": 107.597252,
+    "p": "32",
+    "o": "N",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1662,
+    "n": "LPK BALI CEMPAKA COLLEGE",
+    "lat": -8.373893,
+    "lng": 114.69298,
+    "p": "51",
+    "o": "N",
+    "k": 24,
+    "cs": "c"
+  },
+  {
+    "id": 1665,
+    "n": "LPK BALI CEMPAKA COLLEGE KLUNGKUNG",
+    "lat": -8.540597,
+    "lng": 115.39528,
+    "p": "51",
+    "o": "N",
+    "k": 76,
+    "cs": "o"
+  },
+  {
+    "id": 1137,
     "n": "LPK BAYU UTAMA",
     "lat": -7.993038,
     "lng": 110.557931,
@@ -2230,7 +2860,7 @@
     "cs": "o"
   },
   {
-    "id": 256,
+    "id": 693,
     "n": "LPK BERHASIL LANGGENG KENCANA",
     "lat": -7.632963,
     "lng": 111.568288,
@@ -2240,27 +2870,37 @@
     "cs": "c"
   },
   {
-    "id": 257,
+    "id": 1236,
     "n": "LPK BHUMI IKA NUSWANTARA",
-    "lat": -6.988983,
-    "lng": 110.418051,
+    "lat": -6.99829,
+    "lng": 110.428986,
     "p": "33",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 258,
+    "id": 1800,
+    "n": "LPK BINA ILMU Ternate",
+    "lat": 0.793102,
+    "lng": 127.386751,
+    "p": "82",
+    "o": "N",
+    "k": 80,
+    "cs": "c"
+  },
+  {
+    "id": 1512,
     "n": "LPK BINA KERJA",
     "lat": -8.592775,
     "lng": 116.235754,
     "p": "52",
     "o": "N",
-    "k": 25,
+    "k": 16,
     "cs": "o"
   },
   {
-    "id": 259,
+    "id": 1069,
     "n": "LPK BINA MANDIRI WELDING TRAINING CENTRE",
     "lat": -7.345662,
     "lng": 109.915132,
@@ -2270,7 +2910,7 @@
     "cs": "o"
   },
   {
-    "id": 260,
+    "id": 1183,
     "n": "LPK BINA MUDA",
     "lat": -7.054541,
     "lng": 110.827761,
@@ -2280,7 +2920,7 @@
     "cs": "o"
   },
   {
-    "id": 261,
+    "id": 654,
     "n": "LPK BIU (PT. Binawan Inti Utama)",
     "lat": -6.257531,
     "lng": 106.862927,
@@ -2290,7 +2930,7 @@
     "cs": "o"
   },
   {
-    "id": 262,
+    "id": 932,
     "n": "LPK BLKLN GUNA KARYA INSAN MANDIRI",
     "lat": -7.964887,
     "lng": 112.641013,
@@ -2300,7 +2940,17 @@
     "cs": "o"
   },
   {
-    "id": 263,
+    "id": 1567,
+    "n": "LPK BLKLN RAIHAN JAYA ABADI",
+    "lat": -4.238003,
+    "lng": 100.211792,
+    "p": "35",
+    "o": "N",
+    "k": 128,
+    "cs": "o"
+  },
+  {
+    "id": 1165,
     "n": "LPK BORNEO RAYA KHATULISTIWA",
     "lat": -0.048181,
     "lng": 109.296398,
@@ -2310,7 +2960,7 @@
     "cs": "o"
   },
   {
-    "id": 264,
+    "id": 1480,
     "n": "LPK BROTHER TRAINING CENTER",
     "lat": -6.816141,
     "lng": 107.123844,
@@ -2320,7 +2970,7 @@
     "cs": "o"
   },
   {
-    "id": 265,
+    "id": 1280,
     "n": "LPK BUNDA SEJATI",
     "lat": -8.744186,
     "lng": 116.298482,
@@ -2330,7 +2980,7 @@
     "cs": "o"
   },
   {
-    "id": 266,
+    "id": 751,
     "n": "LPK BUSAN",
     "lat": -7.615418,
     "lng": 110.308592,
@@ -2340,7 +2990,7 @@
     "cs": "o"
   },
   {
-    "id": 267,
+    "id": 878,
     "n": "LPK BUSAN NGAWI",
     "lat": -7.401042,
     "lng": 111.401065,
@@ -2350,7 +3000,17 @@
     "cs": "o"
   },
   {
-    "id": 268,
+    "id": 1841,
+    "n": "LPK Bahana Inspirasi Muda",
+    "lat": -6.932108,
+    "lng": 107.589715,
+    "p": "32",
+    "o": "N",
+    "k": 300,
+    "cs": "o"
+  },
+  {
+    "id": 860,
     "n": "LPK Bahtera Berkah Abadi",
     "lat": -6.322067,
     "lng": 107.027366,
@@ -2360,7 +3020,7 @@
     "cs": "o"
   },
   {
-    "id": 269,
+    "id": 689,
     "n": "LPK Balindo Paradiso",
     "lat": -8.681722,
     "lng": 115.193277,
@@ -2370,7 +3030,7 @@
     "cs": "o"
   },
   {
-    "id": 270,
+    "id": 1343,
     "n": "LPK Be Master Course",
     "lat": -6.219184,
     "lng": 106.640918,
@@ -2380,9 +3040,19 @@
     "cs": "o"
   },
   {
-    "id": 271,
+    "id": 1836,
+    "n": "LPK Bee World",
+    "lat": -3.446941,
+    "lng": 114.819401,
+    "p": "63",
+    "o": "N",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 691,
     "n": "LPK Bina Insani",
-    "lat": -7.8036,
+    "lat": -7.801866,
     "lng": 110.382493,
     "p": "34",
     "o": "N",
@@ -2390,7 +3060,7 @@
     "cs": "c"
   },
   {
-    "id": 272,
+    "id": 656,
     "n": "LPK Binawan",
     "lat": -6.723789,
     "lng": 107.065359,
@@ -2400,7 +3070,7 @@
     "cs": "o"
   },
   {
-    "id": 273,
+    "id": 1300,
     "n": "LPK Bintang Terang",
     "lat": -7.340343,
     "lng": 108.448429,
@@ -2410,7 +3080,17 @@
     "cs": "c"
   },
   {
-    "id": 274,
+    "id": 1763,
+    "n": "LPK Bitode Wira Indonesia",
+    "lat": -7.096554,
+    "lng": 107.985573,
+    "p": "32",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 952,
     "n": "LPK Busan Majalengka",
     "lat": -6.775132,
     "lng": 108.340092,
@@ -2420,17 +3100,17 @@
     "cs": "o"
   },
   {
-    "id": 275,
+    "id": 998,
     "n": "LPK CAHAYA BANTEN SEJAHTERA",
-    "lat": -6.297902,
-    "lng": 106.954465,
+    "lat": -6.297207,
+    "lng": 106.952796,
     "p": "32",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 276,
+    "id": 1216,
     "n": "LPK CAHAYA DUTA BALI",
     "lat": -8.373893,
     "lng": 114.69298,
@@ -2440,7 +3120,17 @@
     "cs": "o"
   },
   {
-    "id": 277,
+    "id": 1607,
+    "n": "LPK CAHAYA NUSANTARA",
+    "lat": -8.62086,
+    "lng": 116.491929,
+    "p": "52",
+    "o": "N",
+    "k": 30,
+    "cs": "c"
+  },
+  {
+    "id": 1357,
     "n": "LPK CAHAYA SUBARASHI INDONESIA",
     "lat": 0.539328,
     "lng": 101.409759,
@@ -2450,7 +3140,7 @@
     "cs": "o"
   },
   {
-    "id": 278,
+    "id": 1052,
     "n": "LPK CAROLINE",
     "lat": -8.704655,
     "lng": 116.273837,
@@ -2460,17 +3150,17 @@
     "cs": "o"
   },
   {
-    "id": 279,
+    "id": 1185,
     "n": "LPK CHAESU BINANGUN",
-    "lat": -7.648256,
-    "lng": 109.140878,
+    "lat": -7.620012,
+    "lng": 109.053581,
     "p": "33",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 281,
+    "id": 774,
     "n": "LPK CHEONAN",
     "lat": -7.244641,
     "lng": 110.433228,
@@ -2480,7 +3170,7 @@
     "cs": "c"
   },
   {
-    "id": 282,
+    "id": 970,
     "n": "LPK CIPTA TUNGGA INDONESIA",
     "lat": -7.340343,
     "lng": 108.448429,
@@ -2490,17 +3180,27 @@
     "cs": "c"
   },
   {
-    "id": 283,
+    "id": 954,
     "n": "LPK CITRA ABDI NUSA",
-    "lat": -7.964887,
-    "lng": 112.643749,
+    "lat": -7.965397,
+    "lng": 112.641013,
     "p": "35",
     "o": "N",
     "k": 255,
     "cs": "c"
   },
   {
-    "id": 285,
+    "id": 1728,
+    "n": "LPK Ceria",
+    "lat": -6.921846,
+    "lng": 107.607083,
+    "p": "32",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1194,
     "n": "LPK Chakra Dian Utama",
     "lat": -5.835406,
     "lng": 106.677418,
@@ -2510,7 +3210,7 @@
     "cs": "o"
   },
   {
-    "id": 286,
+    "id": 1538,
     "n": "LPK Cipta Karya Intelektual",
     "lat": -6.220207,
     "lng": 106.923215,
@@ -2520,7 +3220,7 @@
     "cs": "o"
   },
   {
-    "id": 287,
+    "id": 809,
     "n": "LPK Contoh",
     "lat": -6.183726,
     "lng": 106.874185,
@@ -2530,7 +3230,7 @@
     "cs": "o"
   },
   {
-    "id": 288,
+    "id": 1426,
     "n": "LPK Contoh 123",
     "lat": -6.244378,
     "lng": 106.84688,
@@ -2540,17 +3240,17 @@
     "cs": "o"
   },
   {
-    "id": 289,
+    "id": 1259,
     "n": "LPK D'SAKURA CENDEKIA",
-    "lat": -2.938143,
-    "lng": 104.719905,
+    "lat": -3.776585,
+    "lng": 104.879233,
     "p": "16",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 290,
+    "id": 796,
     "n": "LPK DAEHWA",
     "lat": -6.659484,
     "lng": 108.537276,
@@ -2560,37 +3260,37 @@
     "cs": "o"
   },
   {
-    "id": 291,
+    "id": 1862,
     "n": "LPK DAN BLKLN BANGUN GUNUNGSARI",
-    "lat": -7.615044,
-    "lng": 112.768666,
+    "lat": -7.569592,
+    "lng": 112.715263,
     "p": "35",
     "o": "N",
-    "k": 999,
+    "k": 1000,
     "cs": "o"
   },
   {
-    "id": 292,
+    "id": 1549,
     "n": "LPK DELTA INDONESIA",
-    "lat": -6.297902,
-    "lng": 106.954465,
+    "lat": -6.297207,
+    "lng": 106.952796,
     "p": "32",
     "o": "N",
     "k": 25,
     "cs": "c"
   },
   {
-    "id": 293,
+    "id": 690,
     "n": "LPK DHARMAKERTA RAHARJA CIREBON",
-    "lat": -6.801351,
-    "lng": 108.524513,
+    "lat": -6.764683,
+    "lng": 108.530895,
     "p": "32",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 294,
+    "id": 760,
     "n": "LPK DHARMAKERTA RAHARJA LAMPUNG",
     "lat": -5.120512,
     "lng": 105.292293,
@@ -2600,7 +3300,7 @@
     "cs": "o"
   },
   {
-    "id": 295,
+    "id": 1036,
     "n": "LPK DIGITALINDO SOLUSI INDONESIA",
     "lat": -6.443548,
     "lng": 106.831527,
@@ -2610,17 +3310,17 @@
     "cs": "o"
   },
   {
-    "id": 296,
+    "id": 1587,
     "n": "LPK DIVANI 21",
-    "lat": -6.978873,
-    "lng": 107.67903,
+    "lat": -6.986005,
+    "lng": 107.597989,
     "p": "32",
     "o": "N",
-    "k": 50,
-    "cs": "c"
+    "k": 70,
+    "cs": "o"
   },
   {
-    "id": 297,
+    "id": 1276,
     "n": "LPK DJAJULI OKIAGARU AGRIPRENEUR",
     "lat": -6.995135,
     "lng": 108.275591,
@@ -2630,7 +3330,17 @@
     "cs": "o"
   },
   {
-    "id": 298,
+    "id": 1602,
+    "n": "LPK DUTA AMAYA INDONESIA",
+    "lat": -5.164439,
+    "lng": 119.423872,
+    "p": "73",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1458,
     "n": "LPK DWI LESTARI COLLEGE",
     "lat": -6.363722,
     "lng": 104.574519,
@@ -2640,7 +3350,7 @@
     "cs": "o"
   },
   {
-    "id": 299,
+    "id": 1011,
     "n": "LPK Defita Bersaudara Jaya",
     "lat": -6.307355,
     "lng": 106.928424,
@@ -2650,17 +3360,17 @@
     "cs": "o"
   },
   {
-    "id": 300,
+    "id": 1215,
     "n": "LPK Dummy",
-    "lat": -6.978873,
-    "lng": 107.67903,
+    "lat": -6.983686,
+    "lng": 107.602356,
     "p": "32",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 301,
+    "id": 779,
     "n": "LPK EIKOU KAKEHASHI INDONESIA",
     "lat": -6.939922,
     "lng": 107.66357,
@@ -2670,7 +3380,7 @@
     "cs": "o"
   },
   {
-    "id": 302,
+    "id": 975,
     "n": "LPK EL-BARQ",
     "lat": -7.612185,
     "lng": 111.975982,
@@ -2680,7 +3390,7 @@
     "cs": "o"
   },
   {
-    "id": 303,
+    "id": 980,
     "n": "LPK ELRO COMPUTER",
     "lat": 1.290098,
     "lng": 101.191926,
@@ -2690,17 +3400,17 @@
     "cs": "o"
   },
   {
-    "id": 304,
+    "id": 1199,
     "n": "LPK ERCELIA FUJIKO BERDIKARI",
     "lat": -7.669224,
     "lng": 109.628511,
     "p": "33",
     "o": "N",
-    "k": 100,
+    "k": 200,
     "cs": "o"
   },
   {
-    "id": 305,
+    "id": 918,
     "n": "LPK FAZA KEMUSIM KOPI",
     "lat": 5.558496,
     "lng": 95.3335,
@@ -2710,7 +3420,7 @@
     "cs": "o"
   },
   {
-    "id": 306,
+    "id": 1097,
     "n": "LPK FORWARD GLOBAL",
     "lat": -6.159898,
     "lng": 106.664097,
@@ -2720,27 +3430,57 @@
     "cs": "o"
   },
   {
-    "id": 307,
+    "id": 1166,
     "n": "LPK FUJI ACADEMY BALI",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 309,
+    "id": 1628,
+    "n": "LPK FUJIYAMA CENTER",
+    "lat": -5.094267,
+    "lng": 105.283533,
+    "p": "18",
+    "o": "N",
+    "k": 120,
+    "cs": "o"
+  },
+  {
+    "id": 1933,
+    "n": "LPK FUJIYAMA GLOBAL INDONESIA",
+    "lat": -7.552856,
+    "lng": 110.779371,
+    "p": "33",
+    "o": "N",
+    "k": 160,
+    "cs": "o"
+  },
+  {
+    "id": 1779,
+    "n": "LPK Fortune Eikou Sentaa",
+    "lat": -7.753133,
+    "lng": 112.177554,
+    "p": "35",
+    "o": "N",
+    "k": 27,
+    "cs": "o"
+  },
+  {
+    "id": 826,
     "n": "LPK Funtastic English Center",
-    "lat": -3.965908,
-    "lng": 122.512887,
+    "lat": -3.977336,
+    "lng": 122.51293,
     "p": "74",
     "o": "N",
     "k": 1000,
     "cs": "c"
   },
   {
-    "id": 310,
+    "id": 1026,
     "n": "LPK GAJAH MADA 94",
     "lat": -7.598223,
     "lng": 110.956551,
@@ -2750,17 +3490,17 @@
     "cs": "o"
   },
   {
-    "id": 311,
+    "id": 1184,
     "n": "LPK GANBATTE",
-    "lat": 3.535639,
-    "lng": 98.725288,
+    "lat": 3.534678,
+    "lng": 98.732562,
     "p": "12",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 313,
+    "id": 978,
     "n": "LPK GANGNAM MAGETAN",
     "lat": -7.675907,
     "lng": 111.453002,
@@ -2770,17 +3510,27 @@
     "cs": "o"
   },
   {
-    "id": 315,
+    "id": 1925,
     "n": "LPK GENKI KENSHU SENTA",
-    "lat": -7.502927,
-    "lng": 110.447496,
+    "lat": -7.43395,
+    "lng": 110.464423,
     "p": "33",
     "o": "N",
     "k": 500,
     "cs": "c"
   },
   {
-    "id": 316,
+    "id": 1941,
+    "n": "LPK GENTALA HOSPITALITY SCHOOL",
+    "lat": -1.608864,
+    "lng": 103.623268,
+    "p": "15",
+    "o": "N",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 818,
     "n": "LPK GERBANG ASA",
     "lat": -7.848711,
     "lng": 111.464431,
@@ -2790,7 +3540,7 @@
     "cs": "o"
   },
   {
-    "id": 317,
+    "id": 1515,
     "n": "LPK GEWELD",
     "lat": 1.106721,
     "lng": 104.066035,
@@ -2800,7 +3550,7 @@
     "cs": "o"
   },
   {
-    "id": 318,
+    "id": 770,
     "n": "LPK GGUM HANGUKO HAKWON",
     "lat": -8.10499,
     "lng": 111.961034,
@@ -2810,27 +3560,27 @@
     "cs": "o"
   },
   {
-    "id": 319,
+    "id": 1910,
     "n": "LPK GLOBAL PURWOKERTO",
     "lat": -7.413143,
     "lng": 109.167666,
     "p": "33",
     "o": "N",
-    "k": 100,
+    "k": 200,
     "cs": "c"
   },
   {
-    "id": 320,
+    "id": 1091,
     "n": "LPK GLOBALINDO YOGYAKARTA",
     "lat": -7.761524,
-    "lng": 110.343118,
+    "lng": 110.350322,
     "p": "34",
     "o": "P",
     "k": 30,
     "cs": "c"
   },
   {
-    "id": 321,
+    "id": 1173,
     "n": "LPK GUNUNG SERIBU PERMATA",
     "lat": -6.79008,
     "lng": 106.708145,
@@ -2840,19 +3590,19 @@
     "cs": "o"
   },
   {
-    "id": 323,
+    "id": 1182,
     "n": "LPK Genesis Talent Academy",
-    "lat": -7.857214,
-    "lng": 110.386956,
+    "lat": -7.845485,
+    "lng": 110.374576,
     "p": "34",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 324,
+    "id": 1044,
     "n": "LPK Global Lentera Kasih",
-    "lat": 1.072672,
+    "lat": 1.106721,
     "lng": 104.04935,
     "p": "21",
     "o": "N",
@@ -2860,7 +3610,7 @@
     "cs": "c"
   },
   {
-    "id": 325,
+    "id": 933,
     "n": "LPK HAMERTA SINAR SURYA",
     "lat": -7.405788,
     "lng": 112.560575,
@@ -2870,7 +3620,7 @@
     "cs": "o"
   },
   {
-    "id": 326,
+    "id": 797,
     "n": "LPK HAN'GUGI MUNHWA",
     "lat": -5.381534,
     "lng": 104.967287,
@@ -2880,7 +3630,7 @@
     "cs": "c"
   },
   {
-    "id": 327,
+    "id": 712,
     "n": "LPK HANAMAN",
     "lat": -6.461083,
     "lng": 108.45063,
@@ -2890,7 +3640,7 @@
     "cs": "o"
   },
   {
-    "id": 330,
+    "id": 1526,
     "n": "LPK HANGGUGO HAKWON",
     "lat": -6.858709,
     "lng": 108.805994,
@@ -2900,17 +3650,17 @@
     "cs": "o"
   },
   {
-    "id": 332,
+    "id": 1723,
     "n": "LPK HANIL JAPANESE & KOREAN CENTER",
-    "lat": -7.604328,
-    "lng": 110.969884,
+    "lat": -7.604247,
+    "lng": 110.969909,
     "p": "33",
     "o": "N",
-    "k": 350,
+    "k": 700,
     "cs": "o"
   },
   {
-    "id": 334,
+    "id": 1289,
     "n": "LPK HARUM JAYA",
     "lat": 5.537189,
     "lng": 95.304614,
@@ -2920,7 +3670,7 @@
     "cs": "o"
   },
   {
-    "id": 335,
+    "id": 1242,
     "n": "LPK HIKARI JOGJA MANDIRI",
     "lat": -7.857214,
     "lng": 110.386956,
@@ -2930,7 +3680,17 @@
     "cs": "o"
   },
   {
-    "id": 336,
+    "id": 1908,
+    "n": "LPK HIROKI KENSHU",
+    "lat": 0.931524,
+    "lng": 123.038903,
+    "p": "75",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1108,
     "n": "LPK HISKA",
     "lat": -7.926676,
     "lng": 110.568827,
@@ -2940,7 +3700,7 @@
     "cs": "c"
   },
   {
-    "id": 337,
+    "id": 1338,
     "n": "LPK HOUSE OF LEARNING",
     "lat": -5.381534,
     "lng": 104.967287,
@@ -2950,7 +3710,7 @@
     "cs": "c"
   },
   {
-    "id": 338,
+    "id": 1275,
     "n": "LPK HR Global Indonesia",
     "lat": -5.95652,
     "lng": 106.130695,
@@ -2960,7 +3720,7 @@
     "cs": "o"
   },
   {
-    "id": 339,
+    "id": 702,
     "n": "LPK Haltec",
     "lat": -2.166408,
     "lng": 106.136503,
@@ -2970,7 +3730,7 @@
     "cs": "o"
   },
   {
-    "id": 340,
+    "id": 802,
     "n": "LPK Higlob",
     "lat": -7.66272,
     "lng": 110.336971,
@@ -2980,7 +3740,7 @@
     "cs": "o"
   },
   {
-    "id": 341,
+    "id": 1382,
     "n": "LPK INDERA",
     "lat": -8.036709,
     "lng": 105.987167,
@@ -2990,7 +3750,7 @@
     "cs": "o"
   },
   {
-    "id": 343,
+    "id": 944,
     "n": "LPK INDO AL KANTARA",
     "lat": -6.367948,
     "lng": 106.871254,
@@ -3000,17 +3760,17 @@
     "cs": "o"
   },
   {
-    "id": 344,
+    "id": 1187,
     "n": "LPK INOVASI CIPTA MANDIRI",
-    "lat": -6.801351,
-    "lng": 108.524513,
+    "lat": -6.764683,
+    "lng": 108.530895,
     "p": "32",
     "o": "N",
     "k": 98,
     "cs": "c"
   },
   {
-    "id": 345,
+    "id": 1207,
     "n": "LPK INSAN MANDIRI ISHIKAWA",
     "lat": -7.666811,
     "lng": 106.613493,
@@ -3020,7 +3780,7 @@
     "cs": "o"
   },
   {
-    "id": 348,
+    "id": 849,
     "n": "LPK INTERSOLUSI INDONESIA",
     "lat": -7.287374,
     "lng": 112.753381,
@@ -3030,7 +3790,7 @@
     "cs": "o"
   },
   {
-    "id": 349,
+    "id": 1311,
     "n": "LPK ISTIBANK SURAKARTA",
     "lat": -7.562013,
     "lng": 110.849319,
@@ -3040,17 +3800,17 @@
     "cs": "o"
   },
   {
-    "id": 351,
+    "id": 1056,
     "n": "LPK Indobank",
-    "lat": -7.502927,
-    "lng": 110.447496,
+    "lat": -7.43395,
+    "lng": 110.464423,
     "p": "33",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 352,
+    "id": 1100,
     "n": "LPK Insan Medika Academy",
     "lat": -7.797689,
     "lng": 110.362577,
@@ -3060,7 +3820,7 @@
     "cs": "o"
   },
   {
-    "id": 354,
+    "id": 1055,
     "n": "LPK JANTRAS CIAMIS",
     "lat": -7.304174,
     "lng": 108.24202,
@@ -3070,27 +3830,27 @@
     "cs": "o"
   },
   {
-    "id": 355,
+    "id": 1401,
     "n": "LPK JAPAN CONNECT CENTER ( JACC )",
-    "lat": -8.232684,
-    "lng": 114.343548,
+    "lat": -8.232792,
+    "lng": 114.342196,
     "p": "35",
     "o": "N",
     "k": 30,
     "cs": "c"
   },
   {
-    "id": 356,
+    "id": 823,
     "n": "LPK JAYA ABADI MUTIARA BERSINAR",
     "lat": -6.240686,
-    "lng": 106.829398,
+    "lng": 107.098575,
     "p": "32",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 357,
+    "id": 681,
     "n": "LPK JGI",
     "lat": -5.104489,
     "lng": 105.339354,
@@ -3100,7 +3860,7 @@
     "cs": "o"
   },
   {
-    "id": 358,
+    "id": 867,
     "n": "LPK JUSTICIA COMPUTER",
     "lat": -7.864109,
     "lng": 110.157093,
@@ -3110,7 +3870,7 @@
     "cs": "o"
   },
   {
-    "id": 360,
+    "id": 1077,
     "n": "LPK Japan Indonesia Driving School",
     "lat": -7.515864,
     "lng": 110.81518,
@@ -3120,17 +3880,17 @@
     "cs": "o"
   },
   {
-    "id": 361,
+    "id": 964,
     "n": "LPK KANZO BALI",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 362,
+    "id": 1432,
     "n": "LPK KANZO INDONESIA",
     "lat": -8.164581,
     "lng": 113.453374,
@@ -3140,17 +3900,27 @@
     "cs": "o"
   },
   {
-    "id": 365,
+    "id": 1601,
+    "n": "LPK KARYA NYATA",
+    "lat": -2.948047,
+    "lng": 104.735426,
+    "p": "16",
+    "o": "N",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1483,
     "n": "LPK KEIFA INDONESIA",
-    "lat": -7.702074,
-    "lng": 110.724102,
+    "lat": -7.702147,
+    "lng": 110.669085,
     "p": "33",
     "o": "N",
     "k": 60,
     "cs": "c"
   },
   {
-    "id": 366,
+    "id": 1141,
     "n": "LPK KEMANGA MAXIMA BERDIKARI",
     "lat": -6.423748,
     "lng": 106.96849,
@@ -3160,7 +3930,7 @@
     "cs": "c"
   },
   {
-    "id": 367,
+    "id": 1234,
     "n": "LPK KENCANA JEMBER",
     "lat": -8.377436,
     "lng": 113.661702,
@@ -3170,17 +3940,17 @@
     "cs": "o"
   },
   {
-    "id": 370,
+    "id": 1186,
     "n": "LPK KESSAKU INDONESIA",
-    "lat": -6.294912,
-    "lng": 107.297835,
+    "lat": -6.298801,
+    "lng": 107.283947,
     "p": "32",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 372,
+    "id": 916,
     "n": "LPK KIKYOU SETIA INDONESIA",
     "lat": -8.803547,
     "lng": 115.217724,
@@ -3190,7 +3960,7 @@
     "cs": "o"
   },
   {
-    "id": 373,
+    "id": 1249,
     "n": "LPK KIMHAE",
     "lat": -7.389492,
     "lng": 109.079813,
@@ -3200,7 +3970,7 @@
     "cs": "o"
   },
   {
-    "id": 374,
+    "id": 1334,
     "n": "LPK KIRANA GAKKOU",
     "lat": -7.404322,
     "lng": 111.116632,
@@ -3210,7 +3980,7 @@
     "cs": "o"
   },
   {
-    "id": 375,
+    "id": 780,
     "n": "LPK KONGBUHAPSIDA",
     "lat": -7.300189,
     "lng": 110.177837,
@@ -3220,7 +3990,7 @@
     "cs": "o"
   },
   {
-    "id": 376,
+    "id": 1238,
     "n": "LPK KYUSHU KAPUAS INDONESIA",
     "lat": -0.066657,
     "lng": 109.333783,
@@ -3230,7 +4000,7 @@
     "cs": "o"
   },
   {
-    "id": 377,
+    "id": 1336,
     "n": "LPK Karsa Cipta Mandiri Indonesia",
     "lat": -0.240947,
     "lng": 110.251579,
@@ -3240,7 +4010,7 @@
     "cs": "o"
   },
   {
-    "id": 378,
+    "id": 1113,
     "n": "LPK Kartika Sinar Persada",
     "lat": -7.312812,
     "lng": 110.491253,
@@ -3250,17 +4020,17 @@
     "cs": "c"
   },
   {
-    "id": 379,
+    "id": 1328,
     "n": "LPK Kenzo",
-    "lat": -6.90223,
-    "lng": 107.961622,
+    "lat": -6.709274,
+    "lng": 108.483302,
     "p": "32",
     "o": "N",
-    "k": 20,
+    "k": 1,
     "cs": "o"
   },
   {
-    "id": 382,
+    "id": 1329,
     "n": "LPK Klinik Computer",
     "lat": -2.999631,
     "lng": 120.192068,
@@ -3270,7 +4040,37 @@
     "cs": "c"
   },
   {
-    "id": 383,
+    "id": 1844,
+    "n": "LPK LN SAI MENTARI LAMPUNG",
+    "lat": -4.80493,
+    "lng": 105.509359,
+    "p": "18",
+    "o": "N",
+    "k": 449,
+    "cs": "c"
+  },
+  {
+    "id": 1572,
+    "n": "LPK LOMBOK INTERNATIONAL SOLUTIONS",
+    "lat": -8.704655,
+    "lng": 116.266969,
+    "p": "52",
+    "o": "N",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1611,
+    "n": "LPK LP2GM",
+    "lat": -8.704655,
+    "lng": 116.266969,
+    "p": "52",
+    "o": "N",
+    "k": 75,
+    "cs": "c"
+  },
+  {
+    "id": 1017,
     "n": "LPK LPB3A",
     "lat": -8.613228,
     "lng": 116.127032,
@@ -3280,17 +4080,17 @@
     "cs": "o"
   },
   {
-    "id": 384,
+    "id": 1190,
     "n": "LPK Laksana Hendra Sukses",
-    "lat": -7.908074,
-    "lng": 111.984435,
+    "lat": -7.89842,
+    "lng": 111.988433,
     "p": "35",
     "o": "N",
     "k": 120,
     "cs": "c"
   },
   {
-    "id": 385,
+    "id": 888,
     "n": "LPK MALINDO JAYA BAHTERA",
     "lat": -6.250016,
     "lng": 107.045303,
@@ -3300,27 +4100,27 @@
     "cs": "o"
   },
   {
-    "id": 386,
+    "id": 1290,
     "n": "LPK MANDALIKA MARITIME CENTER",
-    "lat": -8.592775,
-    "lng": 116.126202,
+    "lat": -8.626064,
+    "lng": 116.121001,
     "p": "52",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 387,
+    "id": 1322,
     "n": "LPK MANTIS (Mandiri Tiga Serangkai)",
-    "lat": -7.197493,
-    "lng": 107.884754,
+    "lat": -7.193758,
+    "lng": 107.892608,
     "p": "32",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 388,
+    "id": 879,
     "n": "LPK MARINDO",
     "lat": -6.423748,
     "lng": 106.96849,
@@ -3330,7 +4130,7 @@
     "cs": "c"
   },
   {
-    "id": 389,
+    "id": 1205,
     "n": "LPK MARINE CRUISE YOGYAKARTA",
     "lat": -7.926676,
     "lng": 110.568827,
@@ -3340,7 +4140,7 @@
     "cs": "o"
   },
   {
-    "id": 394,
+    "id": 945,
     "n": "LPK MARS",
     "lat": -7.702201,
     "lng": 110.724486,
@@ -3350,7 +4150,27 @@
     "cs": "o"
   },
   {
-    "id": 395,
+    "id": 1744,
+    "n": "LPK MASTER",
+    "lat": -7.620012,
+    "lng": 109.053581,
+    "p": "33",
+    "o": "N",
+    "k": 300,
+    "cs": "c"
+  },
+  {
+    "id": 1920,
+    "n": "LPK MASUTOMO JAYA UTAMA",
+    "lat": -6.33333,
+    "lng": 107.283947,
+    "p": "32",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1340,
     "n": "LPK MEDIA",
     "lat": -4.023179,
     "lng": 113.466797,
@@ -3360,17 +4180,27 @@
     "cs": "o"
   },
   {
-    "id": 396,
+    "id": 1741,
+    "n": "LPK MEDIA KOMPUTER",
+    "lat": -7.484756,
+    "lng": 108.788454,
+    "p": "33",
+    "o": "N",
+    "k": 120,
+    "cs": "o"
+  },
+  {
+    "id": 1269,
     "n": "LPK MINORI MEDAN",
-    "lat": 3.535639,
-    "lng": 98.725288,
+    "lat": 3.534678,
+    "lng": 98.732562,
     "p": "12",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 397,
+    "id": 928,
     "n": "LPK MITRA BINA BANGSA",
     "lat": -8.018109,
     "lng": 112.643768,
@@ -3380,7 +4210,7 @@
     "cs": "o"
   },
   {
-    "id": 398,
+    "id": 846,
     "n": "LPK MITRA BUDI LESTARI",
     "lat": -6.878152,
     "lng": 109.143512,
@@ -3390,7 +4220,7 @@
     "cs": "o"
   },
   {
-    "id": 400,
+    "id": 725,
     "n": "LPK MITRA GAMA SMART MULTI COURSE",
     "lat": -7.517621,
     "lng": 111.034747,
@@ -3400,17 +4230,7 @@
     "cs": "o"
   },
   {
-    "id": 401,
-    "n": "LPK MITRA SARANA SEJAHTERA MALANG",
-    "lat": -8.018078,
-    "lng": 112.643921,
-    "p": "35",
-    "o": "N",
-    "k": 500,
-    "cs": "o"
-  },
-  {
-    "id": 402,
+    "id": 923,
     "n": "LPK MITRA SEJATI RISTAMA",
     "lat": -7.022753,
     "lng": 110.461764,
@@ -3420,7 +4240,7 @@
     "cs": "o"
   },
   {
-    "id": 403,
+    "id": 930,
     "n": "LPK MITRA SINERGI SUKSES",
     "lat": -8.018034,
     "lng": 112.643749,
@@ -3430,7 +4250,7 @@
     "cs": "o"
   },
   {
-    "id": 404,
+    "id": 1206,
     "n": "LPK MUDA BERDAYA NUSANTARA",
     "lat": -7.272717,
     "lng": 108.191855,
@@ -3440,7 +4260,7 @@
     "cs": "o"
   },
   {
-    "id": 405,
+    "id": 987,
     "n": "LPK MULIA MANDIRI ABADI",
     "lat": -7.356335,
     "lng": 108.228741,
@@ -3450,7 +4270,7 @@
     "cs": "o"
   },
   {
-    "id": 406,
+    "id": 771,
     "n": "LPK MULKI",
     "lat": -6.971825,
     "lng": 110.067758,
@@ -3460,7 +4280,7 @@
     "cs": "o"
   },
   {
-    "id": 407,
+    "id": 983,
     "n": "LPK MULYA CENDIKIA EDUCATION",
     "lat": -7.193019,
     "lng": 107.884283,
@@ -3470,7 +4290,7 @@
     "cs": "o"
   },
   {
-    "id": 408,
+    "id": 1000,
     "n": "LPK MUSHA",
     "lat": -6.968553,
     "lng": 110.108002,
@@ -3480,7 +4300,7 @@
     "cs": "o"
   },
   {
-    "id": 409,
+    "id": 1001,
     "n": "LPK MUSHA Tangerang",
     "lat": -6.25207,
     "lng": 106.67977,
@@ -3490,7 +4310,7 @@
     "cs": "o"
   },
   {
-    "id": 410,
+    "id": 830,
     "n": "LPK MUTIARA PUTRA UTAMA",
     "lat": -8.550867,
     "lng": 113.002263,
@@ -3500,7 +4320,17 @@
     "cs": "o"
   },
   {
-    "id": 412,
+    "id": 1762,
+    "n": "LPK Macca Inspirasi Nusantara",
+    "lat": -5.132257,
+    "lng": 119.431117,
+    "p": "73",
+    "o": "N",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1508,
     "n": "LPK Matahari Terbit",
     "lat": 1.463475,
     "lng": 124.843303,
@@ -3510,9 +4340,9 @@
     "cs": "o"
   },
   {
-    "id": 413,
+    "id": 1287,
     "n": "LPK Mau Yakin Bisa",
-    "lat": -7.8036,
+    "lat": -7.801866,
     "lng": 110.382493,
     "p": "34",
     "o": "N",
@@ -3520,7 +4350,7 @@
     "cs": "c"
   },
   {
-    "id": 414,
+    "id": 1168,
     "n": "LPK Mawar",
     "lat": -6.423748,
     "lng": 106.96849,
@@ -3530,7 +4360,7 @@
     "cs": "c"
   },
   {
-    "id": 415,
+    "id": 1530,
     "n": "LPK Metland College",
     "lat": -6.403505,
     "lng": 106.975576,
@@ -3540,7 +4370,7 @@
     "cs": "o"
   },
   {
-    "id": 416,
+    "id": 871,
     "n": "LPK Metroriset",
     "lat": -4.040094,
     "lng": 122.493719,
@@ -3550,17 +4380,27 @@
     "cs": "o"
   },
   {
-    "id": 417,
+    "id": 1832,
     "n": "LPK Mitra Gama Abadi",
-    "lat": -7.487515,
-    "lng": 111.034747,
+    "lat": -7.40481,
+    "lng": 111.056314,
     "p": "33",
     "o": "N",
-    "k": 9,
-    "cs": "c"
+    "k": 900,
+    "cs": "o"
   },
   {
-    "id": 418,
+    "id": 1909,
+    "n": "LPK Mitra Sarana Sejahtera",
+    "lat": -8.017837,
+    "lng": 112.643852,
+    "p": "35",
+    "o": "N",
+    "k": 500,
+    "cs": "o"
+  },
+  {
+    "id": 1241,
     "n": "LPK Monarch Bali Candidasa",
     "lat": -8.410718,
     "lng": 115.479097,
@@ -3570,7 +4410,7 @@
     "cs": "o"
   },
   {
-    "id": 419,
+    "id": 799,
     "n": "LPK N-TRI ISHIN JAPANESE ACADEMY",
     "lat": -6.268073,
     "lng": 106.975615,
@@ -3580,7 +4420,7 @@
     "cs": "o"
   },
   {
-    "id": 420,
+    "id": 962,
     "n": "LPK NAKAYOSHI GAKUIN CENTER",
     "lat": -6.783293,
     "lng": 108.270623,
@@ -3590,7 +4430,7 @@
     "cs": "o"
   },
   {
-    "id": 421,
+    "id": 1558,
     "n": "LPK NEW UNGU",
     "lat": -5.102083,
     "lng": 120.219619,
@@ -3600,7 +4440,7 @@
     "cs": "c"
   },
   {
-    "id": 422,
+    "id": 857,
     "n": "LPK NEYSA PRIMA SENTOSA",
     "lat": -6.239143,
     "lng": 106.986577,
@@ -3610,7 +4450,7 @@
     "cs": "o"
   },
   {
-    "id": 423,
+    "id": 974,
     "n": "LPK NIDA COURSE",
     "lat": -6.803802,
     "lng": 110.846634,
@@ -3620,37 +4460,37 @@
     "cs": "o"
   },
   {
-    "id": 424,
+    "id": 865,
     "n": "LPK Nur Mutiara Bangsa",
     "lat": -7.693665,
-    "lng": 109.682905,
+    "lng": 109.699005,
     "p": "33",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 425,
-    "n": "LPK OCHA SEBATIK",
-    "lat": 4.165606,
-    "lng": 117.862374,
-    "p": "65",
+    "id": 1673,
+    "n": "LPK Nusadua International College",
+    "lat": -8.14437,
+    "lng": 114.601393,
+    "p": "51",
     "o": "N",
-    "k": 200,
+    "k": 100,
     "cs": "o"
   },
   {
-    "id": 426,
+    "id": 1196,
     "n": "LPK OKAYAMA TRANING CENTER CIKARANG",
     "lat": -6.240686,
-    "lng": 106.829398,
+    "lng": 107.098575,
     "p": "32",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 427,
+    "id": 863,
     "n": "LPK OPPA ONNI HAKWON",
     "lat": -7.917729,
     "lng": 111.980437,
@@ -3660,7 +4500,7 @@
     "cs": "o"
   },
   {
-    "id": 428,
+    "id": 973,
     "n": "LPK Ori Computer",
     "lat": -4.504877,
     "lng": 105.208797,
@@ -3670,7 +4510,7 @@
     "cs": "o"
   },
   {
-    "id": 429,
+    "id": 1397,
     "n": "LPK PACIFIC MARINE SCHOOL",
     "lat": -6.088539,
     "lng": 107.474442,
@@ -3680,7 +4520,7 @@
     "cs": "o"
   },
   {
-    "id": 430,
+    "id": 1065,
     "n": "LPK PADJADJARAN MITRA",
     "lat": -6.893069,
     "lng": 107.600751,
@@ -3690,7 +4530,7 @@
     "cs": "o"
   },
   {
-    "id": 431,
+    "id": 937,
     "n": "LPK PERWITA NUSARAYA",
     "lat": -7.405173,
     "lng": 112.566766,
@@ -3700,7 +4540,7 @@
     "cs": "o"
   },
   {
-    "id": 432,
+    "id": 904,
     "n": "LPK PESONA INDAH MANDIRI",
     "lat": -6.2746,
     "lng": 106.962256,
@@ -3710,7 +4550,7 @@
     "cs": "o"
   },
   {
-    "id": 434,
+    "id": 1101,
     "n": "LPK PRAKASIH SEJAHTERA",
     "lat": -5.16298,
     "lng": 105.302287,
@@ -3720,27 +4560,27 @@
     "cs": "o"
   },
   {
-    "id": 436,
+    "id": 1831,
     "n": "LPK PRAMUDITA CIKARANG",
-    "lat": -6.240686,
-    "lng": 106.829398,
+    "lat": -6.196427,
+    "lng": 107.157461,
     "p": "32",
     "o": "N",
-    "k": 200,
-    "cs": "c"
+    "k": 150,
+    "cs": "o"
   },
   {
-    "id": 437,
+    "id": 982,
     "n": "LPK PRIMA BUANA INDONESIA",
     "lat": -6.240686,
-    "lng": 106.829398,
+    "lng": 107.098575,
     "p": "32",
     "o": "N",
     "k": 720,
     "cs": "c"
   },
   {
-    "id": 438,
+    "id": 756,
     "n": "LPK PRIMA DUTA SEJATI MALANG",
     "lat": -7.954926,
     "lng": 112.639888,
@@ -3750,7 +4590,7 @@
     "cs": "o"
   },
   {
-    "id": 439,
+    "id": 692,
     "n": "LPK PRIMA DUTA SEJATI PASURUAN",
     "lat": -7.552883,
     "lng": 112.695101,
@@ -3760,27 +4600,37 @@
     "cs": "o"
   },
   {
-    "id": 440,
+    "id": 1944,
+    "n": "LPK PROGRES INTI SOLUSI",
+    "lat": -7.715959,
+    "lng": 110.614073,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 847,
     "n": "LPK PT BUDI AGUNG BINATARA",
-    "lat": -6.243916,
-    "lng": 106.845929,
+    "lat": -6.244378,
+    "lng": 106.84688,
     "p": "31",
     "o": "N",
     "k": 180,
     "cs": "c"
   },
   {
-    "id": 441,
+    "id": 1535,
     "n": "LPK PT SENTRAL INOVASI RAYA",
-    "lat": -6.233357,
-    "lng": 106.504202,
+    "lat": -6.181056,
+    "lng": 106.462573,
     "p": "36",
     "o": "N",
     "k": 1000,
     "cs": "c"
   },
   {
-    "id": 442,
+    "id": 1545,
     "n": "LPK PT. ALIETA PUTRA MANDIRI",
     "lat": -7.979192,
     "lng": 112.628045,
@@ -3790,7 +4640,7 @@
     "cs": "o"
   },
   {
-    "id": 443,
+    "id": 1003,
     "n": "LPK PT. TATSUYA PERKASA SINGARA",
     "lat": -6.275836,
     "lng": 107.331879,
@@ -3800,27 +4650,27 @@
     "cs": "o"
   },
   {
-    "id": 445,
+    "id": 814,
     "n": "LPK PUSAKA MULIA INSANI",
-    "lat": -7.407106,
-    "lng": 112.555414,
+    "lat": -7.413439,
+    "lng": 112.56367,
     "p": "35",
     "o": "N",
     "k": 800,
     "cs": "c"
   },
   {
-    "id": 446,
+    "id": 913,
     "n": "LPK PUTRA DUTA PEMBANGUNAN",
-    "lat": -7.583963,
-    "lng": 112.731884,
+    "lat": -7.561237,
+    "lng": 112.705182,
     "p": "35",
     "o": "N",
     "k": 240,
     "cs": "c"
   },
   {
-    "id": 447,
+    "id": 829,
     "n": "LPK PUTRA JABUNG BERKARYA",
     "lat": -6.234986,
     "lng": 106.994544,
@@ -3830,7 +4680,7 @@
     "cs": "o"
   },
   {
-    "id": 449,
+    "id": 854,
     "n": "LPK PUTRI YANG MANDIRI",
     "lat": -6.252502,
     "lng": 107.015066,
@@ -3840,7 +4690,7 @@
     "cs": "o"
   },
   {
-    "id": 451,
+    "id": 935,
     "n": "LPK Panji Sakti",
     "lat": -8.111527,
     "lng": 115.090453,
@@ -3850,7 +4700,7 @@
     "cs": "o"
   },
   {
-    "id": 452,
+    "id": 961,
     "n": "LPK Pasific Mandiri",
     "lat": -6.28873,
     "lng": 106.86184,
@@ -3860,7 +4710,7 @@
     "cs": "o"
   },
   {
-    "id": 453,
+    "id": 1066,
     "n": "LPK Pekanbaru Hospitality Institute",
     "lat": 0.52449,
     "lng": 101.443825,
@@ -3870,27 +4720,27 @@
     "cs": "o"
   },
   {
-    "id": 454,
+    "id": 1214,
     "n": "LPK Percontohan",
-    "lat": -6.978873,
-    "lng": 107.67903,
+    "lat": -6.983686,
+    "lng": 107.602356,
     "p": "32",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 455,
+    "id": 1414,
     "n": "LPK Prisma",
-    "lat": -2.535865,
-    "lng": 112.924618,
+    "lat": -2.25417,
+    "lng": 113.185261,
     "p": "62",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 456,
+    "id": 979,
     "n": "LPK Puspa Setya Abadi",
     "lat": -7.81165,
     "lng": 110.283939,
@@ -3900,7 +4750,7 @@
     "cs": "o"
   },
   {
-    "id": 458,
+    "id": 1062,
     "n": "LPK Putra Perwira",
     "lat": -7.560917,
     "lng": 110.739285,
@@ -3910,27 +4760,27 @@
     "cs": "o"
   },
   {
-    "id": 461,
+    "id": 748,
     "n": "LPK Putri Keumala",
-    "lat": 5.535557,
-    "lng": 95.304614,
+    "lat": 5.532603,
+    "lng": 95.316684,
     "p": "11",
     "o": "N",
     "k": 16,
     "cs": "c"
   },
   {
-    "id": 462,
+    "id": 852,
     "n": "LPK Putri Tunggal Jayaabadi",
-    "lat": -4.447332,
-    "lng": 105.4253,
+    "lat": -2.948047,
+    "lng": 104.735426,
     "p": "16",
     "o": "N",
     "k": 250,
     "cs": "c"
   },
   {
-    "id": 463,
+    "id": 1294,
     "n": "LPK RAMA TERAMPIL MANDIRI",
     "lat": -6.062857,
     "lng": 106.63797,
@@ -3940,17 +4790,17 @@
     "cs": "o"
   },
   {
-    "id": 464,
+    "id": 1876,
     "n": "LPK ROBY PERBATASAN",
-    "lat": 4.165584,
-    "lng": 117.862385,
+    "lat": 4.165772,
+    "lng": 117.86244,
     "p": "65",
     "o": "N",
-    "k": 60,
+    "k": 300,
     "cs": "o"
   },
   {
-    "id": 465,
+    "id": 1032,
     "n": "LPK RULIKA PONOROGO",
     "lat": -7.848711,
     "lng": 111.464431,
@@ -3960,7 +4810,17 @@
     "cs": "c"
   },
   {
-    "id": 466,
+    "id": 1648,
+    "n": "LPK Rade Kursus Menjahit",
+    "lat": 2.158475,
+    "lng": 98.962612,
+    "p": "12",
+    "o": "N",
+    "k": 25,
+    "cs": "o"
+  },
+  {
+    "id": 1078,
     "n": "LPK Randaf Pasim Mandiri",
     "lat": -6.894682,
     "lng": 107.571626,
@@ -3970,7 +4830,7 @@
     "cs": "o"
   },
   {
-    "id": 467,
+    "id": 1016,
     "n": "LPK Ratu Maharani",
     "lat": -8.517469,
     "lng": 115.241534,
@@ -3980,7 +4840,7 @@
     "cs": "o"
   },
   {
-    "id": 468,
+    "id": 1379,
     "n": "LPK Ratu Maharani Spa School",
     "lat": -8.517275,
     "lng": 115.240123,
@@ -3990,7 +4850,7 @@
     "cs": "o"
   },
   {
-    "id": 469,
+    "id": 984,
     "n": "LPK Raya Permata Mandiri",
     "lat": -7.598222,
     "lng": 110.95654,
@@ -4000,17 +4860,17 @@
     "cs": "c"
   },
   {
-    "id": 470,
+    "id": 682,
     "n": "LPK Reformasi San Pedro (di bawah naungan Universitas San Pedro)",
     "lat": -10.154546,
     "lng": 123.600384,
     "p": "53",
     "o": "N",
-    "k": 17,
+    "k": 350,
     "cs": "c"
   },
   {
-    "id": 471,
+    "id": 680,
     "n": "LPK Reformasi San Pedro, ( berada di bawah naungan Universitas San Pedro.)",
     "lat": -10.154546,
     "lng": 123.600384,
@@ -4020,9 +4880,9 @@
     "cs": "c"
   },
   {
-    "id": 472,
+    "id": 1494,
     "n": "LPK SAHABAT CERIA MANAJEMEN",
-    "lat": -8.586328,
+    "lat": -8.590297,
     "lng": 116.118582,
     "p": "52",
     "o": "N",
@@ -4030,7 +4890,7 @@
     "cs": "c"
   },
   {
-    "id": 474,
+    "id": 1347,
     "n": "LPK SANITA",
     "lat": -6.325604,
     "lng": 106.824188,
@@ -4040,27 +4900,27 @@
     "cs": "o"
   },
   {
-    "id": 475,
+    "id": 1323,
     "n": "LPK SEIKO SUKAPURA INDONESIA",
-    "lat": -7.317524,
-    "lng": 108.220688,
+    "lat": -7.318958,
+    "lng": 108.209462,
     "p": "32",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 476,
+    "id": 1271,
     "n": "LPK SEKAI",
-    "lat": 3.535639,
-    "lng": 98.725288,
+    "lat": 3.534678,
+    "lng": 98.732562,
     "p": "12",
     "o": "N",
     "k": 30,
     "cs": "c"
   },
   {
-    "id": 477,
+    "id": 709,
     "n": "LPK SEOUL",
     "lat": -6.400329,
     "lng": 108.28206,
@@ -4070,7 +4930,7 @@
     "cs": "o"
   },
   {
-    "id": 478,
+    "id": 1306,
     "n": "LPK SERBAINDO",
     "lat": -7.312812,
     "lng": 110.491253,
@@ -4080,7 +4940,17 @@
     "cs": "c"
   },
   {
-    "id": 480,
+    "id": 1614,
+    "n": "LPK SERUMPUN MAJU BERSAMA",
+    "lat": -7.965397,
+    "lng": 112.641013,
+    "p": "35",
+    "o": "N",
+    "k": 80,
+    "cs": "c"
+  },
+  {
+    "id": 1131,
     "n": "LPK SHAFA",
     "lat": -6.240402,
     "lng": 106.657201,
@@ -4090,17 +4960,17 @@
     "cs": "o"
   },
   {
-    "id": 481,
+    "id": 1304,
     "n": "LPK SHINJIIRU MIRAI INDONESIA",
-    "lat": -5.158198,
-    "lng": 119.417564,
+    "lat": -5.140957,
+    "lng": 119.436444,
     "p": "73",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 482,
+    "id": 1302,
     "n": "LPK SHINJIRU MIRAI INDONESIA",
     "lat": -6.26036,
     "lng": 106.736744,
@@ -4110,7 +4980,7 @@
     "cs": "o"
   },
   {
-    "id": 483,
+    "id": 798,
     "n": "LPK SIAP SUKSES",
     "lat": -6.340172,
     "lng": 106.76551,
@@ -4120,7 +4990,7 @@
     "cs": "o"
   },
   {
-    "id": 484,
+    "id": 1132,
     "n": "LPK SINAR AGAPE",
     "lat": 3.546168,
     "lng": 98.718015,
@@ -4130,7 +5000,7 @@
     "cs": "o"
   },
   {
-    "id": 485,
+    "id": 1014,
     "n": "LPK SINGOPRONO",
     "lat": -7.43579,
     "lng": 110.684359,
@@ -4140,7 +5010,7 @@
     "cs": "o"
   },
   {
-    "id": 486,
+    "id": 1086,
     "n": "LPK SMART PLUS ACADEMY",
     "lat": -5.410616,
     "lng": 104.962034,
@@ -4150,7 +5020,7 @@
     "cs": "o"
   },
   {
-    "id": 487,
+    "id": 1489,
     "n": "LPK SO KUANTUM ABADI MITRA INDONESIA (LPK SO KAMINDO)",
     "lat": -6.251993,
     "lng": 107.015054,
@@ -4160,9 +5030,9 @@
     "cs": "o"
   },
   {
-    "id": 488,
+    "id": 710,
     "n": "LPK SO LENTERA",
-    "lat": -7.595766,
+    "lat": -7.583869,
     "lng": 110.279781,
     "p": "33",
     "o": "N",
@@ -4170,7 +5040,17 @@
     "cs": "c"
   },
   {
-    "id": 489,
+    "id": 1897,
+    "n": "LPK SO Shiawase Lestari Indonesia",
+    "lat": -6.993092,
+    "lng": 110.423539,
+    "p": "33",
+    "o": "N",
+    "k": 160,
+    "cs": "o"
+  },
+  {
+    "id": 675,
     "n": "LPK SOLUSI TERAMPIL GLOBAL",
     "lat": -7.327424,
     "lng": 112.45173,
@@ -4180,7 +5060,7 @@
     "cs": "o"
   },
   {
-    "id": 490,
+    "id": 1229,
     "n": "LPK STAR SHIBUYA INDONESIA",
     "lat": -6.45145,
     "lng": 108.383155,
@@ -4190,7 +5070,7 @@
     "cs": "c"
   },
   {
-    "id": 491,
+    "id": 909,
     "n": "LPK STKIS",
     "lat": -6.091109,
     "lng": 105.893521,
@@ -4200,17 +5080,7 @@
     "cs": "o"
   },
   {
-    "id": 492,
-    "n": "LPK SUKSES BERSAMA ABADI",
-    "lat": -8.149255,
-    "lng": 112.339046,
-    "p": "35",
-    "o": "N",
-    "k": 80,
-    "cs": "o"
-  },
-  {
-    "id": 493,
+    "id": 1559,
     "n": "LPK SURYANI",
     "lat": -5.121802,
     "lng": 120.257261,
@@ -4220,37 +5090,57 @@
     "cs": "o"
   },
   {
-    "id": 494,
+    "id": 1642,
+    "n": "LPK SWASTA MANDIRI LUWU TIMUR",
+    "lat": -5.132257,
+    "lng": 119.467484,
+    "p": "73",
+    "o": "N",
+    "k": 200,
+    "cs": "c"
+  },
+  {
+    "id": 1938,
+    "n": "LPK Sakura Gakuin",
+    "lat": -7.554628,
+    "lng": 110.836898,
+    "p": "33",
+    "o": "N",
+    "k": 50,
+    "cs": "o"
+  },
+  {
+    "id": 764,
     "n": "LPK Sari Agung Abadi Jaya",
-    "lat": -7.502927,
-    "lng": 110.447496,
+    "lat": -7.43395,
+    "lng": 110.464423,
     "p": "33",
     "o": "N",
     "k": 500,
     "cs": "c"
   },
   {
-    "id": 495,
+    "id": 1219,
     "n": "LPK Sejahtera",
-    "lat": -6.907376,
-    "lng": 107.600973,
+    "lat": -6.90963,
+    "lng": 107.607083,
     "p": "32",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 496,
+    "id": 811,
     "n": "LPK Sinergi Sumberdaya Cendikia",
-    "lat": 3.534678,
-    "lng": 98.732562,
+    "lat": 2.846576,
+    "lng": 98.847587,
     "p": "12",
     "o": "N",
     "k": 16,
     "cs": "c"
   },
   {
-    "id": 497,
+    "id": 1058,
     "n": "LPK Smart Kids",
     "lat": -4.725165,
     "lng": 105.595962,
@@ -4260,7 +5150,17 @@
     "cs": "o"
   },
   {
-    "id": 498,
+    "id": 1598,
+    "n": "LPK Sukses Bersama Abadi",
+    "lat": -8.136259,
+    "lng": 112.339046,
+    "p": "35",
+    "o": "N",
+    "k": 303,
+    "cs": "c"
+  },
+  {
+    "id": 875,
     "n": "LPK TAKUMI",
     "lat": -6.443991,
     "lng": 107.040783,
@@ -4270,7 +5170,7 @@
     "cs": "o"
   },
   {
-    "id": 499,
+    "id": 855,
     "n": "LPK TALENTA MULIA EDUCATION & TRAINING CENTER",
     "lat": -7.760771,
     "lng": 110.418633,
@@ -4280,7 +5180,7 @@
     "cs": "o"
   },
   {
-    "id": 500,
+    "id": 1013,
     "n": "LPK TATIK MODES",
     "lat": -8.069751,
     "lng": 111.667456,
@@ -4290,7 +5190,7 @@
     "cs": "o"
   },
   {
-    "id": 501,
+    "id": 1315,
     "n": "LPK TEKAD (TALENT DIGITAL ACADEMY)",
     "lat": -6.614955,
     "lng": 105.740951,
@@ -4300,17 +5200,17 @@
     "cs": "o"
   },
   {
-    "id": 502,
+    "id": 911,
     "n": "LPK TIARAMAS RONAGEMILANG",
-    "lat": -6.614955,
-    "lng": 107.338943,
+    "lat": -6.673995,
+    "lng": 107.94434,
     "p": "32",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 503,
+    "id": 1106,
     "n": "LPK TIKOM",
     "lat": -5.989753,
     "lng": 107.338943,
@@ -4320,7 +5220,7 @@
     "cs": "o"
   },
   {
-    "id": 504,
+    "id": 880,
     "n": "LPK TIRREI MAS INDONESIA",
     "lat": -6.319285,
     "lng": 106.952796,
@@ -4330,7 +5230,7 @@
     "cs": "o"
   },
   {
-    "id": 505,
+    "id": 841,
     "n": "LPK TRIAS INSAN SEJAHTERA",
     "lat": -6.38649,
     "lng": 106.878717,
@@ -4340,7 +5240,7 @@
     "cs": "o"
   },
   {
-    "id": 506,
+    "id": 1350,
     "n": "LPK TRIYO",
     "lat": -2.228636,
     "lng": 113.887435,
@@ -4350,27 +5250,37 @@
     "cs": "o"
   },
   {
-    "id": 507,
+    "id": 1931,
+    "n": "LPK Toyo Mandiri",
+    "lat": -7.312812,
+    "lng": 110.491253,
+    "p": "33",
+    "o": "N",
+    "k": 45,
+    "cs": "c"
+  },
+  {
+    "id": 1498,
     "n": "LPK Training & Learning Center Bangli",
-    "lat": -8.587042,
-    "lng": 115.206964,
+    "lat": -8.552608,
+    "lng": 115.217715,
     "p": "51",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 508,
+    "id": 700,
     "n": "LPK Tri Pandu Luas Eduka",
-    "lat": -7.648256,
-    "lng": 109.140878,
+    "lat": -7.620012,
+    "lng": 109.053581,
     "p": "33",
     "o": "N",
     "k": 90,
     "cs": "c"
   },
   {
-    "id": 509,
+    "id": 755,
     "n": "LPK URISOWON BANGKALAN",
     "lat": -7.042495,
     "lng": 112.733302,
@@ -4380,7 +5290,7 @@
     "cs": "o"
   },
   {
-    "id": 510,
+    "id": 981,
     "n": "LPK WIDI PRAKARSA TRAINING CONSULTING",
     "lat": -7.589498,
     "lng": 110.925747,
@@ -4390,7 +5300,7 @@
     "cs": "o"
   },
   {
-    "id": 511,
+    "id": 869,
     "n": "LPK WIKA JAYA INDONESIA JAWA TIMUR",
     "lat": -7.59927,
     "lng": 111.422733,
@@ -4400,17 +5310,27 @@
     "cs": "o"
   },
   {
-    "id": 512,
+    "id": 1952,
+    "n": "LPK WISMA BERKAH SEJAHTERA",
+    "lat": -7.044131,
+    "lng": 110.4897,
+    "p": "33",
+    "o": "N",
+    "k": 30,
+    "cs": "o"
+  },
+  {
+    "id": 1039,
     "n": "LPK WIWITAN BARU SUKABUMI",
-    "lat": -6.539525,
-    "lng": 107.440803,
+    "lat": -6.864739,
+    "lng": 106.767572,
     "p": "32",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 513,
+    "id": 914,
     "n": "LPK Wahana Las Indonesia",
     "lat": 1.130805,
     "lng": 103.973523,
@@ -4420,7 +5340,7 @@
     "cs": "o"
   },
   {
-    "id": 514,
+    "id": 728,
     "n": "LPK Wisata Bahari",
     "lat": -7.808673,
     "lng": 110.389962,
@@ -4430,27 +5350,27 @@
     "cs": "o"
   },
   {
-    "id": 515,
+    "id": 1189,
     "n": "LPK YAMANASHI TRAINING CENTER",
-    "lat": -6.294912,
-    "lng": 107.297835,
+    "lat": -6.298801,
+    "lng": 107.283947,
     "p": "32",
     "o": "N",
     "k": 500,
     "cs": "c"
   },
   {
-    "id": 516,
+    "id": 1901,
     "n": "LPK YAYASAN SUNDAGAIYA",
-    "lat": -7.38702,
-    "lng": 103.638325,
+    "lat": -6.963069,
+    "lng": 107.648364,
     "p": "32",
     "o": "N",
-    "k": 250,
+    "k": 300,
     "cs": "o"
   },
   {
-    "id": 517,
+    "id": 1314,
     "n": "LPK YDR 21",
     "lat": -6.984316,
     "lng": 107.599454,
@@ -4460,7 +5380,7 @@
     "cs": "o"
   },
   {
-    "id": 518,
+    "id": 943,
     "n": "LPK YOLSIMHEE EDUCATION",
     "lat": -6.965771,
     "lng": 108.917899,
@@ -4470,17 +5390,37 @@
     "cs": "c"
   },
   {
-    "id": 519,
+    "id": 1051,
     "n": "LPK YUKI MULIA BERSAMA",
-    "lat": -7.502927,
-    "lng": 110.447496,
+    "lat": -7.43395,
+    "lng": 110.464423,
     "p": "33",
     "o": "N",
     "k": 400,
     "cs": "c"
   },
   {
-    "id": 520,
+    "id": 1703,
+    "n": "LPK YUME HOSHI EDUCATION",
+    "lat": -5.96589,
+    "lng": 106.66978,
+    "p": "12",
+    "o": "N",
+    "k": 1000,
+    "cs": "o"
+  },
+  {
+    "id": 1919,
+    "n": "LPK YUUKI SHORAI INDONESIA",
+    "lat": -6.301035,
+    "lng": 107.151848,
+    "p": "32",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1150,
     "n": "LPK Yayasan Bali Citra Internasional",
     "lat": -8.640473,
     "lng": 115.196222,
@@ -4490,7 +5430,7 @@
     "cs": "o"
   },
   {
-    "id": 521,
+    "id": 1438,
     "n": "LPK Yayasan Kesehatan",
     "lat": -3.96578,
     "lng": 122.512973,
@@ -4500,7 +5440,7 @@
     "cs": "o"
   },
   {
-    "id": 522,
+    "id": 1441,
     "n": "LPK Yayasan Kesehatan Nasional",
     "lat": -3.965908,
     "lng": 122.512887,
@@ -4510,7 +5450,7 @@
     "cs": "o"
   },
   {
-    "id": 523,
+    "id": 1330,
     "n": "LPK Yayasan Lentera Bina Bangsa Kompeten",
     "lat": -6.156267,
     "lng": 106.743164,
@@ -4520,7 +5460,7 @@
     "cs": "o"
   },
   {
-    "id": 524,
+    "id": 957,
     "n": "LPK Yureka Education Center",
     "lat": -7.776643,
     "lng": 110.336527,
@@ -4530,7 +5470,7 @@
     "cs": "o"
   },
   {
-    "id": 525,
+    "id": 877,
     "n": "LPK ZAHRA TEKNOLOGI INDONESIA",
     "lat": -8.680878,
     "lng": 116.126202,
@@ -4540,9 +5480,19 @@
     "cs": "o"
   },
   {
-    "id": 526,
+    "id": 1697,
+    "n": "LPK el-Ris",
+    "lat": 0.809017,
+    "lng": 127.385156,
+    "p": "82",
+    "o": "N",
+    "k": 50,
+    "cs": "o"
+  },
+  {
+    "id": 793,
     "n": "LPK yutaka Migunani",
-    "lat": -7.595766,
+    "lat": -7.583869,
     "lng": 110.279781,
     "p": "33",
     "o": "N",
@@ -4550,7 +5500,7 @@
     "cs": "c"
   },
   {
-    "id": 527,
+    "id": 1419,
     "n": "LPK. MALEO GOGAKUIN PALU",
     "lat": -0.887984,
     "lng": 119.865466,
@@ -4560,7 +5510,7 @@
     "cs": "o"
   },
   {
-    "id": 528,
+    "id": 1119,
     "n": "LPK. PT Tatsuya Perkasa Singara. SO",
     "lat": -5.948335,
     "lng": 107.094748,
@@ -4570,7 +5520,7 @@
     "cs": "o"
   },
   {
-    "id": 529,
+    "id": 1025,
     "n": "LPK. Universe Internusatria",
     "lat": -7.598222,
     "lng": 110.95654,
@@ -4580,7 +5530,7 @@
     "cs": "c"
   },
   {
-    "id": 530,
+    "id": 950,
     "n": "LPK.CHINGGU-KAJA",
     "lat": -7.103679,
     "lng": 110.256249,
@@ -4590,7 +5540,7 @@
     "cs": "o"
   },
   {
-    "id": 531,
+    "id": 1413,
     "n": "LPK/BLK-LN KARYA SUKSES MANDIRI",
     "lat": -7.567179,
     "lng": 111.384394,
@@ -4600,7 +5550,7 @@
     "cs": "o"
   },
   {
-    "id": 532,
+    "id": 883,
     "n": "LPKN MATARAM",
     "lat": -8.584609,
     "lng": 116.116631,
@@ -4610,27 +5560,17 @@
     "cs": "o"
   },
   {
-    "id": 533,
-    "n": "LPKP BSPJI PEKANBARU",
-    "lat": 0.531909,
-    "lng": 101.434642,
-    "p": "14",
-    "o": "P",
-    "k": 20,
-    "cs": "c"
-  },
-  {
-    "id": 534,
+    "id": 1355,
     "n": "LPKP MENTARI",
-    "lat": 3.534678,
-    "lng": 98.732562,
+    "lat": 2.846576,
+    "lng": 98.847587,
     "p": "12",
     "o": "N",
     "k": 160,
     "cs": "c"
   },
   {
-    "id": 538,
+    "id": 1020,
     "n": "LPKS Assyuro Lombok Creative ALC",
     "lat": -8.62086,
     "lng": 116.491941,
@@ -4640,7 +5580,27 @@
     "cs": "o"
   },
   {
-    "id": 539,
+    "id": 1654,
+    "n": "LPKS BALI TOSHA LOMBOK KOCHI",
+    "lat": -8.621496,
+    "lng": 116.109451,
+    "p": "52",
+    "o": "N",
+    "k": 250,
+    "cs": "o"
+  },
+  {
+    "id": 1583,
+    "n": "LPKS BINTANG INDO CORPORA",
+    "lat": -6.107201,
+    "lng": 106.732373,
+    "p": "18",
+    "o": "N",
+    "k": 300,
+    "cs": "c"
+  },
+  {
+    "id": 1057,
     "n": "LPKS Bina Dharma",
     "lat": -5.352453,
     "lng": 104.975449,
@@ -4650,17 +5610,17 @@
     "cs": "o"
   },
   {
-    "id": 540,
+    "id": 1232,
     "n": "LPKS CAHAYA SINAR GEMILANG",
     "lat": -7.091294,
-    "lng": 110.90544,
+    "lng": 110.905446,
     "p": "33",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 544,
+    "id": 749,
     "n": "LPKS CHANGMUN HAKKYO",
     "lat": -7.091295,
     "lng": 110.905446,
@@ -4670,7 +5630,7 @@
     "cs": "o"
   },
   {
-    "id": 545,
+    "id": 1070,
     "n": "LPKS CIPTA INSAN CENDIKIA",
     "lat": -7.711355,
     "lng": 109.001758,
@@ -4680,7 +5640,7 @@
     "cs": "o"
   },
   {
-    "id": 547,
+    "id": 1054,
     "n": "LPKS CITRA CATUR UTAMA KARYA",
     "lat": -7.392595,
     "lng": 112.547057,
@@ -4690,19 +5650,39 @@
     "cs": "o"
   },
   {
-    "id": 548,
+    "id": 1417,
     "n": "LPKS CITRA SARI MULIA",
-    "lat": -7.908074,
-    "lng": 111.984435,
+    "lat": -7.89842,
+    "lng": 111.988433,
     "p": "35",
     "o": "P",
     "k": 120,
     "cs": "c"
   },
   {
-    "id": 549,
+    "id": 1708,
+    "n": "LPKS Citra Husada",
+    "lat": -7.616064,
+    "lng": 109.114596,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1645,
+    "n": "LPKS DAEMANG INKOR",
+    "lat": -7.157997,
+    "lng": 110.903549,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1224,
     "n": "LPKS DJANGKAR SAMUDRA PATI",
-    "lat": -6.679685,
+    "lat": -6.753059,
     "lng": 111.052731,
     "p": "33",
     "o": "N",
@@ -4710,7 +5690,7 @@
     "cs": "c"
   },
   {
-    "id": 550,
+    "id": 936,
     "n": "LPKS HANA TAYO MANDIRI",
     "lat": -7.619862,
     "lng": 109.140851,
@@ -4720,7 +5700,17 @@
     "cs": "o"
   },
   {
-    "id": 551,
+    "id": 1687,
+    "n": "LPKS Hotel and Hospitality of Bali",
+    "lat": -8.139224,
+    "lng": 115.063891,
+    "p": "51",
+    "o": "N",
+    "k": 399,
+    "cs": "o"
+  },
+  {
+    "id": 1085,
     "n": "LPKS ISMIA",
     "lat": -7.541521,
     "lng": 110.770941,
@@ -4730,7 +5720,7 @@
     "cs": "o"
   },
   {
-    "id": 552,
+    "id": 1272,
     "n": "LPKS JEONGSIN KOREA JEPANG",
     "lat": -7.3674,
     "lng": 109.079368,
@@ -4740,7 +5730,7 @@
     "cs": "o"
   },
   {
-    "id": 553,
+    "id": 881,
     "n": "LPKS KOGAS NUSANTARA",
     "lat": -7.632963,
     "lng": 111.568288,
@@ -4750,7 +5740,7 @@
     "cs": "o"
   },
   {
-    "id": 554,
+    "id": 1063,
     "n": "LPKS KOINDO HAN NIPPON",
     "lat": -6.885508,
     "lng": 108.837952,
@@ -4760,17 +5750,17 @@
     "cs": "o"
   },
   {
-    "id": 555,
+    "id": 1142,
     "n": "LPKS KOREANINDO SUKOHARJO HOFUNA",
-    "lat": -7.561141,
-    "lng": 110.739457,
+    "lat": -7.583236,
+    "lng": 110.784049,
     "p": "33",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 556,
+    "id": 1335,
     "n": "LPKS Kiiroi Hana Gakkou Purworejo",
     "lat": -7.874804,
     "lng": 109.99672,
@@ -4780,37 +5770,47 @@
     "cs": "c"
   },
   {
-    "id": 557,
+    "id": 1913,
+    "n": "LPKS MULTI TRAINING KOMPETENSI",
+    "lat": -6.753403,
+    "lng": 111.034565,
+    "p": "33",
+    "o": "N",
+    "k": 1000,
+    "cs": "o"
+  },
+  {
+    "id": 735,
     "n": "LPKS Mitaka Mandiri Bercahaya",
-    "lat": -7.648256,
-    "lng": 109.140878,
+    "lat": -7.620012,
+    "lng": 109.053581,
     "p": "33",
     "o": "N",
     "k": 300,
     "cs": "c"
   },
   {
-    "id": 558,
+    "id": 1068,
     "n": "LPKS NITA SALON",
-    "lat": 3.534678,
-    "lng": 98.732562,
+    "lat": 2.846576,
+    "lng": 98.847587,
     "p": "12",
     "o": "N",
     "k": 30,
     "cs": "c"
   },
   {
-    "id": 559,
+    "id": 891,
     "n": "LPKS NUR MUTIARA BANGSA",
     "lat": -7.693665,
-    "lng": 109.682905,
+    "lng": 109.699005,
     "p": "33",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 560,
+    "id": 772,
     "n": "LPKS OMONI EDUKASI CILACAP",
     "lat": -7.698909,
     "lng": 109.01311,
@@ -4820,7 +5820,17 @@
     "cs": "o"
   },
   {
-    "id": 561,
+    "id": 1817,
+    "n": "LPKS SHANKARA",
+    "lat": -7.620012,
+    "lng": 109.053581,
+    "p": "33",
+    "o": "N",
+    "k": 1801,
+    "cs": "c"
+  },
+  {
+    "id": 1439,
     "n": "LPKS SINAR DUNIA",
     "lat": -7.605032,
     "lng": 109.145532,
@@ -4830,27 +5840,17 @@
     "cs": "o"
   },
   {
-    "id": 562,
+    "id": 757,
     "n": "LPKS SONAGI",
-    "lat": -7.648256,
-    "lng": 109.140878,
+    "lat": -7.620012,
+    "lng": 109.053581,
     "p": "33",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 563,
-    "n": "LPKS Shankara",
-    "lat": -7.668135,
-    "lng": 109.266844,
-    "p": "33",
-    "o": "N",
-    "k": 300,
-    "cs": "o"
-  },
-  {
-    "id": 566,
+    "id": 759,
     "n": "LPKS TAYO",
     "lat": -7.619904,
     "lng": 109.140867,
@@ -4860,7 +5860,7 @@
     "cs": "o"
   },
   {
-    "id": 567,
+    "id": 1102,
     "n": "LPKS UBAYAZKA CAHAYA MULIA",
     "lat": -7.776264,
     "lng": 121.896604,
@@ -4870,7 +5870,7 @@
     "cs": "o"
   },
   {
-    "id": 568,
+    "id": 752,
     "n": "LPKS URI SARANG",
     "lat": -7.663209,
     "lng": 109.209383,
@@ -4880,7 +5880,7 @@
     "cs": "o"
   },
   {
-    "id": 569,
+    "id": 1317,
     "n": "LPKS VAN",
     "lat": -6.362355,
     "lng": 106.986408,
@@ -4890,7 +5890,7 @@
     "cs": "o"
   },
   {
-    "id": 570,
+    "id": 1363,
     "n": "LPKS YEONGNIHEYO",
     "lat": -6.602877,
     "lng": 111.052731,
@@ -4900,7 +5900,7 @@
     "cs": "o"
   },
   {
-    "id": 571,
+    "id": 1188,
     "n": "LPKS YEONGNIHEYO PATI",
     "lat": -6.602877,
     "lng": 111.052731,
@@ -4910,17 +5910,17 @@
     "cs": "o"
   },
   {
-    "id": 572,
+    "id": 1324,
     "n": "LPKS Yurina Erbe Barokah",
-    "lat": -7.702074,
-    "lng": 110.724102,
+    "lat": -7.702147,
+    "lng": 110.669085,
     "p": "33",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 573,
+    "id": 1073,
     "n": "LPKS kartika",
     "lat": -7.244641,
     "lng": 110.433228,
@@ -4930,7 +5930,17 @@
     "cs": "o"
   },
   {
-    "id": 574,
+    "id": 1710,
+    "n": "LPKS-BLKLN BERSAMA KIAN SUKSES",
+    "lat": -7.598222,
+    "lng": 110.95654,
+    "p": "33",
+    "o": "N",
+    "k": 500,
+    "cs": "c"
+  },
+  {
+    "id": 685,
     "n": "LPP Agro Nusantara",
     "lat": -7.783737,
     "lng": 110.385029,
@@ -4940,7 +5950,7 @@
     "cs": "o"
   },
   {
-    "id": 575,
+    "id": 1081,
     "n": "LPP Ariyanti",
     "lat": -6.905121,
     "lng": 107.597072,
@@ -4950,17 +5960,17 @@
     "cs": "o"
   },
   {
-    "id": 576,
+    "id": 1367,
     "n": "LPP BUTTERFLY",
-    "lat": -2.535865,
-    "lng": 112.924618,
+    "lat": -2.25417,
+    "lng": 113.185261,
     "p": "62",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 578,
+    "id": 1202,
     "n": "LPP ENTER",
     "lat": -3.464394,
     "lng": 114.81082,
@@ -4970,7 +5980,17 @@
     "cs": "o"
   },
   {
-    "id": 579,
+    "id": 1888,
+    "n": "LPP INSAN MANDIRI BULUKUMBA",
+    "lat": -5.102083,
+    "lng": 120.219619,
+    "p": "73",
+    "o": "N",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 1423,
     "n": "LPP Quantum",
     "lat": -2.535865,
     "lng": 112.924618,
@@ -4980,17 +6000,7 @@
     "cs": "o"
   },
   {
-    "id": 580,
-    "n": "LPPK GENTALA HOSPITALITY SCHOOL",
-    "lat": -1.608931,
-    "lng": 103.623276,
-    "p": "15",
-    "o": "N",
-    "k": 100,
-    "cs": "o"
-  },
-  {
-    "id": 581,
+    "id": 666,
     "n": "LPT Panghegar",
     "lat": -6.90963,
     "lng": 107.643584,
@@ -5000,17 +6010,17 @@
     "cs": "o"
   },
   {
-    "id": 582,
+    "id": 1408,
     "n": "LSP PD WAHYU UTAMA SEJAHTERA MANDIRI",
-    "lat": -6.297902,
-    "lng": 106.954465,
+    "lat": -6.297207,
+    "lng": 106.952796,
     "p": "32",
     "o": "N",
     "k": 12,
     "cs": "c"
   },
   {
-    "id": 583,
+    "id": 1469,
     "n": "LSP SMKN 4 Banjarmasin",
     "lat": -3.294809,
     "lng": 114.590069,
@@ -5020,7 +6030,27 @@
     "cs": "o"
   },
   {
-    "id": 584,
+    "id": 1754,
+    "n": "LSP. TEKNOLOGI INFORMATIKA BISNIS DIGITAL",
+    "lat": -6.181056,
+    "lng": 106.462573,
+    "p": "36",
+    "o": "N",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 1751,
+    "n": "Lembaga Bahasa LIA Ngagel",
+    "lat": -7.277602,
+    "lng": 112.737595,
+    "p": "35",
+    "o": "N",
+    "k": 500,
+    "cs": "c"
+  },
+  {
+    "id": 1023,
     "n": "Lembaga Pelatihan Kerja",
     "lat": -7.797241,
     "lng": 110.37817,
@@ -5030,7 +6060,17 @@
     "cs": "o"
   },
   {
-    "id": 585,
+    "id": 1745,
+    "n": "Lembaga Pelatihan Kerja (LPK) Poltekkes Banten",
+    "lat": -6.139753,
+    "lng": 106.161577,
+    "p": "36",
+    "o": "P",
+    "k": 300,
+    "cs": "c"
+  },
+  {
+    "id": 722,
     "n": "Lembaga Pelatihan Kerja Baruna Academy International",
     "lat": -7.756662,
     "lng": 110.342994,
@@ -5040,7 +6080,7 @@
     "cs": "o"
   },
   {
-    "id": 586,
+    "id": 971,
     "n": "Lembaga Pelatihan Kerja Prima Sejati",
     "lat": -6.97343,
     "lng": 107.758607,
@@ -5050,7 +6090,7 @@
     "cs": "o"
   },
   {
-    "id": 587,
+    "id": 686,
     "n": "Lembaga Pelatihan Kerja Putri Kedaton",
     "lat": -7.740664,
     "lng": 110.414092,
@@ -5060,7 +6100,7 @@
     "cs": "o"
   },
   {
-    "id": 588,
+    "id": 1443,
     "n": "Lembaga Pelatihan Kerja Sukses Bersama Abadi",
     "lat": -8.136259,
     "lng": 112.341471,
@@ -5070,7 +6110,17 @@
     "cs": "o"
   },
   {
-    "id": 589,
+    "id": 1683,
+    "n": "Lembaga Pelatihan Kerja To Improve Proper Skill (LPK TIPS)",
+    "lat": -8.590297,
+    "lng": 116.118582,
+    "p": "52",
+    "o": "N",
+    "k": 2,
+    "cs": "c"
+  },
+  {
+    "id": 819,
     "n": "Lembaga Pelatihan Pentest",
     "lat": -6.216884,
     "lng": 107.025375,
@@ -5080,17 +6130,17 @@
     "cs": "o"
   },
   {
-    "id": 590,
+    "id": 1046,
     "n": "Lembaga Pendidikan Indonesia Amerika",
-    "lat": -6.257639,
-    "lng": 106.862927,
+    "lat": -6.257585,
+    "lng": 106.865603,
     "p": "31",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 591,
+    "id": 1160,
     "n": "Lembaga Pendidikan Indonesia Amerika (LPIA) Cabang Cibinong",
     "lat": -6.423748,
     "lng": 106.96849,
@@ -5100,7 +6150,7 @@
     "cs": "c"
   },
   {
-    "id": 592,
+    "id": 1109,
     "n": "Lembaga Pendidikan dan Pelatihan El Rahma",
     "lat": -6.238599,
     "lng": 108.644298,
@@ -5110,7 +6160,27 @@
     "cs": "o"
   },
   {
-    "id": 593,
+    "id": 1828,
+    "n": "Lembaga Pendidikan dan Pengembangan Profesi Indonesia",
+    "lat": -6.896597,
+    "lng": 107.634296,
+    "p": "32",
+    "o": "N",
+    "k": 250,
+    "cs": "o"
+  },
+  {
+    "id": 1904,
+    "n": "Lembaga Putri Kedaton",
+    "lat": -7.740632,
+    "lng": 110.414093,
+    "p": "34",
+    "o": "N",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 1345,
     "n": "Lembaga Vokasi KP2MI",
     "lat": -6.253298,
     "lng": 106.844977,
@@ -5120,17 +6190,17 @@
     "cs": "o"
   },
   {
-    "id": 594,
+    "id": 1171,
     "n": "Lembaga Vokasi Universitas Indonesia",
-    "lat": -6.366665,
-    "lng": 106.82093,
+    "lat": -6.369124,
+    "lng": 106.821003,
     "p": "32",
     "o": "N",
-    "k": 3000,
+    "k": 5000,
     "cs": "o"
   },
   {
-    "id": 595,
+    "id": 861,
     "n": "Lpk Hello Hakwon sejahtera",
     "lat": -7.477408,
     "lng": 110.982407,
@@ -5140,17 +6210,47 @@
     "cs": "o"
   },
   {
-    "id": 596,
-    "n": "Lpks The Laguna College",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "id": 1793,
+    "n": "Lpk bali bitanica spa international",
+    "lat": -8.616366,
+    "lng": 115.186388,
     "p": "51",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 597,
+    "id": 1737,
+    "n": "Lpk takeda cilacap",
+    "lat": -7.628736,
+    "lng": 108.949052,
+    "p": "33",
+    "o": "N",
+    "k": 60,
+    "cs": "o"
+  },
+  {
+    "id": 1445,
+    "n": "Lpks The Laguna College",
+    "lat": -8.657128,
+    "lng": 115.2274,
+    "p": "51",
+    "o": "N",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 1666,
+    "n": "Lpp Mutiara Peradaban",
+    "lat": -2.25417,
+    "lng": 113.185261,
+    "p": "62",
+    "o": "N",
+    "k": 50,
+    "cs": "c"
+  },
+  {
+    "id": 1004,
     "n": "MA RAUDLATUL MUTTAQIN PLUS KETERAMPILAN",
     "lat": -7.124015,
     "lng": 112.922035,
@@ -5160,7 +6260,7 @@
     "cs": "o"
   },
   {
-    "id": 598,
+    "id": 951,
     "n": "MAJIME TRAINING CENTRE",
     "lat": 3.575369,
     "lng": 98.70651,
@@ -5170,7 +6270,7 @@
     "cs": "o"
   },
   {
-    "id": 599,
+    "id": 895,
     "n": "MARINA BERKAH MANDIRI",
     "lat": -6.708997,
     "lng": 108.50115,
@@ -5180,7 +6280,7 @@
     "cs": "o"
   },
   {
-    "id": 600,
+    "id": 842,
     "n": "MARIS GAMA MULYA",
     "lat": -6.297207,
     "lng": 106.944177,
@@ -5190,17 +6290,17 @@
     "cs": "o"
   },
   {
-    "id": 602,
+    "id": 1130,
     "n": "MEDIA KOMPUTER",
-    "lat": -7.648256,
-    "lng": 109.140878,
+    "lat": -7.620012,
+    "lng": 109.053581,
     "p": "33",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 603,
+    "id": 1129,
     "n": "MIGRANT CENTER UNIVERSITAS CITRA BANGSA",
     "lat": -10.154546,
     "lng": 123.600384,
@@ -5210,17 +6310,27 @@
     "cs": "c"
   },
   {
-    "id": 604,
+    "id": 1455,
     "n": "MIGRANT CENTER UNIVERSITAS NEGERI PADANG",
-    "lat": -0.914562,
-    "lng": 100.368976,
+    "lat": -0.921134,
+    "lng": 100.364689,
     "p": "13",
     "o": "P",
     "k": 4,
     "cs": "c"
   },
   {
-    "id": 605,
+    "id": 1932,
+    "n": "MIGRANT SERVICE CENTER UNIVERSITAS HASANUDDIN",
+    "lat": -5.130878,
+    "lng": 119.48314,
+    "p": "73",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 832,
     "n": "MIRAE LANGUAGE CENTER",
     "lat": -6.762973,
     "lng": 108.269169,
@@ -5230,7 +6340,7 @@
     "cs": "o"
   },
   {
-    "id": 606,
+    "id": 1239,
     "n": "MONARCH BALI - SINGARAJA",
     "lat": -8.933172,
     "lng": 110.054512,
@@ -5240,7 +6350,7 @@
     "cs": "o"
   },
   {
-    "id": 607,
+    "id": 1153,
     "n": "MONARCH BALI NEGARA",
     "lat": -8.373893,
     "lng": 114.69298,
@@ -5250,7 +6360,7 @@
     "cs": "c"
   },
   {
-    "id": 608,
+    "id": 1029,
     "n": "MUDICOM",
     "lat": -2.67778,
     "lng": 118.885949,
@@ -5260,17 +6370,17 @@
     "cs": "o"
   },
   {
-    "id": 609,
+    "id": 786,
     "n": "MUGUNGHWA URI SOLUTION",
-    "lat": -7.648256,
-    "lng": 109.140878,
+    "lat": -7.620012,
+    "lng": 109.053581,
     "p": "33",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 610,
+    "id": 897,
     "n": "MYSHA PUTRI PERDANA",
     "lat": -6.423748,
     "lng": 106.96849,
@@ -5280,7 +6390,7 @@
     "cs": "c"
   },
   {
-    "id": 611,
+    "id": 986,
     "n": "Magenta Permata Jaya",
     "lat": -7.329879,
     "lng": 112.646404,
@@ -5290,7 +6400,7 @@
     "cs": "o"
   },
   {
-    "id": 613,
+    "id": 1358,
     "n": "Malikal Zentrum Institute",
     "lat": -4.682935,
     "lng": 118.641357,
@@ -5300,7 +6410,7 @@
     "cs": "o"
   },
   {
-    "id": 614,
+    "id": 1551,
     "n": "Mappatunru Academy",
     "lat": -3.417255,
     "lng": 114.854081,
@@ -5310,9 +6420,9 @@
     "cs": "c"
   },
   {
-    "id": 615,
+    "id": 1163,
     "n": "Mau Yakin Bisa",
-    "lat": -7.8036,
+    "lat": -7.801866,
     "lng": 110.382493,
     "p": "34",
     "o": "N",
@@ -5320,27 +6430,37 @@
     "cs": "c"
   },
   {
-    "id": 616,
+    "id": 1064,
     "n": "Media Kompetensi Indonesi",
-    "lat": -8.587035,
-    "lng": 115.268677,
+    "lat": -8.561741,
+    "lng": 115.272285,
     "p": "51",
     "o": "N",
     "k": 40,
     "cs": "c"
   },
   {
-    "id": 618,
+    "id": 1589,
+    "n": "Mediadata",
+    "lat": -4.120081,
+    "lng": 104.172321,
+    "p": "16",
+    "o": "N",
+    "k": 19,
+    "cs": "o"
+  },
+  {
+    "id": 1167,
     "n": "Mediterranean Bali",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "N",
     "k": 2000,
     "cs": "c"
   },
   {
-    "id": 619,
+    "id": 716,
     "n": "Merapi school",
     "lat": -7.719097,
     "lng": 110.579715,
@@ -5350,17 +6470,27 @@
     "cs": "o"
   },
   {
-    "id": 620,
+    "id": 1945,
+    "n": "Metro Hotel School",
+    "lat": -5.383451,
+    "lng": 105.282815,
+    "p": "18",
+    "o": "N",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1454,
     "n": "Migran Center Universitas Baiturrahim",
-    "lat": -1.614973,
-    "lng": 103.600475,
+    "lat": -1.608864,
+    "lng": 103.623268,
     "p": "15",
     "o": "N",
     "k": 500,
     "cs": "c"
   },
   {
-    "id": 621,
+    "id": 1222,
     "n": "Migrant Center Universitas Kebangsaan Republik Indonesia",
     "lat": -6.921846,
     "lng": 107.607083,
@@ -5370,27 +6500,57 @@
     "cs": "o"
   },
   {
-    "id": 622,
+    "id": 1359,
     "n": "Mitra Sauri",
-    "lat": 3.535639,
-    "lng": 98.725288,
+    "lat": 3.534678,
+    "lng": 98.732562,
     "p": "12",
     "o": "N",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 623,
+    "id": 1820,
+    "n": "Monarch Bali Candidasa",
+    "lat": -8.501722,
+    "lng": 115.582711,
+    "p": "51",
+    "o": "N",
+    "k": 448,
+    "cs": "o"
+  },
+  {
+    "id": 1177,
     "n": "Monarch Bali Dalung",
-    "lat": -8.709916,
-    "lng": 115.181077,
+    "lat": -8.616366,
+    "lng": 115.186388,
     "p": "51",
     "o": "N",
     "k": 825,
     "cs": "c"
   },
   {
-    "id": 624,
+    "id": 1902,
+    "n": "Monarch Gianyar Bali",
+    "lat": -8.535241,
+    "lng": 115.334615,
+    "p": "51",
+    "o": "N",
+    "k": 1,
+    "cs": "o"
+  },
+  {
+    "id": 1680,
+    "n": "NAGA PERSADA GLOBAL",
+    "lat": -6.167773,
+    "lng": 106.664097,
+    "p": "36",
+    "o": "N",
+    "k": 150,
+    "cs": "c"
+  },
+  {
+    "id": 1461,
     "n": "NAGOYA COURSE CENTER",
     "lat": -5.082934,
     "lng": 105.359771,
@@ -5400,7 +6560,7 @@
     "cs": "o"
   },
   {
-    "id": 625,
+    "id": 837,
     "n": "NAVREN MAJU BERSAMA",
     "lat": -7.638655,
     "lng": 111.350116,
@@ -5410,7 +6570,7 @@
     "cs": "o"
   },
   {
-    "id": 626,
+    "id": 1079,
     "n": "NAWASENA CENDEKIA INDONESIA",
     "lat": -6.931848,
     "lng": 107.610534,
@@ -5420,7 +6580,7 @@
     "cs": "o"
   },
   {
-    "id": 627,
+    "id": 787,
     "n": "NEPTUNE",
     "lat": -7.828268,
     "lng": 112.00567,
@@ -5430,7 +6590,7 @@
     "cs": "o"
   },
   {
-    "id": 628,
+    "id": 1045,
     "n": "NETJES COLLEGE",
     "lat": -7.366433,
     "lng": 108.534728,
@@ -5440,7 +6600,7 @@
     "cs": "o"
   },
   {
-    "id": 629,
+    "id": 1550,
     "n": "NOBLE FUTURE EDUCATION",
     "lat": 0.793102,
     "lng": 127.386751,
@@ -5450,7 +6610,7 @@
     "cs": "o"
   },
   {
-    "id": 630,
+    "id": 1042,
     "n": "NOVENDA KARYA SEJATI",
     "lat": -6.154848,
     "lng": 106.746312,
@@ -5460,17 +6620,17 @@
     "cs": "o"
   },
   {
-    "id": 632,
+    "id": 831,
     "n": "NUGRAHA KINERJA SENTOSA",
-    "lat": -8.196349,
-    "lng": 113.634446,
+    "lat": -8.196334,
+    "lng": 113.634436,
     "p": "35",
     "o": "N",
     "k": 60,
     "cs": "o"
   },
   {
-    "id": 633,
+    "id": 808,
     "n": "NUGRAHA SURYA ABADI",
     "lat": -7.899554,
     "lng": 112.617824,
@@ -5480,7 +6640,7 @@
     "cs": "o"
   },
   {
-    "id": 634,
+    "id": 825,
     "n": "Nama Lembaga",
     "lat": -6.173661,
     "lng": 106.824896,
@@ -5490,7 +6650,7 @@
     "cs": "o"
   },
   {
-    "id": 635,
+    "id": 1307,
     "n": "Naomi Abadi",
     "lat": -6.341556,
     "lng": 107.771431,
@@ -5500,7 +6660,7 @@
     "cs": "o"
   },
   {
-    "id": 638,
+    "id": 741,
     "n": "Nyobain Pentest Sampe Bisa Nambah Program",
     "lat": -6.185254,
     "lng": 106.822823,
@@ -5510,17 +6670,17 @@
     "cs": "o"
   },
   {
-    "id": 639,
+    "id": 1652,
     "n": "OASIS PATI",
-    "lat": -6.770195,
-    "lng": 111.078998,
+    "lat": -6.761917,
+    "lng": 111.16776,
     "p": "33",
     "o": "N",
-    "k": 399,
+    "k": 700,
     "cs": "o"
   },
   {
-    "id": 640,
+    "id": 713,
     "n": "OCEAN CHALLENGER",
     "lat": -7.398482,
     "lng": 109.656889,
@@ -5530,7 +6690,17 @@
     "cs": "o"
   },
   {
-    "id": 641,
+    "id": 1576,
+    "n": "OTC (Overseas Training Center) Bali Nusa Dua",
+    "lat": -8.616366,
+    "lng": 115.186388,
+    "p": "51",
+    "o": "N",
+    "k": 500,
+    "cs": "c"
+  },
+  {
+    "id": 1453,
     "n": "OTC Bali Tabanan",
     "lat": -7.405537,
     "lng": 108.234558,
@@ -5540,7 +6710,7 @@
     "cs": "o"
   },
   {
-    "id": 642,
+    "id": 1467,
     "n": "OVERSEAS TRANING CENTER (OTC) BALI SINGARAJA",
     "lat": -8.161185,
     "lng": 115.02845,
@@ -5550,7 +6720,7 @@
     "cs": "o"
   },
   {
-    "id": 643,
+    "id": 1452,
     "n": "Omega Marine Hotel Institute Cilacap",
     "lat": -7.569369,
     "lng": 109.026819,
@@ -5560,27 +6730,17 @@
     "cs": "o"
   },
   {
-    "id": 644,
-    "n": "Overseas Training Center",
-    "lat": -8.709916,
-    "lng": 115.181077,
-    "p": "51",
-    "o": "N",
-    "k": 500,
-    "cs": "c"
-  },
-  {
-    "id": 645,
+    "id": 1449,
     "n": "Overseas Training Center (OTC) Bali Denpasar",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "N",
     "k": 500,
     "cs": "c"
   },
   {
-    "id": 646,
+    "id": 1456,
     "n": "Overseas Training Center (OTC) Bali Gianyar",
     "lat": -7.529149,
     "lng": 111.330643,
@@ -5590,7 +6750,7 @@
     "cs": "o"
   },
   {
-    "id": 647,
+    "id": 1083,
     "n": "P4M Mataram",
     "lat": -8.588047,
     "lng": 116.100222,
@@ -5600,17 +6760,17 @@
     "cs": "o"
   },
   {
-    "id": 648,
+    "id": 1477,
     "n": "PACIFIC MARINE SCHOOL",
     "lat": -7.761524,
-    "lng": 110.343118,
+    "lng": 110.350322,
     "p": "34",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 649,
+    "id": 873,
     "n": "PALOMA ACADEMY",
     "lat": 1.145636,
     "lng": 104.006854,
@@ -5620,7 +6780,7 @@
     "cs": "o"
   },
   {
-    "id": 651,
+    "id": 1082,
     "n": "PEEC ENGLISH",
     "lat": 1.038623,
     "lng": 104.04935,
@@ -5630,7 +6790,7 @@
     "cs": "o"
   },
   {
-    "id": 652,
+    "id": 1221,
     "n": "PEMABA",
     "lat": -8.125143,
     "lng": 102.550964,
@@ -5640,7 +6800,7 @@
     "cs": "o"
   },
   {
-    "id": 653,
+    "id": 1450,
     "n": "PERMATA SEJATI",
     "lat": -6.965771,
     "lng": 109.061151,
@@ -5650,9 +6810,9 @@
     "cs": "o"
   },
   {
-    "id": 654,
+    "id": 1213,
     "n": "PERSADA BHAKTI UTAMA",
-    "lat": -6.679685,
+    "lat": -6.753059,
     "lng": 111.052731,
     "p": "33",
     "o": "N",
@@ -5660,27 +6820,27 @@
     "cs": "c"
   },
   {
-    "id": 655,
+    "id": 1546,
     "n": "PKBM BANI HASIM",
-    "lat": -8.724421,
-    "lng": 116.286159,
+    "lat": -8.704655,
+    "lng": 116.266969,
     "p": "52",
     "o": "N",
     "k": 80,
     "cs": "c"
   },
   {
-    "id": 656,
+    "id": 1279,
     "n": "PKBM BUNGA KANTIL",
-    "lat": -7.561145,
-    "lng": 110.80797,
+    "lat": -7.554628,
+    "lng": 110.804733,
     "p": "33",
     "o": "N",
     "k": 101,
     "cs": "c"
   },
   {
-    "id": 657,
+    "id": 782,
     "n": "PKV PMI",
     "lat": -6.226398,
     "lng": 106.858439,
@@ -5690,7 +6850,7 @@
     "cs": "o"
   },
   {
-    "id": 658,
+    "id": 1344,
     "n": "PLATINUM COLLEGE INDONESIA",
     "lat": -8.232684,
     "lng": 114.340844,
@@ -5700,7 +6860,27 @@
     "cs": "o"
   },
   {
-    "id": 659,
+    "id": 1867,
+    "n": "POLITEKNIK ILMU PELAYARAN SEMARANG",
+    "lat": -6.99829,
+    "lng": 110.428986,
+    "p": "33",
+    "o": "P",
+    "k": 3,
+    "cs": "o"
+  },
+  {
+    "id": 1914,
+    "n": "POLITEKNIK KESEHATAN KEMENKES TERNATE",
+    "lat": 0.793102,
+    "lng": 127.386751,
+    "p": "82",
+    "o": "P",
+    "k": 40,
+    "cs": "c"
+  },
+  {
+    "id": 1235,
     "n": "POLITEKNIK KESEHATAN KEMENTERIAN KESEHATAN SURAKARTA",
     "lat": -7.538827,
     "lng": 110.789486,
@@ -5710,7 +6890,7 @@
     "cs": "o"
   },
   {
-    "id": 660,
+    "id": 1093,
     "n": "POLITEKNIK NEGERI INDRAMAYU",
     "lat": -6.408159,
     "lng": 108.281357,
@@ -5720,17 +6900,37 @@
     "cs": "o"
   },
   {
-    "id": 661,
-    "n": "POLITEKNIK PELAYARAN SUMATERA BARAT",
-    "lat": -0.931003,
-    "lng": 100.375128,
-    "p": "13",
+    "id": 1949,
+    "n": "POLITEKNIK NEGERI NUSA UTARA",
+    "lat": 3.610157,
+    "lng": 125.486892,
+    "p": "71",
     "o": "P",
-    "k": 1,
-    "cs": "c"
+    "k": 6,
+    "cs": "o"
   },
   {
-    "id": 662,
+    "id": 1579,
+    "n": "POLITEKNIK PELAYARAN SUMATERA BARAT",
+    "lat": -0.703641,
+    "lng": 100.192083,
+    "p": "13",
+    "o": "P",
+    "k": 6950,
+    "cs": "o"
+  },
+  {
+    "id": 1821,
+    "n": "POLITEKNIK PENERBANGAN JAYAPURA",
+    "lat": -2.523908,
+    "lng": 140.736981,
+    "p": "94",
+    "o": "P",
+    "k": 384,
+    "cs": "o"
+  },
+  {
+    "id": 1390,
     "n": "POLITEKNIK PENERBANGAN PALEMBANG",
     "lat": -2.898634,
     "lng": 104.693484,
@@ -5740,7 +6940,7 @@
     "cs": "o"
   },
   {
-    "id": 663,
+    "id": 1243,
     "n": "POLTEKKES KEMENKES PANGKAL PINANG",
     "lat": -2.143123,
     "lng": 106.116537,
@@ -5750,7 +6950,7 @@
     "cs": "c"
   },
   {
-    "id": 664,
+    "id": 1378,
     "n": "PT ANABUKI AKADEMI INDONESIA",
     "lat": -6.303844,
     "lng": 106.685957,
@@ -5760,7 +6960,17 @@
     "cs": "o"
   },
   {
-    "id": 665,
+    "id": 1631,
+    "n": "PT IKAPEKSI MITRA SINERGI",
+    "lat": -5.094227,
+    "lng": 105.283553,
+    "p": "18",
+    "o": "N",
+    "k": 120,
+    "cs": "o"
+  },
+  {
+    "id": 963,
     "n": "PT Idea Indonesia Akademi Tbk",
     "lat": -6.299252,
     "lng": 106.831546,
@@ -5770,7 +6980,7 @@
     "cs": "o"
   },
   {
-    "id": 666,
+    "id": 920,
     "n": "PT MSS HUB GROUP INDONESIA",
     "lat": 3.582722,
     "lng": 98.658242,
@@ -5780,37 +6990,37 @@
     "cs": "o"
   },
   {
-    "id": 667,
+    "id": 925,
     "n": "PT PUSAT PELATIHAN MARITIM INDONESIA",
-    "lat": -7.502927,
-    "lng": 110.447496,
+    "lat": -7.043962,
+    "lng": 109.375257,
     "p": "33",
     "o": "N",
     "k": 12,
     "cs": "c"
   },
   {
-    "id": 668,
+    "id": 738,
     "n": "PT Randaf Pasim Gointern",
-    "lat": -6.907376,
-    "lng": 107.600973,
+    "lat": -6.90963,
+    "lng": 107.607083,
     "p": "32",
     "o": "N",
     "k": 300,
     "cs": "c"
   },
   {
-    "id": 669,
+    "id": 1237,
     "n": "PT SARI Teknologi",
-    "lat": -6.183726,
-    "lng": 106.751404,
+    "lat": -6.169287,
+    "lng": 106.748858,
     "p": "31",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 670,
+    "id": 1375,
     "n": "PT SYOFHIA PERKASA SOLUTION",
     "lat": 0.669403,
     "lng": 101.602677,
@@ -5820,7 +7030,7 @@
     "cs": "c"
   },
   {
-    "id": 671,
+    "id": 1211,
     "n": "PT Saitama Juara Mendunia",
     "lat": -7.510833,
     "lng": 110.224157,
@@ -5830,17 +7040,17 @@
     "cs": "o"
   },
   {
-    "id": 672,
+    "id": 1092,
     "n": "PT. Hotaka Mulia Indonesia",
-    "lat": -6.184686,
-    "lng": 106.824995,
+    "lat": -6.185254,
+    "lng": 106.832341,
     "p": "31",
     "o": "N",
     "k": 75,
     "cs": "c"
   },
   {
-    "id": 673,
+    "id": 1536,
     "n": "PT. Pusat Pelatihan Kompetensi Mandiri",
     "lat": -6.423748,
     "lng": 106.96849,
@@ -5850,27 +7060,47 @@
     "cs": "c"
   },
   {
-    "id": 674,
+    "id": 1516,
     "n": "PUSAT PENGEMBANGAN KARIR DAN KEWIRAUSAHAAN (CCED)",
-    "lat": -5.423018,
-    "lng": 105.267774,
+    "lat": -5.41769,
+    "lng": 105.271174,
     "p": "18",
     "o": "P",
     "k": 1000,
     "cs": "c"
   },
   {
-    "id": 675,
+    "id": 1613,
+    "n": "PUSDIKLATPARTYATAMA MATARAM",
+    "lat": -8.592547,
+    "lng": 116.083913,
+    "p": "52",
+    "o": "N",
+    "k": 150,
+    "cs": "o"
+  },
+  {
+    "id": 1802,
+    "n": "Palembang Training Center",
+    "lat": -2.948047,
+    "lng": 104.748207,
+    "p": "16",
+    "o": "N",
+    "k": 60,
+    "cs": "o"
+  },
+  {
+    "id": 1074,
     "n": "PasimGo Migrant Centre - Universitas Nasional Pasim",
-    "lat": -6.907376,
-    "lng": 107.600973,
+    "lat": -6.90963,
+    "lng": 107.607083,
     "p": "32",
     "o": "N",
     "k": 320,
     "cs": "c"
   },
   {
-    "id": 676,
+    "id": 732,
     "n": "Passion Japan Indonesia",
     "lat": -7.213384,
     "lng": 108.917899,
@@ -5880,17 +7110,47 @@
     "cs": "o"
   },
   {
-    "id": 677,
+    "id": 784,
     "n": "Pekanbaru Hospitality Instittute",
-    "lat": 0.531909,
-    "lng": 101.434642,
+    "lat": 0.524542,
+    "lng": 101.44908,
     "p": "14",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 678,
+    "id": 1640,
+    "n": "Politeknik ATI Makassar",
+    "lat": -5.140957,
+    "lng": 119.436444,
+    "p": "73",
+    "o": "P",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1839,
+    "n": "Politeknik ATI Padang",
+    "lat": -0.863088,
+    "lng": 100.343586,
+    "p": "13",
+    "o": "P",
+    "k": 1000,
+    "cs": "o"
+  },
+  {
+    "id": 1633,
+    "n": "Politeknik ATK Yogyakarta",
+    "lat": -7.833756,
+    "lng": 110.362196,
+    "p": "34",
+    "o": "P",
+    "k": 1000,
+    "cs": "o"
+  },
+  {
+    "id": 1348,
     "n": "Politeknik Caltex Riau",
     "lat": 0.569653,
     "lng": 101.425459,
@@ -5900,7 +7160,7 @@
     "cs": "o"
   },
   {
-    "id": 679,
+    "id": 1553,
     "n": "Politeknik Ilmu Pelayaran Makassar",
     "lat": -5.063063,
     "lng": 119.478008,
@@ -5910,7 +7170,7 @@
     "cs": "o"
   },
   {
-    "id": 680,
+    "id": 1479,
     "n": "Politeknik Indonusa Surakarta",
     "lat": -7.567775,
     "lng": 110.801137,
@@ -5920,17 +7180,7 @@
     "cs": "o"
   },
   {
-    "id": 681,
-    "n": "Politeknik Kesehatan Kemenkes Medan",
-    "lat": 3.535639,
-    "lng": 98.725288,
-    "p": "12",
-    "o": "P",
-    "k": 1,
-    "cs": "c"
-  },
-  {
-    "id": 682,
+    "id": 1383,
     "n": "Politeknik Kesehatan Kemenkes Yogyakarta",
     "lat": -7.781224,
     "lng": 110.343243,
@@ -5940,7 +7190,7 @@
     "cs": "o"
   },
   {
-    "id": 683,
+    "id": 1507,
     "n": "Politeknik Kesehatan Kementerian Kesehatan Kupang",
     "lat": -10.169366,
     "lng": 123.600384,
@@ -5950,7 +7200,27 @@
     "cs": "o"
   },
   {
-    "id": 684,
+    "id": 1918,
+    "n": "Politeknik Keselamatan Transportasi Jalan",
+    "lat": -6.869441,
+    "lng": 109.145154,
+    "p": "33",
+    "o": "P",
+    "k": 15,
+    "cs": "o"
+  },
+  {
+    "id": 1843,
+    "n": "Politeknik Negeri Jember",
+    "lat": -8.159968,
+    "lng": 113.722598,
+    "p": "35",
+    "o": "P",
+    "k": 2500,
+    "cs": "o"
+  },
+  {
+    "id": 822,
     "n": "Politeknik Negeri Kupang",
     "lat": -10.154546,
     "lng": 123.600384,
@@ -5960,27 +7230,37 @@
     "cs": "c"
   },
   {
-    "id": 686,
+    "id": 1563,
     "n": "Politeknik Negeri Lampung",
-    "lat": -5.358547,
-    "lng": 105.233013,
+    "lat": -5.358752,
+    "lng": 105.233064,
     "p": "18",
     "o": "P",
-    "k": 20,
+    "k": 100,
     "cs": "o"
   },
   {
-    "id": 687,
+    "id": 1564,
+    "n": "Politeknik Negeri Lhokseumawe",
+    "lat": 5.119036,
+    "lng": 97.156684,
+    "p": "11",
+    "o": "P",
+    "k": 693,
+    "cs": "o"
+  },
+  {
+    "id": 1621,
     "n": "Politeknik Omna Trisakti Chandra",
-    "lat": -8.587035,
-    "lng": 115.268677,
+    "lat": -8.561741,
+    "lng": 115.272285,
     "p": "51",
     "o": "N",
-    "k": 120,
+    "k": 200,
     "cs": "c"
   },
   {
-    "id": 688,
+    "id": 683,
     "n": "Politeknik Pariwisata Bali",
     "lat": -8.813197,
     "lng": 115.1915,
@@ -5990,7 +7270,17 @@
     "cs": "o"
   },
   {
-    "id": 689,
+    "id": 1950,
+    "n": "Politeknik Pariwisata Lombok",
+    "lat": -8.704655,
+    "lng": 116.266969,
+    "p": "52",
+    "o": "P",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 649,
     "n": "Politeknik Pariwisata Makassar",
     "lat": -5.184011,
     "lng": 119.394159,
@@ -6000,7 +7290,7 @@
     "cs": "o"
   },
   {
-    "id": 690,
+    "id": 1539,
     "n": "Politeknik Pariwisata Medan",
     "lat": 3.612602,
     "lng": 98.717452,
@@ -6010,17 +7300,47 @@
     "cs": "o"
   },
   {
-    "id": 691,
+    "id": 1410,
     "n": "Politeknik Pariwisata Palembang",
-    "lat": -4.447332,
-    "lng": 105.4253,
+    "lat": -2.948047,
+    "lng": 104.735426,
     "p": "16",
     "o": "P",
     "k": 1,
     "cs": "c"
   },
   {
-    "id": 692,
+    "id": 1835,
+    "n": "Politeknik Pelayaran Sorong",
+    "lat": -0.808476,
+    "lng": 131.287926,
+    "p": "92",
+    "o": "P",
+    "k": 1037,
+    "cs": "o"
+  },
+  {
+    "id": 1580,
+    "n": "Politeknik Pelayaran Sulawesi Utara",
+    "lat": 1.181251,
+    "lng": 124.488165,
+    "p": "71",
+    "o": "P",
+    "k": 5840,
+    "cs": "o"
+  },
+  {
+    "id": 1937,
+    "n": "Politeknik Pembangunan Pertanian Medan",
+    "lat": 3.59923,
+    "lng": 98.605303,
+    "p": "12",
+    "o": "P",
+    "k": 135,
+    "cs": "o"
+  },
+  {
+    "id": 1457,
     "n": "Politeknik Penerbangan Medan",
     "lat": 3.534678,
     "lng": 98.640546,
@@ -6030,7 +7350,17 @@
     "cs": "o"
   },
   {
-    "id": 693,
+    "id": 1872,
+    "n": "Politeknik Piksi Ganesha Indonesia",
+    "lat": -7.693665,
+    "lng": 109.699005,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1541,
     "n": "Politeknik Transportasi Darat Bali",
     "lat": -8.62533,
     "lng": 115.272285,
@@ -6040,7 +7370,17 @@
     "cs": "o"
   },
   {
-    "id": 695,
+    "id": 1936,
+    "n": "Politeknik lembaga Pendidikan dan Pengembangan Profesi Indonesia Makassar",
+    "lat": -5.12553,
+    "lng": 119.503183,
+    "p": "73",
+    "o": "N",
+    "k": 50,
+    "cs": "o"
+  },
+  {
+    "id": 1447,
     "n": "Politeknk Pertanian Negeri Payakumbuh",
     "lat": -0.15934,
     "lng": 100.665171,
@@ -6050,17 +7390,17 @@
     "cs": "o"
   },
   {
-    "id": 696,
+    "id": 1629,
     "n": "Poltekkes Kemenkes Aceh",
-    "lat": 2.811371,
-    "lng": 95.537109,
+    "lat": 5.505422,
+    "lng": 95.33663,
     "p": "11",
     "o": "P",
-    "k": 89,
+    "k": 100,
     "cs": "o"
   },
   {
-    "id": 698,
+    "id": 1421,
     "n": "Poltekkes Kemenkes Banjarmasin",
     "lat": -3.445996,
     "lng": 114.847676,
@@ -6070,7 +7410,7 @@
     "cs": "o"
   },
   {
-    "id": 699,
+    "id": 1050,
     "n": "Poltekkes Kemenkes Bengkulu",
     "lat": -3.796798,
     "lng": 102.271985,
@@ -6080,17 +7420,17 @@
     "cs": "c"
   },
   {
-    "id": 700,
+    "id": 1266,
     "n": "Poltekkes Kemenkes Denpasar",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "P",
     "k": 900,
     "cs": "c"
   },
   {
-    "id": 701,
+    "id": 1487,
     "n": "Poltekkes Kemenkes Jakarta 1",
     "lat": -6.302338,
     "lng": 106.799446,
@@ -6100,7 +7440,7 @@
     "cs": "o"
   },
   {
-    "id": 702,
+    "id": 1261,
     "n": "Poltekkes Kemenkes Makassar",
     "lat": -5.158198,
     "lng": 119.4284,
@@ -6110,7 +7450,67 @@
     "cs": "o"
   },
   {
-    "id": 703,
+    "id": 1735,
+    "n": "Poltekkes Kemenkes Malang",
+    "lat": -7.965397,
+    "lng": 112.62321,
+    "p": "35",
+    "o": "P",
+    "k": 800,
+    "cs": "o"
+  },
+  {
+    "id": 1881,
+    "n": "Poltekkes Kemenkes Maluku",
+    "lat": -3.62662,
+    "lng": 128.241287,
+    "p": "81",
+    "o": "P",
+    "k": 300,
+    "cs": "o"
+  },
+  {
+    "id": 1911,
+    "n": "Poltekkes Kemenkes Mataram",
+    "lat": -8.606915,
+    "lng": 116.129677,
+    "p": "52",
+    "o": "P",
+    "k": 150,
+    "cs": "o"
+  },
+  {
+    "id": 1886,
+    "n": "Poltekkes Kemenkes Medan",
+    "lat": 3.534678,
+    "lng": 98.732562,
+    "p": "12",
+    "o": "P",
+    "k": 300,
+    "cs": "c"
+  },
+  {
+    "id": 1612,
+    "n": "Poltekkes Kemenkes Riau",
+    "lat": 0.525992,
+    "lng": 101.430082,
+    "p": "14",
+    "o": "P",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 1717,
+    "n": "Poltekkes Kemenkes Surabaya",
+    "lat": -7.283695,
+    "lng": 112.76115,
+    "p": "35",
+    "o": "P",
+    "k": 1620,
+    "cs": "o"
+  },
+  {
+    "id": 1282,
     "n": "Poltekkes Kemenkes Tanjungkarang",
     "lat": -6.247386,
     "lng": 106.51484,
@@ -6120,47 +7520,37 @@
     "cs": "o"
   },
   {
-    "id": 705,
-    "n": "Poltekkes Malang",
-    "lat": -7.964887,
-    "lng": 112.643749,
-    "p": "35",
-    "o": "P",
-    "k": 500,
-    "cs": "c"
-  },
-  {
-    "id": 706,
+    "id": 1111,
     "n": "Prakasih Sejahtera",
-    "lat": -5.423018,
-    "lng": 105.267774,
+    "lat": -5.41769,
+    "lng": 105.271174,
     "p": "18",
     "o": "N",
     "k": 80,
     "cs": "c"
   },
   {
-    "id": 707,
+    "id": 1128,
     "n": "Pratama Abdi Bangsa",
-    "lat": -6.539525,
-    "lng": 107.440803,
+    "lat": -6.841108,
+    "lng": 107.512473,
     "p": "32",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 708,
+    "id": 1125,
     "n": "Prima Learning Center",
-    "lat": -6.539525,
-    "lng": 107.440803,
+    "lat": -6.841108,
+    "lng": 107.512473,
     "p": "32",
     "o": "N",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 709,
+    "id": 885,
     "n": "Prima Tama Komputer",
     "lat": 1.656691,
     "lng": 101.458052,
@@ -6170,17 +7560,17 @@
     "cs": "o"
   },
   {
-    "id": 710,
+    "id": 1256,
     "n": "Prodi D-III Keperawatan Fakultas Ilmu Keperawatan Universitas Islam Sultan Agung",
-    "lat": -6.988983,
-    "lng": 110.418051,
+    "lat": -6.99829,
+    "lng": 110.428986,
     "p": "33",
     "o": "N",
     "k": 80,
     "cs": "c"
   },
   {
-    "id": 711,
+    "id": 783,
     "n": "Puncak Hotel Institute",
     "lat": -6.845284,
     "lng": 107.127338,
@@ -6190,47 +7580,57 @@
     "cs": "o"
   },
   {
-    "id": 712,
-    "n": "Pusat Bahasa dan Multibudaya UNAIR",
-    "lat": -7.271519,
-    "lng": 112.759716,
-    "p": "35",
-    "o": "P",
-    "k": 120,
+    "id": 1600,
+    "n": "Pusat International Study Connect",
+    "lat": -3.799972,
+    "lng": 114.77715,
+    "p": "63",
+    "o": "N",
+    "k": 20,
     "cs": "o"
   },
   {
-    "id": 714,
-    "n": "Pusat Bahasa dan Multibudaya Universitas Airlangga",
-    "lat": -7.271115,
-    "lng": 112.759748,
-    "p": "35",
+    "id": 1948,
+    "n": "Pusat Pelatihan Kerja Daerah Jakarta Barat",
+    "lat": -6.118012,
+    "lng": 106.71994,
+    "p": "31",
     "o": "P",
-    "k": 100,
+    "k": 1400,
     "cs": "o"
   },
   {
-    "id": 716,
+    "id": 1702,
+    "n": "Pusat Pengembangan Bahasa /LDC UIN Ar-Raniry",
+    "lat": 5.538245,
+    "lng": 95.9088,
+    "p": "11",
+    "o": "P",
+    "k": 5,
+    "cs": "o"
+  },
+  {
+    "id": 1288,
     "n": "Puspita Martha",
-    "lat": -6.199602,
-    "lng": 106.757433,
+    "lat": -6.185336,
+    "lng": 106.832341,
     "p": "31",
     "o": "N",
     "k": 100,
     "cs": "o"
   },
   {
-    "id": 717,
+    "id": 1486,
     "n": "QUEEN JAYA INSANI",
-    "lat": -7.648256,
-    "lng": 109.140878,
+    "lat": -7.620012,
+    "lng": 109.053581,
     "p": "33",
     "o": "N",
     "k": 36,
     "cs": "c"
   },
   {
-    "id": 718,
+    "id": 996,
     "n": "Qwerty Computer",
     "lat": 0.669403,
     "lng": 101.602677,
@@ -6240,17 +7640,17 @@
     "cs": "o"
   },
   {
-    "id": 719,
+    "id": 765,
     "n": "RAHMAT LESTARI",
-    "lat": -2.535865,
-    "lng": 112.924618,
+    "lat": -2.25417,
+    "lng": 113.185261,
     "p": "62",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 720,
+    "id": 792,
     "n": "RATU INTERNATIONAL CULINARY & HOSPITALITY INSTITUTE",
     "lat": -6.92157,
     "lng": 106.945452,
@@ -6260,7 +7660,7 @@
     "cs": "o"
   },
   {
-    "id": 721,
+    "id": 701,
     "n": "ROYAL SEASONS",
     "lat": -7.561763,
     "lng": 110.804733,
@@ -6270,7 +7670,17 @@
     "cs": "o"
   },
   {
-    "id": 722,
+    "id": 1692,
+    "n": "RS Universitas Andalas",
+    "lat": -0.921306,
+    "lng": 100.45716,
+    "p": "13",
+    "o": "P",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 1253,
     "n": "RUANG NAKES TRAINING CENTER",
     "lat": -7.797759,
     "lng": 110.36251,
@@ -6280,7 +7690,7 @@
     "cs": "o"
   },
   {
-    "id": 723,
+    "id": 1117,
     "n": "Rikai",
     "lat": -6.113401,
     "lng": 106.862898,
@@ -6290,17 +7700,17 @@
     "cs": "o"
   },
   {
-    "id": 724,
+    "id": 1118,
     "n": "Royal Asia College",
-    "lat": -0.914562,
-    "lng": 100.368976,
+    "lat": -0.921134,
+    "lng": 100.364689,
     "p": "13",
     "o": "N",
     "k": 200,
     "cs": "c"
   },
   {
-    "id": 726,
+    "id": 1361,
     "n": "Royal Bali College",
     "lat": -8.606406,
     "lng": 115.260576,
@@ -6310,7 +7720,7 @@
     "cs": "o"
   },
   {
-    "id": 728,
+    "id": 733,
     "n": "Royale Marine International",
     "lat": -7.193758,
     "lng": 107.88333,
@@ -6320,27 +7730,27 @@
     "cs": "o"
   },
   {
-    "id": 730,
+    "id": 900,
     "n": "Rumah Korea Indonesia",
-    "lat": -7.857214,
-    "lng": 110.386956,
+    "lat": -7.845485,
+    "lng": 110.374576,
     "p": "34",
     "o": "N",
     "k": 5,
     "cs": "c"
   },
   {
-    "id": 731,
+    "id": 894,
     "n": "SAIKOU GAKKOU",
-    "lat": -7.495022,
-    "lng": 110.223105,
+    "lat": -7.501451,
+    "lng": 110.204138,
     "p": "33",
     "o": "N",
     "k": 30,
     "cs": "c"
   },
   {
-    "id": 732,
+    "id": 1405,
     "n": "SARANG LANGUAGETY CENTER",
     "lat": 1.283664,
     "lng": 124.89452,
@@ -6350,7 +7760,7 @@
     "cs": "o"
   },
   {
-    "id": 733,
+    "id": 1090,
     "n": "SATPEL PVP KUPANG",
     "lat": -10.154546,
     "lng": 123.600384,
@@ -6360,7 +7770,7 @@
     "cs": "c"
   },
   {
-    "id": 734,
+    "id": 1325,
     "n": "SEIKO SUPPORT CENTER INDONESIA",
     "lat": -5.99587,
     "lng": 106.687935,
@@ -6370,17 +7780,17 @@
     "cs": "o"
   },
   {
-    "id": 735,
+    "id": 1399,
     "n": "SEKAWAN COURSE",
-    "lat": -5.502663,
-    "lng": 104.624026,
+    "lat": -5.49705,
+    "lng": 104.62402,
     "p": "18",
     "o": "N",
     "k": 60,
     "cs": "c"
   },
   {
-    "id": 737,
+    "id": 1143,
     "n": "SEKOLAH TINGGI ILMU KESEHATAN KAMUS ARUNIKA",
     "lat": -2.999631,
     "lng": 120.192068,
@@ -6390,7 +7800,7 @@
     "cs": "o"
   },
   {
-    "id": 738,
+    "id": 862,
     "n": "SENTOSA KARYA ADITAMA SUBANG",
     "lat": -6.291023,
     "lng": 107.78192,
@@ -6400,7 +7810,7 @@
     "cs": "o"
   },
   {
-    "id": 739,
+    "id": 834,
     "n": "SEOUL SUKSES CILACAP",
     "lat": -7.667305,
     "lng": 109.053581,
@@ -6410,7 +7820,17 @@
     "cs": "o"
   },
   {
-    "id": 740,
+    "id": 1773,
+    "n": "SMK AL HIKMAH 1 SIRAMPOG",
+    "lat": -6.965771,
+    "lng": 108.917899,
+    "p": "33",
+    "o": "N",
+    "k": 120,
+    "cs": "c"
+  },
+  {
+    "id": 1380,
     "n": "SMK AL KAAFFAH KEPANJEN",
     "lat": -8.117643,
     "lng": 112.573699,
@@ -6420,7 +7840,17 @@
     "cs": "o"
   },
   {
-    "id": 741,
+    "id": 1688,
+    "n": "SMK ANALIS KESEHATAN TUNAS MEDIKA",
+    "lat": -6.326467,
+    "lng": 106.900385,
+    "p": "31",
+    "o": "N",
+    "k": 45,
+    "cs": "o"
+  },
+  {
+    "id": 1527,
     "n": "SMK CORDOVA MARGOYOSO",
     "lat": -6.606655,
     "lng": 111.05887,
@@ -6430,17 +7860,87 @@
     "cs": "o"
   },
   {
-    "id": 742,
-    "n": "SMK DARUSSALAM MARTAPURA",
+    "id": 1619,
+    "n": "SMK Darussalam Martapura",
     "lat": -3.417255,
     "lng": 114.854081,
+    "p": "63",
+    "o": "N",
+    "k": 270,
+    "cs": "o"
+  },
+  {
+    "id": 1718,
+    "n": "SMK Dharma Putra Banjarmasin",
+    "lat": -3.332154,
+    "lng": 114.571483,
     "p": "63",
     "o": "N",
     "k": 100,
     "cs": "o"
   },
   {
-    "id": 743,
+    "id": 1734,
+    "n": "SMK Harapan Nusantara Bantarbolang",
+    "lat": -7.043962,
+    "lng": 109.375257,
+    "p": "33",
+    "o": "N",
+    "k": 10,
+    "cs": "o"
+  },
+  {
+    "id": 1684,
+    "n": "SMK KESEHATAN GLOBAL CENDEKIA",
+    "lat": -6.117121,
+    "lng": 106.883803,
+    "p": "31",
+    "o": "N",
+    "k": 437,
+    "cs": "o"
+  },
+  {
+    "id": 1825,
+    "n": "SMK KESUMA MARGOYOSO",
+    "lat": -6.596689,
+    "lng": 111.050304,
+    "p": "33",
+    "o": "N",
+    "k": 1,
+    "cs": "o"
+  },
+  {
+    "id": 1878,
+    "n": "SMK MA'ARIF 1 KEBUMEN",
+    "lat": -7.666115,
+    "lng": 109.660848,
+    "p": "33",
+    "o": "N",
+    "k": 4,
+    "cs": "o"
+  },
+  {
+    "id": 1858,
+    "n": "SMK MA'ARIF KOTA MUNGKID",
+    "lat": -7.583869,
+    "lng": 110.208235,
+    "p": "33",
+    "o": "N",
+    "k": 1368,
+    "cs": "o"
+  },
+  {
+    "id": 1845,
+    "n": "SMK MARDHIKA",
+    "lat": -5.549099,
+    "lng": 106.893024,
+    "p": "31",
+    "o": "N",
+    "k": 470,
+    "cs": "o"
+  },
+  {
+    "id": 740,
     "n": "SMK MUHAMMADIYAH 1 RUMBIA",
     "lat": -4.80493,
     "lng": 105.509359,
@@ -6450,7 +7950,17 @@
     "cs": "o"
   },
   {
-    "id": 744,
+    "id": 1951,
+    "n": "SMK MUHAMMADIYAH 2 BANJARMASIN",
+    "lat": -3.323942,
+    "lng": 114.578877,
+    "p": "63",
+    "o": "P",
+    "k": 1,
+    "cs": "c"
+  },
+  {
+    "id": 723,
     "n": "SMK MUHAMMADIYAH AMBARAWA",
     "lat": -5.410991,
     "lng": 104.960232,
@@ -6460,7 +7970,7 @@
     "cs": "o"
   },
   {
-    "id": 745,
+    "id": 697,
     "n": "SMK MUHAMMADIYAH SEKAMPUNG",
     "lat": -5.15733,
     "lng": 105.455044,
@@ -6470,7 +7980,7 @@
     "cs": "o"
   },
   {
-    "id": 746,
+    "id": 699,
     "n": "SMK Ma'arif NU 1 Cilongok",
     "lat": -7.413143,
     "lng": 109.167666,
@@ -6480,7 +7990,7 @@
     "cs": "c"
   },
   {
-    "id": 747,
+    "id": 776,
     "n": "SMK Muhammadiyah 1 Marga Tiga",
     "lat": -5.235564,
     "lng": 105.503855,
@@ -6490,17 +8000,37 @@
     "cs": "o"
   },
   {
-    "id": 748,
+    "id": 1854,
+    "n": "SMK Muhammadiyah 2 Muntilan",
+    "lat": -7.574239,
+    "lng": 110.283506,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1442,
     "n": "SMK Muhammadiyah 5 Babat",
-    "lat": -7.828268,
-    "lng": 112.628045,
+    "lat": -7.830775,
+    "lng": 112.624314,
     "p": "35",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 749,
+    "id": 1848,
+    "n": "SMK Muhammadiyah Kutowinamgun",
+    "lat": -7.718337,
+    "lng": 109.737161,
+    "p": "33",
+    "o": "N",
+    "k": 32,
+    "cs": "o"
+  },
+  {
+    "id": 730,
     "n": "SMK Muhammadiyah Kutowinangun",
     "lat": -7.718106,
     "lng": 109.737299,
@@ -6510,27 +8040,87 @@
     "cs": "o"
   },
   {
-    "id": 750,
+    "id": 1792,
+    "n": "SMK Muhammadiyah Lumajang",
+    "lat": -8.139616,
+    "lng": 113.208925,
+    "p": "35",
+    "o": "N",
+    "k": 30,
+    "cs": "o"
+  },
+  {
+    "id": 1573,
+    "n": "SMK Muhammadiyah Panekan",
+    "lat": -7.618962,
+    "lng": 111.367275,
+    "p": "35",
+    "o": "N",
+    "k": 1,
+    "cs": "c"
+  },
+  {
+    "id": 1626,
     "n": "SMK N 1 SEKAYU",
-    "lat": -2.938143,
-    "lng": 104.719905,
+    "lat": -2.966671,
+    "lng": 104.735426,
     "p": "16",
+    "o": "P",
+    "k": 180,
+    "cs": "c"
+  },
+  {
+    "id": 1810,
+    "n": "SMK N 1 TOLITOLI",
+    "lat": -0.623973,
+    "lng": 119.613733,
+    "p": "72",
     "o": "P",
     "k": 20,
     "cs": "c"
   },
   {
-    "id": 751,
+    "id": 1868,
+    "n": "SMK NEGERI 1 AMBON",
+    "lat": -3.626889,
+    "lng": 128.238288,
+    "p": "81",
+    "o": "P",
+    "k": 40,
+    "cs": "c"
+  },
+  {
+    "id": 1791,
+    "n": "SMK NEGERI 1 CIDAUN",
+    "lat": -7.492202,
+    "lng": 107.36208,
+    "p": "32",
+    "o": "P",
+    "k": 13,
+    "cs": "o"
+  },
+  {
+    "id": 1283,
     "n": "SMK NEGERI 1 DENPASAR",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "P",
     "k": 30,
     "cs": "c"
   },
   {
-    "id": 752,
+    "id": 1675,
+    "n": "SMK NEGERI 1 HARUAI",
+    "lat": -2.177244,
+    "lng": 115.400246,
+    "p": "63",
+    "o": "P",
+    "k": null,
+    "cs": "c"
+  },
+  {
+    "id": 1208,
     "n": "SMK NEGERI 1 KARANG BARU",
     "lat": -0.935869,
     "lng": 102.343732,
@@ -6540,37 +8130,97 @@
     "cs": "c"
   },
   {
-    "id": 753,
+    "id": 1030,
     "n": "SMK NEGERI 1 LAIS",
-    "lat": -2.938143,
-    "lng": 104.719905,
+    "lat": -2.966671,
+    "lng": 104.735426,
     "p": "16",
     "o": "P",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 754,
+    "id": 1220,
     "n": "SMK NEGERI 1 LANGSA",
-    "lat": 4.342417,
-    "lng": 97.141246,
+    "lat": 4.498306,
+    "lng": 97.954842,
     "p": "11",
     "o": "P",
     "k": 80,
     "cs": "c"
   },
   {
-    "id": 755,
-    "n": "SMK NEGERI 1 WANAREJA",
-    "lat": -7.33518,
-    "lng": 108.68665,
-    "p": "33",
+    "id": 1691,
+    "n": "SMK NEGERI 1 LEMPUING JAYA",
+    "lat": -3.679129,
+    "lng": 104.820793,
+    "p": "16",
     "o": "P",
-    "k": 7,
+    "k": 20,
     "cs": "o"
   },
   {
-    "id": 757,
+    "id": 1634,
+    "n": "SMK NEGERI 1 MARTAPURA",
+    "lat": -3.435457,
+    "lng": 114.861281,
+    "p": "63",
+    "o": "P",
+    "k": null,
+    "cs": "o"
+  },
+  {
+    "id": 1849,
+    "n": "SMK NEGERI 1 PASURUAN",
+    "lat": -7.645127,
+    "lng": 112.914518,
+    "p": "35",
+    "o": "P",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 1604,
+    "n": "SMK NEGERI 1 SEKOTONG",
+    "lat": -8.626064,
+    "lng": 116.121001,
+    "p": "52",
+    "o": "P",
+    "k": 1,
+    "cs": "c"
+  },
+  {
+    "id": 1720,
+    "n": "SMK NEGERI 1 SUMBER",
+    "lat": -6.831435,
+    "lng": 111.294824,
+    "p": "33",
+    "o": "P",
+    "k": 30,
+    "cs": "o"
+  },
+  {
+    "id": 1742,
+    "n": "SMK NEGERI 1 WANAREJA",
+    "lat": -7.334854,
+    "lng": 108.686521,
+    "p": "33",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1826,
+    "n": "SMK NEGERI 1 WIROSARI",
+    "lat": -7.081724,
+    "lng": 111.102569,
+    "p": "33",
+    "o": "P",
+    "k": 2,
+    "cs": "o"
+  },
+  {
+    "id": 1422,
     "n": "SMK NEGERI 2 MARABAHAN",
     "lat": -3.174149,
     "lng": 114.524853,
@@ -6580,17 +8230,37 @@
     "cs": "o"
   },
   {
-    "id": 758,
+    "id": 1787,
     "n": "SMK NEGERI 2 SUKAWATI",
-    "lat": -8.609573,
-    "lng": 115.258281,
+    "lat": -8.609597,
+    "lng": 115.258337,
     "p": "51",
     "o": "P",
     "k": 1,
     "cs": "o"
   },
   {
-    "id": 759,
+    "id": 1764,
+    "n": "SMK NEGERI 2 TONDANO",
+    "lat": 1.298744,
+    "lng": 124.903913,
+    "p": "71",
+    "o": "P",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 1794,
+    "n": "SMK NEGERI 3 BOGOR",
+    "lat": -6.583142,
+    "lng": 106.806687,
+    "p": "32",
+    "o": "P",
+    "k": 10,
+    "cs": "o"
+  },
+  {
+    "id": 1217,
     "n": "SMK NEGERI 3 KARANG BARU",
     "lat": -6.214154,
     "lng": 106.664429,
@@ -6600,7 +8270,7 @@
     "cs": "o"
   },
   {
-    "id": 760,
+    "id": 1425,
     "n": "SMK NEGERI 3 PANGKALPINANG",
     "lat": -2.148503,
     "lng": 106.119642,
@@ -6610,27 +8280,87 @@
     "cs": "o"
   },
   {
-    "id": 761,
+    "id": 1608,
+    "n": "SMK NEGERI 4 JEMBER",
+    "lat": -8.183695,
+    "lng": 113.662775,
+    "p": "35",
+    "o": "P",
+    "k": 70,
+    "cs": "c"
+  },
+  {
+    "id": 1814,
+    "n": "SMK NEGERI 4 PALU",
+    "lat": -0.882429,
+    "lng": 119.87418,
+    "p": "72",
+    "o": "P",
+    "k": 200,
+    "cs": "c"
+  },
+  {
+    "id": 1837,
+    "n": "SMK NEGERI 6 LANGSA",
+    "lat": 4.498306,
+    "lng": 97.954842,
+    "p": "11",
+    "o": "P",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 1875,
     "n": "SMK NEGERI 6 PADANG",
-    "lat": -0.931003,
-    "lng": 100.373347,
+    "lat": -0.93688,
+    "lng": 100.364772,
     "p": "13",
     "o": "P",
     "k": 80,
     "cs": "o"
   },
   {
-    "id": 764,
+    "id": 1664,
+    "n": "SMK NEGERI 7 PALU",
+    "lat": -0.876874,
+    "lng": 119.872474,
+    "p": "72",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1833,
+    "n": "SMK Negeri 1 Alas",
+    "lat": -8.488909,
+    "lng": 117.009654,
+    "p": "52",
+    "o": "P",
+    "k": 6,
+    "cs": "o"
+  },
+  {
+    "id": 1883,
+    "n": "SMK Negeri 1 Banda Aceh",
+    "lat": 5.532603,
+    "lng": 95.316684,
+    "p": "11",
+    "o": "P",
+    "k": 220,
+    "cs": "c"
+  },
+  {
+    "id": 1145,
     "n": "SMK Negeri 1 Belitang III",
     "lat": -4.135895,
     "lng": 104.748377,
     "p": "16",
     "o": "P",
-    "k": 200,
+    "k": 100,
     "cs": "o"
   },
   {
-    "id": 766,
+    "id": 1286,
     "n": "SMK Negeri 1 Bendahara",
     "lat": -0.935869,
     "lng": 102.343732,
@@ -6640,19 +8370,39 @@
     "cs": "c"
   },
   {
-    "id": 767,
+    "id": 1850,
+    "n": "SMK Negeri 1 Buduran Sidoarjo",
+    "lat": -7.434658,
+    "lng": 112.72151,
+    "p": "35",
+    "o": "P",
+    "k": 1404,
+    "cs": "o"
+  },
+  {
+    "id": 1857,
+    "n": "SMK Negeri 1 Cilacap",
+    "lat": -7.727866,
+    "lng": 109.018539,
+    "p": "33",
+    "o": "P",
+    "k": 36,
+    "cs": "o"
+  },
+  {
+    "id": 1179,
     "n": "SMK Negeri 1 Mengwi",
-    "lat": -8.709916,
-    "lng": 115.181077,
+    "lat": -8.616366,
+    "lng": 115.186388,
     "p": "51",
     "o": "P",
     "k": null,
     "cs": "c"
   },
   {
-    "id": 768,
+    "id": 1377,
     "n": "SMK Negeri 1 Moro",
-    "lat": 1.072672,
+    "lat": 1.045136,
     "lng": 104.04935,
     "p": "21",
     "o": "P",
@@ -6660,17 +8410,67 @@
     "cs": "c"
   },
   {
-    "id": 769,
+    "id": 1922,
+    "n": "SMK Negeri 1 Sigi",
+    "lat": -0.875462,
+    "lng": 119.87418,
+    "p": "72",
+    "o": "P",
+    "k": 80,
+    "cs": "c"
+  },
+  {
+    "id": 1495,
     "n": "SMK Negeri 1 Tarakan",
-    "lat": 4.165584,
-    "lng": 117.862385,
+    "lat": 3.422205,
+    "lng": 117.548402,
     "p": "65",
     "o": "P",
     "k": 33,
     "cs": "c"
   },
   {
-    "id": 770,
+    "id": 1653,
+    "n": "SMK Negeri 10 Jakarta",
+    "lat": -6.255489,
+    "lng": 106.869863,
+    "p": "31",
+    "o": "P",
+    "k": 252,
+    "cs": "o"
+  },
+  {
+    "id": 1746,
+    "n": "SMK Negeri 15 Jakarta",
+    "lat": -6.233149,
+    "lng": 106.802267,
+    "p": "31",
+    "o": "P",
+    "k": 1,
+    "cs": "o"
+  },
+  {
+    "id": 1731,
+    "n": "SMK Negeri 2 Banda Aceh",
+    "lat": 5.522385,
+    "lng": 95.320307,
+    "p": "11",
+    "o": "P",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 1903,
+    "n": "SMK Negeri 2 Cilaku",
+    "lat": -6.84982,
+    "lng": 107.134499,
+    "p": "32",
+    "o": "P",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1201,
     "n": "SMK Negeri 2 Karang Baru",
     "lat": 4.342417,
     "lng": 98.023036,
@@ -6680,17 +8480,47 @@
     "cs": "o"
   },
   {
-    "id": 772,
+    "id": 1643,
     "n": "SMK Negeri 2 Palembang",
-    "lat": -4.447332,
-    "lng": 105.4253,
+    "lat": -2.966671,
+    "lng": 104.735426,
     "p": "16",
     "o": "P",
-    "k": 324,
-    "cs": "c"
+    "k": 351,
+    "cs": "o"
   },
   {
-    "id": 773,
+    "id": 1805,
+    "n": "SMK Negeri 2 Palu",
+    "lat": -0.89086,
+    "lng": 119.878386,
+    "p": "72",
+    "o": "P",
+    "k": 60,
+    "cs": "o"
+  },
+  {
+    "id": 1657,
+    "n": "SMK Negeri 2 Pekanbaru",
+    "lat": 0.510051,
+    "lng": 101.455343,
+    "p": "14",
+    "o": "P",
+    "k": 1,
+    "cs": "o"
+  },
+  {
+    "id": 1719,
+    "n": "SMK Negeri 2 Pengasih",
+    "lat": -7.858481,
+    "lng": 110.174745,
+    "p": "34",
+    "o": "P",
+    "k": 36,
+    "cs": "o"
+  },
+  {
+    "id": 1169,
     "n": "SMK Negeri 2 Singaraja",
     "lat": -8.144581,
     "lng": 115.095821,
@@ -6700,17 +8530,57 @@
     "cs": "o"
   },
   {
-    "id": 775,
+    "id": 1740,
+    "n": "SMK Negeri 2 Subang",
+    "lat": -6.547583,
+    "lng": 107.735775,
+    "p": "32",
+    "o": "P",
+    "k": 18,
+    "cs": "o"
+  },
+  {
+    "id": 1729,
+    "n": "SMK Negeri 3 Banda Aceh",
+    "lat": 5.522948,
+    "lng": 95.32041,
+    "p": "11",
+    "o": "P",
+    "k": 25,
+    "cs": "o"
+  },
+  {
+    "id": 1247,
     "n": "SMK Negeri 3 Denpasar",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "P",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 776,
+    "id": 1808,
+    "n": "SMK Negeri 3 Palu",
+    "lat": -0.904568,
+    "lng": 119.875966,
+    "p": "72",
+    "o": "P",
+    "k": 30,
+    "cs": "o"
+  },
+  {
+    "id": 1846,
+    "n": "SMK Negeri 4 Surakarta",
+    "lat": -7.553018,
+    "lng": 110.798418,
+    "p": "33",
+    "o": "P",
+    "k": 12,
+    "cs": "o"
+  },
+  {
+    "id": 1473,
     "n": "SMK Negeri 5 Banjarmasin",
     "lat": -3.323942,
     "lng": 114.567039,
@@ -6720,7 +8590,7 @@
     "cs": "o"
   },
   {
-    "id": 777,
+    "id": 1500,
     "n": "SMK Negeri 8 Pontianak",
     "lat": 0.005827,
     "lng": 109.350851,
@@ -6730,7 +8600,57 @@
     "cs": "o"
   },
   {
-    "id": 778,
+    "id": 1789,
+    "n": "SMK Negeri Pariwisata Parigata Parigi",
+    "lat": -0.777826,
+    "lng": 120.140605,
+    "p": "72",
+    "o": "P",
+    "k": 38,
+    "cs": "o"
+  },
+  {
+    "id": 1942,
+    "n": "SMK PASIM PLUS",
+    "lat": -6.914856,
+    "lng": 106.937013,
+    "p": "32",
+    "o": "N",
+    "k": 1000,
+    "cs": "o"
+  },
+  {
+    "id": 1722,
+    "n": "SMK PELAYARAN KRISTEN TUBAN",
+    "lat": -6.890733,
+    "lng": 112.038483,
+    "p": "35",
+    "o": "N",
+    "k": 150,
+    "cs": "o"
+  },
+  {
+    "id": 1926,
+    "n": "SMK PEMBANGUNAN TERPADU",
+    "lat": -6.274902,
+    "lng": 106.230534,
+    "p": "36",
+    "o": "N",
+    "k": 1,
+    "cs": "o"
+  },
+  {
+    "id": 1610,
+    "n": "SMK PERTANIAN PEMBANGUNAN NEGERI BANJARBARU",
+    "lat": -3.439825,
+    "lng": 114.826024,
+    "p": "63",
+    "o": "P",
+    "k": 358,
+    "cs": "o"
+  },
+  {
+    "id": 1492,
     "n": "SMK PGRI 1 MEJAYAN",
     "lat": -7.632963,
     "lng": 111.568288,
@@ -6740,17 +8660,27 @@
     "cs": "c"
   },
   {
-    "id": 779,
+    "id": 1386,
     "n": "SMK PP NEGERI SAREE",
-    "lat": 4.1596,
-    "lng": 95.439484,
+    "lat": 5.505422,
+    "lng": 95.341859,
     "p": "11",
     "o": "P",
     "k": 70,
     "cs": "c"
   },
   {
-    "id": 781,
+    "id": 1778,
+    "n": "SMK PRESIDEN CIREBON",
+    "lat": -6.733035,
+    "lng": 108.549869,
+    "p": "32",
+    "o": "N",
+    "k": 4,
+    "cs": "o"
+  },
+  {
+    "id": 1158,
     "n": "SMK Pertanian Pembangunan Negeri Sembawa",
     "lat": -2.925511,
     "lng": 104.546636,
@@ -6760,7 +8690,17 @@
     "cs": "c"
   },
   {
-    "id": 782,
+    "id": 1727,
+    "n": "SMK SMTI Yogyakarta",
+    "lat": -7.801866,
+    "lng": 110.383126,
+    "p": "34",
+    "o": "P",
+    "k": 1000,
+    "cs": "o"
+  },
+  {
+    "id": 1561,
     "n": "SMK SWASTA TEKNOLOGI INFORMATIKA BULUKUMBA",
     "lat": -5.102083,
     "lng": 120.219619,
@@ -6770,17 +8710,27 @@
     "cs": "o"
   },
   {
-    "id": 783,
+    "id": 1267,
     "n": "SMK Saraswati 1 Denpasar",
-    "lat": -8.648801,
-    "lng": 115.211811,
+    "lat": -8.657128,
+    "lng": 115.2274,
     "p": "51",
     "o": "N",
     "k": 300,
     "cs": "c"
   },
   {
-    "id": 784,
+    "id": 1785,
+    "n": "SMK Sepuluh Nopember Sidoarjo",
+    "lat": -7.413439,
+    "lng": 112.56367,
+    "p": "35",
+    "o": "N",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 1560,
     "n": "SMK Swasta Teknologi Informatika",
     "lat": -5.102083,
     "lng": 120.219619,
@@ -6790,7 +8740,27 @@
     "cs": "c"
   },
   {
-    "id": 785,
+    "id": 1890,
+    "n": "SMK TELKOM MAKASSAR",
+    "lat": -5.146639,
+    "lng": 119.44177,
+    "p": "73",
+    "o": "N",
+    "k": 395,
+    "cs": "o"
+  },
+  {
+    "id": 1649,
+    "n": "SMK TIYASA",
+    "lat": -6.953768,
+    "lng": 108.135434,
+    "p": "32",
+    "o": "N",
+    "k": 80,
+    "cs": "o"
+  },
+  {
+    "id": 835,
     "n": "SMK Teknik Komputer MBM Rawalo",
     "lat": -7.527252,
     "lng": 109.167666,
@@ -6800,7 +8770,77 @@
     "cs": "o"
   },
   {
-    "id": 786,
+    "id": 1840,
+    "n": "SMK Walisongo Pecangaan",
+    "lat": -6.690926,
+    "lng": 110.705913,
+    "p": "33",
+    "o": "N",
+    "k": 150,
+    "cs": "o"
+  },
+  {
+    "id": 1622,
+    "n": "SMK YAFA",
+    "lat": -8.781528,
+    "lng": 116.182679,
+    "p": "52",
+    "o": "N",
+    "k": 90,
+    "cs": "o"
+  },
+  {
+    "id": 1759,
+    "n": "SMKN 1 KOTARAJA",
+    "lat": -8.62086,
+    "lng": 116.491929,
+    "p": "52",
+    "o": "P",
+    "k": 460,
+    "cs": "c"
+  },
+  {
+    "id": 1772,
+    "n": "SMKN 1 LUBUK SIKAPING",
+    "lat": 0.105466,
+    "lng": 100.188886,
+    "p": "13",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1715,
+    "n": "SMKN 1 MAGELANG",
+    "lat": -7.501451,
+    "lng": 110.204138,
+    "p": "33",
+    "o": "P",
+    "k": 9,
+    "cs": "o"
+  },
+  {
+    "id": 1912,
+    "n": "SMKN 1 MUARO JAMBI",
+    "lat": -1.531733,
+    "lng": 103.532436,
+    "p": "15",
+    "o": "P",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 1818,
+    "n": "SMKN 1 MUNDU",
+    "lat": -6.750679,
+    "lng": 108.58927,
+    "p": "32",
+    "o": "P",
+    "k": 2000,
+    "cs": "o"
+  },
+  {
+    "id": 1376,
     "n": "SMKN 1 PONTIANAK",
     "lat": -0.048199,
     "lng": 109.307978,
@@ -6810,17 +8850,117 @@
     "cs": "o"
   },
   {
-    "id": 787,
-    "n": "SMKN 2 METRO",
-    "lat": -5.130706,
-    "lng": 105.299004,
-    "p": "18",
+    "id": 1838,
+    "n": "SMKN 1 PURWAKARTA",
+    "lat": -6.514526,
+    "lng": 107.429985,
+    "p": "32",
     "o": "P",
-    "k": 99,
+    "k": 36,
     "cs": "o"
   },
   {
-    "id": 788,
+    "id": 1796,
+    "n": "SMKN 1 Palu",
+    "lat": -0.882429,
+    "lng": 119.87418,
+    "p": "72",
+    "o": "P",
+    "k": 20,
+    "cs": "c"
+  },
+  {
+    "id": 1590,
+    "n": "SMKN 1 SAMPIT",
+    "lat": -2.526218,
+    "lng": 112.9455,
+    "p": "62",
+    "o": "P",
+    "k": 10,
+    "cs": "o"
+  },
+  {
+    "id": 1696,
+    "n": "SMKN 1 Sukabumi Kota Sukabumi",
+    "lat": -6.906048,
+    "lng": 106.930677,
+    "p": "32",
+    "o": "P",
+    "k": 631,
+    "cs": "o"
+  },
+  {
+    "id": 1732,
+    "n": "SMKN 1 TANJUNG",
+    "lat": -2.177244,
+    "lng": 115.400246,
+    "p": "63",
+    "o": "P",
+    "k": 1,
+    "cs": "o"
+  },
+  {
+    "id": 1679,
+    "n": "SMKN 12 Jakarta",
+    "lat": -6.173661,
+    "lng": 106.825712,
+    "p": "31",
+    "o": "P",
+    "k": 720,
+    "cs": "c"
+  },
+  {
+    "id": 1856,
+    "n": "SMKN 15 BANDUNG",
+    "lat": -6.90963,
+    "lng": 107.607083,
+    "p": "32",
+    "o": "P",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1603,
+    "n": "SMKN 2 KENDARI",
+    "lat": -3.983125,
+    "lng": 122.511934,
+    "p": "74",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1877,
+    "n": "SMKN 2 KOTA TERNATE",
+    "lat": 0.793102,
+    "lng": 127.386751,
+    "p": "82",
+    "o": "P",
+    "k": 21,
+    "cs": "c"
+  },
+  {
+    "id": 1716,
+    "n": "SMKN 2 Metro",
+    "lat": -5.130664,
+    "lng": 105.299077,
+    "p": "18",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1713,
+    "n": "SMKN 2 PAINAN",
+    "lat": -1.307613,
+    "lng": 100.541082,
+    "p": "13",
+    "o": "P",
+    "k": 17,
+    "cs": "o"
+  },
+  {
+    "id": 1391,
     "n": "SMKN 2 Pangkalpinang",
     "lat": -2.124417,
     "lng": 106.100157,
@@ -6830,9 +8970,89 @@
     "cs": "o"
   },
   {
-    "id": 790,
+    "id": 1869,
+    "n": "SMKN 2 SUBANG",
+    "lat": -6.547412,
+    "lng": 107.735915,
+    "p": "32",
+    "o": "P",
+    "k": 1,
+    "cs": "o"
+  },
+  {
+    "id": 1790,
+    "n": "SMKN 2 SUKABUMI",
+    "lat": -6.93575,
+    "lng": 106.925588,
+    "p": "32",
+    "o": "P",
+    "k": 10,
+    "cs": "o"
+  },
+  {
+    "id": 1851,
+    "n": "SMKN 3 TARAKAN",
+    "lat": 3.422205,
+    "lng": 117.548402,
+    "p": "65",
+    "o": "P",
+    "k": 36,
+    "cs": "o"
+  },
+  {
+    "id": 1813,
+    "n": "SMKN 9 GARUT",
+    "lat": -7.258455,
+    "lng": 107.843811,
+    "p": "32",
+    "o": "P",
+    "k": 39,
+    "cs": "o"
+  },
+  {
+    "id": 1682,
+    "n": "SMKN 9 Padang",
+    "lat": -0.954198,
+    "lng": 100.359743,
+    "p": "13",
+    "o": "P",
+    "k": 60,
+    "cs": "o"
+  },
+  {
+    "id": 1769,
+    "n": "SMKN PP PADANG MENGATAS",
+    "lat": -0.272588,
+    "lng": 100.688535,
+    "p": "13",
+    "o": "P",
+    "k": 11,
+    "cs": "o"
+  },
+  {
+    "id": 1865,
+    "n": "SMKPP NEGERI MATARAM",
+    "lat": -8.626064,
+    "lng": 116.125632,
+    "p": "52",
+    "o": "P",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1714,
+    "n": "SMKS AL FARISI",
+    "lat": -7.10588,
+    "lng": 107.898342,
+    "p": "32",
+    "o": "N",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 1277,
     "n": "SMKS BUDI MULIA KUNDUR",
-    "lat": 1.072672,
+    "lat": 1.045136,
     "lng": 104.04935,
     "p": "21",
     "o": "N",
@@ -6840,7 +9060,77 @@
     "cs": "c"
   },
   {
-    "id": 791,
+    "id": 1815,
+    "n": "SMKS Farmasi YPIB Cirebon",
+    "lat": -6.713574,
+    "lng": 108.543678,
+    "p": "32",
+    "o": "N",
+    "k": 300,
+    "cs": "o"
+  },
+  {
+    "id": 1753,
+    "n": "SMKS JAYA BUANA",
+    "lat": -6.128755,
+    "lng": 106.420945,
+    "p": "36",
+    "o": "N",
+    "k": 1000,
+    "cs": "o"
+  },
+  {
+    "id": 1784,
+    "n": "SMKS KESEHATAN AMBON",
+    "lat": -3.627157,
+    "lng": 128.235289,
+    "p": "81",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1781,
+    "n": "SMKS KESEHATAN TRI BHAKTI AT-TAQWA",
+    "lat": -3.874041,
+    "lng": 104.937673,
+    "p": "16",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1677,
+    "n": "SMKS KODECO",
+    "lat": -3.332518,
+    "lng": 114.793632,
+    "p": "63",
+    "o": "N",
+    "k": 300,
+    "cs": "c"
+  },
+  {
+    "id": 1663,
+    "n": "SMKS MA'ARIF GARUT",
+    "lat": -7.215985,
+    "lng": 107.892608,
+    "p": "32",
+    "o": "N",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1847,
+    "n": "SMKS MUHAMMADIYAH 1 KOTA MALANG",
+    "lat": -7.968993,
+    "lng": 112.613938,
+    "p": "35",
+    "o": "N",
+    "k": 1,
+    "cs": "o"
+  },
+  {
+    "id": 1424,
     "n": "SMKS MUHAMMADIYAH JATIROTO",
     "lat": -8.111444,
     "lng": 113.35777,
@@ -6850,7 +9140,27 @@
     "cs": "o"
   },
   {
-    "id": 792,
+    "id": 1795,
+    "n": "SMKS Pelayaran Muhammadiyah Tuban",
+    "lat": -6.907606,
+    "lng": 112.068819,
+    "p": "35",
+    "o": "N",
+    "k": 514,
+    "cs": "o"
+  },
+  {
+    "id": 1616,
+    "n": "SMKS Shalatiyah Bitin",
+    "lat": -2.457521,
+    "lng": 115.136688,
+    "p": "63",
+    "o": "N",
+    "k": 120,
+    "cs": "o"
+  },
+  {
+    "id": 874,
     "n": "SODATSU SUKSES MANDIRI",
     "lat": -7.638664,
     "lng": 111.350155,
@@ -6860,7 +9170,7 @@
     "cs": "o"
   },
   {
-    "id": 793,
+    "id": 942,
     "n": "SONAGI KENDAL",
     "lat": -7.058629,
     "lng": 110.030555,
@@ -6870,7 +9180,7 @@
     "cs": "o"
   },
   {
-    "id": 794,
+    "id": 1420,
     "n": "STIKES HUTAMA ABDI HUSADA TULUNGAGUNG",
     "lat": -8.164342,
     "lng": 111.843135,
@@ -6880,27 +9190,27 @@
     "cs": "c"
   },
   {
-    "id": 795,
+    "id": 856,
     "n": "SUKSES PUTRI JABAR",
-    "lat": -6.297902,
-    "lng": 106.954465,
+    "lat": -6.297207,
+    "lng": 106.952796,
     "p": "32",
     "o": "N",
     "k": 101,
     "cs": "c"
   },
   {
-    "id": 796,
+    "id": 947,
     "n": "SUMBER TALENTA MANDIRI INDONESIA",
-    "lat": -6.297902,
-    "lng": 106.954465,
+    "lat": -6.297207,
+    "lng": 106.952796,
     "p": "32",
     "o": "N",
     "k": 99,
     "cs": "c"
   },
   {
-    "id": 797,
+    "id": 659,
     "n": "Sangkuriang Maritim Hotel Institute",
     "lat": -6.58597,
     "lng": 106.796513,
@@ -6910,7 +9220,17 @@
     "cs": "o"
   },
   {
-    "id": 798,
+    "id": 1581,
+    "n": "Satrio",
+    "lat": 0.524594,
+    "lng": 101.461937,
+    "p": "14",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1547,
     "n": "Satuan Pelayanan Pelatihan Vokasi dan Produktivitas Palu",
     "lat": -0.874051,
     "lng": 119.875887,
@@ -6920,7 +9240,7 @@
     "cs": "o"
   },
   {
-    "id": 799,
+    "id": 939,
     "n": "Sejong Korean Language Center (SLC Korea)",
     "lat": -6.36507,
     "lng": 106.961405,
@@ -6930,17 +9250,27 @@
     "cs": "o"
   },
   {
-    "id": 800,
+    "id": 1594,
     "n": "Sekolah Tinggi Ilmu Kesehatan Bala Keselamatan Palu",
-    "lat": -6.288123,
-    "lng": 106.74104,
+    "lat": -0.882429,
+    "lng": 119.87418,
     "p": "72",
     "o": "N",
     "k": 300,
-    "cs": "o"
+    "cs": "c"
   },
   {
-    "id": 801,
+    "id": 1842,
+    "n": "Sekolah Tinggi Pariwisata AMPTA Yogyakarta",
+    "lat": -7.761524,
+    "lng": 110.350322,
+    "p": "34",
+    "o": "N",
+    "k": 500,
+    "cs": "c"
+  },
+  {
+    "id": 1384,
     "n": "Selective Bangka Belitung",
     "lat": -2.120673,
     "lng": 106.11346,
@@ -6950,7 +9280,7 @@
     "cs": "o"
   },
   {
-    "id": 802,
+    "id": 745,
     "n": "Smile Zone Training Centre",
     "lat": -7.324567,
     "lng": 110.194286,
@@ -6960,17 +9290,37 @@
     "cs": "o"
   },
   {
-    "id": 803,
+    "id": 1940,
+    "n": "SpeedPlus Otomotif Indonesia",
+    "lat": -7.80676,
+    "lng": 110.388064,
+    "p": "34",
+    "o": "N",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1804,
+    "n": "Spirit International College",
+    "lat": -8.401263,
+    "lng": 115.241311,
+    "p": "51",
+    "o": "N",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 1133,
     "n": "Srikandi Avia Sejati Training Center",
-    "lat": -7.561145,
-    "lng": 110.80797,
+    "lat": -7.554628,
+    "lng": 110.804733,
     "p": "33",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 804,
+    "id": 785,
     "n": "Study Hotel Executive",
     "lat": -7.827879,
     "lng": 111.996753,
@@ -6980,7 +9330,7 @@
     "cs": "o"
   },
   {
-    "id": 805,
+    "id": 1122,
     "n": "TALENTA YANTI SURAKARTA",
     "lat": -6.195548,
     "lng": 106.85498,
@@ -6990,7 +9340,7 @@
     "cs": "o"
   },
   {
-    "id": 806,
+    "id": 988,
     "n": "TECHNICO",
     "lat": -4.937882,
     "lng": 105.217976,
@@ -7000,7 +9350,7 @@
     "cs": "o"
   },
   {
-    "id": 807,
+    "id": 876,
     "n": "THARA GENERATION INDONESIA",
     "lat": -6.261447,
     "lng": 106.921975,
@@ -7010,7 +9360,7 @@
     "cs": "o"
   },
   {
-    "id": 808,
+    "id": 840,
     "n": "TIGA PILAR BANTUL",
     "lat": -7.895788,
     "lng": 110.35419,
@@ -7020,7 +9370,7 @@
     "cs": "o"
   },
   {
-    "id": 809,
+    "id": 859,
     "n": "TIRREI MAS INDONESIA",
     "lat": -6.362437,
     "lng": 106.927762,
@@ -7030,17 +9380,17 @@
     "cs": "o"
   },
   {
-    "id": 810,
+    "id": 1116,
     "n": "TLC (Talented Leader College) Surakarta",
-    "lat": -7.561145,
-    "lng": 110.80797,
+    "lat": -7.554628,
+    "lng": 110.804733,
     "p": "33",
     "o": "N",
     "k": 50,
     "cs": "c"
   },
   {
-    "id": 811,
+    "id": 848,
     "n": "TOTAL ACADEMY",
     "lat": -7.413143,
     "lng": 109.167666,
@@ -7050,7 +9400,7 @@
     "cs": "c"
   },
   {
-    "id": 812,
+    "id": 1296,
     "n": "TRANS BUANA INTERNATIONAL HOTEL & CRUISE SHIP SCHOOL",
     "lat": -7.413143,
     "lng": 109.167666,
@@ -7060,7 +9410,7 @@
     "cs": "c"
   },
   {
-    "id": 813,
+    "id": 1135,
     "n": "TRISAKTI INDRAMAYU",
     "lat": -6.45145,
     "lng": 108.383155,
@@ -7070,7 +9420,7 @@
     "cs": "c"
   },
   {
-    "id": 814,
+    "id": 990,
     "n": "TUBAN OTO DRIVING",
     "lat": -6.88852,
     "lng": 112.036318,
@@ -7080,7 +9430,7 @@
     "cs": "o"
   },
   {
-    "id": 815,
+    "id": 1523,
     "n": "Tamata Persada",
     "lat": -8.58345,
     "lng": 116.118574,
@@ -7090,7 +9440,7 @@
     "cs": "o"
   },
   {
-    "id": 817,
+    "id": 1522,
     "n": "Tamata Persada Training Center",
     "lat": -8.583481,
     "lng": 116.118616,
@@ -7100,17 +9450,17 @@
     "cs": "o"
   },
   {
-    "id": 818,
-    "n": "Testing",
-    "lat": -6.175405,
-    "lng": 106.827168,
-    "p": "31",
+    "id": 1766,
+    "n": "The Hotel International School",
+    "lat": -8.561741,
+    "lng": 115.30113,
+    "p": "51",
     "o": "N",
-    "k": 100,
+    "k": 450,
     "cs": "o"
   },
   {
-    "id": 819,
+    "id": 734,
     "n": "Training Center Praktisi",
     "lat": -7.811004,
     "lng": 110.403227,
@@ -7120,7 +9470,27 @@
     "cs": "o"
   },
   {
-    "id": 820,
+    "id": 1776,
+    "n": "UNIT PELAKSANA TEKNIS BALAI LATIHAN KERJA JEMBER",
+    "lat": -8.204444,
+    "lng": 113.697522,
+    "p": "35",
+    "o": "P",
+    "k": 960,
+    "cs": "o"
+  },
+  {
+    "id": 1599,
+    "n": "UNIT PELAKSANA TEKNIS DAERAH BALAI LATIHAN KERJA PROVINSI GORONTALO",
+    "lat": 0.570311,
+    "lng": 123.043782,
+    "p": "75",
+    "o": "P",
+    "k": 64,
+    "cs": "o"
+  },
+  {
+    "id": 1491,
     "n": "UNIVERSITAS PANCASILA",
     "lat": -6.337774,
     "lng": 106.834396,
@@ -7130,7 +9500,17 @@
     "cs": "o"
   },
   {
-    "id": 821,
+    "id": 1606,
+    "n": "UNIVERSITAS SARI MULIA",
+    "lat": -3.341253,
+    "lng": 114.628172,
+    "p": "63",
+    "o": "N",
+    "k": 50,
+    "cs": "o"
+  },
+  {
+    "id": 1389,
     "n": "UPI Migrant Center",
     "lat": -6.951615,
     "lng": 107.59306,
@@ -7140,17 +9520,27 @@
     "cs": "o"
   },
   {
-    "id": 823,
+    "id": 1887,
+    "n": "UPK SDMK Mataram",
+    "lat": -8.607131,
+    "lng": 116.129675,
+    "p": "52",
+    "o": "P",
+    "k": 30,
+    "cs": "o"
+  },
+  {
+    "id": 1496,
     "n": "UPT BLK Disnakertrans Kab. Garut",
-    "lat": -7.197493,
-    "lng": 107.884754,
+    "lat": -7.193758,
+    "lng": 107.892608,
     "p": "32",
     "o": "P",
     "k": 360,
     "cs": "c"
   },
   {
-    "id": 824,
+    "id": 1204,
     "n": "UPT BLK Kabupaten Karanganyar",
     "lat": -7.62026,
     "lng": 111.02957,
@@ -7160,7 +9550,7 @@
     "cs": "o"
   },
   {
-    "id": 825,
+    "id": 1285,
     "n": "UPT Bahasa USK",
     "lat": -4.730965,
     "lng": 103.119618,
@@ -7170,7 +9560,27 @@
     "cs": "o"
   },
   {
-    "id": 826,
+    "id": 1852,
+    "n": "UPT Balai Latihan Kerja Provinsi Kalimantan Tengah",
+    "lat": -1.74078,
+    "lng": 114.830188,
+    "p": "62",
+    "o": "P",
+    "k": 16,
+    "cs": "o"
+  },
+  {
+    "id": 1811,
+    "n": "UPT Balai Latihan Kerja Tuban",
+    "lat": -6.890733,
+    "lng": 112.038483,
+    "p": "35",
+    "o": "P",
+    "k": 32,
+    "cs": "c"
+  },
+  {
+    "id": 1434,
     "n": "UPT Pelatihan Kerja dan Produktivitas Tenaga Kerja Provinsi Kalimantan Barat",
     "lat": -0.055924,
     "lng": 109.357936,
@@ -7180,17 +9590,17 @@
     "cs": "o"
   },
   {
-    "id": 827,
-    "n": "UPT. Balai Latihan Kerja Dinas Tenaga Kerja Kota Magelang",
-    "lat": -7.495022,
-    "lng": 110.223105,
+    "id": 1927,
+    "n": "UPT. Balai Latihan Kerja Kota Magelang",
+    "lat": -7.501451,
+    "lng": 110.204138,
     "p": "33",
     "o": "P",
     "k": 540,
-    "cs": "o"
+    "cs": "c"
   },
   {
-    "id": 828,
+    "id": 1504,
     "n": "UPT. Pengembangan Kewirausahaan dan Karier (UPKK)",
     "lat": -3.332882,
     "lng": 114.615768,
@@ -7200,7 +9610,7 @@
     "cs": "o"
   },
   {
-    "id": 829,
+    "id": 1174,
     "n": "UPTD BALAI LATIHAN KERJA DINAS KETENAGAKERJAAN DAN PERINDUSTRIAN KABUPATEN CILACAP",
     "lat": -6.106618,
     "lng": 106.364474,
@@ -7210,7 +9620,17 @@
     "cs": "o"
   },
   {
-    "id": 830,
+    "id": 1748,
+    "n": "UPTD BALAI LATIHAN KERJA KABUPATEN BANDUNG BARAT",
+    "lat": -6.841108,
+    "lng": 107.512473,
+    "p": "32",
+    "o": "P",
+    "k": 50,
+    "cs": "o"
+  },
+  {
+    "id": 1181,
     "n": "UPTD BALAI LATIHAN KERJA KABUPATEN PATI",
     "lat": -6.766242,
     "lng": 111.008606,
@@ -7220,17 +9640,37 @@
     "cs": "o"
   },
   {
-    "id": 831,
-    "n": "UPTD BALAI LATIHAN KERJA, DINAS TENAGA KERJA DAN TRANSMIGRASI KABUPATEN SAMBAS",
-    "lat": 1.361451,
-    "lng": 109.33068,
+    "id": 1756,
+    "n": "UPTD BALAI LATIHAN KERJA KABUPATEN SAMBAS",
+    "lat": 1.360198,
+    "lng": 109.333113,
     "p": "61",
     "o": "P",
     "k": 320,
     "cs": "o"
   },
   {
-    "id": 832,
+    "id": 1747,
+    "n": "UPTD BALAI PELATIHAN KERJA KABUPATEN SUMEDANG",
+    "lat": -6.845917,
+    "lng": 107.934701,
+    "p": "32",
+    "o": "P",
+    "k": 420,
+    "cs": "o"
+  },
+  {
+    "id": 1646,
+    "n": "UPTD BLK ACEH BESAR",
+    "lat": 5.505422,
+    "lng": 95.341859,
+    "p": "11",
+    "o": "P",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 958,
     "n": "UPTD BLK BAA",
     "lat": 5.547144,
     "lng": 95.294594,
@@ -7240,7 +9680,37 @@
     "cs": "o"
   },
   {
-    "id": 833,
+    "id": 1760,
+    "n": "UPTD BLK DISKOPNAKER KABUPATEN KERINCI",
+    "lat": -1.95082,
+    "lng": 101.348387,
+    "p": "15",
+    "o": "P",
+    "k": 20,
+    "cs": "o"
+  },
+  {
+    "id": 1739,
+    "n": "UPTD BLK DISNAKER SRAGEN",
+    "lat": -7.43211,
+    "lng": 111.037323,
+    "p": "33",
+    "o": "P",
+    "k": 488,
+    "cs": "o"
+  },
+  {
+    "id": 1641,
+    "n": "UPTD BLK Disnakertrans Kaotawaringin Timur",
+    "lat": -2.566635,
+    "lng": 112.950364,
+    "p": "62",
+    "o": "P",
+    "k": 16,
+    "cs": "o"
+  },
+  {
+    "id": 1476,
     "n": "UPTD BLK Indramayu",
     "lat": -6.351884,
     "lng": 108.326077,
@@ -7250,7 +9720,47 @@
     "cs": "o"
   },
   {
-    "id": 834,
+    "id": 1885,
+    "n": "UPTD BLK Kapuas",
+    "lat": -1.982122,
+    "lng": 114.320984,
+    "p": "62",
+    "o": "P",
+    "k": 96,
+    "cs": "o"
+  },
+  {
+    "id": 1597,
+    "n": "UPTD BLK Kota Banjar",
+    "lat": -7.376251,
+    "lng": 108.520672,
+    "p": "32",
+    "o": "P",
+    "k": 160,
+    "cs": "o"
+  },
+  {
+    "id": 1799,
+    "n": "UPTD BLK RENGAT WILAYAH 1 PASIR PENYU",
+    "lat": 0.525992,
+    "lng": 101.454336,
+    "p": "14",
+    "o": "P",
+    "k": 48,
+    "cs": "c"
+  },
+  {
+    "id": 1891,
+    "n": "UPTD BLK Temanggung",
+    "lat": -7.302614,
+    "lng": 110.177952,
+    "p": "33",
+    "o": "P",
+    "k": 16,
+    "cs": "c"
+  },
+  {
+    "id": 1513,
     "n": "UPTD BLKI ACEH UTARA",
     "lat": 5.178167,
     "lng": 97.141246,
@@ -7260,17 +9770,7 @@
     "cs": "o"
   },
   {
-    "id": 835,
-    "n": "UPTD Balai Latihan Kerja Dinas Tenaga Kerja dan Transmigrasi Kabupaten Grobogan",
-    "lat": -7.082675,
-    "lng": 110.890822,
-    "p": "33",
-    "o": "P",
-    "k": 102,
-    "cs": "o"
-  },
-  {
-    "id": 836,
+    "id": 1227,
     "n": "UPTD Balai Latihan Kerja Kab. Kudus",
     "lat": -6.803802,
     "lng": 110.846634,
@@ -7280,7 +9780,27 @@
     "cs": "c"
   },
   {
-    "id": 837,
+    "id": 1819,
+    "n": "UPTD Balai Latihan Kerja Kabupaten Grobogan",
+    "lat": -7.082213,
+    "lng": 110.890974,
+    "p": "33",
+    "o": "P",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1900,
+    "n": "UPTD Balai Latihan Kerja Kabupaten Magelang",
+    "lat": -7.555922,
+    "lng": 110.1571,
+    "p": "33",
+    "o": "P",
+    "k": 160,
+    "cs": "o"
+  },
+  {
+    "id": 1370,
     "n": "UPTD Latihan Kerja Provinsi NTT",
     "lat": -10.154546,
     "lng": 123.600384,
@@ -7290,7 +9810,57 @@
     "cs": "c"
   },
   {
-    "id": 838,
+    "id": 1671,
+    "n": "UPTD Layanan Terpadu Satu Atap Pekerja Migran Indonesia",
+    "lat": -7.121376,
+    "lng": 107.667495,
+    "p": "32",
+    "o": "P",
+    "k": 500,
+    "cs": "o"
+  },
+  {
+    "id": 1725,
+    "n": "UPTD Pelatihan Kerja Dinas Ketenagakerjaan Kabupaten Cirebon",
+    "lat": -6.721962,
+    "lng": 108.466428,
+    "p": "32",
+    "o": "P",
+    "k": 10,
+    "cs": "o"
+  },
+  {
+    "id": 1783,
+    "n": "UPTD Technopark Ganesha Sukowati",
+    "lat": -7.426921,
+    "lng": 111.007181,
+    "p": "33",
+    "o": "P",
+    "k": 480,
+    "cs": "o"
+  },
+  {
+    "id": 1812,
+    "n": "UPTD. BALAI PELATIHAN KERJA DINAS TRANSNAKER PROV. SULAWESI TENGGARA",
+    "lat": -3.971547,
+    "lng": 122.514156,
+    "p": "74",
+    "o": "P",
+    "k": 200,
+    "cs": "o"
+  },
+  {
+    "id": 1864,
+    "n": "UPTD. BLK TUKOI LAU",
+    "lat": -2.25417,
+    "lng": 113.185261,
+    "p": "62",
+    "o": "P",
+    "k": 16,
+    "cs": "c"
+  },
+  {
+    "id": 768,
     "n": "URI NARA COURSE",
     "lat": -8.167063,
     "lng": 111.843135,
@@ -7300,7 +9870,7 @@
     "cs": "o"
   },
   {
-    "id": 839,
+    "id": 1542,
     "n": "UT School",
     "lat": -6.186361,
     "lng": 106.931226,
@@ -7310,18 +9880,18 @@
     "cs": "o"
   },
   {
-    "id": 840,
+    "id": 1499,
     "n": "Unit Pengembangan Kompetensi SDM Kesehatan Jambi",
-    "lat": -1.614973,
-    "lng": 103.600475,
+    "lat": -1.608864,
+    "lng": 103.623268,
     "p": "15",
     "o": "P",
     "k": 150,
     "cs": "c"
   },
   {
-    "id": 841,
-    "n": "Unit Pengembangan Kompetensi Sumber Daya Manusia Kesehatan Padang",
+    "id": 1470,
+    "n": "Unit Pengembangan Kompetensi Sumber Daya Manusia Kesehatan Poltekkes Kemenkes Padang",
     "lat": -0.89812,
     "lng": 100.375128,
     "p": "13",
@@ -7330,7 +9900,7 @@
     "cs": "o"
   },
   {
-    "id": 842,
+    "id": 1435,
     "n": "Unit Pengembangan Kompetensi Sumber Daya Manusia Kesehatan Poltekkes Kemenkes Palu",
     "lat": -0.7886,
     "lng": 119.8664,
@@ -7340,7 +9910,27 @@
     "cs": "o"
   },
   {
-    "id": 843,
+    "id": 1947,
+    "n": "Universal Japan Course",
+    "lat": -7.039194,
+    "lng": 110.479478,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1571,
+    "n": "Universitas Airlangga",
+    "lat": -7.271509,
+    "lng": 112.759634,
+    "p": "35",
+    "o": "P",
+    "k": 120,
+    "cs": "o"
+  },
+  {
+    "id": 1562,
     "n": "Universitas Aisyiyah Palembang",
     "lat": -2.938143,
     "lng": 104.719905,
@@ -7350,7 +9940,7 @@
     "cs": "o"
   },
   {
-    "id": 844,
+    "id": 1138,
     "n": "Universitas Anwar Medika",
     "lat": -7.418456,
     "lng": 112.529817,
@@ -7360,7 +9950,17 @@
     "cs": "o"
   },
   {
-    "id": 845,
+    "id": 1929,
+    "n": "Universitas Bina Bangsa Getsempena",
+    "lat": 5.532603,
+    "lng": 95.316684,
+    "p": "11",
+    "o": "N",
+    "k": 50,
+    "cs": "c"
+  },
+  {
+    "id": 655,
     "n": "Universitas Binawan",
     "lat": -6.257639,
     "lng": 106.862919,
@@ -7370,7 +9970,7 @@
     "cs": "o"
   },
   {
-    "id": 846,
+    "id": 1481,
     "n": "Universitas Duta Bangsa Surakarta",
     "lat": -7.541161,
     "lng": 110.818077,
@@ -7380,7 +9980,17 @@
     "cs": "o"
   },
   {
-    "id": 847,
+    "id": 1623,
+    "n": "Universitas Lambung Mangkurat",
+    "lat": -3.296306,
+    "lng": 114.586271,
+    "p": "63",
+    "o": "P",
+    "k": 180,
+    "cs": "o"
+  },
+  {
+    "id": 1262,
     "n": "Universitas Mahasaraswati Denpasar",
     "lat": -8.637749,
     "lng": 115.194547,
@@ -7390,7 +10000,7 @@
     "cs": "o"
   },
   {
-    "id": 848,
+    "id": 1521,
     "n": "Universitas Malikussaleh",
     "lat": 5.231315,
     "lng": 96.981597,
@@ -7400,7 +10010,7 @@
     "cs": "o"
   },
   {
-    "id": 849,
+    "id": 1076,
     "n": "Universitas Muhammadiyah Purwokerto",
     "lat": -7.413143,
     "lng": 109.273209,
@@ -7410,7 +10020,7 @@
     "cs": "o"
   },
   {
-    "id": 850,
+    "id": 1075,
     "n": "Universitas Muhammadiyah Surabaya",
     "lat": -7.260189,
     "lng": 112.788869,
@@ -7420,7 +10030,17 @@
     "cs": "o"
   },
   {
-    "id": 851,
+    "id": 1906,
+    "n": "Universitas Nusa Putra",
+    "lat": -6.864739,
+    "lng": 106.767572,
+    "p": "32",
+    "o": "N",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1281,
     "n": "Universitas Pembangunan Nasional Veteran Yogyakarta",
     "lat": -7.762276,
     "lng": 110.404079,
@@ -7430,7 +10050,7 @@
     "cs": "o"
   },
   {
-    "id": 852,
+    "id": 1170,
     "n": "Universitas Prima Indonesia",
     "lat": -6.129115,
     "lng": 106.697024,
@@ -7440,7 +10060,7 @@
     "cs": "o"
   },
   {
-    "id": 853,
+    "id": 662,
     "n": "Universitas Sunan Gresik",
     "lat": -6.982441,
     "lng": 112.525041,
@@ -7450,7 +10070,7 @@
     "cs": "o"
   },
   {
-    "id": 854,
+    "id": 665,
     "n": "Universitas Teknologi Bandung",
     "lat": -6.948132,
     "lng": 107.601134,
@@ -7460,7 +10080,7 @@
     "cs": "o"
   },
   {
-    "id": 855,
+    "id": 1514,
     "n": "Universitas Trunodjoyo Madura",
     "lat": -7.129719,
     "lng": 112.724361,
@@ -7470,17 +10090,27 @@
     "cs": "o"
   },
   {
-    "id": 856,
+    "id": 1953,
+    "n": "Universitas Warmadewa",
+    "lat": -8.658376,
+    "lng": 115.242684,
+    "p": "51",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1342,
     "n": "VISTAMA COMTECH",
-    "lat": -7.561141,
-    "lng": 110.739457,
+    "lat": -7.583236,
+    "lng": 110.784049,
     "p": "33",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 857,
+    "id": 1134,
     "n": "Verif",
     "lat": -6.945158,
     "lng": 107.641457,
@@ -7490,7 +10120,7 @@
     "cs": "o"
   },
   {
-    "id": 858,
+    "id": 731,
     "n": "Victoria Hotel School",
     "lat": -7.560527,
     "lng": 110.811207,
@@ -7500,7 +10130,27 @@
     "cs": "o"
   },
   {
-    "id": 859,
+    "id": 1884,
+    "n": "Voca Migrant Corner",
+    "lat": -7.050523,
+    "lng": 110.435613,
+    "p": "33",
+    "o": "P",
+    "k": 120,
+    "cs": "o"
+  },
+  {
+    "id": 1866,
+    "n": "WAHANA DANAU INDAH",
+    "lat": -6.167773,
+    "lng": 106.61474,
+    "p": "36",
+    "o": "N",
+    "k": 1000,
+    "cs": "o"
+  },
+  {
+    "id": 1349,
     "n": "Wisma Bahasa",
     "lat": -7.765854,
     "lng": 110.392304,
@@ -7510,7 +10160,17 @@
     "cs": "o"
   },
   {
-    "id": 860,
+    "id": 1624,
+    "n": "YAMASAKI TRAINING INDONESIA",
+    "lat": -6.863487,
+    "lng": 106.767664,
+    "p": "32",
+    "o": "N",
+    "k": 150,
+    "cs": "o"
+  },
+  {
+    "id": 1034,
     "n": "YAYASAN BINA GENERASI BANGSA (BGB FOUNDATION)",
     "lat": -6.884661,
     "lng": 107.628984,
@@ -7520,7 +10180,7 @@
     "cs": "o"
   },
   {
-    "id": 861,
+    "id": 887,
     "n": "YAYASAN IMLUS BERKAH SUKSES",
     "lat": -6.33063,
     "lng": 106.923273,
@@ -7530,7 +10190,17 @@
     "cs": "o"
   },
   {
-    "id": 862,
+    "id": 1935,
+    "n": "YAYASAN JINZIYA KLATEN INDONESIA",
+    "lat": -7.733466,
+    "lng": 110.537514,
+    "p": "33",
+    "o": "N",
+    "k": 100,
+    "cs": "o"
+  },
+  {
+    "id": 1518,
     "n": "YAYASAN PERBATASAN DI PULAU SEBATIK LPK OCHA SEBATIK",
     "lat": 4.165584,
     "lng": 117.862396,
@@ -7540,7 +10210,7 @@
     "cs": "o"
   },
   {
-    "id": 863,
+    "id": 1298,
     "n": "YLPK BALANTA JAYA ABADI",
     "lat": -8.164342,
     "lng": 111.824547,
@@ -7550,7 +10220,7 @@
     "cs": "o"
   },
   {
-    "id": 864,
+    "id": 992,
     "n": "YPA-Handayani Sinjai",
     "lat": -5.122727,
     "lng": 120.253757,
@@ -7560,7 +10230,27 @@
     "cs": "o"
   },
   {
-    "id": 866,
+    "id": 1701,
+    "n": "YUME HOSHI EDUCATION",
+    "lat": 3.534678,
+    "lng": 98.732562,
+    "p": "12",
+    "o": "N",
+    "k": 1000,
+    "cs": "c"
+  },
+  {
+    "id": 1618,
+    "n": "Yawata edukasi senter",
+    "lat": -5.208939,
+    "lng": 119.467484,
+    "p": "73",
+    "o": "N",
+    "k": 120,
+    "cs": "o"
+  },
+  {
+    "id": 843,
     "n": "Yayasan Bina Lentera Insan",
     "lat": 1.463475,
     "lng": 124.843303,
@@ -7570,7 +10260,17 @@
     "cs": "c"
   },
   {
-    "id": 867,
+    "id": 1686,
+    "n": "Yayasan Pendidikan Lamade Indonesia (YAPDESI)",
+    "lat": -5.122639,
+    "lng": 120.256501,
+    "p": "73",
+    "o": "N",
+    "k": 16,
+    "cs": "o"
+  },
+  {
+    "id": 1112,
     "n": "Yayasan Pendidikan Pelatihan Kerja (YP2K) Handayani Luwu Raya",
     "lat": -2.999631,
     "lng": 120.192068,
@@ -7580,17 +10280,27 @@
     "cs": "c"
   },
   {
-    "id": 869,
+    "id": 1115,
     "n": "Yayasan Retro Komputer",
-    "lat": -5.423018,
-    "lng": 105.267774,
+    "lat": -5.41769,
+    "lng": 105.271174,
     "p": "18",
     "o": "N",
     "k": 360,
     "cs": "c"
   },
   {
-    "id": 870,
+    "id": 1917,
+    "n": "Yayasan Rose Mandiri",
+    "lat": -6.889664,
+    "lng": 107.541026,
+    "p": "32",
+    "o": "N",
+    "k": 50,
+    "cs": "c"
+  },
+  {
+    "id": 773,
     "n": "Yolsimhee Education",
     "lat": -6.965771,
     "lng": 108.917899,
@@ -7600,7 +10310,7 @@
     "cs": "c"
   },
   {
-    "id": 871,
+    "id": 724,
     "n": "Yorisoi Cendekiawan Insan Atama",
     "lat": -7.823054,
     "lng": 110.38991,
@@ -7610,7 +10320,7 @@
     "cs": "o"
   },
   {
-    "id": 872,
+    "id": 1154,
     "n": "ajsdf",
     "lat": -5.090148,
     "lng": 119.496249,
@@ -7620,7 +10330,7 @@
     "cs": "o"
   },
   {
-    "id": 873,
+    "id": 677,
     "n": "asal",
     "lat": -6.40719,
     "lng": 106.815837,
@@ -7630,7 +10340,7 @@
     "cs": "o"
   },
   {
-    "id": 874,
+    "id": 1258,
     "n": "asd",
     "lat": -7.285319,
     "lng": 112.681592,
@@ -7640,7 +10350,7 @@
     "cs": "o"
   },
   {
-    "id": 875,
+    "id": 1503,
     "n": "badan pengembangan sumber daya manusia provinsi riau",
     "lat": 0.512558,
     "lng": 101.454336,
@@ -7650,7 +10360,7 @@
     "cs": "o"
   },
   {
-    "id": 876,
+    "id": 660,
     "n": "bjkhb",
     "lat": -5.090148,
     "lng": 119.496249,
@@ -7660,27 +10370,37 @@
     "cs": "o"
   },
   {
-    "id": 877,
+    "id": 1834,
+    "n": "bright english institute",
+    "lat": -8.589794,
+    "lng": 116.26664,
+    "p": "52",
+    "o": "N",
+    "k": 40,
+    "cs": "o"
+  },
+  {
+    "id": 1916,
+    "n": "dinas tenaga kerja dan transmigrasi provinsi jambi",
+    "lat": -1.608864,
+    "lng": 103.623268,
+    "p": "15",
+    "o": "P",
+    "k": 100,
+    "cs": "c"
+  },
+  {
+    "id": 1364,
     "n": "efac",
     "lat": -7.761524,
-    "lng": 110.343118,
+    "lng": 110.350322,
     "p": "34",
     "o": "N",
     "k": 100,
     "cs": "c"
   },
   {
-    "id": 878,
-    "n": "el-Ris",
-    "lat": 0.808891,
-    "lng": 127.385145,
-    "p": "82",
-    "o": "N",
-    "k": 100,
-    "cs": "o"
-  },
-  {
-    "id": 879,
+    "id": 1203,
     "n": "elang muda tepi barat",
     "lat": -2.722852,
     "lng": 102.90923,
@@ -7690,7 +10410,17 @@
     "cs": "o"
   },
   {
-    "id": 880,
+    "id": 1898,
+    "n": "itc college",
+    "lat": -1.241968,
+    "lng": 116.83459,
+    "p": "64",
+    "o": "N",
+    "k": 300,
+    "cs": "o"
+  },
+  {
+    "id": 658,
     "n": "iu",
     "lat": -5.096449,
     "lng": 119.511962,
@@ -7700,7 +10430,7 @@
     "cs": "o"
   },
   {
-    "id": 881,
+    "id": 1099,
     "n": "lpk bangsa",
     "lat": -6.24339,
     "lng": 106.856213,
@@ -7710,7 +10440,7 @@
     "cs": "o"
   },
   {
-    "id": 883,
+    "id": 1155,
     "n": "nyoba",
     "lat": -6.179122,
     "lng": 106.825712,
@@ -7720,7 +10450,7 @@
     "cs": "o"
   },
   {
-    "id": 884,
+    "id": 968,
     "n": "pkv pmi contoh",
     "lat": -6.181158,
     "lng": 106.634932,
@@ -7730,7 +10460,7 @@
     "cs": "o"
   },
   {
-    "id": 885,
+    "id": 815,
     "n": "tes vokasi",
     "lat": -6.945158,
     "lng": 107.641457,
@@ -7740,23 +10470,13 @@
     "cs": "o"
   },
   {
-    "id": 886,
+    "id": 1094,
     "n": "test",
     "lat": -6.945158,
     "lng": 107.641457,
     "p": "11",
     "o": "P",
     "k": 10,
-    "cs": "o"
-  },
-  {
-    "id": 887,
-    "n": "testing lembaga",
-    "lat": -6.175405,
-    "lng": 106.827168,
-    "p": "31",
-    "o": "N",
-    "k": 5,
     "cs": "o"
   }
 ]

@@ -122,8 +122,36 @@ class Api extends CI_Controller {
 		$this->json(array(
 			'lembaga'   => $row,
 			'sektor'    => $this->repo->sektorOf($id),
+			'katalog'   => $this->repo->katalogOf($id),
 			'duplikat'  => $this->repo->dupGroupOf($row),
 		));
+	}
+
+	/**
+	 * GET /api/lembaga_list?ids=1,2,3
+	 * Subset kolom untuk popup "List Lembaga Vokasi" saat cluster peta diklik.
+	 */
+	public function lembaga_list()
+	{
+		$raw = $this->input->get('ids', TRUE);
+		if ($raw === NULL || $raw === '' || $raw === FALSE)
+		{
+			return $this->json(array());
+		}
+
+		$parts = is_array($raw) ? $raw : explode(',', (string) $raw);
+		$ids = array();
+		foreach ($parts as $p)
+		{
+			$p = trim((string) $p);
+			if ($p !== '' && ctype_digit($p))
+			{
+				$ids[] = (int) $p;
+			}
+			if (count($ids) >= 2000) break; // batas wajar 1 cluster
+		}
+
+		$this->json($this->repo->listByIds($ids));
 	}
 
 	/** GET /api/choropleth?metric=jumlah|kapasitas|kepadatan_sektor */

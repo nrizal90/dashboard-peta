@@ -136,20 +136,20 @@
     "long_raw": 105.8203125
   },
   {
-    "nama": "LPK AIRPORT SERVICE TRAINING",
-    "email": "ast.jogja341@gmail.com",
-    "provinsi_nama": "DI YOGYAKARTA",
-    "kota_nama": "Kabupaten Bantul",
-    "lat_raw": -13.32334663821089,
-    "long_raw": 110.379638671875
-  },
-  {
     "nama": "Mitra Sauri",
     "email": "mitrasauri@gmail.com",
     "provinsi_nama": "Sumatera Utara",
     "kota_nama": "Kota Medan",
     "lat_raw": -44.3336689230471,
     "long_raw": 119.36212062835696
+  },
+  {
+    "nama": "LPK AIRPORT SERVICE TRAINING",
+    "email": "ast.jogja341@gmail.com",
+    "provinsi_nama": "DI YOGYAKARTA",
+    "kota_nama": "Kabupaten Bantul",
+    "lat_raw": -13.32334663821089,
+    "long_raw": 110.379638671875
   },
   {
     "nama": "LPK Prisma",
@@ -198,5 +198,45 @@
     "kota_nama": "Kabupaten Cilacap",
     "lat_raw": -7.713350750111818,
     "long_raw": 469.0033489465714
+  },
+  {
+    "nama": "LPK SERUMPUN MAJU BERSAMA",
+    "email": "febrias11@yahoo.com",
+    "provinsi_nama": "Jawa Timur",
+    "kota_nama": "Kota Malang",
+    "lat_raw": 5.747174076651375,
+    "long_raw": -367.734375
+  },
+  {
+    "nama": "SMKS KODECO",
+    "email": "smkskodeco.1992@gmail.com",
+    "provinsi_nama": "Kalimantan Selatan",
+    "kota_nama": "Kabupaten Tanah Bumbu",
+    "lat_raw": -3.4088333593471547,
+    "long_raw": -243.98795306682592
+  },
+  {
+    "nama": "YUME HOSHI EDUCATION",
+    "email": "adeliaazmiy@gmail.com",
+    "provinsi_nama": "Sumatera Utara",
+    "kota_nama": "Kota Medan",
+    "lat_raw": 3.565469617303494,
+    "long_raw": 2258.6931976675987
+  },
+  {
+    "nama": "SMK N 1 TOLITOLI",
+    "email": "info.smkn1tolitoli@gmail.com",
+    "provinsi_nama": "Sulawesi Tengah",
+    "kota_nama": "Kabupaten Toli-Toli",
+    "lat_raw": -13.78006060746909,
+    "long_raw": 102.10719108581544
+  },
+  {
+    "nama": "Politeknik Pariwisata Lombok",
+    "email": "made.wiranta@ppl.ac.id",
+    "provinsi_nama": "Nusa Tenggara Barat",
+    "kota_nama": "Kabupaten Lombok Tengah",
+    "lat_raw": -33.98785098485044,
+    "long_raw": -91.397967338562
   }
 ]

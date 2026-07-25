@@ -193,3 +193,56 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 
 			</div>
 			<!-- /.container-fluid -->
+
+			<!-- ===== MODAL: List Lembaga Vokasi (muncul saat cluster peta diklik) ===== -->
+			<div class="modal fade" id="modalList" tabindex="-1" role="dialog" aria-labelledby="modalListLabel" aria-hidden="true">
+				<div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+					<div class="modal-content">
+						<div class="modal-header bg-primary text-white py-2">
+							<h5 class="modal-title" id="modalListLabel"><i class="fas fa-university mr-2"></i>List Lembaga Vokasi</h5>
+							<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body p-0">
+							<div class="table-responsive">
+								<table class="table table-sm table-hover mb-0">
+									<thead class="thead-light">
+										<tr>
+											<th class="text-center">No</th>
+											<th>Nama</th>
+											<th>Provinsi</th>
+											<th>Kabupaten/Kota</th>
+											<th>Kepemilikan</th>
+											<th>No Registrasi</th>
+											<th>No Legalitas</th>
+											<th class="text-center">Aksi</th>
+										</tr>
+									</thead>
+									<tbody id="listBody"></tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer py-2 justify-content-between">
+							<small class="text-muted">Total data: <b id="listTotal">0</b> lembaga</small>
+							<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ===== MODAL: Detail Lembaga Vokasi ===== -->
+			<div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+					<div class="modal-content">
+						<div class="modal-header bg-primary text-white py-2">
+							<h5 class="modal-title" id="modalDetailLabel"><i class="fas fa-university mr-2"></i>Detail Lembaga Vokasi</h5>
+							<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body" id="detailBody">
+							<div class="text-center text-muted py-4">Memuat…</div>
+						</div>
+						<div class="modal-footer py-2">
+							<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+						</div>
+					</div>
+				</div>
+			</div>

@@ -1,48 +1,62 @@
 {
-  "generated_at": "2026-07-16T06:45:35.735761+00:00",
+  "generated_at": "2026-07-25T13:15:48.452798+00:00",
   "log": [
     {
       "step": "load",
-      "detail_rows": 887,
-      "sektor_rows": 3608
+      "detail": "VOKASI_detail_20260724.xlsx",
+      "detail_rows": 1209,
+      "sektor": "VOKASI_detail_sektor_20260724.xlsx",
+      "sektor_rows": 5006,
+      "katalog": "KATALOG_detail_20260724.xlsx",
+      "katalog_rows": 47
+    },
+    {
+      "step": "pk_source",
+      "pk": "id_lembaga_vokasi"
     },
     {
       "step": "normalisasi_wilayah",
-      "provinsi_sebelum": 38,
-      "provinsi_sesudah": 30,
-      "kota_sebelum": 198,
-      "kota_sesudah": 184,
+      "provinsi_sebelum": 42,
+      "provinsi_sesudah": 34,
+      "kota_sebelum": 234,
+      "kota_sesudah": 218,
       "provinsi_tanpa_kode_bps": []
     },
     {
       "step": "bersihkan_field",
       "jenis_invalid_dinullkan": 1,
-      "kapasitas_nol_dinullkan": 1,
-      "iqr_fence": 550.0,
-      "outlier_count": 76
+      "kapasitas_nol_dinullkan": 3,
+      "iqr_fence": 565.0,
+      "outlier_count": 109
     },
     {
       "step": "validasi_koordinat",
-      "valid": 600,
-      "kosong": 262,
-      "di_luar_bbox": 25
+      "valid": 839,
+      "kosong": 340,
+      "di_luar_bbox": 30
     },
     {
       "step": "fallback_centroid",
-      "original": 600,
-      "centroid_kota": 248,
-      "centroid_provinsi": 39
+      "original": 839,
+      "centroid_kota": 336,
+      "centroid_provinsi": 34
     },
     {
       "step": "dedup_flag",
-      "grup_duplikat": 93,
-      "baris_terlibat": 204,
-      "ditandai_non_primary": 111
+      "grup_duplikat": 130,
+      "baris_terlibat": 291,
+      "ditandai_non_primary": 161
+    },
+    {
+      "step": "build_katalog",
+      "baris": 47,
+      "lembaga_punya_katalog": 20,
+      "orphan": 0
     },
     {
       "step": "build_relasi",
-      "baris": 3547,
-      "duplikat_dibuang": 61,
+      "baris": 4959,
+      "duplikat_dibuang": 47,
       "orphan": 0
     }
   ],
@@ -50,14 +64,14 @@
     {
       "kode": "COORD_MISSING",
       "severity": "high",
-      "jumlah": 262,
+      "jumlah": 340,
       "deskripsi": "lat/long kosong di sumber",
       "penanganan": "diisi centroid kabupaten/provinsi, ditandai coord_source"
     },
     {
       "kode": "COORD_OUT_OF_BBOX",
       "severity": "high",
-      "jumlah": 25,
+      "jumlah": 30,
       "deskripsi": "koordinat di luar bounding box Indonesia (mis. long=-4555)",
       "penanganan": "koordinat mentah dibuang, diganti centroid; audit di _rejected_coords.json"
     },
@@ -78,15 +92,15 @@
     {
       "kode": "DUPLICATE_LEMBAGA",
       "severity": "high",
-      "jumlah": 204,
+      "jumlah": 291,
       "deskripsi": "lembaga sama terdaftar dengan email berbeda, data bisa berbeda",
       "penanganan": "ditandai dup_group + is_primary, TIDAK dihapus. Perlu keputusan bisnis"
     },
     {
       "kode": "KAPASITAS_OUTLIER",
       "severity": "medium",
-      "jumlah": 76,
-      "deskripsi": "kapasitas di atas IQR fence (550)",
+      "jumlah": 109,
+      "deskripsi": "kapasitas di atas IQR fence (565)",
       "penanganan": "ditandai kapasitas_outlier; gunakan skala log untuk bubble map"
     },
     {
@@ -99,7 +113,7 @@
     {
       "kode": "KAPASITAS_ZERO",
       "severity": "low",
-      "jumlah": 1,
+      "jumlah": 3,
       "deskripsi": "kapasitas = 0",
       "penanganan": "di-null-kan"
     }

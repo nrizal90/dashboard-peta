@@ -73,6 +73,9 @@ class Vokasi_repo {
 	/** Semua relasi lembaga x sektor x jabatan (3.547 baris). */
 	public function relations()    { return $this->load('lembaga_sektor'); }
 
+	/** Semua katalog pelatihan (join via lembaga_id). */
+	public function katalog()      { return $this->load('lembaga_katalog'); }
+
 	/** Payload ringan map_points (776, sudah primary+mappable). */
 	public function mapPoints()    { return $this->load('map_points'); }
 
@@ -148,6 +151,70 @@ class Vokasi_repo {
 				$out[] = $rel;
 			}
 		}
+		return $out;
+	}
+
+	/** Index katalog by lembaga_id (dibangun sekali per request). */
+	private function katalogIndex()
+	{
+		if (isset(self::$derived['katalog_by_lembaga']))
+		{
+			return self::$derived['katalog_by_lembaga'];
+		}
+
+		$idx = array();
+		foreach ($this->katalog() as $k)
+		{
+			$lid = (int) $k['lembaga_id'];
+			if ( ! isset($idx[$lid])) $idx[$lid] = array();
+			$idx[$lid][] = $k;
+		}
+
+		self::$derived['katalog_by_lembaga'] = $idx;
+		return $idx;
+	}
+
+	/** Katalog pelatihan milik 1 lembaga, diurut tanggal mulai. */
+	public function katalogOf($id)
+	{
+		$idx = $this->katalogIndex();
+		$id = (int) $id;
+		$out = isset($idx[$id]) ? $idx[$id] : array();
+		usort($out, function ($a, $b) {
+			return strcmp((string) $a['tanggal_mulai'], (string) $b['tanggal_mulai']);
+		});
+		return $out;
+	}
+
+	/**
+	 * Subset kolom untuk popup "List Lembaga Vokasi" (dipanggil saat cluster diklik).
+	 * @param array $ids daftar id (sudah divalidasi di controller)
+	 * @return array
+	 */
+	public function listByIds(array $ids)
+	{
+		if (empty($ids)) return array();
+
+		$idx = $this->indexById();
+		$seen = array();
+		$out = array();
+		foreach ($ids as $i)
+		{
+			$id = (int) $i;
+			if (isset($seen[$id]) || ! isset($idx[$id])) continue;
+			$seen[$id] = TRUE;
+			$r = $idx[$id];
+			$out[] = array(
+				'id'               => $r['id'],
+				'nama'             => $r['nama'],
+				'provinsi'         => $r['provinsi'],
+				'kota'             => $r['kota'],
+				'ownership'        => $r['ownership'],
+				'nomor_registrasi' => $r['nomor_registrasi'],
+				'nomor_legalitas'  => $r['nomor_legalitas'],
+			);
+		}
+		usort($out, function ($a, $b) { return strcasecmp($a['nama'], $b['nama']); });
 		return $out;
 	}
 
