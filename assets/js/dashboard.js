@@ -251,7 +251,9 @@
 
 	function fillSelect(id, list, valKey, labelKey, countKey) {
 		var el = document.getElementById(id);
-		(list || []).forEach(function (o) {
+		(list || []).slice().sort(function (a, b) {
+			return String(a[labelKey]).localeCompare(String(b[labelKey]), 'id', { sensitivity: 'base' });
+		}).forEach(function (o) {
 			var opt = document.createElement('option');
 			opt.value = o[valKey];
 			opt.textContent = o[labelKey] + (countKey && o[countKey] != null ? ' (' + o[countKey] + ')' : '');
@@ -265,6 +267,7 @@
 		el.innerHTML = '<option value="">Semua</option>';
 		var t = term.toLowerCase();
 		allKota.filter(function (k) { return !t || k.nama.toLowerCase().indexOf(t) >= 0; })
+			.sort(function (a, b) { return a.nama.localeCompare(b.nama, 'id', { sensitivity: 'base' }); })
 			.slice(0, 300)
 			.forEach(function (k) {
 				var opt = document.createElement('option');
@@ -415,7 +418,7 @@
 			expanded = !expanded;
 			colFilter.classList.toggle('d-none', expanded);
 			colChart.classList.toggle('d-none', expanded);
-			colMap.classList.toggle('col-lg-6', !expanded);
+			colMap.classList.toggle('col-lg-9', !expanded);
 			colMap.classList.toggle('col-lg-12', expanded);
 			btn.innerHTML = expanded
 				? '<i class="fas fa-compress-arrows-alt"></i> Tampilkan Panel'

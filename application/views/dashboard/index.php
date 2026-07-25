@@ -80,8 +80,8 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 									<label class="head">Ownership</label>
 									<select id="fOwnership" class="form-control form-control-sm">
 										<option value="">Semua</option>
-										<option value="Pemerintah">Pemerintah</option>
 										<option value="Non Pemerintah">Non Pemerintah</option>
+										<option value="Pemerintah">Pemerintah</option>
 									</select>
 								</div>
 
@@ -90,8 +90,8 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 									<select id="fLegalitas" class="form-control form-control-sm">
 										<option value="">Semua</option>
 										<option value="accepted">Accepted</option>
-										<option value="rejected">Rejected</option>
 										<option value="pending">Pending</option>
+										<option value="rejected">Rejected</option>
 									</select>
 								</div>
 
@@ -134,8 +134,8 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 						</div>
 					</div>
 
-					<!-- ===== PETA (tengah) ===== -->
-					<div class="col-lg-6 mb-4" id="colMap">
+					<!-- ===== PETA (kanan, lebar) ===== -->
+					<div class="col-lg-9 mb-4" id="colMap">
 						<div class="card shadow h-100">
 							<div class="card-header py-3 d-flex justify-content-between align-items-center">
 								<h6 class="m-0 font-weight-bold text-primary">Peta Interaktif</h6>
@@ -155,29 +155,38 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 						</div>
 					</div>
 
-					<!-- ===== CHART PANEL (kanan) ===== -->
-					<div class="col-lg-3 mb-4" id="colChart">
-						<div class="dash-scroll">
-							<div class="card shadow mini-chart-card">
-								<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Backlog Verifikasi</h6></div>
-								<div class="card-body py-2"><canvas id="chartFunnel"></canvas></div>
-							</div>
-							<div class="card shadow mini-chart-card">
-								<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Ownership</h6></div>
-								<div class="card-body py-2"><canvas id="chartOwnership"></canvas></div>
-							</div>
-							<div class="card shadow mini-chart-card">
-								<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Sektor</h6></div>
-								<div class="card-body py-2"><canvas id="chartSektor"></canvas></div>
-							</div>
-							<div class="card shadow mini-chart-card">
-								<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Jabatan</h6></div>
-								<div class="card-body py-2"><canvas id="chartJabatan"></canvas></div>
-							</div>
-							<div class="card shadow mini-chart-card">
-								<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Provinsi</h6></div>
-								<div class="card-body py-2"><canvas id="chartProvinsi"></canvas></div>
-							</div>
+				</div>
+
+				<!-- ===== CHART PANEL (baris bawah, horizontal) ===== -->
+				<div class="row" id="colChart">
+					<div class="col-6 col-lg mb-4">
+						<div class="card shadow mini-chart-card h-100">
+							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Backlog Verifikasi</h6></div>
+							<div class="card-body py-2"><canvas id="chartFunnel"></canvas></div>
+						</div>
+					</div>
+					<div class="col-6 col-lg mb-4">
+						<div class="card shadow mini-chart-card h-100">
+							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Ownership</h6></div>
+							<div class="card-body py-2"><canvas id="chartOwnership"></canvas></div>
+						</div>
+					</div>
+					<div class="col-6 col-lg mb-4">
+						<div class="card shadow mini-chart-card h-100">
+							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Sektor</h6></div>
+							<div class="card-body py-2"><canvas id="chartSektor"></canvas></div>
+						</div>
+					</div>
+					<div class="col-6 col-lg mb-4">
+						<div class="card shadow mini-chart-card h-100">
+							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Jabatan</h6></div>
+							<div class="card-body py-2"><canvas id="chartJabatan"></canvas></div>
+						</div>
+					</div>
+					<div class="col-6 col-lg mb-4">
+						<div class="card shadow mini-chart-card h-100">
+							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Provinsi</h6></div>
+							<div class="card-body py-2"><canvas id="chartProvinsi"></canvas></div>
 						</div>
 					</div>
 				</div>

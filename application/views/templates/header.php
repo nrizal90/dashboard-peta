@@ -43,6 +43,9 @@
 		.result-badge { font-size: .95rem; }
 		.mini-chart-card { margin-bottom: 1rem; }
 		.mini-chart-card canvas { max-height: 190px; }
+		/* Baris chart horizontal di bawah peta: beri tinggi tetap agar Chart.js tidak collapse */
+		#colChart .mini-chart-card .card-body { height: 210px; }
+		#colChart .mini-chart-card canvas { max-height: 100%; }
 
 		/* Sel gap analysis */
 		.gap-table td, .gap-table th { text-align: center; font-size: .72rem; padding: .3rem .25rem; white-space: nowrap; }
