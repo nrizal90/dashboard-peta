@@ -65,6 +65,9 @@ $route['api/gap']           = 'api/gap';
 $route['gap']               = 'dashboard/gap';
 $route['tentang']           = 'dashboard/tentang';
 
+// Menu replika "Dashboard Vokasi" (ringkasan pendataan)
+$route['pendataan']         = 'dashboard/pendataan';
+
 // API endpoint lama (scaffold GeoJSON) — dipertahankan untuk kompatibilitas
 $route['api/lokasi'] = 'dashboard/lokasi';
 

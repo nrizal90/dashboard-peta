@@ -390,6 +390,73 @@ class Vokasi_repo {
 	/** Matriks provinsi x sektor (gap analysis). */
 	public function aggProvinsiSektor() { return $this->load('agg_provinsi_sektor'); }
 
+	/**
+	 * Agregat untuk menu "Dashboard Vokasi" (replika ringkasan pendataan).
+	 * Semua dihitung dari data DB (via all()). Memakai SELURUH baris (bukan hanya
+	 * primary) agar cocok dengan konsep "total lembaga" di dashboard sumber.
+	 *
+	 * Lapisan e-Vokasi (asumsi, lihat dokumen ANALISIS_REPLIKASI_DASHBOARD_VOKASI):
+	 *   Layer 3 = punya status program · Layer 2 = punya status fasilitas (belum program)
+	 *   Layer 1 = legalitas 'accepted' (belum fasilitas) · Belum = selain itu.
+	 * @return array
+	 */
+	public function pendataanStats()
+	{
+		$rows = $this->all();
+
+		$prov  = array();  // nama provinsi => jumlah
+		$jenis = array();  // jenis lembaga (type_name) => jumlah
+		$own   = array('Pemerintah' => 0, 'Non Pemerintah' => 0);
+		$ev    = array('belum' => 0, 'layer1' => 0, 'layer2' => 0, 'layer3' => 0);
+
+		foreach ($rows as $r)
+		{
+			$p = isset($r['provinsi']) ? $r['provinsi'] : NULL;
+			if ($p !== NULL && $p !== '')
+			{
+				if ( ! isset($prov[$p])) $prov[$p] = 0;
+				$prov[$p]++;
+			}
+
+			// Jenis lembaga: pakai type_name dari DB (tipe_lembaga); fallback ke 'jenis'.
+			$j = ( ! empty($r['tipe_lembaga'])) ? $r['tipe_lembaga']
+				: ( ! empty($r['jenis']) ? $r['jenis'] : '(Tidak diketahui)');
+			if ( ! isset($jenis[$j])) $jenis[$j] = 0;
+			$jenis[$j]++;
+
+			$o = isset($r['ownership']) ? $r['ownership'] : NULL;
+			if (isset($own[$o])) $own[$o]++;
+
+			$hasProgram  = ! empty($r['status_program']);
+			$hasFacility = ! empty($r['status_fasilitas']);
+			$legalOk     = (isset($r['status_legalitas']) && $r['status_legalitas'] === 'accepted');
+			if ($hasProgram)       $ev['layer3']++;
+			elseif ($hasFacility)  $ev['layer2']++;
+			elseif ($legalOk)      $ev['layer1']++;
+			else                   $ev['belum']++;
+		}
+
+		arsort($prov);
+		arsort($jenis);
+
+		$provList = array();
+		foreach ($prov as $nama => $v) $provList[] = array('label' => $nama, 'value' => $v);
+		$jenisList = array();
+		foreach ($jenis as $nama => $v) $jenisList[] = array('label' => $nama, 'value' => $v);
+
+		return array(
+			'total'             => count($rows),
+			'provinsi_tercakup' => count($prov),
+			'per_provinsi'      => $provList,
+			'per_jenis'         => $jenisList,
+			'ownership'         => $own,
+			'evokasi'           => $ev,
+			'evokasi_masuk'     => $ev['layer1'] + $ev['layer2'] + $ev['layer3'],
+			'evokasi_belum'     => $ev['belum'],
+			'is_db'             => $this->isDb(),
+		);
+	}
+
 	// ---------------------------------------------------------------------
 	// Subset & index turunan
 	// ---------------------------------------------------------------------

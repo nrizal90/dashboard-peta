@@ -72,6 +72,27 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	/**
+	 * Menu "Dashboard Vokasi" — replika ringkasan pendataan.
+	 * Angka yang tersedia diambil dari DB (pendataanStats); yang belum ada di DB
+	 * (Kerja Sama, Target 40.000, Kategori K/L, LSP) di-hardcode di view menyamai
+	 * dashboard sumber. Lihat dokumen ANALISIS_REPLIKASI_DASHBOARD_VOKASI.md.
+	 */
+	public function pendataan()
+	{
+		$data = array(
+			'title'  => 'Dashboard Vokasi',
+			'active' => 'pendataan',
+			'stats'  => $this->repo->pendataanStats(),
+		);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/pendataan', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
 	/** Halaman "Tentang Data" — keterbatasan data secara jujur. */
 	public function tentang()
 	{

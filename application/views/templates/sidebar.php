@@ -20,6 +20,14 @@
 			</a>
 		</li>
 
+		<!-- Nav Item - Dashboard Vokasi (ringkasan pendataan) -->
+		<li class="nav-item <?= $active === 'pendataan' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('pendataan') ?>">
+				<i class="fas fa-fw fa-chart-pie"></i>
+				<span>Dashboard Vokasi</span>
+			</a>
+		</li>
+
 		<hr class="sidebar-divider">
 
 		<div class="sidebar-heading">Analisis</div>
