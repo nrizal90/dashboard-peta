@@ -25,9 +25,43 @@ class Vokasi_repo {
 	/** Direktori data JSON. */
 	private $dir;
 
+	/**
+	 * Koneksi DB aktif (mode hybrid). Sentinel:
+	 *   FALSE = belum dicek, NULL = DB tidak tersedia (fallback JSON), objek = siap.
+	 */
+	private $ci_db = FALSE;
+
 	public function __construct()
 	{
 		$this->dir = APPPATH . 'data/vokasi/';
+	}
+
+	/**
+	 * Ambil koneksi DB CI bila tersedia. db_debug=FALSE membuat kegagalan
+	 * koneksi tidak menghentikan app — di sini kita cek conn_id lalu fallback
+	 * ke JSON bila kosong. Dicek sekali per instance.
+	 * @return object|null
+	 */
+	private function db()
+	{
+		if ($this->ci_db !== FALSE)
+		{
+			return $this->ci_db; // sudah dicek (objek atau NULL)
+		}
+
+		$CI =& get_instance();
+		$db = @$CI->load->database('default', TRUE);
+		$this->ci_db = ($db !== FALSE && is_object($db) && ! empty($db->conn_id))
+			? $db
+			: NULL;
+
+		return $this->ci_db;
+	}
+
+	/** TRUE bila data dashboard sedang bersumber dari database. */
+	public function isDb()
+	{
+		return $this->db() !== NULL;
 	}
 
 	// ---------------------------------------------------------------------
@@ -67,14 +101,282 @@ class Vokasi_repo {
 	// Akses tabel mentah
 	// ---------------------------------------------------------------------
 
-	/** Semua 887 baris lembaga. */
-	public function all()          { return $this->load('lembaga'); }
+	/**
+	 * Semua lembaga.
+	 * Mode DB: dari view dashboard_vokasi_detail, di-enrich koordinat & field
+	 * geo/dedup dari JSON (join by id). Mode JSON: apa adanya dari file.
+	 */
+	public function all()
+	{
+		if (isset(self::$derived['lembaga']))
+		{
+			return self::$derived['lembaga'];
+		}
 
-	/** Semua relasi lembaga x sektor x jabatan (3.547 baris). */
-	public function relations()    { return $this->load('lembaga_sektor'); }
+		$db = $this->db();
+		$out = ($db === NULL)
+			? $this->load('lembaga')            // fallback penuh ke JSON
+			: $this->buildLembagaFromDb($db);   // hybrid: DB + enrichment JSON
+
+		self::$derived['lembaga'] = $out;
+		return $out;
+	}
+
+	/** Semua relasi lembaga x sektor x jabatan. */
+	public function relations()
+	{
+		if (isset(self::$derived['relations']))
+		{
+			return self::$derived['relations'];
+		}
+
+		$db = $this->db();
+		$out = ($db === NULL)
+			? $this->load('lembaga_sektor')
+			: $this->buildRelationsFromDb($db);
+
+		self::$derived['relations'] = $out;
+		return $out;
+	}
 
 	/** Semua katalog pelatihan (join via lembaga_id). */
-	public function katalog()      { return $this->load('lembaga_katalog'); }
+	public function katalog()
+	{
+		if (isset(self::$derived['katalog']))
+		{
+			return self::$derived['katalog'];
+		}
+
+		$db = $this->db();
+		$out = ($db === NULL)
+			? $this->load('lembaga_katalog')
+			: $this->buildKatalogFromDb($db);
+
+		self::$derived['katalog'] = $out;
+		return $out;
+	}
+
+	// ---------------------------------------------------------------------
+	// Pembentuk data dari DB (mode hybrid) + enrichment JSON
+	// ---------------------------------------------------------------------
+
+	/**
+	 * Bentuk baris lembaga dari view DB ke SHAPE yang sama dengan lembaga.json,
+	 * sehingga seluruh logika filter/stats/peta di bawah tetap dipakai apa adanya.
+	 *
+	 * Kolom yang tidak ada di DB (lat/lng, provinsi_kode, pulau, slug kota,
+	 * is_primary, dup_group, uid, nomor_*) diambil dari JSON via join by id.
+	 * Untuk lembaga baru yang belum ada di JSON: koordinat NULL (tak muncul di
+	 * peta), kode provinsi dicari dari nama, is_primary default TRUE.
+	 */
+	private function buildLembagaFromDb($db)
+	{
+		$rows = $db->get('dashboard_vokasi_detail')->result_array();
+		$json = $this->jsonLembagaIndex();
+		$prov = $this->provMaps();
+
+		$out = array();
+		foreach ($rows as $r)
+		{
+			$id = (int) $r['vok_id'];
+			$j  = isset($json[$id]) ? $json[$id] : NULL;
+
+			// Kode/nama/pulau provinsi: utamakan JSON (bersih), lalu lookup nama DB.
+			if ($j !== NULL)
+			{
+				$prov_kode = $j['provinsi_kode'];
+				$prov_nama = $j['provinsi'];
+				$pulau     = $j['pulau'];
+			}
+			else
+			{
+				$key = strtoupper(trim((string) $r['vok_province']));
+				$prov_kode = isset($prov['name2kode'][$key]) ? $prov['name2kode'][$key] : NULL;
+				$prov_nama = ($prov_kode !== NULL) ? $prov['kode2nama'][$prov_kode] : $r['vok_province'];
+				$pulau     = ($prov_kode !== NULL) ? $prov['kode2pulau'][$prov_kode] : NULL;
+			}
+
+			// Kapasitas: utamakan nilai DB (fresh), fallback JSON.
+			$kap = $this->parseKapasitas($r['vok_training_capacity']);
+			if ($kap === NULL && $j !== NULL)
+			{
+				$kap = ($j['kapasitas'] === NULL) ? NULL : (int) $j['kapasitas'];
+			}
+
+			$out[] = array(
+				'id'               => $id,
+				'uid'              => $j !== NULL ? $j['uid'] : NULL,
+				'nama'             => $r['vok_name'],
+				'email'            => $r['vok_email'],
+				'provinsi_kode'    => $prov_kode,
+				'provinsi'         => $prov_nama,
+				'pulau'            => $pulau,
+				'kota'             => $r['vok_district'],
+				'kota_slug'        => $j !== NULL ? $j['kota_slug'] : $this->slugify($r['vok_district']),
+				'ownership'        => $r['own_name'],
+				'jenis'            => $r['vok_institution_form'],
+				'tipe_lembaga'     => $r['type_name'],      // tambahan dari DB (LPK/SMK/...)
+				'kapasitas'        => $kap,
+				// Koordinat hanya dari JSON — DB belum punya. Tanpa JSON = NULL.
+				'lat'              => $j !== NULL ? $j['lat'] : NULL,
+				'lng'              => $j !== NULL ? $j['lng'] : NULL,
+				'coord_source'     => $j !== NULL ? $j['coord_source'] : NULL,
+				'nomor_registrasi' => $j !== NULL ? $j['nomor_registrasi'] : NULL,
+				'nomor_legalitas'  => $j !== NULL ? $j['nomor_legalitas'] : NULL,
+				'status_legalitas' => $r['ver_legality_status'],
+				'status_fasilitas' => $r['ver_facility_status'],
+				'status_program'   => $r['ver_program_status'],
+				// Dedup dari JSON; lembaga baru dianggap primary tunggal.
+				'is_primary'       => $j !== NULL ? (bool) $j['is_primary'] : TRUE,
+				'dup_group'        => $j !== NULL ? $j['dup_group'] : NULL,
+			);
+		}
+		return $out;
+	}
+
+	/** Bentuk relasi sektor/jabatan dari view DB (+ slug via ref/slugify). */
+	private function buildRelationsFromDb($db)
+	{
+		$rows = $db->get('dashboard_vokasi_detail_sektor')->result_array();
+		$sMap = $this->slugMap('ref_sektor');
+		$jMap = $this->slugMap('ref_jabatan');
+
+		$out = array();
+		foreach ($rows as $r)
+		{
+			$sektor  = $r['sector_name'];
+			$jabatan = $r['jab_name'];
+			$out[] = array(
+				'lembaga_id'   => (int) $r['vok_id'],
+				'sektor'       => $sektor,
+				'sektor_slug'  => isset($sMap[$sektor])  ? $sMap[$sektor]  : $this->slugify($sektor),
+				'jabatan'      => $jabatan,
+				'jabatan_slug' => isset($jMap[$jabatan]) ? $jMap[$jabatan] : $this->slugify($jabatan),
+			);
+		}
+		return $out;
+	}
+
+	/** Bentuk katalog pelatihan dari view DB ke shape lembaga_katalog.json. */
+	private function buildKatalogFromDb($db)
+	{
+		$rows = $db->get('dashboard_vokasi_katalog')->result_array();
+		$out = array();
+		foreach ($rows as $r)
+		{
+			$out[] = array(
+				'id'               => (int) $r['cat_id'],
+				'lembaga_id'       => (int) $r['vok_id'],
+				'judul'            => $r['cat_title'],
+				'kategori'         => $r['cat_category'],
+				'deskripsi'        => $r['cat_description'],
+				'tanggal_mulai'    => $r['cat_start_date'],
+				'tanggal_selesai'  => $r['cat_end_date'],
+				'jam_pelatihan'    => $r['cat_number_of_hours'],
+				'kuota'            => $r['cat_quota'],
+				'biaya'            => $r['cat_price'],
+				'status'           => $r['cat_status'],
+			);
+		}
+		return $out;
+	}
+
+	// ---------------------------------------------------------------------
+	// Peta bantu untuk enrichment (dimensi diambil dari ref JSON yang stabil)
+	// ---------------------------------------------------------------------
+
+	/** Index lembaga JSON by id (untuk join koordinat/geo). */
+	private function jsonLembagaIndex()
+	{
+		if (isset(self::$derived['json_lembaga_idx']))
+		{
+			return self::$derived['json_lembaga_idx'];
+		}
+		$idx = array();
+		foreach ($this->load('lembaga') as $r)
+		{
+			$idx[(int) $r['id']] = $r;
+		}
+		self::$derived['json_lembaga_idx'] = $idx;
+		return $idx;
+	}
+
+	/**
+	 * Peta provinsi dari ref_provinsi.json: nama(UPPER)=>kode, kode=>nama, kode=>pulau.
+	 * Ditambah alias nama panjang yang tidak ada di ref (DKI/DIY).
+	 */
+	private function provMaps()
+	{
+		if (isset(self::$derived['prov_maps']))
+		{
+			return self::$derived['prov_maps'];
+		}
+
+		$name2kode = array();
+		$kode2nama = array();
+		$kode2pulau = array();
+		foreach ($this->load('ref_provinsi') as $p)
+		{
+			$kode = (string) $p['kode'];
+			$name2kode[strtoupper(trim($p['nama']))] = $kode;
+			$kode2nama[$kode]  = $p['nama'];
+			$kode2pulau[$kode] = $p['pulau'];
+		}
+
+		// Alias nama panjang / ejaan lain yang muncul di DB.
+		$alias = array(
+			'DAERAH KHUSUS IBUKOTA JAKARTA' => '31',
+			'DKI JAKARTA'                   => '31',
+			'DAERAH ISTIMEWA YOGYAKARTA'    => '34',
+			'DI YOGYAKARTA'                 => '34',
+			'YOGYAKARTA'                    => '34',
+		);
+		foreach ($alias as $k => $v)
+		{
+			if (isset($kode2nama[$v])) $name2kode[$k] = $v;
+		}
+
+		$maps = array('name2kode' => $name2kode, 'kode2nama' => $kode2nama, 'kode2pulau' => $kode2pulau);
+		self::$derived['prov_maps'] = $maps;
+		return $maps;
+	}
+
+	/** Peta nama=>slug dari file ref (ref_sektor / ref_jabatan). */
+	private function slugMap($ref)
+	{
+		$key = 'slugmap_' . $ref;
+		if (isset(self::$derived[$key]))
+		{
+			return self::$derived[$key];
+		}
+		$map = array();
+		foreach ($this->load($ref) as $r)
+		{
+			if (isset($r['nama'], $r['slug'])) $map[$r['nama']] = $r['slug'];
+		}
+		self::$derived[$key] = $map;
+		return $map;
+	}
+
+	/** Slugify sederhana: lowercase, non-alfanumerik jadi tanda hubung. */
+	private function slugify($s)
+	{
+		$s = strtolower(trim((string) $s));
+		$s = preg_replace('/[^a-z0-9]+/u', '-', $s);
+		return trim($s, '-');
+	}
+
+	/**
+	 * Parse kapasitas dari string DB yang berantakan ("3.000", ".100", "55").
+	 * Titik/koma diperlakukan sebagai pemisah ribuan → dibuang.
+	 * @return int|null
+	 */
+	private function parseKapasitas($v)
+	{
+		if ($v === NULL) return NULL;
+		$digits = preg_replace('/[^0-9]/', '', (string) $v);
+		return ($digits === '') ? NULL : (int) $digits;
+	}
 
 	/** Payload ringan map_points (776, sudah primary+mappable). */
 	public function mapPoints()    { return $this->load('map_points'); }
@@ -391,6 +693,12 @@ class Vokasi_repo {
 		$out = array();
 		foreach ($rows as $r)
 		{
+			// Lewati lembaga tanpa koordinat (mis. entri DB baru yang belum
+			// dijodohkan ke koordinat) — tak bisa digambar di peta.
+			if ($r['lat'] === NULL || $r['lng'] === NULL)
+			{
+				continue;
+			}
 			$out[] = array(
 				'id'  => $r['id'],
 				'n'   => $r['nama'],
