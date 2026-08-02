@@ -68,6 +68,10 @@ $route['tentang']           = 'dashboard/tentang';
 // Menu replika "Dashboard Vokasi" (ringkasan pendataan)
 $route['pendataan']         = 'dashboard/pendataan';
 
+// Menu "Daftar Pendataan" (tabel lembaga + export)
+$route['daftar-pendataan']        = 'dashboard/daftar_pendataan';
+$route['daftar-pendataan/export'] = 'dashboard/daftar_pendataan_export';
+
 // API endpoint lama (scaffold GeoJSON) — dipertahankan untuk kompatibilitas
 $route['api/lokasi'] = 'dashboard/lokasi';
 

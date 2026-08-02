@@ -206,8 +206,8 @@ class Vokasi_repo {
 			$out[] = array(
 				'id'               => $id,
 				'uid'              => $j !== NULL ? $j['uid'] : NULL,
-				'nama'             => $r['vok_name'],
-				'email'            => $r['vok_email'],
+				'nama'             => trim((string) $r['vok_name']),
+				'email'            => trim((string) $r['vok_email']),
 				'provinsi_kode'    => $prov_kode,
 				'provinsi'         => $prov_nama,
 				'pulau'            => $pulau,
@@ -455,6 +455,41 @@ class Vokasi_repo {
 			'evokasi_belum'     => $ev['belum'],
 			'is_db'             => $this->isDb(),
 		);
+	}
+
+	/** Label lapisan e-Vokasi untuk 1 baris lembaga (dari status verifikasi). */
+	public function evokasiLayer($r)
+	{
+		if ( ! empty($r['status_program']))  return 'Layer 3 (program)';
+		if ( ! empty($r['status_fasilitas'])) return 'Layer 2 (fasilitas)';
+		if (isset($r['status_legalitas']) && $r['status_legalitas'] === 'accepted') return 'Layer 1 (legalitas)';
+		return 'Belum e-Vokasi';
+	}
+
+	/**
+	 * Baris ternormalisasi untuk menu "Daftar Pendataan" (tabel + export Excel/CSV).
+	 * Semua kolom di sini tersedia di DB. Diurut nama.
+	 * @return array
+	 */
+	public function pendataanRows()
+	{
+		$out = array();
+		foreach ($this->all() as $r)
+		{
+			$out[] = array(
+				'id'        => (int) $r['id'],
+				'nama'      => $r['nama'],
+				'email'     => isset($r['email']) ? $r['email'] : '',
+				'provinsi'  => isset($r['provinsi']) ? $r['provinsi'] : '',
+				'kota'      => isset($r['kota']) ? $r['kota'] : '',
+				'jenis'     => ( ! empty($r['tipe_lembaga'])) ? $r['tipe_lembaga'] : (isset($r['jenis']) ? $r['jenis'] : ''),
+				'ownership' => isset($r['ownership']) ? $r['ownership'] : '',
+				'kapasitas' => ($r['kapasitas'] === NULL) ? NULL : (int) $r['kapasitas'],
+				'evokasi'   => $this->evokasiLayer($r),
+			);
+		}
+		usort($out, function ($a, $b) { return strcasecmp($a['nama'], $b['nama']); });
+		return $out;
 	}
 
 	// ---------------------------------------------------------------------

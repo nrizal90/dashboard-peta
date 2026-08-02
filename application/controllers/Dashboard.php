@@ -93,6 +93,51 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	/**
+	 * Menu "Daftar Pendataan" — tabel lembaga dari DB (dashboard_vokasi_detail)
+	 * dengan pencarian/sortir/paginasi (DataTables) + detail modal + export.
+	 */
+	public function daftar_pendataan()
+	{
+		$data = array(
+			'title'  => 'Daftar Pendataan',
+			'active' => 'daftar-pendataan',
+			'rows'   => $this->repo->pendataanRows(),
+		);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/daftar_pendataan', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	/** Export "Daftar Pendataan" ke CSV (dibuka Excel). */
+	public function daftar_pendataan_export()
+	{
+		$rows = $this->repo->pendataanRows();
+
+		$this->output->set_content_type('text/csv; charset=utf-8');
+		$this->output->set_header('Content-Disposition: attachment; filename="daftar_pendataan_' . date('Ymd') . '.csv"');
+
+		$out = fopen('php://temp', 'r+');
+		// BOM agar Excel membaca UTF-8 dengan benar
+		fwrite($out, "\xEF\xBB\xBF");
+		fputcsv($out, array('ID', 'Nama Lembaga', 'Email', 'Provinsi', 'Kabupaten/Kota', 'Jenis Lembaga', 'Kepemilikan', 'Kapasitas', 'Status e-Vokasi'));
+		foreach ($rows as $r)
+		{
+			fputcsv($out, array(
+				$r['id'], $r['nama'], $r['email'], $r['provinsi'], $r['kota'],
+				$r['jenis'], $r['ownership'],
+				$r['kapasitas'] === NULL ? '' : $r['kapasitas'],
+				$r['evokasi'],
+			));
+		}
+		rewind($out);
+		$this->output->set_output(stream_get_contents($out));
+		fclose($out);
+	}
+
 	/** Halaman "Tentang Data" — keterbatasan data secara jujur. */
 	public function tentang()
 	{

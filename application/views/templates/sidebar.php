@@ -28,6 +28,14 @@
 			</a>
 		</li>
 
+		<!-- Nav Item - Daftar Pendataan (tabel) -->
+		<li class="nav-item <?= $active === 'daftar-pendataan' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('daftar-pendataan') ?>">
+				<i class="fas fa-fw fa-table"></i>
+				<span>Daftar Pendataan</span>
+			</a>
+		</li>
+
 		<hr class="sidebar-divider">
 
 		<div class="sidebar-heading">Analisis</div>
