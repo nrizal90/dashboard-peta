@@ -109,7 +109,7 @@ ksort($optProv); ksort($optJenis); ksort($optOwn); ksort($optEv);
 							<td class="text-right"><?= $r['kapasitas'] === NULL ? '-' : number_format($r['kapasitas'],0,',','.') ?></td>
 							<td><span class="badge badge-<?= $evClass ?>"><?= html_escape($r['evokasi']) ?></span></td>
 							<td class="text-center">
-								<button type="button" class="btn btn-xs btn-outline-primary btn-detail" data-id="<?= $r['id'] ?>" style="font-size:.72rem;padding:.1rem .4rem;">Detail</button>
+								<a href="<?= site_url('lembaga/' . $r['id'] . '?from=daftar') ?>" class="btn btn-xs btn-outline-primary" style="font-size:.72rem;padding:.1rem .4rem;">Detail</a>
 							</td>
 						</tr>
 						<?php endforeach; ?>
@@ -120,29 +120,10 @@ ksort($optProv); ksort($optJenis); ksort($optOwn); ksort($optEv);
 	</div>
 </div>
 
-<!-- Modal Detail -->
-<div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header bg-primary text-white">
-				<h5 class="modal-title"><i class="fas fa-university"></i> Detail Lembaga Vokasi</h5>
-				<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			</div>
-			<div class="modal-body" id="modalDetailBody">
-				<div class="text-center text-muted py-4"><i class="fas fa-spinner fa-spin"></i> Memuat…</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
-			</div>
-		</div>
-	</div>
-</div>
-
 <!-- DataTables CSS (page-specific) -->
 <link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 
 <script>
-window.DP_API = '<?= site_url('api') ?>';
 window.DP_BASE = '<?= base_url() ?>';
 
 window.addEventListener('load', function () {
@@ -181,64 +162,6 @@ window.addEventListener('load', function () {
 			var v = this.value ? ('^' + this.value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$') : '';
 			dt.column(col).search(v, true, false).draw();
 		});
-
-		// Klik Detail -> modal + fetch /api/lembaga/{id}
-		$('#tblPendataan tbody').on('click', '.btn-detail', function () {
-			var id = this.getAttribute('data-id');
-			var $body = $('#modalDetailBody');
-			$body.html('<div class="text-center text-muted py-4"><i class="fas fa-spinner fa-spin"></i> Memuat…</div>');
-			$('#modalDetail').modal('show');
-			fetch(window.DP_API + '/lembaga/' + id)
-				.then(function (r) { return r.json(); })
-				.then(function (d) { $body.html(renderDetail(d)); })
-				.catch(function () { $body.html('<div class="alert alert-danger">Gagal memuat detail.</div>'); });
-		});
-
-		function esc(s) { return (s === null || s === undefined) ? '' : String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-
-		function renderDetail(d) {
-			var L = d.lembaga || {};
-			var field = function (label, val) {
-				return '<div class="col-md-6 mb-2"><div class="text-xs text-uppercase text-muted font-weight-bold">' + label + '</div><div>' + (esc(val) || '<span class="text-muted">—</span>') + '</div></div>';
-			};
-			var html = '<h6 class="text-primary font-weight-bold border-bottom pb-1"><i class="fas fa-university"></i> Lembaga</h6><div class="row">';
-			html += field('Nama Lembaga', L.nama);
-			html += field('Kepemilikan', L.ownership);
-			html += field('Provinsi', L.provinsi);
-			html += field('Jenis', L.jenis);
-			html += field('Kabupaten/Kota', L.kota);
-			html += field('Jenis Lembaga (tipe)', L.tipe_lembaga);
-			html += field('Email', L.email);
-			html += field('Kapasitas', L.kapasitas);
-			html += field('Nomor Registrasi', L.nomor_registrasi);
-			html += field('Nomor Legalitas', L.nomor_legalitas);
-			html += '</div>';
-
-			// Sektor & Jabatan
-			html += '<h6 class="text-primary font-weight-bold border-bottom pb-1 mt-3"><i class="fas fa-briefcase"></i> Sektor &amp; Jabatan</h6>';
-			var sek = d.sektor || [];
-			if (!sek.length) { html += '<p class="text-muted">Belum ada data sektor.</p>'; }
-			else {
-				var grp = {};
-				sek.forEach(function (s) { (grp[s.sektor] = grp[s.sektor] || []).push(s.jabatan); });
-				html += '<div class="row">';
-				Object.keys(grp).forEach(function (k) {
-					html += '<div class="col-md-6 mb-2"><div class="font-weight-bold">' + esc(k) + '</div><ul class="mb-1">' + grp[k].map(function (j) { return '<li>' + esc(j) + '</li>'; }).join('') + '</ul></div>';
-				});
-				html += '</div>';
-			}
-
-			// Katalog
-			html += '<h6 class="text-primary font-weight-bold border-bottom pb-1 mt-3"><i class="fas fa-book"></i> Katalog Pelatihan</h6>';
-			var kat = d.katalog || [];
-			if (!kat.length) { html += '<p class="text-muted">Belum ada katalog pelatihan.</p>'; }
-			else {
-				html += '<ul>';
-				kat.forEach(function (k) { html += '<li>' + esc(k.judul) + (k.tanggal_mulai ? ' <span class="text-muted small">(' + esc(k.tanggal_mulai) + ')</span>' : '') + '</li>'; });
-				html += '</ul>';
-			}
-			return html;
-		}
 	}
 });
 </script>

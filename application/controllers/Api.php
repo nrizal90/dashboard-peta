@@ -177,4 +177,10 @@ class Api extends CI_Controller {
 	{
 		$this->json($this->repo->aggProvinsiSektor());
 	}
+
+	/** GET /api/pendataan_list — daftar lembaga + sektor untuk modal drill-down. */
+	public function pendataan_list()
+	{
+		$this->json($this->repo->pendataanListFull());
+	}
 }

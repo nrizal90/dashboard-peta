@@ -60,6 +60,7 @@ $route['api/lembaga/(:num)']= 'api/lembaga/$1';
 $route['api/choropleth']    = 'api/choropleth';
 $route['api/stats']         = 'api/stats';
 $route['api/gap']           = 'api/gap';
+$route['api/pendataan_list']= 'api/pendataan_list';
 
 // Halaman gap analysis & tentang data
 $route['gap']               = 'dashboard/gap';
@@ -71,6 +72,9 @@ $route['pendataan']         = 'dashboard/pendataan';
 // Menu "Daftar Pendataan" (tabel lembaga + export)
 $route['daftar-pendataan']        = 'dashboard/daftar_pendataan';
 $route['daftar-pendataan/export'] = 'dashboard/daftar_pendataan_export';
+
+// Halaman detail 1 lembaga
+$route['lembaga/(:num)']          = 'dashboard/lembaga_detail/$1';
 
 // API endpoint lama (scaffold GeoJSON) — dipertahankan untuk kompatibilitas
 $route['api/lokasi'] = 'dashboard/lokasi';

@@ -112,6 +112,37 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	/** Halaman detail 1 lembaga (progress e-Vokasi + program sektor/jabatan). */
+	public function lembaga_detail($id = NULL)
+	{
+		if ($id === NULL || ! ctype_digit((string) $id))
+		{
+			show_404();
+			return;
+		}
+
+		$row = $this->repo->find($id);
+		if ($row === NULL)
+		{
+			show_404();
+			return;
+		}
+
+		$data = array(
+			'title'  => 'Detail: ' . $row['nama'],
+			'active' => 'daftar-pendataan',
+			'row'    => $row,
+			'sektor' => $this->repo->sektorOf($id),
+			'from'   => $this->input->get('from', TRUE),
+		);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/lembaga_detail', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
 	/** Export "Daftar Pendataan" ke CSV (dibuka Excel). */
 	public function daftar_pendataan_export()
 	{

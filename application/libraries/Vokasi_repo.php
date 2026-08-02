@@ -213,6 +213,7 @@ class Vokasi_repo {
 				'pulau'            => $pulau,
 				'kota'             => $r['vok_district'],
 				'kota_slug'        => $j !== NULL ? $j['kota_slug'] : $this->slugify($r['vok_district']),
+				'telepon'          => isset($r['vok_phone']) ? trim((string) $r['vok_phone']) : '',
 				'ownership'        => $r['own_name'],
 				'jenis'            => $r['vok_institution_form'],
 				'tipe_lembaga'     => $r['type_name'],      // tambahan dari DB (LPK/SMK/...)
@@ -444,11 +445,34 @@ class Vokasi_repo {
 		$jenisList = array();
 		foreach ($jenis as $nama => $v) $jenisList[] = array('label' => $nama, 'value' => $v);
 
+		// Rincian sektor & jabatan (dari relasi) — jumlah lembaga UNIK per sektor (2.1).
+		$sektorLembaga = array();  // sektor => set lembaga_id
+		$jabatanSet    = array();  // jabatan unik
+		foreach ($this->relations() as $rel)
+		{
+			$s   = isset($rel['sektor']) ? $rel['sektor'] : NULL;
+			$lid = (int) $rel['lembaga_id'];
+			if ($s !== NULL && $s !== '')
+			{
+				if ( ! isset($sektorLembaga[$s])) $sektorLembaga[$s] = array();
+				$sektorLembaga[$s][$lid] = TRUE;
+			}
+			if ( ! empty($rel['jabatan'])) $jabatanSet[$rel['jabatan']] = TRUE;
+		}
+		$sektorCounts = array();
+		foreach ($sektorLembaga as $s => $set) $sektorCounts[$s] = count($set);
+		arsort($sektorCounts);
+		$sektorList = array();
+		foreach ($sektorCounts as $nama => $v) $sektorList[] = array('label' => $nama, 'value' => $v);
+
 		return array(
 			'total'             => count($rows),
 			'provinsi_tercakup' => count($prov),
+			'sektor_count'      => count($sektorLembaga),
+			'jabatan_count'     => count($jabatanSet),
 			'per_provinsi'      => $provList,
 			'per_jenis'         => $jenisList,
+			'per_sektor'        => $sektorList,
 			'ownership'         => $own,
 			'evokasi'           => $ev,
 			'evokasi_masuk'     => $ev['layer1'] + $ev['layer2'] + $ev['layer3'],
@@ -486,6 +510,42 @@ class Vokasi_repo {
 				'ownership' => isset($r['ownership']) ? $r['ownership'] : '',
 				'kapasitas' => ($r['kapasitas'] === NULL) ? NULL : (int) $r['kapasitas'],
 				'evokasi'   => $this->evokasiLayer($r),
+			);
+		}
+		usort($out, function ($a, $b) { return strcasecmp($a['nama'], $b['nama']); });
+		return $out;
+	}
+
+	/**
+	 * Daftar lembaga ringkas + sektornya untuk list di dalam modal drill-down
+	 * (search + paginasi di sisi klien). Diurut nama.
+	 * @return array
+	 */
+	public function pendataanListFull()
+	{
+		// Sektor unik per lembaga.
+		$sekByLembaga = array();
+		foreach ($this->relations() as $rel)
+		{
+			$lid = (int) $rel['lembaga_id'];
+			$s   = isset($rel['sektor']) ? $rel['sektor'] : '';
+			if ($s === '') continue;
+			if ( ! isset($sekByLembaga[$lid])) $sekByLembaga[$lid] = array();
+			$sekByLembaga[$lid][$s] = TRUE;
+		}
+
+		$out = array();
+		foreach ($this->all() as $r)
+		{
+			$id = (int) $r['id'];
+			$out[] = array(
+				'id'     => $id,
+				'nama'   => $r['nama'],
+				'prov'   => isset($r['provinsi']) ? $r['provinsi'] : '',
+				'own'    => isset($r['ownership']) ? $r['ownership'] : '',
+				'ev'     => $this->evokasiLayer($r),
+				'sektor' => isset($sekByLembaga[$id]) ? array_keys($sekByLembaga[$id]) : array(),
+				'email'  => isset($r['email']) ? $r['email'] : '',
 			);
 		}
 		usort($out, function ($a, $b) { return strcasecmp($a['nama'], $b['nama']); });

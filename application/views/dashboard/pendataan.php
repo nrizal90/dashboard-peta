@@ -19,6 +19,9 @@ $evBelum     = isset($st['evokasi_belum']) ? (int) $st['evokasi_belum'] : 0;
 $own         = isset($st['ownership']) ? $st['ownership'] : array('Pemerintah'=>0,'Non Pemerintah'=>0);
 $perProv     = isset($st['per_provinsi']) ? $st['per_provinsi'] : array();
 $perJenis    = isset($st['per_jenis']) ? $st['per_jenis'] : array();
+$perSektor   = isset($st['per_sektor']) ? $st['per_sektor'] : array();
+$sektorCount = isset($st['sektor_count']) ? (int) $st['sektor_count'] : 0;
+$jabatanCount= isset($st['jabatan_count']) ? (int) $st['jabatan_count'] : 0;
 $isDb        = ! empty($st['is_db']);
 
 $pct = function ($n, $d) { return $d > 0 ? round($n / $d * 100) : 0; };
@@ -81,16 +84,20 @@ $badgeContoh = '<span class="badge badge-warning ml-1" title="Angka contoh — b
 	<!-- KPI cards -->
 	<div class="row">
 		<?php
+		// [nama, nilai, subteks, warna, ikon, is_contoh, is_klik]
 		$kpis = array(
-			array('Total lembaga', number_format($total,0,',','.'), 'Berdasarkan data DB', 'primary', 'fa-building', false),
-			array('Provinsi tercakup', $provCakup, 'Jumlah provinsi dari data', 'success', 'fa-map-marked-alt', false),
-			array('Masuk e-Vokasi', $evMasukPct.'%', number_format($evMasuk,0,',','.').' lembaga (Layer 1–3)', 'info', 'fa-layer-group', false),
-			array('Kerja sama selesai', '60%', $hc['ks_selesai'].' selesai dari '.$hc['ks_total'].' total', 'warning', 'fa-handshake', true),
-			array('Total LSP', number_format($hc['lsp_total'],0,',','.'), '983 relasi · 8 sektor · 30 provinsi', 'secondary', 'fa-certificate', true),
+			array('Total lembaga', number_format($total,0,',','.'), 'Klik untuk rincian', 'primary', 'fa-building', false, true),
+			array('Provinsi tercakup', $provCakup, 'Jumlah provinsi dari data', 'success', 'fa-map-marked-alt', false, false),
+			array('Masuk e-Vokasi', $evMasukPct.'%', number_format($evMasuk,0,',','.').' lembaga (Layer 1–3)', 'info', 'fa-layer-group', false, false),
+			array('Kerja sama selesai', '60%', $hc['ks_selesai'].' selesai dari '.$hc['ks_total'].' total', 'warning', 'fa-handshake', true, false),
+			array('Total LSP', number_format($hc['lsp_total'],0,',','.'), '983 relasi · 8 sektor · 30 provinsi', 'secondary', 'fa-certificate', true, false),
 		);
-		foreach ($kpis as $k): ?>
+		foreach ($kpis as $k):
+			$klik = ! empty($k[6]);
+		?>
 		<div class="col-xl col-md-4 col-sm-6 mb-4">
-			<div class="card border-left-<?= $k[3] ?> shadow h-100 py-2">
+			<div class="card border-left-<?= $k[3] ?> shadow h-100 py-2<?= $klik ? ' kpi-klik' : '' ?>"
+				<?= $klik ? 'role="button" tabindex="0" data-toggle="modal" data-target="#modalRingkas" style="cursor:pointer;"' : '' ?>>
 				<div class="card-body py-2">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
@@ -98,7 +105,7 @@ $badgeContoh = '<span class="badge badge-warning ml-1" title="Angka contoh — b
 								<?= html_escape($k[0]) ?><?= $k[5] ? $badgeContoh : '' ?>
 							</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $k[1] ?></div>
-							<div class="text-muted" style="font-size:.7rem;"><?= html_escape($k[2]) ?></div>
+							<div class="text-muted" style="font-size:.7rem;"><?= $klik ? '<i class="fas fa-mouse-pointer"></i> ' : '' ?><?= html_escape($k[2]) ?></div>
 						</div>
 						<div class="col-auto"><i class="fas <?= $k[4] ?> fa-2x text-gray-300"></i></div>
 					</div>
@@ -242,6 +249,117 @@ $badgeContoh = '<span class="badge badge-warning ml-1" title="Angka contoh — b
 	</p>
 </div>
 
+<!-- Modal drill-down "Total lembaga" -->
+<div class="modal fade" id="modalRingkas" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div>
+					<div class="text-xs text-uppercase text-muted font-weight-bold">Ringkasan Pendataan</div>
+					<h5 class="modal-title mb-0">Semua lembaga</h5>
+					<div class="text-muted small"><?= number_format($total,0,',','.') ?> lembaga.</div>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">
+
+				<!-- 4 angka utama -->
+				<div class="row text-center mb-3">
+					<?php
+					$boxes = array(
+						array('Lembaga', number_format($total,0,',','.'), 'fa-database'),
+						array('Provinsi', $provCakup, 'fa-map-marker-alt'),
+						array('Sektor', $sektorCount, 'fa-sitemap'),
+						array('Jabatan', $jabatanCount, 'fa-layer-group'),
+					);
+					foreach ($boxes as $b): ?>
+					<div class="col-6 col-md-3 mb-2">
+						<div class="border rounded py-2 h-100">
+							<div class="text-muted text-xs text-uppercase"><i class="fas <?= $b[2] ?>"></i> <?= $b[0] ?></div>
+							<div class="h4 mb-0 font-weight-bold text-gray-800"><?= $b[1] ?></div>
+						</div>
+					</div>
+					<?php endforeach; ?>
+				</div>
+
+				<!-- Layer e-Vokasi -->
+				<div class="font-weight-bold text-gray-800 mb-2">Rincian per layer e-Vokasi</div>
+				<div class="row mb-3">
+					<?php
+					$layers = array(
+						array('Belum e-Vokasi', $ev['belum'], 'secondary'),
+						array('Layer 1 / legalitas diterima', $ev['layer1'], 'primary'),
+						array('Layer 2 / fasilitas', $ev['layer2'], 'info'),
+						array('Layer 3 / program', $ev['layer3'], 'success'),
+					);
+					foreach ($layers as $l): ?>
+					<div class="col-md-6 mb-2">
+						<div class="d-flex justify-content-between align-items-center border-left-<?= $l[2] ?> border rounded px-3 py-2">
+							<span><?= html_escape($l[0]) ?></span>
+							<span class="font-weight-bold"><?= number_format($l[1],0,',','.') ?> <span class="text-muted small">lembaga</span></span>
+						</div>
+					</div>
+					<?php endforeach; ?>
+				</div>
+
+				<!-- Kategori (hardcode) -->
+				<div class="font-weight-bold text-gray-800 mb-2">Pilihan kategori lembaga <?= $badgeContoh ?></div>
+				<div class="row mb-3">
+					<?php
+					$kats = array(
+						array('Non Kementerian', $hc['kat_nonkementerian']),
+						array('Kementerian', $hc['kat_kementerian']),
+						array('Pemerintah Daerah', $hc['kat_pemda']),
+						array('Migrant Center', $hc['kat_migrant']),
+					);
+					foreach ($kats as $c): ?>
+					<div class="col-md-6 mb-2">
+						<div class="d-flex justify-content-between align-items-center border rounded px-3 py-2">
+							<span><?= html_escape($c[0]) ?></span>
+							<span class="font-weight-bold"><?= number_format($c[1],0,',','.') ?> <span class="text-muted small">lembaga</span></span>
+						</div>
+					</div>
+					<?php endforeach; ?>
+				</div>
+
+				<!-- Rincian sektor (real DB) -->
+				<div class="font-weight-bold text-gray-800 mb-2">Rincian sektor <span class="text-muted small font-weight-normal">(<?= $sektorCount ?> sektor · jumlah lembaga unik)</span></div>
+				<div class="row" style="max-height:260px;overflow-y:auto;">
+					<?php foreach ($perSektor as $s): ?>
+					<div class="col-md-6 mb-2">
+						<div class="d-flex justify-content-between align-items-center border rounded px-3 py-2">
+							<span><?= html_escape($s['label']) ?></span>
+							<span class="font-weight-bold"><?= number_format($s['value'],0,',','.') ?> <span class="text-muted small">lembaga</span></span>
+						</div>
+					</div>
+					<?php endforeach; ?>
+				</div>
+
+				<hr>
+				<style>.pl-item:hover{background:#f8f9fc;} #plList a:last-child{border-bottom:0!important;}</style>
+				<!-- Daftar lembaga vokasi (lazy-load via /api/pendataan_list) -->
+				<div class="font-weight-bold text-gray-800 mb-1">Daftar lembaga vokasi</div>
+				<div class="text-muted small mb-2">Maksimal 25 lembaga per halaman.</div>
+				<input type="text" id="plCari" class="form-control form-control-sm mb-2" placeholder="Cari lembaga (minimal 2 karakter)…" autocomplete="off">
+				<div id="plList" class="border rounded" style="min-height:140px;">
+					<div class="text-center text-muted py-4"><i class="fas fa-spinner fa-spin"></i> Memuat…</div>
+				</div>
+				<div class="d-flex justify-content-between align-items-center mt-2">
+					<span id="plInfo" class="text-muted small"></span>
+					<span>
+						<button type="button" id="plPrev" class="btn btn-sm btn-outline-secondary" disabled>Sebelumnya</button>
+						<span id="plPage" class="text-muted small mx-1"></span>
+						<button type="button" id="plNext" class="btn btn-sm btn-outline-secondary" disabled>Berikutnya</button>
+					</span>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script>
 // Data DB dikirim ke JS (aman, tanpa Chart). Chart dibangun saat 'load' (Chart.js dimuat di footer).
 window.PD = {
@@ -311,5 +429,64 @@ window.addEventListener('load', function () {
 		data: { labels: ['Selesai','Dalam proses'], datasets: [{ data: pd.ksProgress, backgroundColor: [C.success, C.warning] }] },
 		options: { maintainAspectRatio:false, legend:{ display:false }, scales:{ yAxes:[{ ticks:{ beginAtZero:true, stepSize:1 } }] } }
 	});
+});
+
+// Daftar lembaga vokasi di dalam modal drill-down (lazy load + cari + paginasi).
+window.addEventListener('load', function () {
+	var $ = window.jQuery;
+	if (!$) { return; }
+	var API = '<?= site_url('api') ?>';
+	var DETAIL = '<?= site_url('lembaga') ?>';
+	var data = null, filtered = [], page = 1, PER = 25, loaded = false;
+
+	function esc(s) { return (s === null || s === undefined) ? '' : String(s).replace(/[&<>"]/g, function (c) { return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]; }); }
+
+	function render() {
+		var totalPage = Math.max(1, Math.ceil(filtered.length / PER));
+		if (page > totalPage) page = totalPage;
+		var start = (page - 1) * PER;
+		var slice = filtered.slice(start, start + PER);
+		var html = slice.map(function (x, i) {
+			var no = start + i + 1;
+			var sek = x.sektor && x.sektor.length ? ' · Sektor: ' + x.sektor.map(esc).join(', ') : '';
+			return '<a href="' + DETAIL + '/' + x.id + '?from=ringkasan" class="d-block border-bottom px-3 py-2 text-reset pl-item" style="text-decoration:none;">' +
+				'<div><span class="text-muted mr-2">' + no + '</span><strong>' + esc(x.nama) + '</strong></div>' +
+				'<div class="small text-muted">' + esc(x.own) + (x.prov ? ' · ' + esc(x.prov) : '') + '</div>' +
+				'<div class="small text-muted">' + esc(x.ev) + sek + '</div>' +
+				(x.email ? '<div class="small text-muted">Kontak: ' + esc(x.email) + '</div>' : '') +
+				'</a>';
+		}).join('');
+		document.getElementById('plList').innerHTML = html || '<div class="text-center text-muted py-4">Tidak ada lembaga yang cocok.</div>';
+		document.getElementById('plInfo').textContent = filtered.length.toLocaleString('id-ID') + ' lembaga';
+		document.getElementById('plPage').textContent = page + ' / ' + totalPage;
+		document.getElementById('plPrev').disabled = page <= 1;
+		document.getElementById('plNext').disabled = page >= totalPage;
+	}
+
+	function applySearch() {
+		if (!data) return;
+		var q = (document.getElementById('plCari').value || '').trim().toLowerCase();
+		if (q.length >= 2) {
+			filtered = data.filter(function (x) {
+				return x.nama.toLowerCase().indexOf(q) >= 0 ||
+					(x.prov || '').toLowerCase().indexOf(q) >= 0 ||
+					(x.email || '').toLowerCase().indexOf(q) >= 0;
+			});
+		} else { filtered = data; }
+		page = 1; render();
+	}
+
+	function load() {
+		if (loaded) return; loaded = true;
+		fetch(API + '/pendataan_list')
+			.then(function (r) { return r.json(); })
+			.then(function (d) { data = d; filtered = d; render(); })
+			.catch(function () { document.getElementById('plList').innerHTML = '<div class="text-danger p-3">Gagal memuat daftar.</div>'; loaded = false; });
+	}
+
+	$('#modalRingkas').on('shown.bs.modal', load);
+	document.getElementById('plCari').addEventListener('keyup', applySearch);
+	document.getElementById('plPrev').addEventListener('click', function () { if (page > 1) { page--; render(); } });
+	document.getElementById('plNext').addEventListener('click', function () { page++; render(); });
 });
 </script>
