@@ -4,9 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Vokasi_repo
  *
- * Repository file-based untuk data lembaga vokasi (Fase 1: JSON, tanpa DB).
- * Semua JSON di-decode sekali lalu di-cache di properti STATIS supaya tidak
- * di-decode ulang tiap pemanggilan (lihat DASHBOARD_SPEC 1.2).
+ * Repository data lembaga vokasi. Sumber utama = database (view
+ * dashboard_vokasi_*); JSON hanya dipakai untuk enrichment field yang belum ada
+ * di DB (geo/dedup) dan agregat pre-computed (Fase 2). Fallback dataset ke JSON
+ * saat DB down DIMATIKAN — koneksi DB wajib (lihat requireDb()).
+ * JSON di-decode sekali lalu di-cache di properti STATIS (lihat DASHBOARD_SPEC 1.2).
  *
  * ATURAN KRITIS (DASHBOARD_SPEC bagian 2):
  *  - 2.1 Jangan SUM kapasitas dari relasi sektor. Dedup lembaga_id dulu.
@@ -26,8 +28,9 @@ class Vokasi_repo {
 	private $dir;
 
 	/**
-	 * Koneksi DB aktif (mode hybrid). Sentinel:
-	 *   FALSE = belum dicek, NULL = DB tidak tersedia (fallback JSON), objek = siap.
+	 * Koneksi DB aktif. Sentinel:
+	 *   FALSE = belum dicek, NULL = DB tidak tersedia, objek = siap.
+	 * Catatan: NULL kini memicu error di requireDb() (bukan lagi fallback JSON).
 	 */
 	private $ci_db = FALSE;
 
@@ -38,8 +41,9 @@ class Vokasi_repo {
 
 	/**
 	 * Ambil koneksi DB CI bila tersedia. db_debug=FALSE membuat kegagalan
-	 * koneksi tidak menghentikan app — di sini kita cek conn_id lalu fallback
-	 * ke JSON bila kosong. Dicek sekali per instance.
+	 * koneksi tidak menghentikan app di level driver — di sini kita cek conn_id
+	 * dan kembalikan NULL bila kosong (penanganan wajib/tidak ada di requireDb()).
+	 * Dicek sekali per instance.
 	 * @return object|null
 	 */
 	private function db()
@@ -47,6 +51,15 @@ class Vokasi_repo {
 		if ($this->ci_db !== FALSE)
 		{
 			return $this->ci_db; // sudah dicek (objek atau NULL)
+		}
+
+		// Driver 'postgre' butuh ekstensi pgsql (pg_connect). Bila belum terpasang
+		// di server, JANGAN panggil load->database (akan fatal) — fallback ke JSON.
+		if ( ! function_exists('pg_connect'))
+		{
+			log_message('error', 'Ekstensi PHP pgsql belum aktif — koneksi DB tidak bisa dibuat.');
+			$this->ci_db = NULL;
+			return NULL;
 		}
 
 		$CI =& get_instance();
@@ -102,9 +115,29 @@ class Vokasi_repo {
 	// ---------------------------------------------------------------------
 
 	/**
-	 * Semua lembaga.
-	 * Mode DB: dari view dashboard_vokasi_detail, di-enrich koordinat & field
-	 * geo/dedup dari JSON (join by id). Mode JSON: apa adanya dari file.
+	 * Ambil koneksi DB — WAJIB. Fallback dataset ke JSON DIMATIKAN (permintaan:
+	 * data dari DB saja) supaya app tidak diam-diam menyajikan data lama saat DB
+	 * down. Bila koneksi gagal → hentikan dengan pesan jelas, bukan fallback senyap.
+	 * @return object
+	 */
+	private function requireDb()
+	{
+		$db = $this->db();
+		if ($db === NULL)
+		{
+			log_message('error', 'Vokasi_repo: DB wajib tapi koneksi gagal — fallback JSON dinonaktifkan.');
+			show_error(
+				'Koneksi ke database gagal. Dashboard hanya menyajikan data dari database (fallback JSON dinonaktifkan). Coba lagi setelah koneksi pulih.',
+				503,
+				'Database Tidak Tersedia'
+			);
+		}
+		return $db;
+	}
+
+	/**
+	 * Semua lembaga — SELALU dari view dashboard_vokasi_detail, di-enrich field
+	 * geo/dedup yang belum ada di DB (provinsi_kode, is_primary, dll) dari JSON.
 	 */
 	public function all()
 	{
@@ -113,16 +146,12 @@ class Vokasi_repo {
 			return self::$derived['lembaga'];
 		}
 
-		$db = $this->db();
-		$out = ($db === NULL)
-			? $this->load('lembaga')            // fallback penuh ke JSON
-			: $this->buildLembagaFromDb($db);   // hybrid: DB + enrichment JSON
-
+		$out = $this->buildLembagaFromDb($this->requireDb());
 		self::$derived['lembaga'] = $out;
 		return $out;
 	}
 
-	/** Semua relasi lembaga x sektor x jabatan. */
+	/** Semua relasi lembaga x sektor x jabatan (DB-only). */
 	public function relations()
 	{
 		if (isset(self::$derived['relations']))
@@ -130,16 +159,12 @@ class Vokasi_repo {
 			return self::$derived['relations'];
 		}
 
-		$db = $this->db();
-		$out = ($db === NULL)
-			? $this->load('lembaga_sektor')
-			: $this->buildRelationsFromDb($db);
-
+		$out = $this->buildRelationsFromDb($this->requireDb());
 		self::$derived['relations'] = $out;
 		return $out;
 	}
 
-	/** Semua katalog pelatihan (join via lembaga_id). */
+	/** Semua katalog pelatihan (join via lembaga_id) — DB-only. */
 	public function katalog()
 	{
 		if (isset(self::$derived['katalog']))
@@ -147,11 +172,7 @@ class Vokasi_repo {
 			return self::$derived['katalog'];
 		}
 
-		$db = $this->db();
-		$out = ($db === NULL)
-			? $this->load('lembaga_katalog')
-			: $this->buildKatalogFromDb($db);
-
+		$out = $this->buildKatalogFromDb($this->requireDb());
 		self::$derived['katalog'] = $out;
 		return $out;
 	}
@@ -164,10 +185,12 @@ class Vokasi_repo {
 	 * Bentuk baris lembaga dari view DB ke SHAPE yang sama dengan lembaga.json,
 	 * sehingga seluruh logika filter/stats/peta di bawah tetap dipakai apa adanya.
 	 *
-	 * Kolom yang tidak ada di DB (lat/lng, provinsi_kode, pulau, slug kota,
-	 * is_primary, dup_group, uid, nomor_*) diambil dari JSON via join by id.
-	 * Untuk lembaga baru yang belum ada di JSON: koordinat NULL (tak muncul di
-	 * peta), kode provinsi dicari dari nama, is_primary default TRUE.
+	 * Koordinat kini tersedia di view (vok_lat/vok_long) → dipakai lebih dulu;
+	 * JSON hanya fallback bila koordinat DB kosong. Kolom lain yang belum ada di
+	 * DB (provinsi_kode, pulau, slug kota, is_primary, dup_group, uid, nomor_*)
+	 * diambil dari JSON via join by id. Untuk lembaga baru tanpa koordinat DB
+	 * maupun JSON: koordinat NULL (tak muncul di peta), kode provinsi dicari dari
+	 * nama, is_primary default TRUE.
 	 */
 	private function buildLembagaFromDb($db)
 	{
@@ -203,6 +226,19 @@ class Vokasi_repo {
 				$kap = ($j['kapasitas'] === NULL) ? NULL : (int) $j['kapasitas'];
 			}
 
+			// Koordinat: DB-ONLY (tanpa fallback JSON). Data DB yang kotor
+			// (lng > 180 / titik di luar Indonesia) dikosongkan → tak digambar di peta.
+			$lat = $this->parseCoord(isset($r['vok_lat'])  ? $r['vok_lat']  : NULL);
+			$lng = $this->parseCoord(isset($r['vok_long']) ? $r['vok_long'] : NULL);
+			if ($lat !== NULL && $lng !== NULL && $this->inIndonesia($lat, $lng))
+			{
+				$coord_source = 'original';        // koordinat tersimpan di DB = titik asli
+			}
+			else
+			{
+				$lat = $lng = $coord_source = NULL; // invalid/kosong; JANGAN fallback JSON
+			}
+
 			$out[] = array(
 				'id'               => $id,
 				'uid'              => $j !== NULL ? $j['uid'] : NULL,
@@ -212,16 +248,15 @@ class Vokasi_repo {
 				'provinsi'         => $prov_nama,
 				'pulau'            => $pulau,
 				'kota'             => $r['vok_district'],
-				'kota_slug'        => $j !== NULL ? $j['kota_slug'] : $this->slugify($r['vok_district']),
+				'kota_slug'        => $this->slugify($r['vok_district']),
 				'telepon'          => isset($r['vok_phone']) ? trim((string) $r['vok_phone']) : '',
 				'ownership'        => $r['own_name'],
 				'jenis'            => $r['vok_institution_form'],
 				'tipe_lembaga'     => $r['type_name'],      // tambahan dari DB (LPK/SMK/...)
 				'kapasitas'        => $kap,
-				// Koordinat hanya dari JSON — DB belum punya. Tanpa JSON = NULL.
-				'lat'              => $j !== NULL ? $j['lat'] : NULL,
-				'lng'              => $j !== NULL ? $j['lng'] : NULL,
-				'coord_source'     => $j !== NULL ? $j['coord_source'] : NULL,
+				'lat'              => $lat,
+				'lng'              => $lng,
+				'coord_source'     => $coord_source,
 				'nomor_registrasi' => $j !== NULL ? $j['nomor_registrasi'] : NULL,
 				'nomor_legalitas'  => $j !== NULL ? $j['nomor_legalitas'] : NULL,
 				'status_legalitas' => $r['ver_legality_status'],
@@ -379,11 +414,163 @@ class Vokasi_repo {
 		return ($digits === '') ? NULL : (int) $digits;
 	}
 
+	/**
+	 * Parse koordinat lat/long dari view DB (bisa string desimal atau numeric).
+	 * Nilai kosong, non-numerik, atau 0 dianggap tidak valid (0,0 = null island)
+	 * → NULL, supaya tidak digambar di tengah laut.
+	 * @return float|null
+	 */
+	private function parseCoord($v)
+	{
+		if ($v === NULL || $v === '' || ! is_numeric($v)) return NULL;
+		$f = (float) $v;
+		return ($f == 0.0) ? NULL : $f;
+	}
+
+	/**
+	 * TRUE bila (lat,lng) berada dalam bounding box wilayah Indonesia (longgar).
+	 * Dipakai menyaring koordinat DB yang jelas kotor (lng > 180, lat kutub, dll).
+	 */
+	private function inIndonesia($lat, $lng)
+	{
+		return $lat >= -11.5 && $lat <= 7.0 && $lng >= 94.0 && $lng <= 142.0;
+	}
+
 	/** Payload ringan map_points (776, sudah primary+mappable). */
 	public function mapPoints()    { return $this->load('map_points'); }
 
-	/** KPI global. */
-	public function summary()      { return $this->load('summary'); }
+	/**
+	 * KPI global — dihitung LIVE dari DB (bukan lagi summary.json).
+	 * Struktur dijaga sama dengan summary.json lama agar view index/wall/gap/tentang
+	 * tetap jalan. Agregat kapasitas/koordinat/verifikasi atas primary (spec 2.2);
+	 * cakupan wilayah & gap sektor atas seluruh baris.
+	 *
+	 * Catatan koordinat: sejak DB-only, tak ada lagi tingkatan centroid — koordinat
+	 * yang ada = 'original' (asli DB). centroid_* = 0. "persen_asli" kini berarti
+	 * % lembaga primary yang punya koordinat valid.
+	 */
+	public function summary()
+	{
+		if (isset(self::$derived['summary']))
+		{
+			return self::$derived['summary'];
+		}
+
+		$all     = $this->all();        // WAJIB DB (requireDb di dalam)
+		$primary = $this->primary();
+		$rel     = $this->relations();
+		$kat     = $this->katalog();
+
+		$totalBaris  = count($all);
+		$unikPrimary = count($primary);
+
+		// --- Cakupan wilayah + peta lembaga->provinsi (untuk gap) atas semua baris ---
+		$provAll = array();
+		$kotaAll = array();
+		$lembagaProv = array();
+		foreach ($all as $r)
+		{
+			if ( ! empty($r['provinsi'])) $provAll[$r['provinsi']] = TRUE;
+			if ( ! empty($r['kota']))     $kotaAll[$r['kota']]     = TRUE;
+			$lembagaProv[(int) $r['id']] = isset($r['provinsi']) ? $r['provinsi'] : '';
+		}
+
+		// --- Kapasitas + koordinat + verifikasi atas primary (spec 2.2) ---
+		$kapTotal = 0; $kapList = array();
+		$coordAsli = 0; $coordTidakAda = 0;
+		$fun = array(
+			'legalitas' => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
+			'fasilitas' => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
+			'program'   => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
+		);
+		foreach ($primary as $r)
+		{
+			$k = ($r['kapasitas'] === NULL) ? 0 : (int) $r['kapasitas'];
+			$kapTotal += $k;
+			if ($k > 0) $kapList[] = $k;
+
+			if ($r['lat'] !== NULL && $r['lng'] !== NULL) $coordAsli++;
+			else $coordTidakAda++;
+
+			foreach (array('legalitas'=>'status_legalitas','fasilitas'=>'status_fasilitas','program'=>'status_program') as $tahap => $field)
+			{
+				$v = ( ! empty($r[$field])) ? $r[$field] : 'not_submitted';
+				if ( ! isset($fun[$tahap][$v])) $fun[$tahap][$v] = 0;
+				$fun[$tahap][$v]++;
+			}
+		}
+		sort($kapList);
+		$nK = count($kapList);
+		$median = $nK ? ($nK % 2 ? $kapList[intdiv($nK, 2)] : (int) (($kapList[$nK/2 - 1] + $kapList[$nK/2]) / 2)) : 0;
+		$maxKap = $nK ? $kapList[$nK - 1] : 0;
+		$persenAsli = $unikPrimary > 0 ? round($coordAsli / $unikPrimary * 100, 1) : 0;
+
+		// --- Sektor/jabatan + gap provinsi x sektor (atas seluruh relasi) ---
+		$sektorSet = array(); $jabatanSet = array(); $provSektor = array();
+		foreach ($rel as $x)
+		{
+			$s = isset($x['sektor'])  ? $x['sektor']  : '';
+			$j = isset($x['jabatan']) ? $x['jabatan'] : '';
+			if ($s !== '') $sektorSet[$s]  = TRUE;
+			if ($j !== '') $jabatanSet[$j] = TRUE;
+			$pv = isset($lembagaProv[(int) $x['lembaga_id']]) ? $lembagaProv[(int) $x['lembaga_id']] : '';
+			if ($s !== '' && $pv !== '') $provSektor[$pv . '|' . $s] = TRUE;
+		}
+		$totalSektor  = count($sektorSet);
+		$totalSel     = count($provAll) * $totalSektor;
+		$selTerisi    = count($provSektor);
+
+		// --- Katalog ---
+		$lembagaPunyaKat = array();
+		foreach ($kat as $c) $lembagaPunyaKat[(int) $c['lembaga_id']] = TRUE;
+		$punyaKat = count($lembagaPunyaKat);
+
+		$out = array(
+			'generated_at' => date('c'),
+			'sumber'       => array('Database main_db (view dashboard_vokasi_detail / _sektor / dashboard_vokasi_katalog)'),
+			'lembaga' => array(
+				'total_baris'       => $totalBaris,
+				'unik_primary'      => $unikPrimary,
+				'duplikat_ditandai' => $totalBaris - $unikPrimary,
+			),
+			'katalog' => array(
+				'total_katalog'              => count($kat),
+				'lembaga_punya_katalog'      => $punyaKat,
+				'persen_lembaga_ada_katalog' => $unikPrimary > 0 ? round($punyaKat / $unikPrimary * 100, 1) : 0,
+			),
+			'kapasitas' => array(
+				'total'  => $kapTotal,
+				'median' => $median,
+				'max'    => $maxKap,
+			),
+			'koordinat' => array(
+				'asli'               => $coordAsli,
+				'centroid_kota'      => 0,   // tak berlaku lagi (koordinat DB-only)
+				'centroid_provinsi'  => 0,
+				'tidak_ada'          => $coordTidakAda,
+				'persen_asli'        => $persenAsli,
+			),
+			'wilayah' => array(
+				'provinsi' => count($provAll),
+				'kota'     => count($kotaAll),
+			),
+			'sektor' => array(
+				'total_sektor'  => $totalSektor,
+				'total_jabatan' => count($jabatanSet),
+				'total_relasi'  => count($rel),
+			),
+			'verifikasi' => $fun,
+			'gap_sektor' => array(
+				'total_sel'   => $totalSel,
+				'sel_terisi'  => $selTerisi,
+				'sel_kosong'  => $totalSel - $selTerisi,
+			),
+			'is_db' => $this->isDb(),
+		);
+
+		self::$derived['summary'] = $out;
+		return $out;
+	}
 
 	/** Agregat provinsi pre-computed (untuk choropleth). */
 	public function aggProvinsi()  { return $this->load('agg_provinsi'); }
