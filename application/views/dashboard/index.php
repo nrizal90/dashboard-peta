@@ -58,14 +58,9 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 								<button id="btnReset" class="btn btn-sm btn-outline-secondary py-0">Reset</button>
 							</div>
 							<div class="card-body dash-scroll">
-								<div class="text-center mb-2">
-									<span class="badge badge-primary result-badge px-3 py-2">
-										lembaga
-									</span>
-								</div>
 
 								<div class="filter-group">
-									<label class="head">Cari nama</label>
+									<label class="head">Cari nama lembaga</label>
 									<input type="text" id="fQ" class="form-control form-control-sm" placeholder="ketik nama lembaga…">
 								</div>
 
