@@ -300,7 +300,7 @@
 		charts.funnel = new Chart(document.getElementById('chartFunnel').getContext('2d'), {
 			type: 'horizontalBar',
 			data: {
-				labels: ['Legalitas', 'Fasilitas', 'Program'],
+				labels: ['Layer 1 (Legalitas)', 'Layer 2 (Fasilitas)', 'Layer 3 Program'],
 				datasets: [
 					{ label: 'Accepted', backgroundColor: '#1cc88a', data: [0, 0, 0] },
 					{ label: 'Rejected', backgroundColor: '#e74a3b', data: [0, 0, 0] },
