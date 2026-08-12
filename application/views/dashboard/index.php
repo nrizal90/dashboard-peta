@@ -1,243 +1,363 @@
 <?php
 /**
- * Dashboard peta vokasi — layout: KPI header · filter kiri · peta tengah · chart kanan.
- * Data diisi oleh assets/js/dashboard.js lewat endpoint /api/*.
+ * Dashboard utama (redesign) — ringkasan verifikasi lembaga vokasi.
+ *
+ * CATATAN: seluruh angka di halaman ini masih HARDCODE untuk keperluan
+ * penyusunan UI. Setelah tampilan final disetujui, sumber data akan
+ * disambungkan ke DB/endpoint. Tema warna emas: #E8C457 (sementara).
+ *
+ * Versi peta sebelumnya disimpan di index.php.<timestamp>.bak (folder ini).
  */
-$s = isset($summary) ? $summary : array();
-$kap = isset($s['kapasitas']['total']) ? $s['kapasitas']['total'] : 0;
-$lem = isset($s['lembaga']['unik_primary']) ? $s['lembaga']['unik_primary'] : 0;
-$prov = isset($s['wilayah']['provinsi']) ? $s['wilayah']['provinsi'] : 0;
-$sekt = isset($s['sektor']['total_sektor']) ? $s['sektor']['total_sektor'] : 0;
-$jab = isset($s['sektor']['total_jabatan']) ? $s['sektor']['total_jabatan'] : 0;
-$presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'] : 0;
+
+// ====== DATA HARDCODE (sementara) ======
+$gold      = '#E8C457';
+$goldDark  = '#C79A2E';
+$goldDeep  = '#A87F1E';
+$goldLight = '#F2DD8E';
+
+$lembagaTerdaftar   = 1699;
+$verifLegalitas     = 417;
+
+// KPI atas
+$kpis = array(
+	array('Terverifikasi Fasilitas',   417, '15%', 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Fasilitas.'),
+	array('Terverifikasi Program',     181, '15%', 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Program Pelatihan.'),
+	array('Terverifikasi Keseluruhan', 181, '15%', 'Jumlah Lembaga yang Telah Lulus Seluruh Tahapan Verifikasi.'),
+	array('Lembaga Ditolak',           625, '15%', 'Jumlah Lembaga yang Belum Memenuhi Persyaratan Verifikasi.'),
+);
+
+// Status Lembaga Vokasi (donut) — total = $lembagaTerdaftar
+$statusLabels = array('Terverifikasi Legalitas', 'Dalam Proses', 'Ditolak');
+$statusData   = array(417, 657, 625);
+
+// Akreditasi
+$akreditasiLabels = array('Akreditasi A', 'Akreditasi B', 'Belum Terakreditasi', 'Akreditasi C');
+$akreditasiData   = array(644, 459, 357, 72);
+
+// Bentuk Lembaga
+$bentukLabels = array('Pendidikan dan Pelatihan', 'Pelatihan', 'Pendidikan');
+$bentukData   = array(820, 497, 382);
+
+// Provinsi Top 5
+$provLabels = array('Jawa Tengah', 'Jawa Barat', 'Jawa Timur', 'Bali', 'Daerah Istimewa Yogyakarta');
+$provData   = array(421, 388, 252, 141, 118);
+
+// Jenis Lembaga Vokasi
+$jenisLabels = array('LPK', 'SMK', 'Politeknik', 'LKP', 'Universitas', 'Balai', 'BLK', 'BLKLN', 'LSP', 'SMA');
+$jenisData   = array(1188, 132, 108, 96, 74, 58, 46, 24, 16, 11);
+
+// Sektor Spesialisasi Top 5
+$sektorLabels = array('Tourism, Travel, dan Hospitality', 'Bahasa', 'Kesehatan', 'Pertanian & Peternakan', 'Teknologi Informasi');
+$sektorData   = array(2321, 1096, 839, 531, 416);
+
+// Tanggal Bahasa Indonesia (tanpa strftime yang sudah deprecated)
+$hariID  = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu');
+$bulanID = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$tanggalID = $hariID[(int) date('w')] . ', ' . date('d') . ' ' . $bulanID[(int) date('n')] . ' ' . date('Y');
+
+// Titik peta (mock) — [lat, lng, nama, jumlah]
+$mapPoints = array(
+	array(-7.150, 110.140, 'Jawa Tengah', 421),
+	array(-6.914, 107.610, 'Jawa Barat', 388),
+	array(-7.536, 112.238, 'Jawa Timur', 252),
+	array(-8.409, 115.188, 'Bali', 141),
+	array(-7.797, 110.370, 'DI Yogyakarta', 118),
+	array(-5.147, 119.432, 'Sulawesi Selatan', 96),
+	array(-6.211, 106.845, 'DKI Jakarta', 88),
+);
 ?>
-			<!-- Begin Page Content -->
-			<div class="container-fluid">
 
-				<!-- Page Heading -->
-				<div class="d-sm-flex align-items-center justify-content-between mb-3">
-					<h1 class="h3 mb-0 text-gray-800">Peta Sebaran Lembaga Vokasi</h1>
-					<a href="<?= site_url('gap') ?>" class="btn btn-sm btn-outline-primary shadow-sm">
-						<i class="fas fa-th fa-sm"></i> Gap Analysis
-					</a>
-				</div>
+<!-- ============ TEMA EMAS (sementara, scoped ke halaman ini) ============ -->
+<style>
+	:root {
+		--dg-gold: <?= $gold ?>;
+		--dg-gold-dark: <?= $goldDark ?>;
+		--dg-gold-deep: <?= $goldDeep ?>;
+		--dg-gold-light: <?= $goldLight ?>;
+	}
+	.dg-wrap { background: #f7f7fb; }
+	.dg-card { border: 0; border-radius: 1rem; box-shadow: 0 6px 22px rgba(0,0,0,.05); }
+	.dg-card .card-body { padding: 1.25rem 1.4rem; }
+	.dg-title { font-weight: 800; color: #2b2b33; letter-spacing: -.01em; }
+	.dg-sub { color: #9a9aa6; font-size: .78rem; margin-bottom: 1rem; }
 
-				<!-- ===== KPI HEADER ===== -->
-				<div class="row">
-					<?php
-					$kpis = array(
-						array('Lembaga (primary)', number_format($lem, 0, ',', '.'), 'fa-building', 'primary'),
-						array('Total Kapasitas', number_format($kap, 0, ',', '.'), 'fa-users', 'success'),
-						array('Provinsi', $prov, 'fa-map-marked-alt', 'info'),
-						array('Sektor / Jabatan', $sekt . ' / ' . $jab, 'fa-layer-group', 'warning'),
-						array('Koordinat Presisi', $presisi . '%', 'fa-crosshairs', 'danger'),
-					);
-					foreach ($kpis as $k): ?>
-					<div class="col-md col-6 mb-3">
-						<div class="card border-left-<?= $k[3] ?> shadow h-100 py-2">
-							<div class="card-body py-2">
-								<div class="row no-gutters align-items-center">
-									<div class="col mr-2">
-										<div class="text-xs font-weight-bold text-<?= $k[3] ?> text-uppercase mb-1"><?= $k[0] ?></div>
-										<div class="h6 mb-0 font-weight-bold text-gray-800"><?= $k[1] ?></div>
-									</div>
-									<div class="col-auto"><i class="fas <?= $k[2] ?> fa-lg text-gray-300"></i></div>
-								</div>
+	/* Kartu sambutan */
+	.dg-hero { background: #fff; }
+	.dg-hero-logo { width: 92px; height: 92px; object-fit: contain; }
+	.dg-hero .stat-num { font-size: 1.6rem; font-weight: 800; color: #2b2b33; }
+	.dg-hero .stat-lbl { font-size: .72rem; color: #9a9aa6; text-transform: none; font-weight: 700; }
+
+	/* KPI */
+	.dg-kpi .kpi-name { font-size: .82rem; color: #6b6b76; font-weight: 700; }
+	.dg-kpi .kpi-num  { font-size: 2rem; font-weight: 800; color: #2b2b33; line-height: 1.1; }
+	.dg-kpi .kpi-desc { font-size: .72rem; color: #a2a2ad; margin-top: .5rem; line-height: 1.35; }
+	.dg-badge {
+		background: var(--dg-gold); color: #6a5308; font-weight: 800; font-size: .7rem;
+		padding: .18rem .5rem; border-radius: 999px;
+	}
+
+	.dg-legend-total { font-size: 1.9rem; font-weight: 800; color: #2b2b33; }
+	.dg-legend-total small { display:block; font-size:.7rem; font-weight:600; color:#9a9aa6; }
+
+	#dgMap { height: 300px; border-radius: .75rem; z-index: 0; background: #eef1f7; }
+
+	.chart-box { position: relative; }
+	.chart-box.h-sm  { height: 210px; }
+	.chart-box.h-md  { height: 260px; }
+	.chart-box.h-lg  { height: 300px; }
+</style>
+
+<!-- Begin Page Content -->
+<div class="container-fluid dg-wrap py-2">
+
+	<!-- ===== BARIS 1: SAMBUTAN + KPI ===== -->
+	<div class="row">
+		<!-- Kartu sambutan -->
+		<div class="col-xl-4 col-lg-5 mb-4">
+			<div class="card dg-card dg-hero h-100">
+				<div class="card-body d-flex flex-column">
+					<div class="d-flex align-items-center justify-content-between">
+						<div>
+							<h5 class="dg-title mb-1">Hi, Admin Pusdatin <span style="font-size:1rem;">👋</span></h5>
+							<div class="text-muted small font-italic mb-0">
+								<?= $tanggalID ?> pukul <?= date('h.i A') ?>
 							</div>
 						</div>
+						<img src="<?= base_url('assets/img/logo-color.webp') ?>" alt="Logo" class="dg-hero-logo">
 					</div>
-					<?php endforeach; ?>
-				</div>
-
-				<div class="row" id="dashRow">
-					<!-- ===== SIDEBAR FILTER (kiri) ===== -->
-					<div class="col-lg-3 mb-4" id="colFilter">
-						<div class="card shadow h-100">
-							<div class="card-header py-3 d-flex justify-content-between align-items-center">
-								<h6 class="m-0 font-weight-bold text-primary">Filter</h6>
-								<button id="btnReset" class="btn btn-sm btn-outline-secondary py-0">Reset</button>
-							</div>
-							<div class="card-body dash-scroll">
-
-								<div class="filter-group">
-									<label class="head">Cari nama lembaga</label>
-									<input type="text" id="fQ" class="form-control form-control-sm" placeholder="ketik nama lembaga…">
-								</div>
-
-								<div class="filter-group">
-									<div class="form-check">
-										<input type="checkbox" class="form-check-input" id="fOnlyOriginal">
-										<label class="form-check-label" for="fOnlyOriginal">Hanya koordinat asli (presisi)</label>
-									</div>
-								</div>
-
-								<div class="filter-group">
-									<label class="head">Ownership</label>
-									<select id="fOwnership" class="form-control form-control-sm">
-										<option value="">Semua</option>
-										<option value="Non Pemerintah">Non Pemerintah</option>
-										<option value="Pemerintah">Pemerintah</option>
-									</select>
-								</div>
-
-								<div class="filter-group">
-									<label class="head">Status Legalitas</label>
-									<select id="fLegalitas" class="form-control form-control-sm">
-										<option value="">Semua</option>
-										<option value="accepted">Accepted</option>
-										<option value="pending">Pending</option>
-										<option value="rejected">Rejected</option>
-									</select>
-								</div>
-
-								<div class="filter-group">
-									<label class="head">Pulau</label>
-									<select id="fPulau" class="form-control form-control-sm"><option value="">Semua</option></select>
-								</div>
-
-								<div class="filter-group">
-									<label class="head">Provinsi</label>
-									<select id="fProvinsi" class="form-control form-control-sm"><option value="">Semua</option></select>
-								</div>
-
-								<div class="filter-group">
-									<label class="head">Kota / Kabupaten</label>
-									<input type="text" id="fKotaSearch" class="form-control form-control-sm mb-1" placeholder="cari kota…">
-									<select id="fKota" class="form-control form-control-sm"><option value="">Semua</option></select>
-								</div>
-
-								<div class="filter-group">
-									<label class="head">Kapasitas</label>
-									<div class="d-flex align-items-center" style="gap:.4rem">
-										<input type="number" id="fKapMin" class="form-control form-control-sm" placeholder="min" min="0">
-										<span>–</span>
-										<input type="number" id="fKapMax" class="form-control form-control-sm" placeholder="max" min="0">
-									</div>
-								</div>
-
-								<div class="filter-group">
-									<label class="head">Sektor</label>
-									<div id="fSektor" class="checklist"></div>
-								</div>
-
-								<div class="filter-group">
-									<label class="head">Jabatan / Program</label>
-									<input type="text" id="fJabatanSearch" class="form-control form-control-sm mb-1" placeholder="cari jabatan (310)…">
-									<div id="fJabatan" class="checklist tall"></div>
-								</div>
-							</div>
+					<div class="row mt-auto pt-3">
+						<div class="col-6">
+							<div class="stat-lbl">Lembaga Terdaftar</div>
+							<div class="stat-num"><?= number_format($lembagaTerdaftar, 0, ',', '.') ?></div>
 						</div>
-					</div>
-
-					<!-- ===== PETA (kanan, lebar) ===== -->
-					<div class="col-lg-9 mb-4" id="colMap">
-						<div class="card shadow h-100">
-							<div class="card-header py-3 d-flex justify-content-between align-items-center">
-								<h6 class="m-0 font-weight-bold text-primary">Peta Interaktif</h6>
-								<div class="d-flex align-items-center">
-									<small class="text-muted mr-3 d-none d-xl-inline">marker cluster · warna = ownership</small>
-									<button id="btnToggleFilter" class="btn btn-sm btn-outline-secondary py-0" title="Sembunyikan panel filter agar peta lebih dominan">
-										<i class="fas fa-expand-arrows-alt"></i> Perbesar Peta
-									</button>
-								</div>
-							</div>
-							<div class="card-body position-relative">
-								<div id="map"></div>
-								<div id="mapLoading" class="loading-overlay" style="display:none">
-									<div class="spinner-border text-primary" role="status"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<!-- ===== CHART PANEL (baris bawah, horizontal) ===== -->
-				<div class="row" id="colChart">
-					<div class="col-6 col-lg mb-4">
-						<div class="card shadow mini-chart-card h-100">
-							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Tahapan Verifikasi</h6></div>
-							<div class="card-body py-2"><canvas id="chartFunnel"></canvas></div>
-						</div>
-					</div>
-					<div class="col-6 col-lg mb-4">
-						<div class="card shadow mini-chart-card h-100">
-							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Penyelenggara Pelatihan</h6></div>
-							<div class="card-body py-2"><canvas id="chartOwnership"></canvas></div>
-						</div>
-					</div>
-					<div class="col-6 col-lg mb-4">
-						<div class="card shadow mini-chart-card h-100">
-							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Sektor</h6></div>
-							<div class="card-body py-2"><canvas id="chartSektor"></canvas></div>
-						</div>
-					</div>
-					<div class="col-6 col-lg mb-4">
-						<div class="card shadow mini-chart-card h-100">
-							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Jabatan</h6></div>
-							<div class="card-body py-2"><canvas id="chartJabatan"></canvas></div>
-						</div>
-					</div>
-					<div class="col-6 col-lg mb-4">
-						<div class="card shadow mini-chart-card h-100">
-							<div class="card-header py-2"><h6 class="m-0 font-weight-bold text-primary">Top 10 Provinsi</h6></div>
-							<div class="card-body py-2"><canvas id="chartProvinsi"></canvas></div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<!-- /.container-fluid -->
-
-			<!-- ===== MODAL: List Lembaga Vokasi (muncul saat cluster peta diklik) ===== -->
-			<div class="modal fade" id="modalList" tabindex="-1" role="dialog" aria-labelledby="modalListLabel" aria-hidden="true">
-				<div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-					<div class="modal-content">
-						<div class="modal-header bg-primary text-white py-2">
-							<h5 class="modal-title" id="modalListLabel"><i class="fas fa-university mr-2"></i>List Lembaga Vokasi</h5>
-							<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						</div>
-						<div class="modal-body p-0">
-							<div class="table-responsive">
-								<table class="table table-sm table-hover mb-0">
-									<thead class="thead-light">
-										<tr>
-											<th class="text-center">No</th>
-											<th>Nama</th>
-											<th>Provinsi</th>
-											<th>Kabupaten/Kota</th>
-											<th>Kepemilikan</th>
-											<th>No Registrasi</th>
-											<th>No Legalitas</th>
-											<th class="text-center">Aksi</th>
-										</tr>
-									</thead>
-									<tbody id="listBody"></tbody>
-								</table>
-							</div>
-						</div>
-						<div class="modal-footer py-2 justify-content-between">
-							<small class="text-muted">Total data: <b id="listTotal">0</b> lembaga</small>
-							<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+						<div class="col-6">
+							<div class="stat-lbl">Terverifikasi Legalitas</div>
+							<div class="stat-num"><?= number_format($verifLegalitas, 0, ',', '.') ?></div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!-- ===== MODAL: Detail Lembaga Vokasi ===== -->
-			<div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
-					<div class="modal-content">
-						<div class="modal-header bg-primary text-white py-2">
-							<h5 class="modal-title" id="modalDetailLabel"><i class="fas fa-university mr-2"></i>Detail Lembaga Vokasi</h5>
-							<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						</div>
-						<div class="modal-body" id="detailBody">
-							<div class="text-center text-muted py-4">Memuat…</div>
-						</div>
-						<div class="modal-footer py-2">
-							<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+		<!-- 4 KPI -->
+		<div class="col-xl-8 col-lg-7 mb-4">
+			<div class="row h-100">
+				<?php foreach ($kpis as $k): ?>
+				<div class="col-md-3 col-6 mb-3 mb-md-0">
+					<div class="card dg-card dg-kpi h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<span class="kpi-name"><?= html_escape($k[0]) ?></span>
+							</div>
+							<div class="d-flex align-items-center justify-content-between">
+								<span class="kpi-num"><?= number_format($k[1], 0, ',', '.') ?></span>
+								<span class="dg-badge"><?= html_escape($k[2]) ?></span>
+							</div>
+							<div class="kpi-desc"><?= html_escape($k[3]) ?></div>
 						</div>
 					</div>
 				</div>
+				<?php endforeach; ?>
 			</div>
+		</div>
+	</div>
+
+	<!-- ===== BARIS 2: STATUS · AKREDITASI · BENTUK ===== -->
+	<div class="row">
+		<div class="col-lg-4 mb-4">
+			<div class="card dg-card h-100">
+				<div class="card-body">
+					<div class="dg-title h6 mb-1">Status Lembaga Vokasi</div>
+					<div class="dg-sub">Komposisi Lembaga Vokasi Berdasarkan Status Lembaga.</div>
+					<div class="chart-box h-md"><canvas id="chStatus"></canvas></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 mb-4">
+			<div class="card dg-card h-100">
+				<div class="card-body">
+					<div class="dg-title h6 mb-1">Akreditasi Lembaga</div>
+					<div class="dg-sub">Distribusi Status Akreditasi Sebagai Indikator Kualitas Lembaga Vokasi.</div>
+					<div class="chart-box h-md"><canvas id="chAkreditasi"></canvas></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 mb-4">
+			<div class="card dg-card h-100">
+				<div class="card-body">
+					<div class="dg-title h6 mb-1">Bentuk Lembaga</div>
+					<div class="dg-sub">Distribusi Lembaga Berdasarkan Bentuk Penyelenggaraan.</div>
+					<div class="chart-box h-md"><canvas id="chBentuk"></canvas></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ===== BARIS 3: PETA + PROVINSI TOP 5 ===== -->
+	<div class="row">
+		<div class="col-lg-7 mb-4">
+			<div class="card dg-card h-100">
+				<div class="card-body">
+					<div class="dg-title h6 mb-1">Peta Persebaran Verifikasi Lembaga</div>
+					<div class="dg-sub">Visualisasi Persebaran Lembaga yang Telah Melalui Proses Verifikasi Legalitas.</div>
+					<div id="dgMap"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-5 mb-4">
+			<div class="card dg-card h-100">
+				<div class="card-body">
+					<div class="dg-title h6 mb-1">Sebaran Lembaga berdasarkan Provinsi (Top 5)</div>
+					<div class="dg-sub">Lima Provinsi dengan Jumlah Lembaga Terbanyak berdasarkan Verifikasi Legalitas.</div>
+					<div class="chart-box h-md"><canvas id="chProvinsi"></canvas></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ===== BARIS 4: JENIS + SEKTOR ===== -->
+	<div class="row">
+		<div class="col-lg-6 mb-4">
+			<div class="card dg-card h-100">
+				<div class="card-body">
+					<div class="dg-title h6 mb-1">Jenis Lembaga Vokasi</div>
+					<div class="dg-sub">Distribusi Lembaga Vokasi Berdasarkan Jenis Kelembagaan yang Telah Diverifikasi.</div>
+					<div class="chart-box h-md"><canvas id="chJenis"></canvas></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 mb-4">
+			<div class="card dg-card h-100">
+				<div class="card-body">
+					<div class="dg-title h6 mb-1">Sektor Spesialisasi Lembaga (Top 5)</div>
+					<div class="dg-sub">Lima Sektor Spesialisasi dengan Jumlah Lembaga Terbanyak.</div>
+					<div class="chart-box h-md"><canvas id="chSektor"></canvas></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- /.container-fluid -->
+
+<script>
+window.DG = {
+	gold: '<?= $gold ?>', goldDark: '<?= $goldDark ?>', goldDeep: '<?= $goldDeep ?>', goldLight: '<?= $goldLight ?>',
+	status:     { labels: <?= json_encode($statusLabels) ?>, data: <?= json_encode($statusData) ?>, total: <?= (int) $lembagaTerdaftar ?> },
+	akreditasi: { labels: <?= json_encode($akreditasiLabels) ?>, data: <?= json_encode($akreditasiData) ?> },
+	bentuk:     { labels: <?= json_encode($bentukLabels) ?>, data: <?= json_encode($bentukData) ?> },
+	provinsi:   { labels: <?= json_encode($provLabels) ?>, data: <?= json_encode($provData) ?> },
+	jenis:      { labels: <?= json_encode($jenisLabels) ?>, data: <?= json_encode($jenisData) ?> },
+	sektor:     { labels: <?= json_encode($sektorLabels) ?>, data: <?= json_encode($sektorData) ?> },
+	points:     <?= json_encode($mapPoints) ?>
+};
+
+window.addEventListener('load', function () {
+	var DG = window.DG;
+
+	// --- Palet emas bertingkat untuk deret bar ---
+	function goldScale(n) {
+		var stops = [DG.gold, '#DDB646', DG.goldDark, '#B78B24', DG.goldDeep];
+		var out = [];
+		for (var i = 0; i < n; i++) { out.push(stops[Math.min(i, stops.length - 1)]); }
+		return out;
+	}
+
+	// ---------------- Chart.js ----------------
+	if (typeof Chart !== 'undefined') {
+		Chart.defaults.global.defaultFontColor = '#8a8a95';
+		Chart.defaults.global.defaultFontFamily = 'Nunito, sans-serif';
+
+		var hBarOpts = {
+			maintainAspectRatio: false,
+			legend: { display: false },
+			scales: {
+				xAxes: [{ ticks: { beginAtZero: true }, gridLines: { color: '#f0f0f4', drawBorder: false } }],
+				yAxes: [{ gridLines: { display: false, drawBorder: false } }]
+			}
+		};
+		var vBarOpts = {
+			maintainAspectRatio: false,
+			legend: { display: false },
+			scales: {
+				xAxes: [{ gridLines: { display: false, drawBorder: false } }],
+				yAxes: [{ ticks: { beginAtZero: true }, gridLines: { color: '#f0f0f4', drawBorder: false } }]
+			}
+		};
+
+		// Status (doughnut)
+		new Chart(document.getElementById('chStatus'), {
+			type: 'doughnut',
+			data: { labels: DG.status.labels,
+				datasets: [{ data: DG.status.data, backgroundColor: [DG.gold, DG.goldLight, DG.goldDeep], borderWidth: 0 }] },
+			options: {
+				maintainAspectRatio: false, cutoutPercentage: 72,
+				legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12 } }
+			}
+		});
+		// Angka total di tengah donut
+		(function () {
+			var box = document.getElementById('chStatus').parentNode;
+			var c = document.createElement('div');
+			c.style.cssText = 'position:absolute;top:44%;left:0;right:0;text-align:center;pointer-events:none;transform:translateY(-50%);';
+			c.innerHTML = '<div class="dg-legend-total">' + DG.status.total.toLocaleString('id-ID') +
+				'<small>Lembaga Vokasi</small></div>';
+			box.appendChild(c);
+		})();
+
+		// Akreditasi (horizontal bar)
+		new Chart(document.getElementById('chAkreditasi'), {
+			type: 'horizontalBar',
+			data: { labels: DG.akreditasi.labels,
+				datasets: [{ data: DG.akreditasi.data, backgroundColor: goldScale(DG.akreditasi.data.length), borderRadius: 6 }] },
+			options: hBarOpts
+		});
+
+		// Bentuk (horizontal bar)
+		new Chart(document.getElementById('chBentuk'), {
+			type: 'horizontalBar',
+			data: { labels: DG.bentuk.labels,
+				datasets: [{ data: DG.bentuk.data, backgroundColor: goldScale(DG.bentuk.data.length), borderRadius: 6 }] },
+			options: hBarOpts
+		});
+
+		// Provinsi Top 5 (vertical bar)
+		new Chart(document.getElementById('chProvinsi'), {
+			type: 'bar',
+			data: { labels: DG.provinsi.labels,
+				datasets: [{ data: DG.provinsi.data, backgroundColor: DG.gold, borderRadius: 6 }] },
+			options: vBarOpts
+		});
+
+		// Jenis (vertical bar)
+		new Chart(document.getElementById('chJenis'), {
+			type: 'bar',
+			data: { labels: DG.jenis.labels,
+				datasets: [{ data: DG.jenis.data, backgroundColor: DG.gold, borderRadius: 6 }] },
+			options: vBarOpts
+		});
+
+		// Sektor Top 5 (horizontal bar)
+		new Chart(document.getElementById('chSektor'), {
+			type: 'horizontalBar',
+			data: { labels: DG.sektor.labels,
+				datasets: [{ data: DG.sektor.data, backgroundColor: goldScale(DG.sektor.data.length), borderRadius: 6 }] },
+			options: hBarOpts
+		});
+	}
+
+	// ---------------- Leaflet (peta mock) ----------------
+	if (typeof L !== 'undefined' && document.getElementById('dgMap')) {
+		var map = L.map('dgMap', { scrollWheelZoom: false, attributionControl: false }).setView([-2.5, 118.0], 4.4);
+		L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+			maxZoom: 19, subdomains: 'abcd'
+		}).addTo(map);
+		DG.points.forEach(function (p) {
+			L.circleMarker([p[0], p[1]], {
+				radius: 6 + Math.sqrt(p[3]) / 3,
+				color: DG.goldDark, weight: 1.5, fillColor: DG.gold, fillOpacity: .85
+			}).addTo(map).bindTooltip(p[2] + ': ' + p[3].toLocaleString('id-ID') + ' lembaga');
+		});
+	}
+});
+</script>
