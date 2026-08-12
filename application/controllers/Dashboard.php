@@ -31,6 +31,8 @@ class Dashboard extends CI_Controller {
 			'komposisi'  => $this->repo->komposisiStatusBentuk(),
 			// Peta persebaran + Sebaran Provinsi Top 5 (legalitas accepted) — DB, tanpa join.
 			'sebaran'    => $this->repo->sebaranLegalitas(5),
+			// Jenis Lembaga (bar) + Sektor Spesialisasi Top 5 (bar) — DB, tanpa join.
+			'jenis_sektor' => $this->repo->jenisDanSektor(5),
 		);
 
 		$this->load->view('templates/header', $data);

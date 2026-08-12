@@ -78,13 +78,29 @@ $sbProv = ( ! empty($sb['provinsi_top'])) ? $sb['provinsi_top'] : array(
 $provLabels = array_map(function ($x) { return $x['label']; }, $sbProv);
 $provData   = array_map(function ($x) { return (int) $x['value']; }, $sbProv);
 
-// Jenis Lembaga Vokasi
-$jenisLabels = array('LPK', 'SMK', 'Politeknik', 'LKP', 'Universitas', 'Balai', 'BLK', 'BLKLN', 'LSP', 'SMA');
-$jenisData   = array(1188, 132, 108, 96, 74, 58, 46, 24, 16, 11);
+$js = isset($jenis_sektor) ? $jenis_sektor : array();
 
-// Sektor Spesialisasi Top 5
-$sektorLabels = array('Tourism, Travel, dan Hospitality', 'Bahasa', 'Kesehatan', 'Pertanian & Peternakan', 'Teknologi Informasi');
-$sektorData   = array(2321, 1096, 839, 531, 416);
+// Jenis Lembaga Vokasi (bar) — DB (type_name).
+$jsJenis = ( ! empty($js['jenis'])) ? $js['jenis'] : array(
+	array('label' => 'LPK', 'value' => 967), array('label' => 'SMK', 'value' => 190),
+	array('label' => 'LKP', 'value' => 148), array('label' => 'Politeknik', 'value' => 93),
+	array('label' => 'Universitas', 'value' => 92), array('label' => 'BLK', 'value' => 73),
+	array('label' => 'Balai', 'value' => 29), array('label' => 'BLKLN', 'value' => 19),
+	array('label' => 'LSP', 'value' => 8), array('label' => 'SMA', 'value' => 7),
+);
+$jenisLabels = array_map(function ($x) { return $x['label']; }, $jsJenis);
+$jenisData   = array_map(function ($x) { return (int) $x['value']; }, $jsJenis);
+
+// Sektor Spesialisasi Top 5 (bar) — DB (jumlah lembaga unik per sektor).
+$jsSektor = ( ! empty($js['sektor'])) ? $js['sektor'] : array(
+	array('label' => 'Bahasa', 'value' => 716),
+	array('label' => 'Tourism, Travel, dan Hospitality', 'value' => 417),
+	array('label' => 'Teknologi Informasi', 'value' => 311),
+	array('label' => 'Bisnis dan Manajemen', 'value' => 247),
+	array('label' => 'Kesehatan', 'value' => 239),
+);
+$sektorLabels = array_map(function ($x) { return $x['label']; }, $jsSektor);
+$sektorData   = array_map(function ($x) { return (int) $x['value']; }, $jsSektor);
 
 // Tanggal Bahasa Indonesia (tanpa strftime yang sudah deprecated)
 $hariID  = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu');

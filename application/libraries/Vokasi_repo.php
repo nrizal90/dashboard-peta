@@ -764,6 +764,51 @@ class Vokasi_repo {
 		return array('provinsi_top' => $provinsi, 'choropleth' => $choropleth);
 	}
 
+	/**
+	 * Kartu "Jenis Lembaga Vokasi" (bar) + "Sektor Spesialisasi (Top N)" (bar).
+	 *   jenis  : distribusi type_name — view dashboard_vokasi_detail (tanpa join).
+	 *   sektor : Top-N sektor by JUMLAH LEMBAGA UNIK (count distinct vok_id) —
+	 *            view dashboard_vokasi_detail_sektor (tanpa join; sektor & vok_id
+	 *            keduanya ada di view itu). Pakai distinct krn 1 lembaga bisa punya
+	 *            banyak baris jabatan pada 1 sektor (spec 2.1: dedup dulu).
+	 * @return array
+	 */
+	public function jenisDanSektor($topSektor = 5)
+	{
+		$db = $this->requireDb();
+
+		$j = $db->query(
+			"SELECT trim(type_name) AS label, count(*) AS value
+			FROM dashboard_vokasi_detail
+			WHERE type_name IS NOT NULL AND trim(type_name) <> ''
+			GROUP BY trim(type_name)
+			ORDER BY value DESC"
+		)->result_array();
+
+		$jenis = array();
+		foreach ($j as $r)
+		{
+			$jenis[] = array('label' => $r['label'], 'value' => (int) $r['value']);
+		}
+
+		$s = $db->query(
+			"SELECT trim(sector_name) AS label, count(DISTINCT vok_id) AS value
+			FROM dashboard_vokasi_detail_sektor
+			WHERE sector_name IS NOT NULL AND trim(sector_name) <> ''
+			GROUP BY trim(sector_name)
+			ORDER BY value DESC
+			LIMIT " . (int) $topSektor
+		)->result_array();
+
+		$sektor = array();
+		foreach ($s as $r)
+		{
+			$sektor[] = array('label' => $r['label'], 'value' => (int) $r['value']);
+		}
+
+		return array('jenis' => $jenis, 'sektor' => $sektor);
+	}
+
 	/** Agregat provinsi pre-computed (untuk choropleth). */
 	public function aggProvinsi()  { return $this->load('agg_provinsi'); }
 
