@@ -23,6 +23,16 @@
 	<link href="<?= base_url('assets/vendor/leaflet.markercluster/MarkerCluster.Default.css') ?>" rel="stylesheet">
 
 	<style>
+		/* Sidebar emas (senada tema dashboard) — ganti bg-gradient-warning yg terlalu kuning */
+		.bg-gradient-gold {
+			background-color: #C79A2E;
+			background-image: linear-gradient(180deg, #C79A2E 10%, #A87F1E 100%);
+			background-size: cover;
+		}
+		/* Sedikit pertegas garis pemisah & heading di sidebar emas */
+		.sidebar-dark .sidebar-heading { color: rgba(255, 255, 255, .7); }
+		.sidebar-dark hr.sidebar-divider { border-top-color: rgba(255, 255, 255, .2); }
+
 		#map { height: calc(100vh - 210px); min-height: 460px; width: 100%; border-radius: .35rem; z-index: 0; }
 
 		/* Panel filter & chart bisa discroll independen */
