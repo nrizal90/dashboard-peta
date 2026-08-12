@@ -159,6 +159,22 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 	.chart-box.h-sm  { height: 210px; }
 	.chart-box.h-md  { height: 260px; }
 	.chart-box.h-lg  { height: 300px; }
+
+	/* ===== Responsive: tablet ke bawah ===== */
+	@media (max-width: 991.98px) {
+		#dgMap { height: 340px; }
+	}
+	/* ===== Responsive: HP (xs) ===== */
+	@media (max-width: 575.98px) {
+		.dg-card .card-body { padding: 1rem 1.05rem; }
+		.dg-hero-logo { width: 60px; height: 60px; }
+		.dg-hero .stat-num { font-size: 1.35rem; }
+		.dg-kpi .kpi-num { font-size: 1.6rem; }
+		.dg-legend-total { font-size: 1.6rem; }
+		#dgMap { height: 300px; }
+		.chart-box.h-md { height: 240px; }
+		.chart-box.h-lg { height: 260px; }
+	}
 </style>
 
 <!-- Begin Page Content -->
@@ -197,7 +213,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 		<div class="col-xl-8 col-lg-7 mb-4">
 			<div class="row h-100">
 				<?php foreach ($kpis as $k): ?>
-				<div class="col-md-3 col-6 mb-3 mb-md-0">
+				<div class="col-xl-3 col-sm-6 col-12 mb-3 mb-xl-0">
 					<div class="card dg-card dg-kpi h-100">
 						<div class="card-body">
 							<div class="d-flex justify-content-between align-items-start mb-2">
@@ -218,7 +234,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 
 	<!-- ===== BARIS 2: STATUS · AKREDITASI · BENTUK ===== -->
 	<div class="row">
-		<div class="col-lg-4 mb-4">
+		<div class="col-md-6 col-lg-4 mb-4">
 			<div class="card dg-card h-100">
 				<div class="card-body">
 					<div class="dg-title h6 mb-1">Status Lembaga Vokasi</div>
@@ -227,7 +243,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-4 mb-4">
+		<div class="col-md-6 col-lg-4 mb-4">
 			<div class="card dg-card h-100">
 				<div class="card-body">
 					<div class="dg-title h6 mb-1">Akreditasi Lembaga
@@ -242,7 +258,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-4 mb-4">
+		<div class="col-md-6 col-lg-4 mb-4">
 			<div class="card dg-card h-100">
 				<div class="card-body">
 					<div class="dg-title h6 mb-1">Bentuk Lembaga</div>
@@ -468,7 +484,15 @@ window.addEventListener('load', function () {
 					});
 				}
 			}).addTo(map);
-			map.fitBounds(layer.getBounds(), { padding: [4, 4] });
+
+			function fitMap() { map.invalidateSize(); map.fitBounds(layer.getBounds(), { padding: [4, 4] }); }
+			fitMap();
+
+			// Re-fit saat viewport/kontainer berubah (rotate HP, resize, toggle sidebar).
+			var rt;
+			window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fitMap, 200); });
+			var sbToggle = document.getElementById('sidebarToggle');
+			if (sbToggle) { sbToggle.addEventListener('click', function () { setTimeout(fitMap, 300); }); }
 		}).catch(function () {
 			document.getElementById('dgMap').innerHTML =
 				'<div class="text-muted small p-3">Peta gagal dimuat (GeoJSON tidak tersedia).</div>';
