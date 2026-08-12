@@ -91,26 +91,10 @@ $hariID  = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu')
 $bulanID = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
 $tanggalID = $hariID[(int) date('w')] . ', ' . date('d') . ' ' . $bulanID[(int) date('n')] . ' ' . date('Y');
 
-// Titik peta — DB (bubble per provinsi: [lat, lng, nama, jumlah]).
-$mapPoints = array();
-if ( ! empty($sb['points']))
-{
-	foreach ($sb['points'] as $pt)
-	{
-		$mapPoints[] = array((float) $pt['lat'], (float) $pt['lng'], $pt['provinsi'], (int) $pt['jumlah']);
-	}
-}
-else
-{
-	// Fallback contoh bila DB kosong.
-	$mapPoints = array(
-		array(-7.150, 110.140, 'Jawa Tengah', 166),
-		array(-6.914, 107.610, 'Jawa Barat', 142),
-		array(-7.536, 112.238, 'Jawa Timur', 113),
-		array(-8.409, 115.188, 'Bali', 59),
-		array(-7.797, 110.370, 'Daerah Istimewa Yogyakarta', 48),
-	);
-}
+// Peta choropleth — DB { key_provinsi => jumlah accepted }. Fallback contoh bila kosong.
+$mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
+	'jawatengah' => 166, 'jawabarat' => 142, 'jawatimur' => 113, 'bali' => 59, 'yogyakarta' => 48,
+);
 ?>
 
 <!-- ============ TEMA EMAS (sementara, scoped ke halaman ini) ============ -->
@@ -145,7 +129,8 @@ else
 	.dg-legend-total { font-size: 1.9rem; font-weight: 800; color: #2b2b33; }
 	.dg-legend-total small { display:block; font-size:.7rem; font-weight:600; color:#9a9aa6; }
 
-	#dgMap { height: 300px; border-radius: .75rem; z-index: 0; background: #eef1f7; }
+	#dgMap { height: 380px; border-radius: .75rem; z-index: 0; background: #ffffff; }
+	#dgMap .leaflet-container { background: #ffffff; }
 
 	/* Catatan "data contoh" untuk kartu yang belum tersambung DB */
 	.dg-note-dummy {
@@ -308,7 +293,8 @@ window.DG = {
 	provinsi:   { labels: <?= json_encode($provLabels) ?>, data: <?= json_encode($provData) ?> },
 	jenis:      { labels: <?= json_encode($jenisLabels) ?>, data: <?= json_encode($jenisData) ?> },
 	sektor:     { labels: <?= json_encode($sektorLabels) ?>, data: <?= json_encode($sektorData) ?> },
-	points:     <?= json_encode($mapPoints) ?>
+	choropleth: <?= json_encode($mapChoropleth) ?>,
+	geojsonUrl: '<?= base_url('assets/vendor/geojson/indonesia-provinsi.json') ?>'
 };
 
 // Jam berjalan kartu sambutan — selalu ikut waktu perangkat pengguna.
@@ -425,17 +411,51 @@ window.addEventListener('load', function () {
 		});
 	}
 
-	// ---------------- Leaflet (peta mock) ----------------
+	// ---------------- Leaflet: choropleth provinsi (tanpa basemap) ----------------
 	if (typeof L !== 'undefined' && document.getElementById('dgMap')) {
-		var map = L.map('dgMap', { scrollWheelZoom: false, attributionControl: false }).setView([-2.5, 118.0], 4.4);
-		L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-			maxZoom: 19, subdomains: 'abcd'
-		}).addTo(map);
-		DG.points.forEach(function (p) {
-			L.circleMarker([p[0], p[1]], {
-				radius: 4 + Math.sqrt(p[3]) * 1.3,
-				color: DG.goldDark, weight: 1.5, fillColor: DG.gold, fillOpacity: .8
-			}).addTo(map).bindTooltip(p[2] + ': ' + p[3].toLocaleString('id-ID') + ' lembaga');
+		var map = L.map('dgMap', {
+			scrollWheelZoom: false, attributionControl: false, zoomControl: true,
+			zoomSnap: 0.1, zoomDelta: 0.5   // izinkan zoom pecahan → fitBounds mengisi penuh
+		}).setView([-2.5, 118.0], 4.3);
+
+		// Normalisasi nama provinsi GeoJSON -> key (sama dgn key server).
+		function keyOf(s) { return String(s).toLowerCase().replace(/[^a-z0-9]/g, ''); }
+
+		var vals = DG.choropleth || {};
+		var maxV = 1;
+		Object.keys(vals).forEach(function (k) { if (vals[k] > maxV) { maxV = vals[k]; } });
+
+		// Skala warna emas: 0/kosong = pucat; makin banyak = makin pekat (skala akar).
+		function fillColor(v) {
+			if (!v) { return '#e9edf3'; }
+			var t = Math.sqrt(v) / Math.sqrt(maxV);
+			var a = [245, 224, 150], b = [150, 100, 20]; // light gold -> deep gold
+			var r = Math.round(a[0] + (b[0] - a[0]) * t);
+			var g = Math.round(a[1] + (b[1] - a[1]) * t);
+			var bl = Math.round(a[2] + (b[2] - a[2]) * t);
+			return 'rgb(' + r + ',' + g + ',' + bl + ')';
+		}
+
+		fetch(DG.geojsonUrl).then(function (r) { return r.json(); }).then(function (gj) {
+			var layer = L.geoJSON(gj, {
+				style: function (f) {
+					var v = vals[keyOf(f.properties.state)] || 0;
+					return { fillColor: fillColor(v), weight: 1, color: '#ffffff', fillOpacity: .9 };
+				},
+				onEachFeature: function (f, lyr) {
+					var v = vals[keyOf(f.properties.state)] || 0;
+					lyr.bindTooltip('<b>' + f.properties.state + '</b><br>' +
+						v.toLocaleString('id-ID') + ' lembaga terverifikasi', { sticky: true });
+					lyr.on({
+						mouseover: function (e) { e.target.setStyle({ weight: 2, color: '#8a6d1a', fillOpacity: 1 }); },
+						mouseout:  function (e) { layer.resetStyle(e.target); }
+					});
+				}
+			}).addTo(map);
+			map.fitBounds(layer.getBounds(), { padding: [4, 4] });
+		}).catch(function () {
+			document.getElementById('dgMap').innerHTML =
+				'<div class="text-muted small p-3">Peta gagal dimuat (GeoJSON tidak tersedia).</div>';
 		});
 	}
 });

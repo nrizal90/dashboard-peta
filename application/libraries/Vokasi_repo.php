@@ -683,87 +683,85 @@ class Vokasi_repo {
 	}
 
 	/**
+	 * Kunci provinsi kanonik agar cocok dgn GeoJSON (assets/vendor/geojson/
+	 * indonesia-provinsi.json, prop `state`). Normalisasi = lowercase + buang
+	 * non-alfanumerik; lalu alias untuk nama DB yang beda dari GeoJSON
+	 * (DKI/DIY, Bangka Belitung, Papua Barat Daya→Papua Barat). Kunci hasil sama
+	 * dgn normalisasi `state` GeoJSON di sisi klien → merge otomatis (mis. DKI
+	 * Jakarta + Daerah Khusus Ibukota Jakarta → 'jakartaraya').
+	 */
+	private function provKey($name)
+	{
+		$k = preg_replace('/[^a-z0-9]/', '', strtolower((string) $name));
+		$alias = array(
+			'daerahistimewayogyakarta'   => 'yogyakarta',
+			'diyogyakarta'               => 'yogyakarta',
+			'daerahkhususibukotajakarta' => 'jakartaraya',
+			'dkijakarta'                 => 'jakartaraya',
+			'jakarta'                    => 'jakartaraya',
+			'kepulauanbangkabelitung'    => 'bangkabelitung',
+			'papuabaratdaya'             => 'papuabarat',
+		);
+		return isset($alias[$k]) ? $alias[$k] : $k;
+	}
+
+	/**
 	 * Sebaran lembaga TERVERIFIKASI LEGALITAS (accepted) untuk:
 	 *   - kartu "Sebaran Lembaga per Provinsi (Top 5)" (bar)
-	 *   - kartu "Peta Persebaran Verifikasi Lembaga" (bubble per provinsi)
-	 * Cukup view dashboard_vokasi_detail (tanpa join).
-	 *   provinsi_top : Top-N provinsi by jumlah lembaga accepted.
-	 *   points       : 1 titik/provinsi = centroid (rata2 koordinat accepted valid) + jumlah.
-	 * Koordinat difilter: format float valid & di dalam bounding-box Indonesia
-	 * (regex float dijalankan di WHERE subquery agar cast tak kena data kotor).
+	 *   - kartu "Peta Persebaran Verifikasi Lembaga" (choropleth provinsi)
+	 * Cukup view dashboard_vokasi_detail (tanpa join). Provinsi dinormalisasi via
+	 * provKey() → casing beda & DKI/DIY digabung.
+	 *   provinsi_top : Top-N provinsi by jumlah lembaga accepted (label = varian terbanyak).
+	 *   choropleth   : map { key_provinsi => jumlah } untuk pewarnaan polygon peta.
 	 * @return array
 	 */
 	public function sebaranLegalitas($topN = 5)
 	{
 		$db = $this->requireDb();
 
-		// Top provinsi by legalitas accepted.
-		$p = $db->query(
-			"SELECT vok_province AS label, count(*) AS value
+		$rows = $db->query(
+			"SELECT vok_province AS provinsi, count(*) AS jumlah
 			FROM dashboard_vokasi_detail
 			WHERE ver_legality_status = 'accepted'
 			  AND vok_province IS NOT NULL AND vok_province <> ''
-			GROUP BY vok_province
-			ORDER BY value DESC
-			LIMIT " . (int) $topN
+			GROUP BY vok_province"
 		)->result_array();
 
-		$provinsi = array();
-		foreach ($p as $r)
+		// Agregasi per provinsi kanonik (gabung casing + alias DKI/DIY dll).
+		$agg = array(); // key => ['label','jumlah','lblN']
+		foreach ($rows as $r)
 		{
-			$provinsi[] = array('label' => $r['label'], 'value' => (int) $r['value']);
-		}
-
-		// Bubble peta: centroid koordinat accepted valid per provinsi.
-		$m = $db->query(
-			"SELECT provinsi, count(*) AS jumlah, avg(lat) AS lat, avg(lng) AS lng
-			FROM (
-				SELECT vok_province AS provinsi,
-				       vok_lat::float  AS lat,
-				       vok_long::float AS lng
-				FROM dashboard_vokasi_detail
-				WHERE ver_legality_status = 'accepted'
-				  AND vok_province IS NOT NULL AND vok_province <> ''
-				  AND vok_lat  ~ '^-?[0-9]+(\.[0-9]+)?$'
-				  AND vok_long ~ '^-?[0-9]+(\.[0-9]+)?$'
-			) t
-			WHERE lat BETWEEN -11.5 AND 7 AND lng BETWEEN 94 AND 142
-			GROUP BY provinsi"
-		)->result_array();
-
-		// Gabung provinsi yang casing-nya beda (mis. "Banten" vs "BANTEN") agar tak
-		// jadi 2 bubble. Label = varian dgn jumlah terbanyak; centroid ditimbang jumlah.
-		$byKey = array();
-		foreach ($m as $r)
-		{
-			$key = mb_strtolower(trim($r['provinsi']));
+			$key = $this->provKey($r['provinsi']);
 			$n   = (int) $r['jumlah'];
-			if ( ! isset($byKey[$key]))
+			if ( ! isset($agg[$key]))
 			{
-				$byKey[$key] = array('label' => $r['provinsi'], 'jumlah' => 0, 'latSum' => 0.0, 'lngSum' => 0.0, 'lblN' => -1);
+				$agg[$key] = array('label' => $r['provinsi'], 'jumlah' => 0, 'lblN' => -1);
 			}
-			if ($n > $byKey[$key]['lblN'])
+			if ($n > $agg[$key]['lblN'])   // label tampilan = varian ber-jumlah terbanyak
 			{
-				$byKey[$key]['label'] = $r['provinsi'];
-				$byKey[$key]['lblN']  = $n;
+				$agg[$key]['label'] = $r['provinsi'];
+				$agg[$key]['lblN']  = $n;
 			}
-			$byKey[$key]['jumlah'] += $n;
-			$byKey[$key]['latSum'] += ((float) $r['lat']) * $n;
-			$byKey[$key]['lngSum'] += ((float) $r['lng']) * $n;
+			$agg[$key]['jumlah'] += $n;
 		}
 
-		$points = array();
-		foreach ($byKey as $b)
+		// Choropleth: key => jumlah.
+		$choropleth = array();
+		foreach ($agg as $key => $v)
 		{
-			$points[] = array(
-				'provinsi' => $b['label'],
-				'jumlah'   => $b['jumlah'],
-				'lat'      => round($b['latSum'] / $b['jumlah'], 5),
-				'lng'      => round($b['lngSum'] / $b['jumlah'], 5),
-			);
+			$choropleth[$key] = $v['jumlah'];
 		}
 
-		return array('provinsi_top' => $provinsi, 'points' => $points);
+		// Top-N provinsi (bar).
+		$list = array();
+		foreach ($agg as $v)
+		{
+			$list[] = array('label' => $v['label'], 'value' => $v['jumlah']);
+		}
+		usort($list, function ($a, $b) { return $b['value'] - $a['value']; });
+		$provinsi = array_slice($list, 0, (int) $topN);
+
+		return array('provinsi_top' => $provinsi, 'choropleth' => $choropleth);
 	}
 
 	/** Agregat provinsi pre-computed (untuk choropleth). */
