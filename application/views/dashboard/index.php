@@ -41,21 +41,42 @@ $kpis = array(
 	array('Lembaga Ditolak',           $kDit[0], $kDit[1], 'Jumlah Lembaga yang Belum Memenuhi Persyaratan Verifikasi.'),
 );
 
-// Status Lembaga Vokasi (donut) — total = $lembagaTerdaftar
-$statusLabels = array('Terverifikasi Legalitas', 'Dalam Proses', 'Ditolak');
-$statusData   = array(417, 657, 625);
+$km = isset($komposisi) ? $komposisi : array();
 
-// Akreditasi
+// Status Lembaga Vokasi (donut) — DB (distribusi legalitas). Total = $lembagaTerdaftar.
+$kmStatus = isset($km['status']) ? $km['status'] : array();
+$statusLabels = array('Terverifikasi Legalitas', 'Dalam Proses', 'Ditolak');
+$statusData   = array(
+	isset($kmStatus['terverifikasi']) ? (int) $kmStatus['terverifikasi'] : 0,
+	isset($kmStatus['proses'])        ? (int) $kmStatus['proses']        : 0,
+	isset($kmStatus['ditolak'])       ? (int) $kmStatus['ditolak']       : 0,
+);
+
+// Akreditasi — HARDCODE (belum ada kolom akreditasi di view dashboard_vokasi_*).
 $akreditasiLabels = array('Akreditasi A', 'Akreditasi B', 'Belum Terakreditasi', 'Akreditasi C');
 $akreditasiData   = array(644, 459, 357, 72);
 
-// Bentuk Lembaga
-$bentukLabels = array('Pendidikan dan Pelatihan', 'Pelatihan', 'Pendidikan');
-$bentukData   = array(820, 497, 382);
+// Bentuk Lembaga (bar) — DB (vok_institution_form).
+$kmBentuk = ( ! empty($km['bentuk'])) ? $km['bentuk'] : array(
+	array('label' => 'Pendidikan dan Pelatihan', 'value' => 882),
+	array('label' => 'Pelatihan',                'value' => 463),
+	array('label' => 'Pendidikan',               'value' => 280),
+);
+$bentukLabels = array_map(function ($x) { return $x['label']; }, $kmBentuk);
+$bentukData   = array_map(function ($x) { return (int) $x['value']; }, $kmBentuk);
 
-// Provinsi Top 5
-$provLabels = array('Jawa Tengah', 'Jawa Barat', 'Jawa Timur', 'Bali', 'Daerah Istimewa Yogyakarta');
-$provData   = array(421, 388, 252, 141, 118);
+$sb = isset($sebaran) ? $sebaran : array();
+
+// Provinsi Top 5 (bar) — DB (legalitas accepted).
+$sbProv = ( ! empty($sb['provinsi_top'])) ? $sb['provinsi_top'] : array(
+	array('label' => 'Jawa Tengah', 'value' => 166),
+	array('label' => 'Jawa Barat',  'value' => 142),
+	array('label' => 'Jawa Timur',  'value' => 113),
+	array('label' => 'Bali',        'value' => 59),
+	array('label' => 'Daerah Istimewa Yogyakarta', 'value' => 48),
+);
+$provLabels = array_map(function ($x) { return $x['label']; }, $sbProv);
+$provData   = array_map(function ($x) { return (int) $x['value']; }, $sbProv);
 
 // Jenis Lembaga Vokasi
 $jenisLabels = array('LPK', 'SMK', 'Politeknik', 'LKP', 'Universitas', 'Balai', 'BLK', 'BLKLN', 'LSP', 'SMA');
@@ -70,16 +91,26 @@ $hariID  = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu')
 $bulanID = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
 $tanggalID = $hariID[(int) date('w')] . ', ' . date('d') . ' ' . $bulanID[(int) date('n')] . ' ' . date('Y');
 
-// Titik peta (mock) — [lat, lng, nama, jumlah]
-$mapPoints = array(
-	array(-7.150, 110.140, 'Jawa Tengah', 421),
-	array(-6.914, 107.610, 'Jawa Barat', 388),
-	array(-7.536, 112.238, 'Jawa Timur', 252),
-	array(-8.409, 115.188, 'Bali', 141),
-	array(-7.797, 110.370, 'DI Yogyakarta', 118),
-	array(-5.147, 119.432, 'Sulawesi Selatan', 96),
-	array(-6.211, 106.845, 'DKI Jakarta', 88),
-);
+// Titik peta — DB (bubble per provinsi: [lat, lng, nama, jumlah]).
+$mapPoints = array();
+if ( ! empty($sb['points']))
+{
+	foreach ($sb['points'] as $pt)
+	{
+		$mapPoints[] = array((float) $pt['lat'], (float) $pt['lng'], $pt['provinsi'], (int) $pt['jumlah']);
+	}
+}
+else
+{
+	// Fallback contoh bila DB kosong.
+	$mapPoints = array(
+		array(-7.150, 110.140, 'Jawa Tengah', 166),
+		array(-6.914, 107.610, 'Jawa Barat', 142),
+		array(-7.536, 112.238, 'Jawa Timur', 113),
+		array(-8.409, 115.188, 'Bali', 59),
+		array(-7.797, 110.370, 'Daerah Istimewa Yogyakarta', 48),
+	);
+}
 ?>
 
 <!-- ============ TEMA EMAS (sementara, scoped ke halaman ini) ============ -->
@@ -115,6 +146,13 @@ $mapPoints = array(
 	.dg-legend-total small { display:block; font-size:.7rem; font-weight:600; color:#9a9aa6; }
 
 	#dgMap { height: 300px; border-radius: .75rem; z-index: 0; background: #eef1f7; }
+
+	/* Catatan "data contoh" untuk kartu yang belum tersambung DB */
+	.dg-note-dummy {
+		background: #fff8e1; border: 1px solid #f3e2a9; color: #8a6d1a;
+		font-size: .72rem; line-height: 1.3; border-radius: .5rem;
+		padding: .4rem .6rem; margin-bottom: .6rem;
+	}
 
 	.chart-box { position: relative; }
 	.chart-box.h-sm  { height: 210px; }
@@ -191,8 +229,14 @@ $mapPoints = array(
 		<div class="col-lg-4 mb-4">
 			<div class="card dg-card h-100">
 				<div class="card-body">
-					<div class="dg-title h6 mb-1">Akreditasi Lembaga</div>
+					<div class="dg-title h6 mb-1">Akreditasi Lembaga
+						<span class="badge badge-warning ml-1" style="font-size:.6rem;vertical-align:middle;" title="Angka contoh — kolom akreditasi belum tersedia di database">contoh</span>
+					</div>
 					<div class="dg-sub">Distribusi Status Akreditasi Sebagai Indikator Kualitas Lembaga Vokasi.</div>
+					<div class="dg-note-dummy">
+						<i class="fas fa-info-circle mr-1"></i>
+						Data masih <b>contoh</b> — belum tersedia di database, jadi angka di sini bukan data sebenarnya.
+					</div>
 					<div class="chart-box h-md"><canvas id="chAkreditasi"></canvas></div>
 				</div>
 			</div>
@@ -389,8 +433,8 @@ window.addEventListener('load', function () {
 		}).addTo(map);
 		DG.points.forEach(function (p) {
 			L.circleMarker([p[0], p[1]], {
-				radius: 6 + Math.sqrt(p[3]) / 3,
-				color: DG.goldDark, weight: 1.5, fillColor: DG.gold, fillOpacity: .85
+				radius: 4 + Math.sqrt(p[3]) * 1.3,
+				color: DG.goldDark, weight: 1.5, fillColor: DG.gold, fillOpacity: .8
 			}).addTo(map).bindTooltip(p[2] + ': ' + p[3].toLocaleString('id-ID') + ' lembaga');
 		});
 	}

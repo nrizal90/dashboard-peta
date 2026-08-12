@@ -634,6 +634,138 @@ class Vokasi_repo {
 		);
 	}
 
+	/**
+	 * Komposisi untuk kartu "Status Lembaga Vokasi" (donut) & "Bentuk Lembaga" (bar).
+	 * Keduanya cukup dari view dashboard_vokasi_detail (tanpa join).
+	 *   status  : distribusi legalitas — terverifikasi(accepted)/proses(pending)/ditolak(rejected)
+	 *   bentuk  : distribusi vok_institution_form (Pendidikan dan Pelatihan / Pelatihan / Pendidikan)
+	 * Catatan: "Akreditasi Lembaga" TIDAK ada kolomnya di view → tidak disediakan di sini.
+	 * @return array
+	 */
+	public function komposisiStatusBentuk()
+	{
+		$db = $this->requireDb();
+
+		// Status legalitas — 3 bucket tetap, 1 query.
+		$s = $db->query(
+			"SELECT
+				count(*)                                                 AS total,
+				count(*) FILTER (WHERE ver_legality_status = 'accepted') AS terverifikasi,
+				count(*) FILTER (WHERE ver_legality_status = 'pending')  AS proses,
+				count(*) FILTER (WHERE ver_legality_status = 'rejected') AS ditolak
+			FROM dashboard_vokasi_detail"
+		)->row_array();
+
+		// Bentuk penyelenggaraan — GROUP BY.
+		$b = $db->query(
+			"SELECT vok_institution_form AS label, count(*) AS value
+			FROM dashboard_vokasi_detail
+			WHERE vok_institution_form IS NOT NULL AND vok_institution_form <> ''
+			GROUP BY vok_institution_form
+			ORDER BY value DESC"
+		)->result_array();
+
+		$bentuk = array();
+		foreach ($b as $r)
+		{
+			$bentuk[] = array('label' => $r['label'], 'value' => (int) $r['value']);
+		}
+
+		return array(
+			'status' => array(
+				'terverifikasi' => (int) $s['terverifikasi'],
+				'proses'        => (int) $s['proses'],
+				'ditolak'       => (int) $s['ditolak'],
+				'total'         => (int) $s['total'],
+			),
+			'bentuk' => $bentuk,
+		);
+	}
+
+	/**
+	 * Sebaran lembaga TERVERIFIKASI LEGALITAS (accepted) untuk:
+	 *   - kartu "Sebaran Lembaga per Provinsi (Top 5)" (bar)
+	 *   - kartu "Peta Persebaran Verifikasi Lembaga" (bubble per provinsi)
+	 * Cukup view dashboard_vokasi_detail (tanpa join).
+	 *   provinsi_top : Top-N provinsi by jumlah lembaga accepted.
+	 *   points       : 1 titik/provinsi = centroid (rata2 koordinat accepted valid) + jumlah.
+	 * Koordinat difilter: format float valid & di dalam bounding-box Indonesia
+	 * (regex float dijalankan di WHERE subquery agar cast tak kena data kotor).
+	 * @return array
+	 */
+	public function sebaranLegalitas($topN = 5)
+	{
+		$db = $this->requireDb();
+
+		// Top provinsi by legalitas accepted.
+		$p = $db->query(
+			"SELECT vok_province AS label, count(*) AS value
+			FROM dashboard_vokasi_detail
+			WHERE ver_legality_status = 'accepted'
+			  AND vok_province IS NOT NULL AND vok_province <> ''
+			GROUP BY vok_province
+			ORDER BY value DESC
+			LIMIT " . (int) $topN
+		)->result_array();
+
+		$provinsi = array();
+		foreach ($p as $r)
+		{
+			$provinsi[] = array('label' => $r['label'], 'value' => (int) $r['value']);
+		}
+
+		// Bubble peta: centroid koordinat accepted valid per provinsi.
+		$m = $db->query(
+			"SELECT provinsi, count(*) AS jumlah, avg(lat) AS lat, avg(lng) AS lng
+			FROM (
+				SELECT vok_province AS provinsi,
+				       vok_lat::float  AS lat,
+				       vok_long::float AS lng
+				FROM dashboard_vokasi_detail
+				WHERE ver_legality_status = 'accepted'
+				  AND vok_province IS NOT NULL AND vok_province <> ''
+				  AND vok_lat  ~ '^-?[0-9]+(\.[0-9]+)?$'
+				  AND vok_long ~ '^-?[0-9]+(\.[0-9]+)?$'
+			) t
+			WHERE lat BETWEEN -11.5 AND 7 AND lng BETWEEN 94 AND 142
+			GROUP BY provinsi"
+		)->result_array();
+
+		// Gabung provinsi yang casing-nya beda (mis. "Banten" vs "BANTEN") agar tak
+		// jadi 2 bubble. Label = varian dgn jumlah terbanyak; centroid ditimbang jumlah.
+		$byKey = array();
+		foreach ($m as $r)
+		{
+			$key = mb_strtolower(trim($r['provinsi']));
+			$n   = (int) $r['jumlah'];
+			if ( ! isset($byKey[$key]))
+			{
+				$byKey[$key] = array('label' => $r['provinsi'], 'jumlah' => 0, 'latSum' => 0.0, 'lngSum' => 0.0, 'lblN' => -1);
+			}
+			if ($n > $byKey[$key]['lblN'])
+			{
+				$byKey[$key]['label'] = $r['provinsi'];
+				$byKey[$key]['lblN']  = $n;
+			}
+			$byKey[$key]['jumlah'] += $n;
+			$byKey[$key]['latSum'] += ((float) $r['lat']) * $n;
+			$byKey[$key]['lngSum'] += ((float) $r['lng']) * $n;
+		}
+
+		$points = array();
+		foreach ($byKey as $b)
+		{
+			$points[] = array(
+				'provinsi' => $b['label'],
+				'jumlah'   => $b['jumlah'],
+				'lat'      => round($b['latSum'] / $b['jumlah'], 5),
+				'lng'      => round($b['lngSum'] / $b['jumlah'], 5),
+			);
+		}
+
+		return array('provinsi_top' => $provinsi, 'points' => $points);
+	}
+
 	/** Agregat provinsi pre-computed (untuk choropleth). */
 	public function aggProvinsi()  { return $this->load('agg_provinsi'); }
 

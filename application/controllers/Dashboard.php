@@ -27,6 +27,10 @@ class Dashboard extends CI_Controller {
 			'header'     => $this->repo->headerStats(),
 			// 4 KPI verifikasi (fasilitas/program/keseluruhan/ditolak) — DB, tanpa join.
 			'kpi'        => $this->repo->verifikasiKpi(),
+			// Komposisi Status (donut) + Bentuk Lembaga (bar) — DB, tanpa join.
+			'komposisi'  => $this->repo->komposisiStatusBentuk(),
+			// Peta persebaran + Sebaran Provinsi Top 5 (legalitas accepted) — DB, tanpa join.
+			'sebaran'    => $this->repo->sebaranLegalitas(5),
 		);
 
 		$this->load->view('templates/header', $data);
