@@ -15,17 +15,30 @@ $goldDark  = '#C79A2E';
 $goldDeep  = '#A87F1E';
 $goldLight = '#F2DD8E';
 
-// Kartu sambutan — angka NYATA dari DB (view dashboard_vokasi_detail), fallback contoh.
-$h = isset($header) ? $header : array();
-$lembagaTerdaftar   = isset($h['lembaga_terdaftar']) ? (int) $h['lembaga_terdaftar'] : 1699;
-$verifLegalitas     = isset($h['terverifikasi_legalitas']) ? (int) $h['terverifikasi_legalitas'] : 417;
+// Formatter angka: tampilkan '-' bila data DB tidak tersedia (bukan angka contoh).
+$fmtNum = function ($v) { return ($v === NULL) ? '-' : number_format($v, 0, ',', '.'); };
+$fmtPct = function ($v) { return ($v === NULL) ? '-' : ((int) $v) . '%'; };
 
-// KPI atas
+// Kartu sambutan — angka NYATA dari DB (view dashboard_vokasi_detail); fallback '-'.
+$h = isset($header) ? $header : array();
+$lembagaTerdaftar   = isset($h['lembaga_terdaftar']) ? (int) $h['lembaga_terdaftar'] : NULL;
+$verifLegalitas     = isset($h['terverifikasi_legalitas']) ? (int) $h['terverifikasi_legalitas'] : NULL;
+
+// KPI atas — angka NYATA dari DB (view dashboard_vokasi_detail); fallback '-'.
+$kv = isset($kpi) ? $kpi : array();
+$kvGet = function ($key) use ($kv) {
+	return isset($kv[$key]) ? array((int) $kv[$key]['nilai'], (int) $kv[$key]['persen']) : array(NULL, NULL);
+};
+$kFas = $kvGet('fasilitas');
+$kPro = $kvGet('program');
+$kKes = $kvGet('keseluruhan');
+$kDit = $kvGet('ditolak');
+
 $kpis = array(
-	array('Terverifikasi Fasilitas',   417, '15%', 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Fasilitas.'),
-	array('Terverifikasi Program',     181, '15%', 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Program Pelatihan.'),
-	array('Terverifikasi Keseluruhan', 181, '15%', 'Jumlah Lembaga yang Telah Lulus Seluruh Tahapan Verifikasi.'),
-	array('Lembaga Ditolak',           625, '15%', 'Jumlah Lembaga yang Belum Memenuhi Persyaratan Verifikasi.'),
+	array('Terverifikasi Fasilitas',   $kFas[0], $kFas[1], 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Fasilitas.'),
+	array('Terverifikasi Program',     $kPro[0], $kPro[1], 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Program Pelatihan.'),
+	array('Terverifikasi Keseluruhan', $kKes[0], $kKes[1], 'Jumlah Lembaga yang Telah Lulus Seluruh Tahapan Verifikasi.'),
+	array('Lembaga Ditolak',           $kDit[0], $kDit[1], 'Jumlah Lembaga yang Belum Memenuhi Persyaratan Verifikasi.'),
 );
 
 // Status Lembaga Vokasi (donut) — total = $lembagaTerdaftar
@@ -130,11 +143,11 @@ $mapPoints = array(
 					<div class="row mt-auto pt-3">
 						<div class="col-6">
 							<div class="stat-lbl">Lembaga Terdaftar</div>
-							<div class="stat-num"><?= number_format($lembagaTerdaftar, 0, ',', '.') ?></div>
+							<div class="stat-num"><?= $fmtNum($lembagaTerdaftar) ?></div>
 						</div>
 						<div class="col-6">
 							<div class="stat-lbl">Terverifikasi Legalitas</div>
-							<div class="stat-num"><?= number_format($verifLegalitas, 0, ',', '.') ?></div>
+							<div class="stat-num"><?= $fmtNum($verifLegalitas) ?></div>
 						</div>
 					</div>
 				</div>
@@ -152,8 +165,8 @@ $mapPoints = array(
 								<span class="kpi-name"><?= html_escape($k[0]) ?></span>
 							</div>
 							<div class="d-flex align-items-center justify-content-between">
-								<span class="kpi-num"><?= number_format($k[1], 0, ',', '.') ?></span>
-								<span class="dg-badge"><?= html_escape($k[2]) ?></span>
+								<span class="kpi-num"><?= $fmtNum($k[1]) ?></span>
+								<span class="dg-badge"><?= $fmtPct($k[2]) ?></span>
 							</div>
 							<div class="kpi-desc"><?= html_escape($k[3]) ?></div>
 						</div>
@@ -245,7 +258,7 @@ $mapPoints = array(
 <script>
 window.DG = {
 	gold: '<?= $gold ?>', goldDark: '<?= $goldDark ?>', goldDeep: '<?= $goldDeep ?>', goldLight: '<?= $goldLight ?>',
-	status:     { labels: <?= json_encode($statusLabels) ?>, data: <?= json_encode($statusData) ?>, total: <?= (int) $lembagaTerdaftar ?> },
+	status:     { labels: <?= json_encode($statusLabels) ?>, data: <?= json_encode($statusData) ?>, total: <?= $lembagaTerdaftar === NULL ? 'null' : (int) $lembagaTerdaftar ?> },
 	akreditasi: { labels: <?= json_encode($akreditasiLabels) ?>, data: <?= json_encode($akreditasiData) ?> },
 	bentuk:     { labels: <?= json_encode($bentukLabels) ?>, data: <?= json_encode($bentukData) ?> },
 	provinsi:   { labels: <?= json_encode($provLabels) ?>, data: <?= json_encode($provData) ?> },
@@ -321,7 +334,8 @@ window.addEventListener('load', function () {
 			var box = document.getElementById('chStatus').parentNode;
 			var c = document.createElement('div');
 			c.style.cssText = 'position:absolute;top:44%;left:0;right:0;text-align:center;pointer-events:none;transform:translateY(-50%);';
-			c.innerHTML = '<div class="dg-legend-total">' + DG.status.total.toLocaleString('id-ID') +
+			var totalTxt = (DG.status.total === null) ? '-' : DG.status.total.toLocaleString('id-ID');
+			c.innerHTML = '<div class="dg-legend-total">' + totalTxt +
 				'<small>Lembaga Vokasi</small></div>';
 			box.appendChild(c);
 		})();

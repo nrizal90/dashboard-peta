@@ -595,6 +595,45 @@ class Vokasi_repo {
 		);
 	}
 
+	/**
+	 * 4 KPI verifikasi kartu atas dashboard utama (redesign).
+	 * Hanya butuh view dashboard_vokasi_detail (tanpa join) — dihitung sekali jalan
+	 * via COUNT + FILTER (PostgreSQL) agar cuma 1 round-trip ke DB.
+	 *   - fasilitas   : lulus verifikasi fasilitas  (ver_facility_status = 'accepted')
+	 *   - program     : lulus verifikasi program    (ver_program_status  = 'accepted')
+	 *   - keseluruhan : lulus SELURUH tahap         (legalitas+fasilitas+program 'accepted')
+	 *   - ditolak     : belum memenuhi persyaratan  (ver_legality_status = 'rejected')
+	 * 'persen' = porsi terhadap total lembaga terdaftar (dibulatkan).
+	 * @return array
+	 */
+	public function verifikasiKpi()
+	{
+		$db = $this->requireDb();
+
+		$sql = "SELECT
+				count(*)                                                       AS total,
+				count(*) FILTER (WHERE ver_facility_status = 'accepted')        AS fasilitas,
+				count(*) FILTER (WHERE ver_program_status  = 'accepted')        AS program,
+				count(*) FILTER (WHERE ver_legality_status = 'accepted'
+				                   AND ver_facility_status = 'accepted'
+				                   AND ver_program_status  = 'accepted')        AS keseluruhan,
+				count(*) FILTER (WHERE ver_legality_status = 'rejected')        AS ditolak
+			FROM dashboard_vokasi_detail";
+
+		$row   = $db->query($sql)->row_array();
+		$total = max(1, (int) $row['total']); // hindari bagi 0
+		$pack  = function ($n) use ($total) {
+			return array('nilai' => (int) $n, 'persen' => (int) round($n / $total * 100));
+		};
+
+		return array(
+			'fasilitas'   => $pack($row['fasilitas']),
+			'program'     => $pack($row['program']),
+			'keseluruhan' => $pack($row['keseluruhan']),
+			'ditolak'     => $pack($row['ditolak']),
+		);
+	}
+
 	/** Agregat provinsi pre-computed (untuk choropleth). */
 	public function aggProvinsi()  { return $this->load('agg_provinsi'); }
 

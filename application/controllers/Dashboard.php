@@ -25,6 +25,8 @@ class Dashboard extends CI_Controller {
 			'map_zoom'   => 5,
 			// Kartu sambutan (redesign) — angka nyata dari view dashboard_vokasi_detail.
 			'header'     => $this->repo->headerStats(),
+			// 4 KPI verifikasi (fasilitas/program/keseluruhan/ditolak) — DB, tanpa join.
+			'kpi'        => $this->repo->verifikasiKpi(),
 		);
 
 		$this->load->view('templates/header', $data);
