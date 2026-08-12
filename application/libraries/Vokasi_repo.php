@@ -572,6 +572,29 @@ class Vokasi_repo {
 		return $out;
 	}
 
+	/**
+	 * Angka ringkas kartu sambutan dashboard utama (redesign).
+	 * Hanya butuh view dashboard_vokasi_detail (tanpa join) — dihitung via COUNT
+	 * di DB agar ringan (tidak memuat 1.6k baris + enrichment JSON).
+	 *   - lembaga_terdaftar       : total baris/lembaga terdaftar di view
+	 *   - terverifikasi_legalitas : jumlah lembaga dengan status legalitas 'accepted'
+	 * @return array
+	 */
+	public function headerStats()
+	{
+		$db = $this->requireDb();
+
+		$total = (int) $db->count_all_results('dashboard_vokasi_detail');
+		$legal = (int) $db
+			->where('ver_legality_status', 'accepted')
+			->count_all_results('dashboard_vokasi_detail');
+
+		return array(
+			'lembaga_terdaftar'       => $total,
+			'terverifikasi_legalitas' => $legal,
+		);
+	}
+
 	/** Agregat provinsi pre-computed (untuk choropleth). */
 	public function aggProvinsi()  { return $this->load('agg_provinsi'); }
 

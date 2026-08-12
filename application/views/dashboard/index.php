@@ -15,8 +15,10 @@ $goldDark  = '#C79A2E';
 $goldDeep  = '#A87F1E';
 $goldLight = '#F2DD8E';
 
-$lembagaTerdaftar   = 1699;
-$verifLegalitas     = 417;
+// Kartu sambutan — angka NYATA dari DB (view dashboard_vokasi_detail), fallback contoh.
+$h = isset($header) ? $header : array();
+$lembagaTerdaftar   = isset($h['lembaga_terdaftar']) ? (int) $h['lembaga_terdaftar'] : 1699;
+$verifLegalitas     = isset($h['terverifikasi_legalitas']) ? (int) $h['terverifikasi_legalitas'] : 417;
 
 // KPI atas
 $kpis = array(
@@ -119,7 +121,7 @@ $mapPoints = array(
 					<div class="d-flex align-items-center justify-content-between">
 						<div>
 							<h5 class="dg-title mb-1">Hi, Admin Pusdatin <span style="font-size:1rem;">👋</span></h5>
-							<div class="text-muted small font-italic mb-0">
+							<div class="text-muted small font-italic mb-0" id="dgClock">
 								<?= $tanggalID ?> pukul <?= date('h.i A') ?>
 							</div>
 						</div>
@@ -251,6 +253,25 @@ window.DG = {
 	sektor:     { labels: <?= json_encode($sektorLabels) ?>, data: <?= json_encode($sektorData) ?> },
 	points:     <?= json_encode($mapPoints) ?>
 };
+
+// Jam berjalan kartu sambutan — selalu ikut waktu perangkat pengguna.
+(function () {
+	var HARI  = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+	var BULAN = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+	function tick() {
+		var el = document.getElementById('dgClock');
+		if (!el) { return; }
+		var d = new Date();
+		var h = d.getHours(), m = d.getMinutes();
+		var ampm = h >= 12 ? 'PM' : 'AM';
+		var h12 = h % 12; if (h12 === 0) { h12 = 12; }
+		var mm = (m < 10 ? '0' : '') + m;
+		el.textContent = HARI[d.getDay()] + ', ' + ('0' + d.getDate()).slice(-2) + ' ' +
+			BULAN[d.getMonth()] + ' ' + d.getFullYear() + ' pukul ' + h12 + '.' + mm + ' ' + ampm;
+	}
+	tick();
+	setInterval(tick, 15000);
+})();
 
 window.addEventListener('load', function () {
 	var DG = window.DG;

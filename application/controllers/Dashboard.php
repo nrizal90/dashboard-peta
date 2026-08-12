@@ -23,7 +23,8 @@ class Dashboard extends CI_Controller {
 			'active'     => 'dashboard',
 			'map_center' => array(-2.5, 118.0),
 			'map_zoom'   => 5,
-			'summary'    => $this->repo->summary(),
+			// Kartu sambutan (redesign) — angka nyata dari view dashboard_vokasi_detail.
+			'header'     => $this->repo->headerStats(),
 		);
 
 		$this->load->view('templates/header', $data);
