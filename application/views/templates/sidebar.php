@@ -12,11 +12,19 @@
 
 		<hr class="sidebar-divider my-0">
 
-		<!-- Nav Item - Peta -->
+		<!-- Nav Item - Dashboard (ringkasan verifikasi) -->
 		<li class="nav-item <?= $active === 'dashboard' ? 'active' : '' ?>">
 			<a class="nav-link" href="<?= site_url('dashboard') ?>">
-				<i class="fas fa-fw fa-map"></i>
-				<span>Peta</span>
+				<i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Dashboard</span>
+			</a>
+		</li>
+
+		<!-- Nav Item - Peta Sebaran (dashboard peta interaktif lama) -->
+		<li class="nav-item <?= $active === 'peta' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('peta') ?>">
+				<i class="fas fa-fw fa-map-marked-alt"></i>
+				<span>Peta Sebaran</span>
 			</a>
 		</li>
 

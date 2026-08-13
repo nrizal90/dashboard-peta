@@ -43,6 +43,28 @@ class Dashboard extends CI_Controller {
 	}
 
 	/**
+	 * Peta Sebaran Lembaga Vokasi (dashboard peta interaktif LAMA).
+	 * Dipindah dari index() ke menu tersendiri; data disajikan Api (JSON) +
+	 * digambar dashboard.js (Leaflet cluster + filter + chart).
+	 */
+	public function peta()
+	{
+		$data = array(
+			'title'      => 'Peta Sebaran Lembaga Vokasi',
+			'active'     => 'peta',
+			'map_center' => array(-2.5, 118.0),
+			'map_zoom'   => 5,
+			'summary'    => $this->repo->summary(),
+		);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/peta', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	/**
 	 * Mode Command Center (kiosk fullscreen, auto-rotasi panel).
 	 * Peta → Gap Analysis → Chart, bergantian otomatis, tetap bisa dioperasikan.
 	 * Akses: /wall

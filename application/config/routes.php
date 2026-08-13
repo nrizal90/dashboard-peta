@@ -62,6 +62,9 @@ $route['api/stats']         = 'api/stats';
 $route['api/gap']           = 'api/gap';
 $route['api/pendataan_list']= 'api/pendataan_list';
 
+// Peta Sebaran Lembaga Vokasi (dashboard peta interaktif lama)
+$route['peta']              = 'dashboard/peta';
+
 // Halaman gap analysis & tentang data
 $route['gap']               = 'dashboard/gap';
 $route['tentang']           = 'dashboard/tentang';
