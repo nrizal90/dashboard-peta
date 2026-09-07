@@ -4,16 +4,20 @@
  *
  * CATATAN: seluruh angka di halaman ini masih HARDCODE untuk keperluan
  * penyusunan UI. Setelah tampilan final disetujui, sumber data akan
- * disambungkan ke DB/endpoint. Tema warna emas: #E8C457 (sementara).
+ * disambungkan ke DB/endpoint. Palet warna: application/config/tema.php.
  *
  * Versi peta sebelumnya disimpan di index.php.<timestamp>.bak (folder ini).
  */
 
 // ====== DATA HARDCODE (sementara) ======
-$gold      = '#E8C457';
-$goldDark  = '#C79A2E';
-$goldDeep  = '#A87F1E';
-$goldLight = '#F2DD8E';
+// Palet emas — SATU SUMBER di application/config/tema.php (autoload).
+// CSS-nya sudah ditulis sebagai :root{--dg-*} di templates/header.php;
+// variabel PHP di bawah hanya dipakai untuk mewarnai Chart.js & Leaflet.
+$tema      = $this->config->item('tema');
+$gold      = $tema['gold'];
+$goldDark  = $tema['gold_dark'];
+$goldDeep  = $tema['gold_deep'];
+$goldLight = $tema['gold_light'];
 
 // Formatter angka: tampilkan '-' bila data DB tidak tersedia (bukan angka contoh).
 $fmtNum = function ($v) { return ($v === NULL) ? '-' : number_format($v, 0, ',', '.'); };
@@ -113,14 +117,8 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 );
 ?>
 
-<!-- ============ TEMA EMAS (sementara, scoped ke halaman ini) ============ -->
+<!-- ===== TEMA EMAS (warnanya dari config/tema.php via header.php) ===== -->
 <style>
-	:root {
-		--dg-gold: <?= $gold ?>;
-		--dg-gold-dark: <?= $goldDark ?>;
-		--dg-gold-deep: <?= $goldDeep ?>;
-		--dg-gold-light: <?= $goldLight ?>;
-	}
 	.dg-wrap { background: #f7f7fb; }
 	.dg-card { border: 0; border-radius: 1rem; box-shadow: 0 6px 22px rgba(0,0,0,.05); }
 	.dg-card .card-body { padding: 1.25rem 1.4rem; }

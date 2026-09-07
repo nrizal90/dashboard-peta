@@ -22,11 +22,26 @@
 	<link href="<?= base_url('assets/vendor/leaflet.markercluster/MarkerCluster.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/vendor/leaflet.markercluster/MarkerCluster.Default.css') ?>" rel="stylesheet">
 
+<?php
+	// Palet emas — SATU SUMBER di application/config/tema.php (autoload).
+	// Ditulis sekali di sini sebagai CSS custom property, dipakai semua view.
+	$tema = $this->config->item('tema');
+	// Komponen R,G,B dari warna utama — dipakai untuk rgba() (mis. shadow focus input).
+	$goldRgb = implode(', ', sscanf($tema['gold'], '#%02x%02x%02x'));
+	?>
 	<style>
+		:root {
+			--dg-gold: <?= $tema['gold'] ?>;
+			--dg-gold-dark: <?= $tema['gold_dark'] ?>;
+			--dg-gold-deep: <?= $tema['gold_deep'] ?>;
+			--dg-gold-light: <?= $tema['gold_light'] ?>;
+			--dg-gold-rgb: <?= $goldRgb ?>;
+		}
+
 		/* Sidebar emas (senada tema dashboard) — ganti bg-gradient-warning yg terlalu kuning */
 		.bg-gradient-gold {
-			background-color: #C79A2E;
-			background-image: linear-gradient(180deg, #C79A2E 10%, #A87F1E 100%);
+			background-color: var(--dg-gold-dark);
+			background-image: linear-gradient(180deg, var(--dg-gold-dark) 10%, var(--dg-gold-deep) 100%);
 			background-size: cover;
 		}
 		/* Sedikit pertegas garis pemisah & heading di sidebar emas */

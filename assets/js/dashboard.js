@@ -17,8 +17,19 @@
 
 	var API = window.APP.apiBase;
 
-	// Warna ownership
-	var COLOR = { P: '#4e73df', N: '#f6c23e' }; // Pemerintah / Non Pemerintah
+	// Palet emas — SATU SUMBER di application/config/tema.php, dikirim ke sini
+	// lewat window.APP.tema (templates/footer.php). Fallback dipakai bila
+	// script ini dimuat di halaman yang belum mengekspor tema.
+	var TEMA = (window.APP && window.APP.tema) || {};
+	var GOLD = {
+		base:  TEMA.gold       || '#E8C457',
+		dark:  TEMA.gold_dark  || '#C79A2E',
+		deep:  TEMA.gold_deep  || '#A87F1E',
+		light: TEMA.gold_light || '#F2DD8E'
+	};
+
+	// Warna ownership (emas pekat vs emas muda, tetap terbedakan di peta)
+	var COLOR = { P: GOLD.deep, N: GOLD.base }; // Pemerintah / Non Pemerintah
 
 	// -----------------------------------------------------------------
 	// State filter (tersinkron ke URL)
@@ -305,25 +316,30 @@
 	// -----------------------------------------------------------------
 	var charts = {};
 	Chart.defaults.global.defaultFontSize = 10;
+	Chart.defaults.global.defaultFontColor = '#8a8a95';
+	Chart.defaults.global.defaultFontFamily = 'Nunito, sans-serif';
 
 	function barChart(id, horizontal, color) {
 		var ctx = document.getElementById(id);
 		if (!ctx) return null;
 		return new Chart(ctx.getContext('2d'), {
 			type: horizontal ? 'horizontalBar' : 'bar',
-			data: { labels: [], datasets: [{ data: [], backgroundColor: color || '#4e73df' }] },
+			data: { labels: [], datasets: [{ data: [], backgroundColor: color || GOLD.base }] },
 			options: {
 				maintainAspectRatio: false, legend: { display: false },
-				scales: { xAxes: [{ ticks: { beginAtZero: true } }], yAxes: [{ ticks: { autoSkip: false } }] },
+				scales: {
+					xAxes: [{ ticks: { beginAtZero: true }, gridLines: { color: '#f0f0f4', drawBorder: false } }],
+					yAxes: [{ ticks: { autoSkip: false }, gridLines: { display: false, drawBorder: false } }]
+				},
 				tooltips: { intersect: false }
 			}
 		});
 	}
 
 	function initCharts() {
-		charts.sektor = barChart('chartSektor', true, '#4e73df');
-		charts.jabatan = barChart('chartJabatan', true, '#1cc88a');
-		charts.provinsi = barChart('chartProvinsi', true, '#36b9cc');
+		charts.sektor = barChart('chartSektor', true, GOLD.base);
+		charts.jabatan = barChart('chartJabatan', true, GOLD.dark);
+		charts.provinsi = barChart('chartProvinsi', true, GOLD.deep);
 		charts.ownership = new Chart(document.getElementById('chartOwnership').getContext('2d'), {
 			type: 'doughnut',
 			data: { labels: ['Pemerintah', 'Non Pemerintah'], datasets: [{ data: [0, 0], backgroundColor: [COLOR.P, COLOR.N] }] },
@@ -335,11 +351,11 @@
 			data: {
 				labels: ['Layer 1 (Legalitas)', 'Layer 2 (Fasilitas)', 'Layer 3 Program'],
 				datasets: [
-					{ label: 'Accepted', backgroundColor: '#1cc88a', data: [0, 0, 0] },
-					{ label: 'Rejected', backgroundColor: '#e74a3b', data: [0, 0, 0] },
-					{ label: 'Pending', backgroundColor: '#f6c23e', data: [0, 0, 0] },
-					{ label: 'Revised', backgroundColor: '#36b9cc', data: [0, 0, 0] },
-					{ label: 'Not submitted', backgroundColor: '#b7b9cc', data: [0, 0, 0] }
+					{ label: 'Accepted', backgroundColor: GOLD.deep, data: [0, 0, 0] },
+					{ label: 'Rejected', backgroundColor: '#c9534f', data: [0, 0, 0] },
+					{ label: 'Pending', backgroundColor: GOLD.base, data: [0, 0, 0] },
+					{ label: 'Revised', backgroundColor: GOLD.light, data: [0, 0, 0] },
+					{ label: 'Not submitted', backgroundColor: '#dcdce4', data: [0, 0, 0] }
 				]
 			},
 			options: {

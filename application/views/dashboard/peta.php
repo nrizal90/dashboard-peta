@@ -11,12 +11,86 @@ $sekt = isset($s['sektor']['total_sektor']) ? $s['sektor']['total_sektor'] : 0;
 $jab = isset($s['sektor']['total_jabatan']) ? $s['sektor']['total_jabatan'] : 0;
 $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'] : 0;
 ?>
+
+<!-- ===== TEMA EMAS (senada dashboard utama; warnanya dari config/tema.php) ===== -->
+<style>
+	.dg-wrap { background: #f7f7fb; }
+
+	/* Kartu: sudut membulat + bayangan lembut (sama dgn .dg-card di dashboard utama) */
+	.dg-wrap .card { border: 0; border-radius: 1rem; box-shadow: 0 6px 22px rgba(0,0,0,.05); }
+	.dg-wrap .card-header { background: #fff; border-bottom: 1px solid #f0f0f4; border-radius: 1rem 1rem 0 0; }
+	.dg-wrap .card-header h6 { font-weight: 800; color: #2b2b33; letter-spacing: -.01em; }
+	.dg-wrap .card-header .text-primary { color: #2b2b33 !important; }
+
+	.dg-title { font-weight: 800; color: #2b2b33; letter-spacing: -.01em; }
+	.dg-sub { color: #9a9aa6; font-size: .78rem; }
+
+	/* KPI header — gaya kartu KPI dashboard utama */
+	.dg-kpi .kpi-name { font-size: .72rem; color: #9a9aa6; font-weight: 700; text-transform: none; letter-spacing: 0; }
+	.dg-kpi .kpi-num  { font-size: 1.5rem; font-weight: 800; color: #2b2b33; line-height: 1.1; }
+	.dg-kpi .kpi-ico {
+		width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+		background: var(--dg-gold-light); color: var(--dg-gold-deep);
+	}
+
+	/* Tombol & aksen emas (mengganti biru bawaan SB Admin, fungsi tidak berubah) */
+	.dg-wrap .btn-outline-primary {
+		color: var(--dg-gold-deep); border-color: var(--dg-gold);
+	}
+	.dg-wrap .btn-outline-primary:hover,
+	.dg-wrap .btn-outline-primary:focus {
+		background: var(--dg-gold); border-color: var(--dg-gold); color: #6a5308;
+	}
+	.dg-wrap .btn-outline-secondary { color: #8a8a95; border-color: #e3e3ea; }
+	.dg-wrap .btn-outline-secondary:hover { background: #f0f0f4; color: #2b2b33; border-color: #e3e3ea; }
+	.dg-wrap .form-control:focus {
+		border-color: var(--dg-gold); box-shadow: 0 0 0 .2rem rgba(var(--dg-gold-rgb), .25);
+	}
+	.dg-wrap .form-check-input:checked { background-color: var(--dg-gold); border-color: var(--dg-gold); }
+
+	/* Peta & panel filter */
+	.dg-wrap #map { border-radius: .75rem; }
+	.dg-wrap .leaflet-popup-content .btn-primary {
+		background: var(--dg-gold-dark); border-color: var(--dg-gold-dark); color: #fff;
+	}
+	.dg-wrap .leaflet-popup-content .badge-primary { background: var(--dg-gold-deep); }
+	.dg-wrap .loading-overlay .spinner-border { color: var(--dg-gold-dark) !important; }
+	.dg-wrap .filter-group label.head { color: #b0b0bc; }
+	.dg-wrap .checklist .form-check-label { color: #6b6b76; }
+
+	/* Modal: header emas (menggantikan bg-primary) */
+	.dg-modal .modal-content { border: 0; border-radius: 1rem; overflow: hidden; }
+	.dg-modal .modal-header {
+		background: linear-gradient(90deg, var(--dg-gold-dark), var(--dg-gold-deep)) !important;
+	}
+	.dg-modal .table thead.thead-light th {
+		background: #faf6e9; color: #8a6d1a; border-color: #f0e6c8;
+		font-size: .74rem; text-transform: uppercase; letter-spacing: .03em;
+	}
+	/* Isi modal dirender oleh dashboard.js — samakan aksen birunya jadi emas. */
+	.dg-modal .text-primary { color: var(--dg-gold-deep) !important; }
+	.dg-modal .badge-primary { background: var(--dg-gold-deep); }
+	.dg-modal .btn-primary {
+		background: var(--dg-gold-dark); border-color: var(--dg-gold-dark); color: #fff;
+	}
+	.dg-modal .btn-primary:hover { background: var(--dg-gold-deep); border-color: var(--dg-gold-deep); }
+	.dg-modal .btn-outline-primary { color: var(--dg-gold-deep); border-color: var(--dg-gold); }
+	.dg-modal .btn-outline-primary:hover { background: var(--dg-gold); border-color: var(--dg-gold); color: #6a5308; }
+
+	@media (max-width: 575.98px) {
+		.dg-kpi .kpi-num { font-size: 1.25rem; }
+	}
+</style>
+
 			<!-- Begin Page Content -->
-			<div class="container-fluid">
+			<div class="container-fluid dg-wrap py-2">
 
 				<!-- Page Heading -->
 				<div class="d-sm-flex align-items-center justify-content-between mb-3">
-					<h1 class="h3 mb-0 text-gray-800">Peta Sebaran Lembaga Vokasi</h1>
+					<div>
+						<h1 class="h4 mb-0 dg-title">Peta Sebaran Lembaga Vokasi</h1>
+						<div class="dg-sub">Persebaran Lembaga Vokasi Beserta Kapasitas, Sektor, dan Tahapan Verifikasinya.</div>
+					</div>
 					<a href="<?= site_url('gap') ?>" class="btn btn-sm btn-outline-primary shadow-sm">
 						<i class="fas fa-th fa-sm"></i> Gap Analysis
 					</a>
@@ -26,22 +100,22 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 				<div class="row">
 					<?php
 					$kpis = array(
-						array('Lembaga', number_format($lem, 0, ',', '.'), 'fa-building', 'primary'),
-						array('Total Kapasitas', number_format($kap, 0, ',', '.'), 'fa-users', 'success'),
-						array('Provinsi', $prov, 'fa-map-marked-alt', 'info'),
-						array('Sektor / Jabatan', $sekt . ' / ' . $jab, 'fa-layer-group', 'warning'),
-						array('Koordinat Presisi', $presisi . '%', 'fa-crosshairs', 'danger'),
+						array('Lembaga', number_format($lem, 0, ',', '.'), 'fa-building'),
+						array('Total Kapasitas', number_format($kap, 0, ',', '.'), 'fa-users'),
+						array('Provinsi', $prov, 'fa-map-marked-alt'),
+						array('Sektor / Jabatan', $sekt . ' / ' . $jab, 'fa-layer-group'),
+						array('Koordinat Presisi', $presisi . '%', 'fa-crosshairs'),
 					);
 					foreach ($kpis as $k): ?>
 					<div class="col-md col-6 mb-3">
-						<div class="card border-left-<?= $k[3] ?> shadow h-100 py-2">
-							<div class="card-body py-2">
+						<div class="card dg-kpi h-100">
+							<div class="card-body py-3">
 								<div class="row no-gutters align-items-center">
 									<div class="col mr-2">
-										<div class="text-xs font-weight-bold text-<?= $k[3] ?> text-uppercase mb-1"><?= $k[0] ?></div>
-										<div class="h6 mb-0 font-weight-bold text-gray-800"><?= $k[1] ?></div>
+										<div class="kpi-name mb-1"><?= $k[0] ?></div>
+										<div class="kpi-num"><?= $k[1] ?></div>
 									</div>
-									<div class="col-auto"><i class="fas <?= $k[2] ?> fa-lg text-gray-300"></i></div>
+									<div class="col-auto"><div class="kpi-ico"><i class="fas <?= $k[2] ?>"></i></div></div>
 								</div>
 							</div>
 						</div>
@@ -191,7 +265,7 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 			<!-- /.container-fluid -->
 
 			<!-- ===== MODAL: List Lembaga Vokasi (muncul saat cluster peta diklik) ===== -->
-			<div class="modal fade" id="modalList" tabindex="-1" role="dialog" aria-labelledby="modalListLabel" aria-hidden="true">
+			<div class="modal fade dg-modal" id="modalList" tabindex="-1" role="dialog" aria-labelledby="modalListLabel" aria-hidden="true">
 				<div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
 					<div class="modal-content">
 						<div class="modal-header bg-primary text-white py-2">
@@ -226,7 +300,7 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 			</div>
 
 			<!-- ===== MODAL: Detail Lembaga Vokasi ===== -->
-			<div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailLabel" aria-hidden="true">
+			<div class="modal fade dg-modal" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
 					<div class="modal-content">
 						<div class="modal-header bg-primary text-white py-2">
