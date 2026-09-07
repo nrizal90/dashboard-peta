@@ -24,7 +24,7 @@
 	// State filter (tersinkron ke URL)
 	// -----------------------------------------------------------------
 	var state = {
-		q: '', ownership: '', status_legalitas: '', pulau: '', provinsi: '',
+		q: '', ownership: '', tahapan: '', pulau: '', provinsi: '',
 		kota_slug: '', kapasitas_min: '', kapasitas_max: '',
 		sektor_slug: [], jabatan_slug: [], only_original: false
 	};
@@ -482,7 +482,7 @@
 	function bindEvents() {
 		bindInput('fQ', 'q');
 		bindInput('fOwnership', 'ownership');
-		bindInput('fLegalitas', 'status_legalitas');
+		bindInput('fTahapan', 'tahapan');
 		bindInput('fPulau', 'pulau');
 		bindInput('fProvinsi', 'provinsi');
 		bindInput('fKota', 'kota_slug');
@@ -509,7 +509,7 @@
 
 	function resetFilters() {
 		state = {
-			q: '', ownership: '', status_legalitas: '', pulau: '', provinsi: '',
+			q: '', ownership: '', tahapan: '', pulau: '', provinsi: '',
 			kota_slug: '', kapasitas_min: '', kapasitas_max: '',
 			sektor_slug: [], jabatan_slug: [], only_original: false
 		};
@@ -521,7 +521,7 @@
 
 	function applyStateToInputs() {
 		setVal('fQ', state.q); setVal('fOwnership', state.ownership);
-		setVal('fLegalitas', state.status_legalitas); setVal('fPulau', state.pulau);
+		setVal('fTahapan', state.tahapan); setVal('fPulau', state.pulau);
 		setVal('fProvinsi', state.provinsi); setVal('fKota', state.kota_slug);
 		setVal('fKapMin', state.kapasitas_min); setVal('fKapMax', state.kapasitas_max);
 		document.getElementById('fOnlyOriginal').checked = !!state.only_original;

@@ -914,6 +914,15 @@ class Vokasi_repo {
 		return 'Belum e-Vokasi';
 	}
 
+	/** Kunci lapisan e-Vokasi (layer3/layer2/layer1/belum) untuk filter tahapan. */
+	public function evokasiLayerKey($r)
+	{
+		if ( ! empty($r['status_program']))   return 'layer3';
+		if ( ! empty($r['status_fasilitas'])) return 'layer2';
+		if (isset($r['status_legalitas']) && $r['status_legalitas'] === 'accepted') return 'layer1';
+		return 'belum';
+	}
+
 	/**
 	 * Baris ternormalisasi untuk menu "Daftar Pendataan" (tabel + export Excel/CSV).
 	 * Semua kolom di sini tersedia di DB. Diurut nama.
@@ -1238,7 +1247,7 @@ class Vokasi_repo {
 		$pulau   = isset($p['pulau'])           ? $p['pulau']           : NULL;
 		$owner   = isset($p['ownership'])       ? $p['ownership']       : NULL;
 		$jenis   = isset($p['jenis'])           ? $p['jenis']           : NULL;
-		$legal   = isset($p['status_legalitas'])? $p['status_legalitas']: NULL;
+		$tahapan = isset($p['tahapan'])         ? $p['tahapan']         : NULL;
 		$coord   = isset($p['coord_source'])    ? $p['coord_source']    : NULL;
 		$kmin    = isset($p['kapasitas_min'])   ? (int) $p['kapasitas_min'] : NULL;
 		$kmax    = isset($p['kapasitas_max'])   ? (int) $p['kapasitas_max'] : NULL;
@@ -1254,7 +1263,7 @@ class Vokasi_repo {
 			if ($pulau !== NULL && $r['pulau'] !== $pulau)                   continue;
 			if ($owner !== NULL && $r['ownership'] !== $owner)               continue;
 			if ($jenis !== NULL && $r['jenis'] !== $jenis)                   continue;
-			if ($legal !== NULL && $r['status_legalitas'] !== $legal)        continue;
+			if ($tahapan !== NULL && $this->evokasiLayerKey($r) !== $tahapan) continue;
 			if ($coord !== NULL && $r['coord_source'] !== $coord)            continue;
 			if ($onlyReal && $r['coord_source'] !== 'original')              continue;
 

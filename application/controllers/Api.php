@@ -13,7 +13,7 @@ class Api extends CI_Controller {
 	/** Field yang boleh dipakai sebagai filter (whitelist). */
 	private $allowed = array(
 		'provinsi', 'kota_slug', 'pulau', 'ownership', 'jenis',
-		'sektor_slug', 'jabatan_slug', 'status_legalitas',
+		'sektor_slug', 'jabatan_slug', 'tahapan',
 		'kapasitas_min', 'kapasitas_max', 'coord_source', 'q', 'only_original',
 	);
 

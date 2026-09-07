@@ -81,12 +81,13 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 								</div>
 
 								<div class="filter-group">
-									<label class="head">Status Legalitas</label>
-									<select id="fLegalitas" class="form-control form-control-sm">
+									<label class="head">Tahapan Verifikasi</label>
+									<select id="fTahapan" class="form-control form-control-sm">
 										<option value="">Semua</option>
-										<option value="accepted">Accepted</option>
-										<option value="pending">Pending</option>
-										<option value="rejected">Rejected</option>
+										<option value="layer1">Layer 1 (Legalitas)</option>
+										<option value="layer2">Layer 2 (Fasilitas)</option>
+										<option value="layer3">Layer 3 (Program)</option>
+										<option value="belum">Belum e-Vokasi</option>
 									</select>
 								</div>
 
