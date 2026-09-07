@@ -75,12 +75,39 @@
 	// -----------------------------------------------------------------
 	// Peta
 	// -----------------------------------------------------------------
-	var map = L.map('map').setView(window.APP.mapCenter, window.APP.mapZoom);
-	if (deepLink.bounds) { map.fitBounds(deepLink.bounds, { padding: [20, 20] }); }
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	var map = L.map('map', {
+		attributionControl: false,
+		zoomSnap: 0.1, zoomDelta: 0.5   // zoom pecahan → fitBounds mengisi kontainer penuh
+	}).setView(window.APP.mapCenter, window.APP.mapZoom);
+
+	// Basemap: polygon provinsi Indonesia (abu-abu di atas putih), sama seperti peta
+	// di dashboard utama — menggantikan tile OpenStreetMap supaya tidak tampil
+	// seperti peta jalan/globe. Non-interaktif agar klik/hover tetap milik marker.
+	var basemap = L.geoJSON(null, {
+		interactive: false,
+		style: function () {
+			return { fillColor: '#e9edf3', color: '#ffffff', weight: 1, fillOpacity: 1 };
+		}
 	}).addTo(map);
+
+	// Zoom deep-link diterapkan lebih dulu supaya tetap jalan walau basemap gagal dimuat.
+	if (deepLink.bounds) { map.fitBounds(deepLink.bounds, { padding: [20, 20] }); }
+
+	fetch(window.APP.geojsonUrl).then(function (r) { return r.json(); }).then(function (gj) {
+		basemap.addData(gj);
+		basemap.bringToBack();
+		// Deep-link bbox (klik provinsi dari dashboard utama) menang atas fit nasional.
+		fitBase();
+		var rt;
+		window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fitBase, 200); });
+	}).catch(function () { /* basemap gagal dimuat — marker tetap tampil di latar putih */ });
+
+	function fitBase() {
+		map.invalidateSize();
+		if (deepLink.bounds) { map.fitBounds(deepLink.bounds, { padding: [20, 20] }); return; }
+		var b = basemap.getBounds();
+		if (b.isValid()) { map.fitBounds(b, { padding: [8, 8] }); }
+	}
 
 	var cluster = L.markerClusterGroup({
 		chunkedLoading: true,

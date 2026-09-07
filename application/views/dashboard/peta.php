@@ -49,7 +49,8 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 	.dg-wrap .form-check-input:checked { background-color: var(--dg-gold); border-color: var(--dg-gold); }
 
 	/* Peta & panel filter */
-	.dg-wrap #map { border-radius: .75rem; }
+	/* Peta tanpa tile OSM — latar putih polos, polygon provinsi abu-abu (lihat dashboard.js). */
+	.dg-wrap #map { border-radius: .75rem; background: #ffffff; }
 	.dg-wrap .leaflet-popup-content .btn-primary {
 		background: var(--dg-gold-dark); border-color: var(--dg-gold-dark); color: #fff;
 	}

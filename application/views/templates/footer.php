@@ -44,6 +44,8 @@
 			siteUrl: '<?= rtrim(site_url(), '/') ?>',
 			mapCenter: <?= json_encode(isset($map_center) ? $map_center : array(-2.5, 118.0)) ?>,
 			mapZoom: <?= isset($map_zoom) ? (int) $map_zoom : 5 ?>,
+			// Basemap GeoJSON provinsi (dipakai sebagai pengganti tile OSM).
+			geojsonUrl: '<?= base_url('assets/vendor/geojson/indonesia-provinsi.json') ?>',
 			// Palet tema — sumbernya application/config/tema.php (lihat header.php).
 			tema: <?= json_encode($this->config->item('tema')) ?>
 		};
