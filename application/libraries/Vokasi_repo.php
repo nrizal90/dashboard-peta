@@ -574,23 +574,31 @@ class Vokasi_repo {
 
 	/**
 	 * Angka ringkas kartu sambutan dashboard utama (redesign).
-	 * Hanya butuh view dashboard_vokasi_detail (tanpa join) — dihitung via COUNT
-	 * di DB agar ringan (tidak memuat 1.6k baris + enrichment JSON).
-	 *   - lembaga_terdaftar       : total baris/lembaga terdaftar di view
-	 *   - terverifikasi_legalitas : jumlah lembaga dengan status legalitas 'accepted'
+	 *
+	 * Sumbernya SAMA dengan halaman Peta Sebaran (views/dashboard/peta.php), yaitu
+	 * summary() — supaya kedua halaman tidak pernah menampilkan angka berbeda:
+	 *   - lembaga_terdaftar       = lembaga.unik_primary
+	 *                               (lembaga unik setelah duplikat ditandai, sama
+	 *                               dengan KPI "Lembaga" di halaman Peta)
+	 *   - terverifikasi_legalitas = verifikasi.legalitas.accepted
+	 *                               (sama dengan batang Accepted pada chart
+	 *                               "Tahapan Verifikasi" layer 1 di halaman Peta)
+	 *
+	 * Sebelumnya kedua angka ini dihitung COUNT langsung atas seluruh BARIS view
+	 * dashboard_vokasi_detail, sehingga baris duplikat ikut terhitung.
+	 * summary() sendiri sudah di-cache per request (self::$derived).
 	 * @return array
 	 */
 	public function headerStats()
 	{
-		$db = $this->requireDb();
+		$s = $this->summary();
 
-		$total = (int) $db->count_all_results('dashboard_vokasi_detail');
-		$legal = (int) $db
-			->where('ver_legality_status', 'accepted')
-			->count_all_results('dashboard_vokasi_detail');
+		$legal = isset($s['verifikasi']['legalitas']['accepted'])
+			? (int) $s['verifikasi']['legalitas']['accepted']
+			: 0;
 
 		return array(
-			'lembaga_terdaftar'       => $total,
+			'lembaga_terdaftar'       => (int) $s['lembaga']['unik_primary'],
 			'terverifikasi_legalitas' => $legal,
 		);
 	}
