@@ -30,9 +30,42 @@
 	};
 
 	// -----------------------------------------------------------------
+	// Deep-link dari peta choropleth di dashboard utama:
+	//   ?provinsi_nama=Papua&bbox=south,west,north,east
+	// provinsi_nama diresolve ke kode BPS setelah /api/refs termuat,
+	// bbox dipakai langsung untuk zoom peta. Keduanya BUKAN bagian state
+	// filter, jadi tidak ikut dikirim ke endpoint /api/*.
+	// -----------------------------------------------------------------
+	var deepLink = (function () {
+		var p = new URLSearchParams(window.location.search);
+		var raw = (p.get('bbox') || '').split(',').map(Number);
+		var ok = raw.length === 4 && raw.every(function (n) { return isFinite(n); });
+		return {
+			provinsiNama: p.get('provinsi_nama') || '',
+			bounds: ok ? [[raw[0], raw[1]], [raw[2], raw[3]]] : null
+		};
+	})();
+
+	/** Normalisasi nama provinsi -> key kanonik (mirror Vokasi_repo::provKey). */
+	function provKey(name) {
+		var k = String(name == null ? '' : name).toLowerCase().replace(/[^a-z0-9]/g, '');
+		var alias = {
+			daerahistimewayogyakarta: 'yogyakarta',
+			diyogyakarta: 'yogyakarta',
+			daerahkhususibukotajakarta: 'jakartaraya',
+			dkijakarta: 'jakartaraya',
+			jakarta: 'jakartaraya',
+			kepulauanbangkabelitung: 'bangkabelitung',
+			papuabaratdaya: 'papuabarat'
+		};
+		return alias[k] || k;
+	}
+
+	// -----------------------------------------------------------------
 	// Peta
 	// -----------------------------------------------------------------
 	var map = L.map('map').setView(window.APP.mapCenter, window.APP.mapZoom);
+	if (deepLink.bounds) { map.fitBounds(deepLink.bounds, { padding: [20, 20] }); }
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -400,6 +433,13 @@
 			// Jabatan (searchable checklist)
 			allJabatan = refs.jabatan || [];
 			renderJabatan('');
+
+			// Deep-link provinsi (dari klik peta dashboard utama) -> set filter provinsi.
+			if (deepLink.provinsiNama) {
+				var want = provKey(deepLink.provinsiNama);
+				var hit = (refs.provinsi || []).filter(function (o) { return provKey(o.nama) === want; })[0];
+				if (hit) { state.provinsi = String(hit.kode); }
+			}
 
 			bindEvents();
 			applyStateToInputs();

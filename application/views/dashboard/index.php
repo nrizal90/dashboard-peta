@@ -146,6 +146,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 	.dg-legend-total small { display:block; font-size:.7rem; font-weight:600; color:#9a9aa6; }
 
 	#dgMap { height: 380px; border-radius: .75rem; z-index: 0; background: #ffffff; }
+	#dgMap .leaflet-interactive { cursor: pointer; }
 	#dgMap .leaflet-container { background: #ffffff; }
 
 	/* Catatan "data contoh" untuk kartu yang belum tersambung DB */
@@ -326,7 +327,8 @@ window.DG = {
 	jenis:      { labels: <?= json_encode($jenisLabels) ?>, data: <?= json_encode($jenisData) ?> },
 	sektor:     { labels: <?= json_encode($sektorLabels) ?>, data: <?= json_encode($sektorData) ?> },
 	choropleth: <?= json_encode($mapChoropleth) ?>,
-	geojsonUrl: '<?= base_url('assets/vendor/geojson/indonesia-provinsi.json') ?>'
+	geojsonUrl: '<?= base_url('assets/vendor/geojson/indonesia-provinsi.json') ?>',
+	petaUrl: '<?= site_url('peta') ?>'
 };
 
 // Jam berjalan kartu sambutan — selalu ikut waktu perangkat pengguna.
@@ -477,10 +479,21 @@ window.addEventListener('load', function () {
 				onEachFeature: function (f, lyr) {
 					var v = vals[keyOf(f.properties.state)] || 0;
 					lyr.bindTooltip('<b>' + f.properties.state + '</b><br>' +
-						v.toLocaleString('id-ID') + ' lembaga terverifikasi', { sticky: true });
+						v.toLocaleString('id-ID') + ' lembaga terverifikasi' +
+						'<br><span style="color:#8a6d1a">klik untuk buka peta sebaran provinsi ini</span>', { sticky: true });
 					lyr.on({
 						mouseover: function (e) { e.target.setStyle({ weight: 2, color: '#8a6d1a', fillOpacity: 1 }); },
-						mouseout:  function (e) { layer.resetStyle(e.target); }
+						mouseout:  function (e) { layer.resetStyle(e.target); },
+						// Klik provinsi -> buka halaman Peta Interaktif di tab baru,
+						// terfilter + ter-zoom ke provinsi yang diklik (bbox polygon).
+						click: function (e) {
+							var b = e.target.getBounds();
+							var bbox = [b.getSouth(), b.getWest(), b.getNorth(), b.getEast()]
+								.map(function (n) { return n.toFixed(4); }).join(',');
+							var url = DG.petaUrl + '?provinsi_nama=' + encodeURIComponent(f.properties.state) +
+								'&bbox=' + bbox;
+							window.open(url, '_blank', 'noopener');
+						}
 					});
 				}
 			}).addTo(map);
