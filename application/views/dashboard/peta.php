@@ -26,7 +26,7 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 				<div class="row">
 					<?php
 					$kpis = array(
-						array('Lembaga (primary)', number_format($lem, 0, ',', '.'), 'fa-building', 'primary'),
+						array('Lembaga', number_format($lem, 0, ',', '.'), 'fa-building', 'primary'),
 						array('Total Kapasitas', number_format($kap, 0, ',', '.'), 'fa-users', 'success'),
 						array('Provinsi', $prov, 'fa-map-marked-alt', 'info'),
 						array('Sektor / Jabatan', $sekt . ' / ' . $jab, 'fa-layer-group', 'warning'),
