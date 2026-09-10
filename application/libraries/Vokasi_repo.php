@@ -817,6 +817,116 @@ class Vokasi_repo {
 		return array('jenis' => $jenis, 'sektor' => $sektor);
 	}
 
+	/**
+	 * Agregat menu "Monitoring Pelatihan PMI" — SELURUHNYA dari view
+	 * dashboard_pelatihan_detail (1 baris = 1 pendaftaran pelatihan PMI).
+	 *
+	 *   kpi     : total peserta, terverifikasi (train_directorate_verification
+	 *             = 'accepted'), tersertifikasi (train_certified = 'finish').
+	 *   negara  : jumlah peserta per negara tujuan (train_requested_country).
+	 *   status  : jumlah peserta per status pendaftaran (train_status:
+	 *             pending/accepted/rejected/revised).
+	 *   sektor  : jumlah peserta per sektor — train_sectoral_id di-resolve ke
+	 *             nama lewat view dashboard_vokasi_detail_sektor (sector_id →
+	 *             sector_name); id tanpa padanan ditampilkan "Sektor #id".
+	 *   gender  : jumlah peserta per jenis kelamin. Data mentah tidak konsisten
+	 *             kapitalisasinya ("Laki-Laki" vs "Laki-laki") → dinormalisasi
+	 *             via initcap agar tidak terpecah 2 bucket.
+	 *   tren    : jumlah peserta per bulan (train_created_at), urut naik,
+	 *             label 'YYYY-MM' + label Indonesia ('Jul 2026').
+	 * @return array
+	 */
+	public function pelatihanStats()
+	{
+		$db = $this->requireDb();
+
+		$pack = function ($rows) {
+			$out = array();
+			foreach ($rows as $r)
+			{
+				$out[] = array('label' => (string) $r['label'], 'value' => (int) $r['value']);
+			}
+			return $out;
+		};
+
+		// KPI — 1 round-trip via COUNT + FILTER.
+		$k = $db->query(
+			"SELECT
+				count(*)                                                          AS total,
+				count(*) FILTER (WHERE train_directorate_verification = 'accepted') AS terverifikasi,
+				count(*) FILTER (WHERE train_certified = 'finish')                 AS tersertifikasi
+			FROM dashboard_pelatihan_detail"
+		)->row_array();
+		$total = (int) $k['total'];
+		$pct   = function ($n) use ($total) { return $total > 0 ? (int) round($n / $total * 100) : 0; };
+
+		$negara = $db->query(
+			"SELECT coalesce(nullif(trim(train_requested_country), ''), 'Tidak diisi') AS label, count(*) AS value
+			FROM dashboard_pelatihan_detail
+			GROUP BY 1
+			ORDER BY value DESC, label ASC"
+		)->result_array();
+
+		$status = $db->query(
+			"SELECT coalesce(nullif(trim(train_status), ''), 'unknown') AS label, count(*) AS value
+			FROM dashboard_pelatihan_detail
+			GROUP BY 1
+			ORDER BY value DESC"
+		)->result_array();
+
+		$sektor = $db->query(
+			"SELECT coalesce(s.sector_name, 'Sektor #' || p.train_sectoral_id::text, 'Tidak diisi') AS label,
+				count(*) AS value
+			FROM dashboard_pelatihan_detail p
+			LEFT JOIN (SELECT DISTINCT sector_id, trim(sector_name) AS sector_name
+			           FROM dashboard_vokasi_detail_sektor) s
+			  ON s.sector_id = p.train_sectoral_id
+			GROUP BY 1
+			ORDER BY value DESC, label ASC"
+		)->result_array();
+
+		$gender = $db->query(
+			"SELECT coalesce(nullif(initcap(trim(train_pmi_gender)), ''), 'Tidak diisi') AS label, count(*) AS value
+			FROM dashboard_pelatihan_detail
+			GROUP BY 1
+			ORDER BY value DESC"
+		)->result_array();
+
+		$tren = $db->query(
+			"SELECT to_char(train_created_at, 'YYYY-MM') AS label, count(*) AS value
+			FROM dashboard_pelatihan_detail
+			WHERE train_created_at IS NOT NULL
+			GROUP BY 1
+			ORDER BY 1 ASC"
+		)->result_array();
+
+		// Label bulan Indonesia untuk sumbu chart tren.
+		$bulanID = array(1=>'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des');
+		$trenOut = array();
+		foreach ($tren as $r)
+		{
+			list($y, $m) = explode('-', $r['label']);
+			$trenOut[] = array(
+				'label' => $r['label'],
+				'nama'  => $bulanID[(int) $m] . ' ' . $y,
+				'value' => (int) $r['value'],
+			);
+		}
+
+		return array(
+			'kpi' => array(
+				'total'          => $total,
+				'terverifikasi'  => array('nilai' => (int) $k['terverifikasi'],  'persen' => $pct($k['terverifikasi'])),
+				'tersertifikasi' => array('nilai' => (int) $k['tersertifikasi'], 'persen' => $pct($k['tersertifikasi'])),
+			),
+			'negara' => $pack($negara),
+			'status' => $pack($status),
+			'sektor' => $pack($sektor),
+			'gender' => $pack($gender),
+			'tren'   => $trenOut,
+		);
+	}
+
 	/** Agregat provinsi pre-computed (untuk choropleth). */
 	public function aggProvinsi()  { return $this->load('agg_provinsi'); }
 

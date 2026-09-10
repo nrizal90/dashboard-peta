@@ -63,7 +63,6 @@ $persen = isset($koord['persen_asli']) ? $koord['persen_asli'] : 0;
 										<li><small><?= html_escape($src) ?></small></li>
 									<?php endforeach; ?>
 								</ul>
-								<p class="text-muted mb-0"><small>Pipeline: <code>clean_vokasi.py</code></small></p>
 							</div>
 						</div>
 					</div>

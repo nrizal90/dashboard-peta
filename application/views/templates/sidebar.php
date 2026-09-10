@@ -44,6 +44,14 @@
 			</a>
 		</li>
 
+		<!-- Nav Item - Monitoring Pelatihan PMI (view dashboard_pelatihan_detail) -->
+		<li class="nav-item <?= $active === 'pelatihan' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('pelatihan') ?>">
+				<i class="fas fa-fw fa-user-graduate"></i>
+				<span>Monitoring Pelatihan PMI</span>
+			</a>
+		</li>
+
 		<hr class="sidebar-divider">
 
 		<div class="sidebar-heading">Analisis</div>

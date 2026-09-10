@@ -72,6 +72,9 @@ $route['tentang']           = 'dashboard/tentang';
 // Menu replika "Dashboard Vokasi" (ringkasan pendataan)
 $route['pendataan']         = 'dashboard/pendataan';
 
+// Menu "Monitoring Pelatihan PMI" (KPI + chart dari view dashboard_pelatihan_detail)
+$route['pelatihan']         = 'dashboard/pelatihan';
+
 // Menu "Daftar Pendataan" (tabel lembaga + export)
 $route['daftar-pendataan']        = 'dashboard/daftar_pendataan';
 $route['daftar-pendataan/export'] = 'dashboard/daftar_pendataan_export';

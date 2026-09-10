@@ -125,6 +125,25 @@ class Dashboard extends CI_Controller {
 	}
 
 	/**
+	 * Menu "Monitoring Pelatihan PMI" — KPI + chart peserta pelatihan PMI.
+	 * Seluruh angka dari view dashboard_pelatihan_detail (repo->pelatihanStats()).
+	 */
+	public function pelatihan()
+	{
+		$data = array(
+			'title'  => 'Monitoring Pelatihan PMI',
+			'active' => 'pelatihan',
+			'stats'  => $this->repo->pelatihanStats(),
+		);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/pelatihan', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	/**
 	 * Menu "Daftar Pendataan" — tabel lembaga dari DB (dashboard_vokasi_detail)
 	 * dengan pencarian/sortir/paginasi (DataTables) + detail modal + export.
 	 */
