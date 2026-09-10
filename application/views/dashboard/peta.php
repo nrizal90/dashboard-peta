@@ -49,8 +49,16 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 	.dg-wrap .form-check-input:checked { background-color: var(--dg-gold); border-color: var(--dg-gold); }
 
 	/* Peta & panel filter */
-	/* Peta tanpa tile OSM — latar putih polos, polygon provinsi abu-abu (lihat dashboard.js). */
-	.dg-wrap #map { border-radius: .75rem; background: #ffffff; }
+	/* Peta tanpa tile OSM — laut abu-abu muda, daratan putih (polygon di dashboard.js). */
+	.dg-wrap #map { border-radius: .75rem; background: #e6e9ed; }
+
+	/* Bubble cluster: lingkaran emas + angka putih (iconCreateFunction di dashboard.js) */
+	.dg-wrap .dg-cluster {
+		background: var(--dg-gold-dark); border: 3px solid rgba(255,255,255,.85); border-radius: 50%;
+		box-shadow: 0 2px 8px rgba(0,0,0,.18);
+		display: flex; align-items: center; justify-content: center;
+	}
+	.dg-wrap .dg-cluster span { color: #fff; font-weight: 800; font-size: .8rem; line-height: 1; }
 	.dg-wrap .leaflet-popup-content .btn-primary {
 		background: var(--dg-gold-dark); border-color: var(--dg-gold-dark); color: #fff;
 	}

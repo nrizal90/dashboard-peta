@@ -86,13 +86,13 @@
 		maxZoom: 18
 	}).setView(window.APP.mapCenter, window.APP.mapZoom);
 
-	// Basemap: polygon provinsi Indonesia (abu-abu di atas putih), sama seperti peta
-	// di dashboard utama — menggantikan tile OpenStreetMap supaya tidak tampil
+	// Basemap: polygon provinsi Indonesia — daratan putih di atas laut abu-abu muda
+	// (gaya peta referensi), menggantikan tile OpenStreetMap supaya tidak tampil
 	// seperti peta jalan/globe. Non-interaktif agar klik/hover tetap milik marker.
 	var basemap = L.geoJSON(null, {
 		interactive: false,
 		style: function () {
-			return { fillColor: '#e9edf3', color: '#ffffff', weight: 1, fillOpacity: 1 };
+			return { fillColor: '#ffffff', color: '#d5dae1', weight: 1, fillOpacity: 1 };
 		}
 	}).addTo(map);
 
@@ -119,7 +119,18 @@
 		chunkedLoading: true,
 		maxClusterRadius: 50,
 		zoomToBoundsOnClick: false,  // klik cluster -> tampilkan List Lembaga (Hasil Review #4)
-		spiderfyOnMaxZoom: false
+		spiderfyOnMaxZoom: false,
+		// Bubble cluster: lingkaran emas polos + angka putih (gaya peta referensi),
+		// menggantikan warna hijau/kuning/oranye bawaan markercluster. Style di peta.php.
+		iconCreateFunction: function (c) {
+			var n = c.getChildCount();
+			var size = n >= 100 ? 44 : n >= 10 ? 38 : 32;
+			return L.divIcon({
+				html: '<span>' + n + '</span>',
+				className: 'dg-cluster',
+				iconSize: L.point(size, size)
+			});
+		}
 	});
 	map.addLayer(cluster);
 
