@@ -75,9 +75,15 @@
 	// -----------------------------------------------------------------
 	// Peta
 	// -----------------------------------------------------------------
+	// CATATAN PENTING (jangan diubah tanpa menguji marker):
+	// Tanpa tileLayer, map.getMaxZoom() bernilai Infinity dan Leaflet.markercluster
+	// gagal membangun grid cluster-nya (marker tidak muncul sama sekali), jadi
+	// minZoom/maxZoom WAJIB ditetapkan eksplisit di sini. markercluster juga
+	// mengharuskan level zoom bilangan bulat — zoomSnap pecahan membuat marker hilang.
 	var map = L.map('map', {
 		attributionControl: false,
-		zoomSnap: 0.1, zoomDelta: 0.5   // zoom pecahan → fitBounds mengisi kontainer penuh
+		minZoom: 4,
+		maxZoom: 18
 	}).setView(window.APP.mapCenter, window.APP.mapZoom);
 
 	// Basemap: polygon provinsi Indonesia (abu-abu di atas putih), sama seperti peta
