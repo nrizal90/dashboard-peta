@@ -484,7 +484,7 @@
 			// Pulau
 			fillSelect('fPulau', refs.pulau, 'nama', 'nama');
 			// Provinsi (pakai kode BPS sbg value)
-			fillSelect('fProvinsi', refs.provinsi, 'kode', 'nama', 'jumlah_lembaga');
+			fillSelect('fProvinsi', refs.provinsi, 'kode', 'nama');
 			// Kota
 			allKota = refs.kota || [];
 			renderKota('');
