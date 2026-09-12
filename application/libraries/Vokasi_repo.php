@@ -483,9 +483,15 @@ class Vokasi_repo {
 			'fasilitas' => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
 			'program'   => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
 		);
+		// Hanya lembaga terverifikasi legalitas (accepted) yang dihitung kapasitas &
+		// sektor/jabatan-nya; ditolak/pending/belum submit tidak ikut.
+		$verified = array();
 		foreach ($primary as $r)
 		{
-			$k = ($r['kapasitas'] === NULL) ? 0 : (int) $r['kapasitas'];
+			$isVerified = (isset($r['status_legalitas']) && $r['status_legalitas'] === 'accepted');
+			if ($isVerified) $verified[(int) $r['id']] = TRUE;
+
+			$k = ($r['kapasitas'] === NULL || ! $isVerified) ? 0 : (int) $r['kapasitas'];
 			$kapTotal += $k;
 			if ($k > 0) $kapList[] = $k;
 
@@ -511,8 +517,11 @@ class Vokasi_repo {
 		{
 			$s = isset($x['sektor'])  ? $x['sektor']  : '';
 			$j = isset($x['jabatan']) ? $x['jabatan'] : '';
-			if ($s !== '') $sektorSet[$s]  = TRUE;
-			if ($j !== '') $jabatanSet[$j] = TRUE;
+			if (isset($verified[(int) $x['lembaga_id']]))
+			{
+				if ($s !== '') $sektorSet[$s]  = TRUE;
+				if ($j !== '') $jabatanSet[$j] = TRUE;
+			}
 			$pv = isset($lembagaProv[(int) $x['lembaga_id']]) ? $lembagaProv[(int) $x['lembaga_id']] : '';
 			if ($s !== '' && $pv !== '') $provSektor[$pv . '|' . $s] = TRUE;
 		}
