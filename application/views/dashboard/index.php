@@ -23,10 +23,9 @@ $goldLight = $tema['gold_light'];
 $fmtNum = function ($v) { return ($v === NULL) ? '-' : number_format($v, 0, ',', '.'); };
 $fmtPct = function ($v) { return ($v === NULL) ? '-' : ((int) $v) . '%'; };
 
-// Kartu sambutan — angka NYATA dari DB (view dashboard_vokasi_detail); fallback '-'.
+// Kartu sambutan — terverifikasi legalitas, unik per email (DB); fallback '-'.
 $h = isset($header) ? $header : array();
-$lembagaTerdaftar   = isset($h['lembaga_terdaftar']) ? (int) $h['lembaga_terdaftar'] : NULL;
-$verifLegalitas     = isset($h['terverifikasi_legalitas']) ? (int) $h['terverifikasi_legalitas'] : NULL;
+$verifLegalitas = isset($h['terverifikasi_legalitas']) ? (int) $h['terverifikasi_legalitas'] : NULL;
 
 // KPI atas — angka NYATA dari DB (view dashboard_vokasi_detail); fallback '-'.
 $kv = isset($kpi) ? $kpi : array();
@@ -47,8 +46,9 @@ $kpis = array(
 
 $km = isset($komposisi) ? $komposisi : array();
 
-// Status Lembaga Vokasi (donut) — DB (distribusi legalitas). Total = $lembagaTerdaftar.
+// Status Lembaga Vokasi (donut) — DB (distribusi legalitas).
 $kmStatus = isset($km['status']) ? $km['status'] : array();
+$statusTotal  = isset($kmStatus['total']) ? (int) $kmStatus['total'] : NULL;
 $statusLabels = array('Terverifikasi Legalitas', 'Dalam Proses', 'Ditolak');
 $statusData   = array(
 	isset($kmStatus['terverifikasi']) ? (int) $kmStatus['terverifikasi'] : 0,
@@ -195,11 +195,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 						<img src="<?= base_url('assets/img/logo-color.webp') ?>" alt="Logo" class="dg-hero-logo">
 					</div>
 					<div class="row mt-auto pt-3">
-						<div class="col-6">
-							<div class="stat-lbl">Lembaga Terdaftar</div>
-							<div class="stat-num"><?= $fmtNum($lembagaTerdaftar) ?></div>
-						</div>
-						<div class="col-6">
+						<div class="col-12">
 							<div class="stat-lbl">Terverifikasi Legalitas</div>
 							<div class="stat-num"><?= $fmtNum($verifLegalitas) ?></div>
 						</div>
@@ -318,7 +314,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 <script>
 window.DG = {
 	gold: '<?= $gold ?>', goldDark: '<?= $goldDark ?>', goldDeep: '<?= $goldDeep ?>', goldLight: '<?= $goldLight ?>',
-	status:     { labels: <?= json_encode($statusLabels) ?>, data: <?= json_encode($statusData) ?>, total: <?= $lembagaTerdaftar === NULL ? 'null' : (int) $lembagaTerdaftar ?> },
+	status:     { labels: <?= json_encode($statusLabels) ?>, data: <?= json_encode($statusData) ?>, total: <?= $statusTotal === NULL ? 'null' : $statusTotal ?> },
 	akreditasi: { labels: <?= json_encode($akreditasiLabels) ?>, data: <?= json_encode($akreditasiData) ?> },
 	bentuk:     { labels: <?= json_encode($bentukLabels) ?>, data: <?= json_encode($bentukData) ?> },
 	provinsi:   { labels: <?= json_encode($provLabels) ?>, data: <?= json_encode($provData) ?> },

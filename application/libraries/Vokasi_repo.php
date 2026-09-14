@@ -582,34 +582,22 @@ class Vokasi_repo {
 	}
 
 	/**
-	 * Angka ringkas kartu sambutan dashboard utama (redesign).
-	 *
-	 * Sumbernya SAMA dengan halaman Peta Sebaran (views/dashboard/peta.php), yaitu
-	 * summary() — supaya kedua halaman tidak pernah menampilkan angka berbeda:
-	 *   - lembaga_terdaftar       = lembaga.unik_primary
-	 *                               (lembaga unik setelah duplikat ditandai, sama
-	 *                               dengan KPI "Lembaga" di halaman Peta)
-	 *   - terverifikasi_legalitas = verifikasi.legalitas.accepted
-	 *                               (sama dengan batang Accepted pada chart
-	 *                               "Tahapan Verifikasi" layer 1 di halaman Peta)
-	 *
-	 * Sebelumnya kedua angka ini dihitung COUNT langsung atas seluruh BARIS view
-	 * dashboard_vokasi_detail, sehingga baris duplikat ikut terhitung.
-	 * summary() sendiri sudah di-cache per request (self::$derived).
+	 * Angka kartu sambutan dashboard utama (redesign).
+	 *   - terverifikasi_legalitas = lembaga lulus verifikasi legalitas
+	 *     (ver_legality_status = 'accepted'), UNIK per email (vok_email) agar
+	 *     baris duplikat lembaga tidak terhitung dua kali.
+	 * "Lembaga Terdaftar" sengaja dihapus (permintaan Pusdatin).
 	 * @return array
 	 */
 	public function headerStats()
 	{
-		$s = $this->summary();
+		$row = $this->requireDb()->query(
+			"SELECT count(DISTINCT lower(trim(vok_email))) AS legal
+			FROM dashboard_vokasi_detail
+			WHERE ver_legality_status = 'accepted'"
+		)->row_array();
 
-		$legal = isset($s['verifikasi']['legalitas']['accepted'])
-			? (int) $s['verifikasi']['legalitas']['accepted']
-			: 0;
-
-		return array(
-			'lembaga_terdaftar'       => (int) $s['lembaga']['unik_primary'],
-			'terverifikasi_legalitas' => $legal,
-		);
+		return array('terverifikasi_legalitas' => (int) $row['legal']);
 	}
 
 	/**
