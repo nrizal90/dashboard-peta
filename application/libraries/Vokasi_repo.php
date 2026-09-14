@@ -463,6 +463,9 @@ class Vokasi_repo {
 
 		$totalBaris  = count($all);
 		$unikPrimary = count($primary);
+		// KPI Peta/Wall: hanya terverifikasi legalitas, unik per email.
+		$verRows     = $this->verifiedUnique($all);
+		$unikVerif   = count($verRows);
 
 		// --- Cakupan wilayah + peta lembaga->provinsi (untuk gap) atas semua baris ---
 		$provAll = array();
@@ -475,26 +478,26 @@ class Vokasi_repo {
 			$lembagaProv[(int) $r['id']] = isset($r['provinsi']) ? $r['provinsi'] : '';
 		}
 
-		// --- Kapasitas + koordinat + verifikasi atas primary (spec 2.2) ---
-		$kapTotal = 0; $kapList = array();
+		// --- Kapasitas + provinsi + sektor/jabatan atas lembaga terverifikasi unik ---
+		$kapTotal = 0; $kapList = array(); $provVerif = array(); $verified = array();
+		foreach ($verRows as $r)
+		{
+			$verified[(int) $r['id']] = TRUE;
+			if ( ! empty($r['provinsi'])) $provVerif[$r['provinsi']] = TRUE;
+			$k = ($r['kapasitas'] === NULL) ? 0 : (int) $r['kapasitas'];
+			$kapTotal += $k;
+			if ($k > 0) $kapList[] = $k;
+		}
+
+		// --- Koordinat + funnel verifikasi atas primary (spec 2.2) ---
 		$coordAsli = 0; $coordTidakAda = 0;
 		$fun = array(
 			'legalitas' => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
 			'fasilitas' => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
 			'program'   => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
 		);
-		// Hanya lembaga terverifikasi legalitas (accepted) yang dihitung kapasitas &
-		// sektor/jabatan-nya; ditolak/pending/belum submit tidak ikut.
-		$verified = array();
 		foreach ($primary as $r)
 		{
-			$isVerified = (isset($r['status_legalitas']) && $r['status_legalitas'] === 'accepted');
-			if ($isVerified) $verified[(int) $r['id']] = TRUE;
-
-			$k = ($r['kapasitas'] === NULL || ! $isVerified) ? 0 : (int) $r['kapasitas'];
-			$kapTotal += $k;
-			if ($k > 0) $kapList[] = $k;
-
 			if ($r['lat'] !== NULL && $r['lng'] !== NULL) $coordAsli++;
 			else $coordTidakAda++;
 
@@ -539,7 +542,7 @@ class Vokasi_repo {
 			'sumber'       => array('Database main_db (view dashboard_vokasi_detail / _sektor / dashboard_vokasi_katalog)'),
 			'lembaga' => array(
 				'total_baris'       => $totalBaris,
-				'unik_primary'      => $unikPrimary,
+				'unik_primary'      => $unikVerif,   // terverifikasi legalitas, unik email
 				'duplikat_ditandai' => $totalBaris - $unikPrimary,
 			),
 			'katalog' => array(
@@ -560,7 +563,7 @@ class Vokasi_repo {
 				'persen_asli'        => $persenAsli,
 			),
 			'wilayah' => array(
-				'provinsi' => count($provAll),
+				'provinsi' => count($provVerif),
 				'kota'     => count($kotaAll),
 			),
 			'sektor' => array(
@@ -1106,6 +1109,26 @@ class Vokasi_repo {
 	// Subset & index turunan
 	// ---------------------------------------------------------------------
 
+	/**
+	 * Lembaga TERVERIFIKASI LEGALITAS (accepted), UNIK per email — dasar KPI &
+	 * chart halaman Peta (sama dengan aturan dashboard utama). Baris pertama per
+	 * email yang dipakai; email kosong dianggap unik per id.
+	 */
+	private function verifiedUnique(array $rows)
+	{
+		$out = array(); $seen = array();
+		foreach ($rows as $r)
+		{
+			if ( ! isset($r['status_legalitas']) || $r['status_legalitas'] !== 'accepted') continue;
+			$key = strtolower(trim((string) $r['email']));
+			if ($key === '') $key = 'id:' . $r['id'];
+			if (isset($seen[$key])) continue;
+			$seen[$key] = TRUE;
+			$out[] = $r;
+		}
+		return $out;
+	}
+
 	/** Hanya lembaga is_primary = true (776) — dasar semua agregat (2.2). */
 	public function primary()
 	{
@@ -1432,6 +1455,9 @@ class Vokasi_repo {
 	public function stats(array $p)
 	{
 		$rows = $this->filter($p, TRUE);
+		// Funnel dihitung atas semua hasil filter; KPI & chart lain hanya
+		// lembaga terverifikasi legalitas, unik per email.
+		$ver  = $this->verifiedUnique($rows);
 
 		// Set id lembaga hasil filter -> untuk agregasi relasi (2.1: dedup)
 		$idSet = array();
@@ -1446,7 +1472,7 @@ class Vokasi_repo {
 			'program'   => array('accepted'=>0,'rejected'=>0,'pending'=>0,'not_submitted'=>0,'revised'=>0),
 		);
 
-		foreach ($rows as $r)
+		foreach ($ver as $r)
 		{
 			$idSet[(int) $r['id']] = TRUE;
 			$totalKapasitas += ($r['kapasitas'] === NULL ? 0 : (int) $r['kapasitas']);
@@ -1457,7 +1483,10 @@ class Vokasi_repo {
 			$pk = $r['provinsi'];
 			if ( ! isset($prov[$pk])) $prov[$pk] = 0;
 			$prov[$pk]++;
+		}
 
+		foreach ($rows as $r)
+		{
 			foreach (array('legalitas'=>'status_legalitas','fasilitas'=>'status_fasilitas','program'=>'status_program') as $tahap => $field)
 			{
 				$v = isset($r[$field]) ? $r[$field] : 'not_submitted';
@@ -1481,7 +1510,7 @@ class Vokasi_repo {
 		}
 
 		return array(
-			'jumlah_lembaga'  => count($rows),
+			'jumlah_lembaga'  => count($ver),
 			'total_kapasitas' => $totalKapasitas,
 			'ownership'       => $ownership,
 			'top_sektor'      => $this->topN($sektor, 10),

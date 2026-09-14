@@ -9,7 +9,6 @@ $lem = isset($s['lembaga']['unik_primary']) ? $s['lembaga']['unik_primary'] : 0;
 $prov = isset($s['wilayah']['provinsi']) ? $s['wilayah']['provinsi'] : 0;
 $sekt = isset($s['sektor']['total_sektor']) ? $s['sektor']['total_sektor'] : 0;
 $jab = isset($s['sektor']['total_jabatan']) ? $s['sektor']['total_jabatan'] : 0;
-$presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'] : 0;
 ?>
 
 <!-- ===== TEMA EMAS (senada dashboard utama; warnanya dari config/tema.php) ===== -->
@@ -113,7 +112,6 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 						array('Total Kapasitas', number_format($kap, 0, ',', '.'), 'fa-users'),
 						array('Provinsi', $prov, 'fa-map-marked-alt'),
 						array('Sektor / Jabatan', $sekt . ' / ' . $jab, 'fa-layer-group'),
-						array('Koordinat Presisi', $presisi . '%', 'fa-crosshairs'),
 					);
 					foreach ($kpis as $k): ?>
 					<div class="col-md col-6 mb-3">
@@ -170,7 +168,7 @@ $presisi = isset($s['koordinat']['persen_asli']) ? $s['koordinat']['persen_asli'
 										<option value="layer1">Layer 1 (Legalitas)</option>
 										<option value="layer2">Layer 2 (Fasilitas)</option>
 										<option value="layer3">Layer 3 (Program)</option>
-										<option value="belum">Belum e-Vokasi</option>
+										<option value="belum">Menunggu Verifikasi</option>
 									</select>
 								</div>
 
