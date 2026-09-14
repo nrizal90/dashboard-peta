@@ -191,13 +191,21 @@ class Vokasi_repo {
 	 * join by id. Untuk lembaga baru tanpa koordinat DB maupun JSON: koordinat
 	 * NULL (tak muncul di peta), kode provinsi dicari dari nama.
 	 *
-	 * Dedup DARI DB, berdasarkan EMAIL (vok_email, lower+trim): baris dengan
-	 * email sama = lembaga sama → dup_group = email; is_primary = baris terbaik
-	 * (utamakan legalitas 'accepted', lalu urutan pertama). Email kosong = unik.
+	 * Dedup DI SQL berdasarkan EMAIL: ROW_NUMBER() per vok_email, ambil rn = 1
+	 * (utamakan legalitas 'accepted', lalu vok_id terkecil). Jadi all() sudah
+	 * unik per email; is_primary selalu TRUE.
 	 */
 	private function buildLembagaFromDb($db)
 	{
-		$rows = $db->get('dashboard_vokasi_detail')->result_array();
+		$rows = $db->query(
+			"SELECT * FROM (
+				SELECT dvd.*, ROW_NUMBER() OVER (
+					PARTITION BY lower(trim(dvd.vok_email))
+					ORDER BY (dvd.ver_legality_status = 'accepted') DESC, dvd.vok_id ASC
+				) AS rn
+				FROM dashboard_vokasi_detail dvd
+			) x WHERE x.rn = 1"
+		)->result_array();
 		$json = $this->jsonLembagaIndex();
 		$prov = $this->provMaps();
 
@@ -265,30 +273,8 @@ class Vokasi_repo {
 				'status_legalitas' => $r['ver_legality_status'],
 				'status_fasilitas' => $r['ver_facility_status'],
 				'status_program'   => $r['ver_program_status'],
-				'is_primary'       => TRUE,   // diisi di bawah (dedup by email)
-				'dup_group'        => NULL,
+				'is_primary'       => TRUE,   // sudah unik per email (rn = 1 di SQL)
 			);
-		}
-
-		// Dedup by email: tandai grup + pilih 1 primary per email.
-		$byEmail = array(); // key => [index baris, ...]
-		foreach ($out as $i => $r)
-		{
-			$key = strtolower(trim((string) $r['email']));
-			if ($key === '') continue;
-			$byEmail[$key][] = $i;
-		}
-		foreach ($byEmail as $key => $idx)
-		{
-			if (count($idx) < 2) continue;
-			$best = $idx[0];
-			foreach ($idx as $i)
-			{
-				$out[$i]['dup_group']  = $key;
-				$out[$i]['is_primary'] = FALSE;
-				if ($out[$best]['status_legalitas'] !== 'accepted' && $out[$i]['status_legalitas'] === 'accepted') $best = $i;
-			}
-			$out[$best]['is_primary'] = TRUE;
 		}
 		return $out;
 	}
@@ -1266,29 +1252,6 @@ class Vokasi_repo {
 			);
 		}
 		usort($out, function ($a, $b) { return strcasecmp($a['nama'], $b['nama']); });
-		return $out;
-	}
-
-	/** Lembaga lain dalam grup duplikat yang sama (untuk badge detail). */
-	public function dupGroupOf($row)
-	{
-		if (empty($row['dup_group']))
-		{
-			return array();
-		}
-		$out = array();
-		foreach ($this->all() as $r)
-		{
-			if ($r['dup_group'] === $row['dup_group'] && $r['id'] !== $row['id'])
-			{
-				$out[] = array(
-					'id'         => $r['id'],
-					'uid'        => $r['uid'],
-					'email'      => $r['email'],
-					'is_primary' => $r['is_primary'],
-				);
-			}
-		}
 		return $out;
 	}
 

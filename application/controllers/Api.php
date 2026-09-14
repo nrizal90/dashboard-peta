@@ -105,7 +105,7 @@ class Api extends CI_Controller {
 		$this->json($this->repo->points($this->filters()));
 	}
 
-	/** GET /api/lembaga/{id} — detail + sektor/jabatan + info duplikat. */
+	/** GET /api/lembaga/{id} — detail + sektor/jabatan. */
 	public function lembaga($id = NULL)
 	{
 		if ($id === NULL || ! ctype_digit((string) $id))
@@ -123,7 +123,6 @@ class Api extends CI_Controller {
 			'lembaga'   => $row,
 			'sektor'    => $this->repo->sektorOf($id),
 			'katalog'   => $this->repo->katalogOf($id),
-			'duplikat'  => $this->repo->dupGroupOf($row),
 		));
 	}
 

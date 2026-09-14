@@ -195,7 +195,6 @@
 				'<div class="mt-1"><b>Sektor:</b> ' + Object.keys(sektorSet).map(esc).join(', ') + '</div>' +
 				'<div class="mt-1"><b>Jabatan (' + jabatanList.length + '):</b> <small>' +
 					jabatanList.slice(0, 8).map(esc).join(' · ') + (jabatanList.length > 8 ? ' …' : '') + '</small></div>' +
-				(d.duplikat && d.duplikat.length ? '<div class="mt-1"><span class="badge badge-secondary">' + d.duplikat.length + ' duplikat</span></div>' : '') +
 				'<div class="mt-2"><button class="btn btn-sm btn-primary py-0" data-detail="' + L0.id + '">Lihat Detail</button></div>' +
 				'</div>';
 			marker.setPopupContent(html);
