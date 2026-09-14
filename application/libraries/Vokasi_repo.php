@@ -607,20 +607,21 @@ class Vokasi_repo {
 	 *   - fasilitas   : lulus verifikasi fasilitas  (ver_facility_status = 'accepted')
 	 *   - program     : lulus verifikasi program    (ver_program_status  = 'accepted')
 	 *   - keseluruhan : lulus SELURUH tahap         (legalitas+fasilitas+program 'accepted')
-	 * 'persen' = porsi terhadap total lembaga terdaftar (dibulatkan).
+	 * 'persen' = porsi terhadap total lembaga unik per email (dibulatkan).
 	 * @return array
 	 */
 	public function verifikasiKpi()
 	{
 		$db = $this->requireDb();
 
+		// Lembaga UNIK per email (sama dengan headerStats & donut Status).
 		$sql = "SELECT
-				count(*)                                                       AS total,
-				count(*) FILTER (WHERE ver_facility_status = 'accepted')        AS fasilitas,
-				count(*) FILTER (WHERE ver_program_status  = 'accepted')        AS program,
-				count(*) FILTER (WHERE ver_legality_status = 'accepted'
+				count(DISTINCT lower(trim(vok_email)))                                                 AS total,
+				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_facility_status = 'accepted') AS fasilitas,
+				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_program_status  = 'accepted') AS program,
+				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_legality_status = 'accepted'
 				                   AND ver_facility_status = 'accepted'
-				                   AND ver_program_status  = 'accepted')        AS keseluruhan
+				                   AND ver_program_status  = 'accepted')                                AS keseluruhan
 			FROM dashboard_vokasi_detail";
 
 		$row   = $db->query($sql)->row_array();
@@ -659,11 +660,12 @@ class Vokasi_repo {
 			FROM dashboard_vokasi_detail"
 		)->row_array();
 
-		// Bentuk penyelenggaraan — GROUP BY.
+		// Bentuk penyelenggaraan — hanya lembaga terverifikasi legalitas, unik per email.
 		$b = $db->query(
-			"SELECT vok_institution_form AS label, count(*) AS value
+			"SELECT vok_institution_form AS label, count(DISTINCT lower(trim(vok_email))) AS value
 			FROM dashboard_vokasi_detail
-			WHERE vok_institution_form IS NOT NULL AND vok_institution_form <> ''
+			WHERE ver_legality_status = 'accepted'
+			  AND vok_institution_form IS NOT NULL AND vok_institution_form <> ''
 			GROUP BY vok_institution_form
 			ORDER BY value DESC"
 		)->result_array();
@@ -723,7 +725,7 @@ class Vokasi_repo {
 		$db = $this->requireDb();
 
 		$rows = $db->query(
-			"SELECT vok_province AS provinsi, count(*) AS jumlah
+			"SELECT vok_province AS provinsi, count(DISTINCT lower(trim(vok_email))) AS jumlah
 			FROM dashboard_vokasi_detail
 			WHERE ver_legality_status = 'accepted'
 			  AND vok_province IS NOT NULL AND vok_province <> ''
@@ -769,11 +771,11 @@ class Vokasi_repo {
 
 	/**
 	 * Kartu "Jenis Lembaga Vokasi" (bar) + "Sektor Spesialisasi (Top N)" (bar).
+	 * Keduanya HANYA lembaga terverifikasi legalitas (accepted), unik per email.
 	 *   jenis  : distribusi type_name — view dashboard_vokasi_detail (tanpa join).
-	 *   sektor : Top-N sektor by JUMLAH LEMBAGA UNIK (count distinct vok_id) —
-	 *            view dashboard_vokasi_detail_sektor (tanpa join; sektor & vok_id
-	 *            keduanya ada di view itu). Pakai distinct krn 1 lembaga bisa punya
-	 *            banyak baris jabatan pada 1 sektor (spec 2.1: dedup dulu).
+	 *   sektor : Top-N sektor by jumlah lembaga unik — view
+	 *            dashboard_vokasi_detail_sektor (tanpa join). Distinct krn 1 lembaga
+	 *            bisa punya banyak baris jabatan pada 1 sektor (spec 2.1: dedup dulu).
 	 * @return array
 	 */
 	public function jenisDanSektor($topSektor = 5)
@@ -781,9 +783,10 @@ class Vokasi_repo {
 		$db = $this->requireDb();
 
 		$j = $db->query(
-			"SELECT trim(type_name) AS label, count(*) AS value
+			"SELECT trim(type_name) AS label, count(DISTINCT lower(trim(vok_email))) AS value
 			FROM dashboard_vokasi_detail
-			WHERE type_name IS NOT NULL AND trim(type_name) <> ''
+			WHERE ver_legality_status = 'accepted'
+			  AND type_name IS NOT NULL AND trim(type_name) <> ''
 			GROUP BY trim(type_name)
 			ORDER BY value DESC"
 		)->result_array();
@@ -795,9 +798,10 @@ class Vokasi_repo {
 		}
 
 		$s = $db->query(
-			"SELECT trim(sector_name) AS label, count(DISTINCT vok_id) AS value
+			"SELECT trim(sector_name) AS label, count(DISTINCT lower(trim(vok_email))) AS value
 			FROM dashboard_vokasi_detail_sektor
-			WHERE sector_name IS NOT NULL AND trim(sector_name) <> ''
+			WHERE ver_legality_status = 'accepted'
+			  AND sector_name IS NOT NULL AND trim(sector_name) <> ''
 			GROUP BY trim(sector_name)
 			ORDER BY value DESC
 			LIMIT " . (int) $topSektor

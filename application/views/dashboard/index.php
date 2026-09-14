@@ -54,10 +54,6 @@ $statusData   = array(
 	isset($kmStatus['ditolak'])       ? (int) $kmStatus['ditolak']       : 0,
 );
 
-// Akreditasi — HARDCODE (belum ada kolom akreditasi di view dashboard_vokasi_*).
-$akreditasiLabels = array('Akreditasi A', 'Akreditasi B', 'Belum Terakreditasi', 'Akreditasi C');
-$akreditasiData   = array(644, 459, 357, 72);
-
 // Bentuk Lembaga (bar) — DB (vok_institution_form).
 $kmBentuk = ( ! empty($km['bentuk'])) ? $km['bentuk'] : array(
 	array('label' => 'Pendidikan dan Pelatihan', 'value' => 882),
@@ -145,12 +141,6 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 	#dgMap .leaflet-interactive { cursor: pointer; }
 	#dgMap .leaflet-container { background: #ffffff; }
 
-	/* Catatan "data contoh" untuk kartu yang belum tersambung DB */
-	.dg-note-dummy {
-		background: #fff8e1; border: 1px solid #f3e2a9; color: #8a6d1a;
-		font-size: .72rem; line-height: 1.3; border-radius: .5rem;
-		padding: .4rem .6rem; margin-bottom: .6rem;
-	}
 
 	.chart-box { position: relative; }
 	.chart-box.h-sm  { height: 210px; }
@@ -225,9 +215,9 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 		</div>
 	</div>
 
-	<!-- ===== BARIS 2: STATUS · AKREDITASI · BENTUK ===== -->
+	<!-- ===== BARIS 2: STATUS · BENTUK ===== -->
 	<div class="row">
-		<div class="col-md-6 col-lg-4 mb-4">
+		<div class="col-md-6 mb-4">
 			<div class="card dg-card h-100">
 				<div class="card-body">
 					<div class="dg-title h6 mb-1">Status Lembaga Vokasi</div>
@@ -236,22 +226,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6 col-lg-4 mb-4">
-			<div class="card dg-card h-100">
-				<div class="card-body">
-					<div class="dg-title h6 mb-1">Akreditasi Lembaga
-						<span class="badge badge-warning ml-1" style="font-size:.6rem;vertical-align:middle;" title="Angka contoh — kolom akreditasi belum tersedia di database">contoh</span>
-					</div>
-					<div class="dg-sub">Distribusi Status Akreditasi Sebagai Indikator Kualitas Lembaga Vokasi.</div>
-					<div class="dg-note-dummy">
-						<i class="fas fa-info-circle mr-1"></i>
-						Data masih <b>contoh</b> — belum tersedia di database, jadi angka di sini bukan data sebenarnya.
-					</div>
-					<div class="chart-box h-md"><canvas id="chAkreditasi"></canvas></div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6 col-lg-4 mb-4">
+		<div class="col-md-6 mb-4">
 			<div class="card dg-card h-100">
 				<div class="card-body">
 					<div class="dg-title h6 mb-1">Bentuk Lembaga</div>
@@ -313,7 +288,6 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 window.DG = {
 	gold: '<?= $gold ?>', goldDark: '<?= $goldDark ?>', goldDeep: '<?= $goldDeep ?>', goldLight: '<?= $goldLight ?>',
 	status:     { labels: <?= json_encode($statusLabels) ?>, data: <?= json_encode($statusData) ?>, total: <?= $statusTotal === NULL ? 'null' : $statusTotal ?> },
-	akreditasi: { labels: <?= json_encode($akreditasiLabels) ?>, data: <?= json_encode($akreditasiData) ?> },
 	bentuk:     { labels: <?= json_encode($bentukLabels) ?>, data: <?= json_encode($bentukData) ?> },
 	provinsi:   { labels: <?= json_encode($provLabels) ?>, data: <?= json_encode($provData) ?> },
 	jenis:      { labels: <?= json_encode($jenisLabels) ?>, data: <?= json_encode($jenisData) ?> },
@@ -395,14 +369,6 @@ window.addEventListener('load', function () {
 				'<small>Lembaga Vokasi</small></div>';
 			box.appendChild(c);
 		})();
-
-		// Akreditasi (horizontal bar)
-		new Chart(document.getElementById('chAkreditasi'), {
-			type: 'horizontalBar',
-			data: { labels: DG.akreditasi.labels,
-				datasets: [{ data: DG.akreditasi.data, backgroundColor: goldScale(DG.akreditasi.data.length), borderRadius: 6 }] },
-			options: hBarOpts
-		});
 
 		// Bentuk (horizontal bar)
 		new Chart(document.getElementById('chBentuk'), {
