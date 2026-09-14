@@ -137,7 +137,7 @@ class Vokasi_repo {
 
 	/**
 	 * Semua lembaga — SELALU dari view dashboard_vokasi_detail, di-enrich field
-	 * geo/dedup yang belum ada di DB (provinsi_kode, is_primary, dll) dari JSON.
+	 * geo yang belum ada di DB (provinsi_kode, pulau, dll) dari JSON; dedup by email dari DB.
 	 */
 	public function all()
 	{
@@ -187,10 +187,13 @@ class Vokasi_repo {
 	 *
 	 * Koordinat kini tersedia di view (vok_lat/vok_long) → dipakai lebih dulu;
 	 * JSON hanya fallback bila koordinat DB kosong. Kolom lain yang belum ada di
-	 * DB (provinsi_kode, pulau, slug kota, is_primary, dup_group, uid, nomor_*)
-	 * diambil dari JSON via join by id. Untuk lembaga baru tanpa koordinat DB
-	 * maupun JSON: koordinat NULL (tak muncul di peta), kode provinsi dicari dari
-	 * nama, is_primary default TRUE.
+	 * DB (provinsi_kode, pulau, slug kota, uid, nomor_*) diambil dari JSON via
+	 * join by id. Untuk lembaga baru tanpa koordinat DB maupun JSON: koordinat
+	 * NULL (tak muncul di peta), kode provinsi dicari dari nama.
+	 *
+	 * Dedup DARI DB, berdasarkan EMAIL (vok_email, lower+trim): baris dengan
+	 * email sama = lembaga sama → dup_group = email; is_primary = baris terbaik
+	 * (utamakan legalitas 'accepted', lalu urutan pertama). Email kosong = unik.
 	 */
 	private function buildLembagaFromDb($db)
 	{
@@ -262,10 +265,30 @@ class Vokasi_repo {
 				'status_legalitas' => $r['ver_legality_status'],
 				'status_fasilitas' => $r['ver_facility_status'],
 				'status_program'   => $r['ver_program_status'],
-				// Dedup dari JSON; lembaga baru dianggap primary tunggal.
-				'is_primary'       => $j !== NULL ? (bool) $j['is_primary'] : TRUE,
-				'dup_group'        => $j !== NULL ? $j['dup_group'] : NULL,
+				'is_primary'       => TRUE,   // diisi di bawah (dedup by email)
+				'dup_group'        => NULL,
 			);
+		}
+
+		// Dedup by email: tandai grup + pilih 1 primary per email.
+		$byEmail = array(); // key => [index baris, ...]
+		foreach ($out as $i => $r)
+		{
+			$key = strtolower(trim((string) $r['email']));
+			if ($key === '') continue;
+			$byEmail[$key][] = $i;
+		}
+		foreach ($byEmail as $key => $idx)
+		{
+			if (count($idx) < 2) continue;
+			$best = $idx[0];
+			foreach ($idx as $i)
+			{
+				$out[$i]['dup_group']  = $key;
+				$out[$i]['is_primary'] = FALSE;
+				if ($out[$best]['status_legalitas'] !== 'accepted' && $out[$i]['status_legalitas'] === 'accepted') $best = $i;
+			}
+			$out[$best]['is_primary'] = TRUE;
 		}
 		return $out;
 	}
@@ -435,9 +458,6 @@ class Vokasi_repo {
 	{
 		return $lat >= -11.5 && $lat <= 7.0 && $lng >= 94.0 && $lng <= 142.0;
 	}
-
-	/** Payload ringan map_points (776, sudah primary+mappable). */
-	public function mapPoints()    { return $this->load('map_points'); }
 
 	/**
 	 * KPI global — dihitung LIVE dari DB (bukan lagi summary.json).
@@ -1110,26 +1130,20 @@ class Vokasi_repo {
 	// ---------------------------------------------------------------------
 
 	/**
-	 * Lembaga TERVERIFIKASI LEGALITAS (accepted), UNIK per email — dasar KPI &
-	 * chart halaman Peta (sama dengan aturan dashboard utama). Baris pertama per
-	 * email yang dipakai; email kosong dianggap unik per id.
+	 * Lembaga TERVERIFIKASI LEGALITAS (accepted) & primary (unik per email) —
+	 * dasar KPI & chart halaman Peta (sama dengan aturan dashboard utama).
 	 */
 	private function verifiedUnique(array $rows)
 	{
-		$out = array(); $seen = array();
+		$out = array();
 		foreach ($rows as $r)
 		{
-			if ( ! isset($r['status_legalitas']) || $r['status_legalitas'] !== 'accepted') continue;
-			$key = strtolower(trim((string) $r['email']));
-			if ($key === '') $key = 'id:' . $r['id'];
-			if (isset($seen[$key])) continue;
-			$seen[$key] = TRUE;
-			$out[] = $r;
+			if ( ! empty($r['is_primary']) && $r['status_legalitas'] === 'accepted') $out[] = $r;
 		}
 		return $out;
 	}
 
-	/** Hanya lembaga is_primary = true (776) — dasar semua agregat (2.2). */
+	/** Hanya lembaga is_primary = true (unik per email) — dasar peta & agregat (2.2). */
 	public function primary()
 	{
 		if (isset(self::$derived['primary']))
@@ -1252,21 +1266,6 @@ class Vokasi_repo {
 			);
 		}
 		usort($out, function ($a, $b) { return strcasecmp($a['nama'], $b['nama']); });
-		return $out;
-	}
-
-	/** Lembaga (primary) di satu provinsi (kode BPS). */
-	public function byProvinsi($kode)
-	{
-		$kode = (string) $kode;
-		$out = array();
-		foreach ($this->primary() as $r)
-		{
-			if ((string) $r['provinsi_kode'] === $kode)
-			{
-				$out[] = $r;
-			}
-		}
 		return $out;
 	}
 
