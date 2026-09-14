@@ -146,13 +146,6 @@ $jab = isset($s['sektor']['total_jabatan']) ? $s['sektor']['total_jabatan'] : 0;
 								</div>
 
 								<div class="filter-group">
-									<div class="form-check">
-										<input type="checkbox" class="form-check-input" id="fOnlyOriginal">
-										<label class="form-check-label" for="fOnlyOriginal">Hanya koordinat asli (presisi)</label>
-									</div>
-								</div>
-
-								<div class="filter-group">
 									<label class="head">Ownership</label>
 									<select id="fOwnership" class="form-control form-control-sm">
 										<option value="">Semua</option>

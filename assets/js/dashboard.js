@@ -589,9 +589,6 @@
 		bindInput('fKapMin', 'kapasitas_min');
 		bindInput('fKapMax', 'kapasitas_max');
 
-		document.getElementById('fOnlyOriginal').addEventListener('change', function () {
-			state.only_original = this.checked; refreshDebounced();
-		});
 		document.getElementById('fKotaSearch').addEventListener('input', debounce(function () {
 			renderKota(this.value);
 		}, 200));
@@ -624,7 +621,6 @@
 		setVal('fTahapan', state.tahapan); setVal('fPulau', state.pulau);
 		setVal('fProvinsi', state.provinsi); setVal('fKota', state.kota_slug);
 		setVal('fKapMin', state.kapasitas_min); setVal('fKapMax', state.kapasitas_max);
-		document.getElementById('fOnlyOriginal').checked = !!state.only_original;
 	}
 
 	// -----------------------------------------------------------------
