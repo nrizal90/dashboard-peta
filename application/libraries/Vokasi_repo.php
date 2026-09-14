@@ -21,6 +21,22 @@ class Vokasi_repo {
 	/** Cache hasil json_decode per-file, berlaku lintas instance dalam 1 request. */
 	private static $cache = array();
 
+	/**
+	 * SATU sumber "lembaga unik": view dashboard_vokasi_detail di-dedup per email
+	 * (lower+trim) via ROW_NUMBER, ambil rn = 1 — utamakan legalitas 'accepted',
+	 * lalu vok_id terkecil. Dipakai all() (peta) DAN semua agregat dashboard utama,
+	 * supaya angka kedua halaman selalu sama. Pakai: "SELECT ... FROM " . LEMBAGA_UNIK
+	 */
+	const LEMBAGA_UNIK = "(
+		SELECT * FROM (
+			SELECT dvd.*, ROW_NUMBER() OVER (
+				PARTITION BY lower(trim(dvd.vok_email))
+				ORDER BY (dvd.ver_legality_status = 'accepted') DESC, dvd.vok_id ASC
+			) AS rn
+			FROM dashboard_vokasi_detail dvd
+		) x WHERE x.rn = 1
+	) lu";
+
 	/** Cache turunan (index by id, subset primary, dll). */
 	private static $derived = array();
 
@@ -197,15 +213,7 @@ class Vokasi_repo {
 	 */
 	private function buildLembagaFromDb($db)
 	{
-		$rows = $db->query(
-			"SELECT * FROM (
-				SELECT dvd.*, ROW_NUMBER() OVER (
-					PARTITION BY lower(trim(dvd.vok_email))
-					ORDER BY (dvd.ver_legality_status = 'accepted') DESC, dvd.vok_id ASC
-				) AS rn
-				FROM dashboard_vokasi_detail dvd
-			) x WHERE x.rn = 1"
-		)->result_array();
+		$rows = $db->query("SELECT * FROM " . self::LEMBAGA_UNIK)->result_array();
 		$json = $this->jsonLembagaIndex();
 		$prov = $this->provMaps();
 
@@ -601,8 +609,8 @@ class Vokasi_repo {
 	public function headerStats()
 	{
 		$row = $this->requireDb()->query(
-			"SELECT count(DISTINCT lower(trim(vok_email))) AS legal
-			FROM dashboard_vokasi_detail
+			"SELECT count(*) AS legal
+			FROM " . self::LEMBAGA_UNIK . "
 			WHERE ver_legality_status = 'accepted'"
 		)->row_array();
 
@@ -625,13 +633,13 @@ class Vokasi_repo {
 
 		// Lembaga UNIK per email (sama dengan headerStats & donut Status).
 		$sql = "SELECT
-				count(DISTINCT lower(trim(vok_email)))                                                 AS total,
-				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_facility_status = 'accepted') AS fasilitas,
-				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_program_status  = 'accepted') AS program,
-				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_legality_status = 'accepted'
+				count(*)                                                 AS total,
+				count(*) FILTER (WHERE ver_facility_status = 'accepted') AS fasilitas,
+				count(*) FILTER (WHERE ver_program_status  = 'accepted') AS program,
+				count(*) FILTER (WHERE ver_legality_status = 'accepted'
 				                   AND ver_facility_status = 'accepted'
 				                   AND ver_program_status  = 'accepted')                                AS keseluruhan
-			FROM dashboard_vokasi_detail";
+			FROM " . self::LEMBAGA_UNIK;
 
 		$row   = $db->query($sql)->row_array();
 		$total = max(1, (int) $row['total']); // hindari bagi 0
@@ -662,17 +670,17 @@ class Vokasi_repo {
 		// (sama dengan headerStats) agar angka donut = angka kartu sambutan.
 		$s = $db->query(
 			"SELECT
-				count(DISTINCT lower(trim(vok_email)))                                                 AS total,
-				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_legality_status = 'accepted') AS terverifikasi,
-				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_legality_status = 'pending')  AS proses,
-				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_legality_status = 'rejected') AS ditolak
-			FROM dashboard_vokasi_detail"
+				count(*)                                                 AS total,
+				count(*) FILTER (WHERE ver_legality_status = 'accepted') AS terverifikasi,
+				count(*) FILTER (WHERE ver_legality_status = 'pending')  AS proses,
+				count(*) FILTER (WHERE ver_legality_status = 'rejected') AS ditolak
+			FROM " . self::LEMBAGA_UNIK
 		)->row_array();
 
 		// Bentuk penyelenggaraan — hanya lembaga terverifikasi legalitas, unik per email.
 		$b = $db->query(
-			"SELECT vok_institution_form AS label, count(DISTINCT lower(trim(vok_email))) AS value
-			FROM dashboard_vokasi_detail
+			"SELECT vok_institution_form AS label, count(*) AS value
+			FROM " . self::LEMBAGA_UNIK . "
 			WHERE ver_legality_status = 'accepted'
 			  AND vok_institution_form IS NOT NULL AND vok_institution_form <> ''
 			GROUP BY vok_institution_form
@@ -734,8 +742,8 @@ class Vokasi_repo {
 		$db = $this->requireDb();
 
 		$rows = $db->query(
-			"SELECT vok_province AS provinsi, count(DISTINCT lower(trim(vok_email))) AS jumlah
-			FROM dashboard_vokasi_detail
+			"SELECT vok_province AS provinsi, count(*) AS jumlah
+			FROM " . self::LEMBAGA_UNIK . "
 			WHERE ver_legality_status = 'accepted'
 			  AND vok_province IS NOT NULL AND vok_province <> ''
 			GROUP BY vok_province"
@@ -792,8 +800,8 @@ class Vokasi_repo {
 		$db = $this->requireDb();
 
 		$j = $db->query(
-			"SELECT trim(type_name) AS label, count(DISTINCT lower(trim(vok_email))) AS value
-			FROM dashboard_vokasi_detail
+			"SELECT trim(type_name) AS label, count(*) AS value
+			FROM " . self::LEMBAGA_UNIK . "
 			WHERE ver_legality_status = 'accepted'
 			  AND type_name IS NOT NULL AND trim(type_name) <> ''
 			GROUP BY trim(type_name)
