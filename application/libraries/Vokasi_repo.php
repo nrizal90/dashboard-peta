@@ -601,13 +601,12 @@ class Vokasi_repo {
 	}
 
 	/**
-	 * 4 KPI verifikasi kartu atas dashboard utama (redesign).
+	 * 3 KPI verifikasi kartu atas dashboard utama (redesign).
 	 * Hanya butuh view dashboard_vokasi_detail (tanpa join) — dihitung sekali jalan
 	 * via COUNT + FILTER (PostgreSQL) agar cuma 1 round-trip ke DB.
 	 *   - fasilitas   : lulus verifikasi fasilitas  (ver_facility_status = 'accepted')
 	 *   - program     : lulus verifikasi program    (ver_program_status  = 'accepted')
 	 *   - keseluruhan : lulus SELURUH tahap         (legalitas+fasilitas+program 'accepted')
-	 *   - ditolak     : belum memenuhi persyaratan  (ver_legality_status = 'rejected')
 	 * 'persen' = porsi terhadap total lembaga terdaftar (dibulatkan).
 	 * @return array
 	 */
@@ -621,8 +620,7 @@ class Vokasi_repo {
 				count(*) FILTER (WHERE ver_program_status  = 'accepted')        AS program,
 				count(*) FILTER (WHERE ver_legality_status = 'accepted'
 				                   AND ver_facility_status = 'accepted'
-				                   AND ver_program_status  = 'accepted')        AS keseluruhan,
-				count(*) FILTER (WHERE ver_legality_status = 'rejected')        AS ditolak
+				                   AND ver_program_status  = 'accepted')        AS keseluruhan
 			FROM dashboard_vokasi_detail";
 
 		$row   = $db->query($sql)->row_array();
@@ -635,7 +633,6 @@ class Vokasi_repo {
 			'fasilitas'   => $pack($row['fasilitas']),
 			'program'     => $pack($row['program']),
 			'keseluruhan' => $pack($row['keseluruhan']),
-			'ditolak'     => $pack($row['ditolak']),
 		);
 	}
 
@@ -651,13 +648,14 @@ class Vokasi_repo {
 	{
 		$db = $this->requireDb();
 
-		// Status legalitas — 3 bucket tetap, 1 query.
+		// Status legalitas — 3 bucket tetap, 1 query. Lembaga UNIK per email
+		// (sama dengan headerStats) agar angka donut = angka kartu sambutan.
 		$s = $db->query(
 			"SELECT
-				count(*)                                                 AS total,
-				count(*) FILTER (WHERE ver_legality_status = 'accepted') AS terverifikasi,
-				count(*) FILTER (WHERE ver_legality_status = 'pending')  AS proses,
-				count(*) FILTER (WHERE ver_legality_status = 'rejected') AS ditolak
+				count(DISTINCT lower(trim(vok_email)))                                                 AS total,
+				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_legality_status = 'accepted') AS terverifikasi,
+				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_legality_status = 'pending')  AS proses,
+				count(DISTINCT lower(trim(vok_email))) FILTER (WHERE ver_legality_status = 'rejected') AS ditolak
 			FROM dashboard_vokasi_detail"
 		)->row_array();
 

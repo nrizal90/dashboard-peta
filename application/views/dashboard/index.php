@@ -35,13 +35,11 @@ $kvGet = function ($key) use ($kv) {
 $kFas = $kvGet('fasilitas');
 $kPro = $kvGet('program');
 $kKes = $kvGet('keseluruhan');
-$kDit = $kvGet('ditolak');
 
 $kpis = array(
 	array('Terverifikasi Fasilitas',   $kFas[0], $kFas[1], 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Fasilitas.'),
 	array('Terverifikasi Program',     $kPro[0], $kPro[1], 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Program Pelatihan.'),
 	array('Terverifikasi Keseluruhan', $kKes[0], $kKes[1], 'Jumlah Lembaga yang Telah Lulus Seluruh Tahapan Verifikasi.'),
-	array('Lembaga Ditolak',           $kDit[0], $kDit[1], 'Jumlah Lembaga yang Belum Memenuhi Persyaratan Verifikasi.'),
 );
 
 $km = isset($komposisi) ? $komposisi : array();
@@ -204,11 +202,11 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 			</div>
 		</div>
 
-		<!-- 4 KPI -->
+		<!-- 3 KPI -->
 		<div class="col-xl-8 col-lg-7 mb-4">
 			<div class="row h-100">
 				<?php foreach ($kpis as $k): ?>
-				<div class="col-xl-3 col-sm-6 col-12 mb-3 mb-xl-0">
+				<div class="col-xl-4 col-sm-4 col-12 mb-3 mb-xl-0">
 					<div class="card dg-card dg-kpi h-100">
 						<div class="card-body">
 							<div class="d-flex justify-content-between align-items-start mb-2">
