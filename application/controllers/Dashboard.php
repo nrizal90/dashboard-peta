@@ -144,6 +144,26 @@ class Dashboard extends CI_Controller {
 	}
 
 	/**
+	 * Menu "Monitoring Penempatan Peserta Pelatihan" — KPI + chart penempatan.
+	 * Sumber: DB SISKO P2MI ($db['sisko']) lewat repo->penempatanStats().
+	 * Lihat dokumen "Requirement Dashboard Penempatan Peserta Pelatihan.docx".
+	 */
+	public function penempatan()
+	{
+		$data = array(
+			'title'  => 'Monitoring Penempatan Peserta Pelatihan',
+			'active' => 'penempatan',
+			'stats'  => $this->repo->penempatanStats(),
+		);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/penempatan', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	/**
 	 * Menu "Daftar Pendataan" — tabel lembaga dari DB (dashboard_vokasi_detail)
 	 * dengan pencarian/sortir/paginasi (DataTables) + detail modal + export.
 	 */

@@ -50,6 +50,9 @@ class Vokasi_repo {
 	 */
 	private $ci_db = FALSE;
 
+	/** Koneksi DB group 'sisko' (mysqli, dev_siskop2mi). Sentinel sama seperti $ci_db. */
+	private $ci_sisko = FALSE;
+
 	public function __construct()
 	{
 		$this->dir = APPPATH . 'data/vokasi/';
@@ -91,6 +94,32 @@ class Vokasi_repo {
 	public function isDb()
 	{
 		return $this->db() !== NULL;
+	}
+
+	/**
+	 * Koneksi DB group 'sisko' (mysqli, dev_siskop2mi) — sumber data SISKO P2MI
+	 * (tabel BP2_ dan R_) untuk Monitoring Penempatan. WAJIB: bila gagal → show_error,
+	 * bukan fallback senyap (konsisten dengan requireDb()).
+	 * @return object
+	 */
+	private function requireSisko()
+	{
+		if ($this->ci_sisko === FALSE)
+		{
+			$CI =& get_instance();
+			$db = @$CI->load->database('sisko', TRUE);
+			$this->ci_sisko = ($db !== FALSE && is_object($db) && ! empty($db->conn_id)) ? $db : NULL;
+		}
+		if ($this->ci_sisko === NULL)
+		{
+			log_message('error', 'Vokasi_repo: koneksi DB sisko gagal.');
+			show_error(
+				'Koneksi ke database SISKO P2MI gagal. Halaman Monitoring Penempatan hanya menyajikan data dari database sumber.',
+				503,
+				'Database SISKO Tidak Tersedia'
+			);
+		}
+		return $this->ci_sisko;
 	}
 
 	// ---------------------------------------------------------------------
@@ -944,6 +973,97 @@ class Vokasi_repo {
 	}
 
 	/** Agregat provinsi pre-computed (untuk choropleth). */
+	/**
+	 * Monitoring Penempatan Peserta Pelatihan — sumber $db['sisko'] (SISKO P2MI).
+	 * Query dasar (join BP2_ dan R_) dari dokumen requirement dijalankan SEKALI,
+	 * lalu di-agregasi di PHP menjadi KPI + 7 chart. Satu round-trip untuk join
+	 * berat lebih murah dari 8x GROUP BY atas join yang sama.
+	 *
+	 *   kpi   : total peserta (punya akun SiskoP2MI = total, krn join akun inner),
+	 *           punya penempatan (PEN_STATUSAKTIF pada daftar status penempatan),
+	 *           sudah E-KPMI (PEN_STATUSAKTIF = '40').
+	 *   chart : jumlah peserta per provinsi, kabupaten, penyelenggara, P3MI,
+	 *           jabatan, negara, status. NULL → 'Tidak diisi'.
+	 *
+	 * ponytail: belum ada filter interaktif (provinsi/kabupaten/dst) — halaman
+	 * masih read-only seperti Monitoring Pelatihan. Tambah endpoint Api + WHERE
+	 * saat butuh; perlu diuji di server (IP dev ditolak DB sisko).
+	 * @return array
+	 */
+	public function penempatanStats()
+	{
+		$db = $this->requireSisko();
+
+		// Status penempatan (PEN_STATUSAKTIF) dari dokumen requirement.
+		$statPenempatan = array('2','851','855','900','901','4','5','6','902','1146','1147','903','907','904','908','54','36','37');
+		$inList = "'" . implode("','", $statPenempatan) . "'";
+
+		$rows = $db->query(
+			"SELECT
+				PESERTA_PROP.PROP_NAME   AS provinsi,
+				PESERTA_KAB.KAB_NAME     AS kabupaten,
+				PENYELENGGARA.M_STK_NAME AS penyelenggara,
+				BP3MI.M_STK_NAME         AS p3mi,
+				JABATAN.REF_REFNAME      AS jabatan,
+				NEG.NEG_NAME             AS negara,
+				STATUS.STATUS_NAME       AS status,
+				CASE WHEN PEN.PEN_STATUSAKTIF = '40' THEN 1 ELSE 0 END AS has_ekpmi,
+				CASE WHEN PEN.PEN_STATUSAKTIF IN ($inList) THEN 1 ELSE 0 END AS has_penempatan
+			FROM BP2_T_EVENT
+			JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
+			JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
+			JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
+			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
+			JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID
+			LEFT JOIN R_PROPINSI PESERTA_PROP ON PMI_NIK_PROP_ID = PESERTA_PROP.PROP_ID
+			LEFT JOIN R_KABUPATEN PESERTA_KAB ON PMI_NIK_KAB_ID = PESERTA_KAB.KAB_ID
+			LEFT JOIN BP2_T_PMI_PENEMPATAN PEN ON PEN.PEN_PMI_ID = PMI_ID AND PEN.PEN_PENPROG_ID = 1
+			LEFT JOIN BP2_M_STAKEHOLDER BP3MI ON PEN.PEN_M_STK_ID = BP3MI.M_STK_ID
+			LEFT JOIN R_REFERENCE JABATAN ON PEN.PEN_JOB_ID = JABATAN.REF_REFID
+			LEFT JOIN BP2_R_NEGARA NEG ON PEN.PEN_NEGARA_ID = NEG.NEG_ID
+			LEFT JOIN BP2_R_STATUS STATUS ON PEN.PEN_STATUSAKTIF = STATUS.STATUS_ID"
+		)->result_array();
+
+		$total = count($rows);
+		$penempatan = 0;
+		$ekpmi = 0;
+		$dims = array('provinsi'=>array(), 'kabupaten'=>array(), 'penyelenggara'=>array(),
+			'p3mi'=>array(), 'jabatan'=>array(), 'negara'=>array(), 'status'=>array());
+
+		foreach ($rows as $r)
+		{
+			$penempatan += (int) $r['has_penempatan'];
+			$ekpmi      += (int) $r['has_ekpmi'];
+			foreach ($dims as $key => &$bucket)
+			{
+				$label = trim((string) $r[$key]);
+				if ($label === '') { $label = 'Tidak diisi'; }
+				$bucket[$label] = isset($bucket[$label]) ? $bucket[$label] + 1 : 1;
+			}
+			unset($bucket);
+		}
+
+		// map asosiatif → list {label,value} urut nilai desc.
+		$pack = function ($map) {
+			arsort($map);
+			$out = array();
+			foreach ($map as $label => $value) { $out[] = array('label' => $label, 'value' => $value); }
+			return $out;
+		};
+		$pct = function ($n) use ($total) { return $total > 0 ? (int) round($n / $total * 100) : 0; };
+
+		$out = array(
+			'kpi' => array(
+				'total'      => $total,
+				'akun'       => array('nilai' => $total,       'persen' => $total > 0 ? 100 : 0),
+				'penempatan' => array('nilai' => $penempatan,  'persen' => $pct($penempatan)),
+				'ekpmi'      => array('nilai' => $ekpmi,       'persen' => $pct($ekpmi)),
+			),
+		);
+		foreach ($dims as $key => $map) { $out[$key] = $pack($map); }
+		return $out;
+	}
+
 	public function aggProvinsi()  { return $this->load('agg_provinsi'); }
 
 	/** Matriks provinsi x sektor (gap analysis). */

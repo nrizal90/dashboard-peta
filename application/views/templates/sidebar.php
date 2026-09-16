@@ -52,6 +52,14 @@
 			</a>
 		</li>
 
+		<!-- Nav Item - Monitoring Penempatan Peserta Pelatihan (DB sisko / SISKO P2MI) -->
+		<li class="nav-item <?= $active === 'penempatan' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('penempatan') ?>">
+				<i class="fas fa-fw fa-map-signs"></i>
+				<span>Monitoring Penempatan</span>
+			</a>
+		</li>
+
 		<hr class="sidebar-divider">
 
 		<div class="sidebar-heading">Analisis</div>
