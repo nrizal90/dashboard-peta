@@ -48,6 +48,13 @@ list($p3miLabels, $p3miData)   = $split($topN(isset($st['p3mi'])          ? $st[
 list($jabLabels, $jabData)     = $split($topN(isset($st['jabatan'])       ? $st['jabatan']       : array(), 10));
 list($negLabels, $negData)     = $split($topN(isset($st['negara'])        ? $st['negara']        : array(), 10));
 list($statLabels, $statData)   = $split(isset($st['status']) ? $st['status'] : array());
+
+$rows    = isset($rows) ? $rows : array();
+$options = isset($options) ? $options : array();
+$filter  = isset($filter) ? $filter : array();
+$filterLabels = array('provinsi' => 'Provinsi', 'kabupaten' => 'Kabupaten/Kota', 'bp3mi' => 'BP3MI',
+	'p3mi' => 'P3MI', 'jabatan' => 'Jabatan', 'negara' => 'Negara', 'status' => 'Status');
+$exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($filter) : '');
 ?>
 
 <style>
@@ -91,6 +98,32 @@ list($statLabels, $statData)   = $split(isset($st['status']) ? $st['status'] : a
 		<div>
 			<h1 class="h4 dg-title mb-1">Monitoring Penempatan Peserta Pelatihan</h1>
 			<div class="text-muted small">Ringkasan penempatan peserta pelatihan (sumber: SISKO P2MI)</div>
+		</div>
+		<a href="<?= $exportUrl ?>" class="btn btn-sm btn-warning font-weight-bold mt-2 mt-sm-0">
+			<i class="fas fa-file-excel mr-1"></i> Export Excel
+		</a>
+	</div>
+
+	<!-- ===== FILTER (GET) — berlaku untuk KPI, chart, tabel, dan export ===== -->
+	<div class="card dg-card mb-4">
+		<div class="card-body py-3">
+			<form method="get" class="form-row align-items-end">
+				<?php foreach ($filterLabels as $key => $label): ?>
+				<div class="col-lg col-md-4 col-sm-6 col-12 mb-2 mb-lg-0">
+					<label class="small font-weight-bold text-muted mb-1" for="f_<?= $key ?>"><?= $label ?></label>
+					<select class="form-control form-control-sm" id="f_<?= $key ?>" name="<?= $key ?>">
+						<option value="">Semua</option>
+						<?php foreach ((isset($options[$key]) ? $options[$key] : array()) as $v): ?>
+						<option value="<?= html_escape($v) ?>"<?= (isset($filter[$key]) && $filter[$key] === $v) ? ' selected' : '' ?>><?= html_escape($v) ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<?php endforeach; ?>
+				<div class="col-lg-auto col-12 mb-2 mb-lg-0">
+					<button type="submit" class="btn btn-sm btn-warning font-weight-bold mr-1"><i class="fas fa-filter mr-1"></i> Terapkan</button>
+					<a href="<?= site_url('penempatan') ?>" class="btn btn-sm btn-light">Reset</a>
+				</div>
+			</form>
 		</div>
 	</div>
 
@@ -196,8 +229,71 @@ list($statLabels, $statData)   = $split(isset($st['status']) ? $st['status'] : a
 		</div>
 	</div>
 
+	<!-- ===== BARIS 6: TABEL LIST PENEMPATAN ===== -->
+	<div class="row">
+		<div class="col-12 mb-4">
+			<div class="card dg-card">
+				<div class="card-body">
+					<div class="d-flex justify-content-between align-items-center mb-1">
+						<div class="dg-title h6 mb-0">List Penempatan Peserta Pelatihan</div>
+						<input type="search" class="form-control form-control-sm w-auto" id="tCari" placeholder="Cari…">
+					</div>
+					<div class="dg-sub"><?= number_format(count($rows), 0, ',', '.') ?> peserta sesuai filter.</div>
+					<div class="table-responsive">
+						<table class="table table-sm table-hover" id="tblPenempatan" style="width:100%">
+							<thead class="thead-light">
+								<tr><th>Nama PMI</th><th>Provinsi</th><th>Kabupaten/Kota</th><th>BP3MI</th><th>P3MI</th><th>Status</th></tr>
+							</thead>
+							<tbody>
+							<?php foreach ($rows as $r): ?>
+								<tr>
+									<td><?= html_escape($r['nama']) ?></td>
+									<td><?= html_escape($r['provinsi']) ?></td>
+									<td><?= html_escape($r['kabupaten']) ?></td>
+									<td><?= html_escape($r['bp3mi']) ?></td>
+									<td><?= html_escape($r['p3mi']) ?></td>
+									<td><?= html_escape($r['status']) ?></td>
+								</tr>
+							<?php endforeach; ?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
 <!-- /.container-fluid -->
+
+<!-- DataTables CSS (page-specific) -->
+<link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
+<script>
+window.addEventListener('load', function () {
+	var base = '<?= base_url() ?>';
+	function loadScript(src, cb) { var s = document.createElement('script'); s.src = src; s.onload = cb; document.body.appendChild(s); }
+	loadScript(base + 'assets/vendor/datatables/jquery.dataTables.min.js', function () {
+		loadScript(base + 'assets/vendor/datatables/dataTables.bootstrap4.min.js', function () {
+			var $ = window.jQuery;
+			var dt = $('#tblPenempatan').DataTable({
+				pageLength: 25,
+				lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+				order: [[0, 'asc']],
+				language: {
+					lengthMenu: 'Tampil _MENU_ baris',
+					info: 'Menampilkan _START_–_END_ dari _TOTAL_ peserta',
+					infoFiltered: '(disaring dari _MAX_)',
+					infoEmpty: 'Tidak ada data',
+					zeroRecords: 'Tidak ada peserta yang cocok',
+					paginate: { previous: '‹', next: '›' }
+				},
+				dom: "<'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>"
+			});
+			$('#tCari').on('keyup', function () { dt.search(this.value).draw(); });
+		});
+	});
+});
+</script>
 
 <script>
 window.DP2 = {

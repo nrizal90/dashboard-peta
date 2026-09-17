@@ -972,25 +972,20 @@ class Vokasi_repo {
 		);
 	}
 
-	/** Agregat provinsi pre-computed (untuk choropleth). */
 	/**
 	 * Monitoring Penempatan Peserta Pelatihan — sumber $db['sisko'] (SISKO P2MI).
-	 * Query dasar (join BP2_ dan R_) dari dokumen requirement dijalankan SEKALI,
-	 * lalu di-agregasi di PHP menjadi KPI + 7 chart. Satu round-trip untuk join
-	 * berat lebih murah dari 8x GROUP BY atas join yang sama.
+	 * Query dasar (join BP2_ dan R_) dari dokumen requirement dijalankan SEKALI;
+	 * filter, KPI, chart, tabel, dan export semuanya diturunkan dari baris ini
+	 * di PHP. Satu round-trip untuk join berat lebih murah dari 8x GROUP BY.
 	 *
-	 *   kpi   : total peserta (punya akun SiskoP2MI = total, krn join akun inner),
-	 *           punya penempatan (PEN_STATUSAKTIF pada daftar status penempatan),
-	 *           sudah E-KPMI (PEN_STATUSAKTIF = '40').
-	 *   chart : jumlah peserta per provinsi, kabupaten, penyelenggara, P3MI,
-	 *           jabatan, negara, status. NULL → 'Tidak diisi'.
+	 * Kolom: nama, provinsi, kabupaten, bp3mi (penyelenggara pelatihan), p3mi
+	 * (stakeholder penempatan), jabatan, negara, status, has_penempatan, has_ekpmi.
+	 * NULL/kosong → 'Tidak diisi' agar filter & chart konsisten.
 	 *
-	 * ponytail: belum ada filter interaktif (provinsi/kabupaten/dst) — halaman
-	 * masih read-only seperti Monitoring Pelatihan. Tambah endpoint Api + WHERE
-	 * saat butuh; perlu diuji di server (IP dev ditolak DB sisko).
+	 * @param array $filter kunci = kolom dimensi, nilai = label yang harus sama (kosong = abaikan)
 	 * @return array
 	 */
-	public function penempatanStats()
+	public function penempatanRows(array $filter = array())
 	{
 		$db = $this->requireSisko();
 
@@ -1000,10 +995,11 @@ class Vokasi_repo {
 
 		$rows = $db->query(
 			"SELECT
+				PESERTA.PMI_NAMA         AS nama,
 				PESERTA_PROP.PROP_NAME   AS provinsi,
 				PESERTA_KAB.KAB_NAME     AS kabupaten,
-				PENYELENGGARA.M_STK_NAME AS penyelenggara,
-				BP3MI.M_STK_NAME         AS p3mi,
+				PENYELENGGARA.M_STK_NAME AS bp3mi,
+				P3MI.M_STK_NAME          AS p3mi,
 				JABATAN.REF_REFNAME      AS jabatan,
 				NEG.NEG_NAME             AS negara,
 				STATUS.STATUS_NAME       AS status,
@@ -1018,17 +1014,66 @@ class Vokasi_repo {
 			LEFT JOIN R_PROPINSI PESERTA_PROP ON PMI_NIK_PROP_ID = PESERTA_PROP.PROP_ID
 			LEFT JOIN R_KABUPATEN PESERTA_KAB ON PMI_NIK_KAB_ID = PESERTA_KAB.KAB_ID
 			LEFT JOIN BP2_T_PMI_PENEMPATAN PEN ON PEN.PEN_PMI_ID = PMI_ID AND PEN.PEN_PENPROG_ID = 1
-			LEFT JOIN BP2_M_STAKEHOLDER BP3MI ON PEN.PEN_M_STK_ID = BP3MI.M_STK_ID
+			LEFT JOIN BP2_M_STAKEHOLDER P3MI ON PEN.PEN_M_STK_ID = P3MI.M_STK_ID
 			LEFT JOIN R_REFERENCE JABATAN ON PEN.PEN_JOB_ID = JABATAN.REF_REFID
 			LEFT JOIN BP2_R_NEGARA NEG ON PEN.PEN_NEGARA_ID = NEG.NEG_ID
 			LEFT JOIN BP2_R_STATUS STATUS ON PEN.PEN_STATUSAKTIF = STATUS.STATUS_ID"
 		)->result_array();
 
+		$filter = array_filter($filter, 'strlen');
+		$out = array();
+		foreach ($rows as $r)
+		{
+			foreach (self::$penempatanDims as $key)
+			{
+				$r[$key] = trim((string) $r[$key]);
+				if ($r[$key] === '') { $r[$key] = 'Tidak diisi'; }
+			}
+			foreach ($filter as $key => $val)
+			{
+				if (isset($r[$key]) && $r[$key] !== $val) { continue 2; }
+			}
+			$out[] = $r;
+		}
+		return $out;
+	}
+
+	/** Dimensi penempatan yang bisa difilter / di-chart. */
+	public static $penempatanDims = array('provinsi', 'kabupaten', 'bp3mi', 'p3mi', 'jabatan', 'negara', 'status');
+
+	/**
+	 * Pilihan nilai per dimensi (unik, urut abjad) untuk dropdown filter penempatan.
+	 * @param array $rows hasil penempatanRows() TANPA filter
+	 * @return array dimensi => list label
+	 */
+	public function penempatanOptions(array $rows)
+	{
+		$opt = array();
+		foreach (self::$penempatanDims as $key)
+		{
+			$vals = array_unique(array_column($rows, $key));
+			sort($vals);
+			$opt[$key] = array_values($vals);
+		}
+		return $opt;
+	}
+
+	/**
+	 * KPI + 7 chart dari baris penempatan (sudah terfilter).
+	 *   kpi   : total peserta (punya akun SiskoP2MI = total, krn join akun inner),
+	 *           punya penempatan (PEN_STATUSAKTIF pada daftar status penempatan),
+	 *           sudah E-KPMI (PEN_STATUSAKTIF = '40').
+	 *   chart : jumlah peserta per provinsi, kabupaten, bp3mi (penyelenggara),
+	 *           p3mi, jabatan, negara, status.
+	 * @param array $rows hasil penempatanRows()
+	 * @return array
+	 */
+	public function penempatanStats(array $rows)
+	{
 		$total = count($rows);
 		$penempatan = 0;
 		$ekpmi = 0;
-		$dims = array('provinsi'=>array(), 'kabupaten'=>array(), 'penyelenggara'=>array(),
-			'p3mi'=>array(), 'jabatan'=>array(), 'negara'=>array(), 'status'=>array());
+		$dims = array_fill_keys(self::$penempatanDims, array());
 
 		foreach ($rows as $r)
 		{
@@ -1036,8 +1081,7 @@ class Vokasi_repo {
 			$ekpmi      += (int) $r['has_ekpmi'];
 			foreach ($dims as $key => &$bucket)
 			{
-				$label = trim((string) $r[$key]);
-				if ($label === '') { $label = 'Tidak diisi'; }
+				$label = $r[$key];
 				$bucket[$label] = isset($bucket[$label]) ? $bucket[$label] + 1 : 1;
 			}
 			unset($bucket);
@@ -1064,6 +1108,7 @@ class Vokasi_repo {
 		return $out;
 	}
 
+	/** Agregat provinsi pre-computed (untuk choropleth). */
 	public function aggProvinsi()  { return $this->load('agg_provinsi'); }
 
 	/** Matriks provinsi x sektor (gap analysis). */

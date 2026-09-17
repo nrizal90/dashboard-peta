@@ -150,10 +150,17 @@ class Dashboard extends CI_Controller {
 	 */
 	public function penempatan()
 	{
+		$filter = $this->penempatanFilter();
+		$all    = $this->repo->penempatanRows();
+		$rows   = $filter ? $this->repo->penempatanRows($filter) : $all;
+
 		$data = array(
-			'title'  => 'Monitoring Penempatan Peserta Pelatihan',
-			'active' => 'penempatan',
-			'stats'  => $this->repo->penempatanStats(),
+			'title'   => 'Monitoring Penempatan Peserta Pelatihan',
+			'active'  => 'penempatan',
+			'stats'   => $this->repo->penempatanStats($rows),
+			'rows'    => $rows,
+			'options' => $this->repo->penempatanOptions($all),
+			'filter'  => $filter,
 		);
 
 		$this->load->view('templates/header', $data);
@@ -161,6 +168,44 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('dashboard/penempatan', $data);
 		$this->load->view('templates/footer', $data);
+	}
+
+	/** Filter penempatan dari query string (hanya dimensi yang dikenal, nilai kosong dibuang). */
+	private function penempatanFilter()
+	{
+		$f = array();
+		foreach (Vokasi_repo::$penempatanDims as $key)
+		{
+			$v = trim((string) $this->input->get($key, TRUE));
+			if ($v !== '') { $f[$key] = $v; }
+		}
+		return $f;
+	}
+
+	/** Export detail penempatan (sesuai filter) ke CSV (dibuka Excel). */
+	public function penempatan_export()
+	{
+		$rows = $this->repo->penempatanRows($this->penempatanFilter());
+
+		$this->output->set_content_type('text/csv; charset=utf-8');
+		$this->output->set_header('Content-Disposition: attachment; filename="penempatan_peserta_' . date('Ymd') . '.csv"');
+
+		$out = fopen('php://temp', 'r+');
+		fwrite($out, "\xEF\xBB\xBF"); // BOM agar Excel membaca UTF-8
+		fputcsv($out, array('Nama PMI', 'Provinsi', 'Kabupaten/Kota', 'BP3MI', 'P3MI', 'Negara', 'Jabatan', 'Status',
+			'Telah memiliki akun', 'Telah memiliki penempatan', 'Telah EKPMI'));
+		foreach ($rows as $r)
+		{
+			fputcsv($out, array(
+				$r['nama'], $r['provinsi'], $r['kabupaten'], $r['bp3mi'], $r['p3mi'], $r['negara'], $r['jabatan'], $r['status'],
+				'Ya', // join akun inner → semua baris punya akun
+				$r['has_penempatan'] ? 'Ya' : 'Tidak',
+				$r['has_ekpmi'] ? 'Ya' : 'Tidak',
+			));
+		}
+		rewind($out);
+		$this->output->set_output(stream_get_contents($out));
+		fclose($out);
 	}
 
 	/**

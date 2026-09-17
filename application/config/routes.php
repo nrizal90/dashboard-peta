@@ -75,6 +75,7 @@ $route['pendataan']         = 'dashboard/pendataan';
 // Menu "Monitoring Pelatihan PMI" (KPI + chart dari view dashboard_pelatihan_detail)
 $route['pelatihan']         = 'dashboard/pelatihan';
 $route['penempatan']        = 'dashboard/penempatan';
+$route['penempatan/export'] = 'dashboard/penempatan_export';
 
 // Menu "Daftar Pendataan" (tabel lembaga + export)
 $route['daftar-pendataan']        = 'dashboard/daftar_pendataan';
