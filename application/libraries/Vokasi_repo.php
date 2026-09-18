@@ -995,6 +995,7 @@ class Vokasi_repo {
 
 		$q = $db->query(
 			"SELECT
+				DTEVENT_USER_ID          AS user_id,
 				PESERTA.PMI_NIK_NAMA     AS nama,
 				PESERTA_PROP.PROP_NAME   AS provinsi,
 				PESERTA_KAB.KAB_NAME     AS kabupaten,
@@ -1076,7 +1077,8 @@ class Vokasi_repo {
 	 */
 	public function penempatanStats(array $rows)
 	{
-		$total = count($rows);
+		// Total peserta = distinct DTEVENT_USER_ID (1 orang bisa ikut >1 event).
+		$total = count(array_unique(array_column($rows, 'user_id')));
 		$penempatan = 0;
 		$ekpmi = 0;
 		$dims = array_fill_keys(self::$penempatanDims, array());
@@ -1112,6 +1114,96 @@ class Vokasi_repo {
 		);
 		foreach ($dims as $key => $map) { $out[$key] = $pack($map); }
 		return $out;
+	}
+
+	/**
+	 * Monitoring Data PMI — sumber $db['sisko']. Query dari requirement (peserta
+	 * pelatihan + flag akun/proses penempatan/E-PMI), 1 baris per pendaftaran event.
+	 * Subquery penempatan memakai DISTINCT PEN_PMI_ID agar PMI dengan >1 penempatan
+	 * tidak menggandakan baris.
+	 *
+	 * @param array $filter nama/nik = substring (tanpa huruf besar-kecil);
+	 *                      provinsi/kabupaten/bp3mi = sama persis;
+	 *                      has_akun/has_pen/has_epmi = '1'|'0'.
+	 * @return array
+	 */
+	public function pmiRows(array $filter = array())
+	{
+		$db = $this->requireSisko();
+		$q = $db->query(
+			"SELECT
+				EVENT_NAME               AS event_jenis,
+				EVENT_TITLE              AS event_nama,
+				PENYELENGGARA.M_STK_ID   AS bp3mi_id,
+				PENYELENGGARA.M_STK_NAME AS bp3mi,
+				DTEVENT_USER_ID          AS user_id,
+				PESERTA.PMI_NIK_NAMA     AS nama,
+				PESERTA.PMI_NIK          AS nik,
+				PESERTA_PROP.PROP_NAME   AS provinsi,
+				PESERTA_KAB.KAB_NAME     AS kabupaten,
+				DTEVENT_TGL_DAFTAR       AS tgl_daftar,
+				1 AS has_akun,
+				CASE WHEN HAS_PEN.PEN_PMI_ID  IS NOT NULL THEN 1 ELSE 0 END AS has_pen,
+				CASE WHEN HAS_EPMI.PEN_PMI_ID IS NOT NULL THEN 1 ELSE 0 END AS has_epmi
+			FROM BP2_T_EVENT
+			JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
+			JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
+			JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
+			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
+			JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID
+			LEFT JOIN R_PROPINSI PESERTA_PROP ON PMI_NIK_PROP_ID = PESERTA_PROP.PROP_ID
+			LEFT JOIN R_KABUPATEN PESERTA_KAB ON PMI_NIK_KAB_ID = PESERTA_KAB.KAB_ID
+			LEFT JOIN (
+				-- mulai lolos verifikasi OP P3MI hingga OPP
+				SELECT DISTINCT PEN_PMI_ID FROM BP2_T_PMI_PENEMPATAN
+				WHERE PEN_PENPROG_ID = 1 AND PEN_STATUSAKTIF IN (851,54,36,37)
+			) HAS_PEN ON HAS_PEN.PEN_PMI_ID = PMI_ID
+			LEFT JOIN (
+				SELECT DISTINCT PEN_PMI_ID FROM BP2_T_PMI_PENEMPATAN WHERE PEN_EPMI_NO IS NOT NULL
+			) HAS_EPMI ON HAS_EPMI.PEN_PMI_ID = PMI_ID"
+		);
+		if ($q === FALSE)
+		{
+			$e = $db->error();
+			throw new RuntimeException('Query monitoring PMI gagal: ' . $e['message']);
+		}
+
+		$filter = array_filter($filter, 'strlen');
+		$out = array();
+		foreach ($q->result_array() as $r)
+		{
+			foreach (self::$pmiDims as $key)
+			{
+				$r[$key] = trim((string) $r[$key]);
+				if ($r[$key] === '') { $r[$key] = 'Tidak diisi'; }
+			}
+			foreach ($filter as $key => $val)
+			{
+				if ($key === 'nama' || $key === 'nik')
+				{
+					if (stripos((string) $r[$key], $val) === FALSE) { continue 2; }
+				}
+				elseif (isset($r[$key]) && (string) $r[$key] !== (string) $val) { continue 2; }
+			}
+			$out[] = $r;
+		}
+		return $out;
+	}
+
+	/** Dimensi dropdown filter Monitoring PMI. */
+	public static $pmiDims = array('provinsi', 'kabupaten', 'bp3mi');
+
+	/** Pilihan nilai per dimensi (unik, urut abjad) dari pmiRows() TANPA filter. */
+	public function pmiOptions(array $rows)
+	{
+		$opt = array();
+		foreach (self::$pmiDims as $key)
+		{
+			$vals = array_unique(array_column($rows, $key));
+			sort($vals);
+			$opt[$key] = array_values($vals);
+		}
+		return $opt;
 	}
 
 	/** Agregat provinsi pre-computed (untuk choropleth). */

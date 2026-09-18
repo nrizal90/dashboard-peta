@@ -60,6 +60,14 @@
 			</a>
 		</li>
 
+		<!-- Nav Item - Monitoring PMI (DB sisko / SISKO P2MI) -->
+		<li class="nav-item <?= $active === 'monitoring-pmi' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('monitoring-pmi') ?>">
+				<i class="fas fa-fw fa-users"></i>
+				<span>Monitoring PMI</span>
+			</a>
+		</li>
+
 		<hr class="sidebar-divider">
 
 		<div class="sidebar-heading">Analisis</div>

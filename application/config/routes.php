@@ -76,6 +76,8 @@ $route['pendataan']         = 'dashboard/pendataan';
 $route['pelatihan']         = 'dashboard/pelatihan';
 $route['penempatan']        = 'dashboard/penempatan';
 $route['penempatan/export'] = 'dashboard/penempatan_export';
+$route['monitoring-pmi']        = 'dashboard/monitoring_pmi';
+$route['monitoring-pmi/export'] = 'dashboard/monitoring_pmi_export';
 
 // Menu "Daftar Pendataan" (tabel lembaga + export)
 $route['daftar-pendataan']        = 'dashboard/daftar_pendataan';

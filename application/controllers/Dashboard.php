@@ -182,30 +182,101 @@ class Dashboard extends CI_Controller {
 		return $f;
 	}
 
-	/** Export detail penempatan (sesuai filter) ke CSV (dibuka Excel). */
+	/**
+	 * Kirim tabel sebagai file .xls (HTML table, content-type Excel). Tanpa
+	 * dependency; Excel/LibreOffice membukanya langsung.
+	 * ponytail: bukan xlsx asli — pakai PhpSpreadsheet bila butuh styling/formula.
+	 */
+	private function sendXls($filename, array $head, array $rows)
+	{
+		$this->output->set_content_type('application/vnd.ms-excel; charset=utf-8');
+		$this->output->set_header('Content-Disposition: attachment; filename="' . $filename . '"');
+
+		$td = function ($cells, $tag) {
+			$h = '';
+			foreach ($cells as $c) { $h .= "<$tag>" . html_escape((string) $c) . "</$tag>"; }
+			return "<tr>$h</tr>\n";
+		};
+		$html = "<html><head><meta charset=\"utf-8\"></head><body><table border=\"1\">\n" . $td($head, 'th');
+		foreach ($rows as $r) { $html .= $td($r, 'td'); }
+		$this->output->set_output($html . "</table></body></html>");
+	}
+
+	/** Export detail penempatan (sesuai filter) ke .xls. */
 	public function penempatan_export()
 	{
 		$rows = $this->repo->penempatanRows($this->penempatanFilter());
-
-		$this->output->set_content_type('text/csv; charset=utf-8');
-		$this->output->set_header('Content-Disposition: attachment; filename="penempatan_peserta_' . date('Ymd') . '.csv"');
-
-		$out = fopen('php://temp', 'r+');
-		fwrite($out, "\xEF\xBB\xBF"); // BOM agar Excel membaca UTF-8
-		fputcsv($out, array('Nama PMI', 'Provinsi', 'Kabupaten/Kota', 'BP3MI', 'P3MI', 'Negara', 'Jabatan', 'Status',
-			'Telah memiliki akun', 'Telah memiliki penempatan', 'Telah EKPMI'));
+		$out = array();
 		foreach ($rows as $r)
 		{
-			fputcsv($out, array(
+			$out[] = array(
 				$r['nama'], $r['provinsi'], $r['kabupaten'], $r['bp3mi'], $r['p3mi'], $r['negara'], $r['jabatan'], $r['status'],
 				'Ya', // join akun inner → semua baris punya akun
 				$r['has_penempatan'] ? 'Ya' : 'Tidak',
 				$r['has_ekpmi'] ? 'Ya' : 'Tidak',
-			));
+			);
 		}
-		rewind($out);
-		$this->output->set_output(stream_get_contents($out));
-		fclose($out);
+		$this->sendXls('penempatan_peserta_' . date('Ymd') . '.xls',
+			array('Nama PMI', 'Provinsi', 'Kabupaten/Kota', 'BP3MI', 'P3MI', 'Negara', 'Jabatan', 'Status',
+				'Telah memiliki akun', 'Telah memiliki penempatan', 'Telah EKPMI'),
+			$out);
+	}
+
+	/**
+	 * Menu "Monitoring PMI" — tabel peserta pelatihan + flag akun/proses
+	 * penempatan/E-PMI (DB sisko, repo->pmiRows()) dengan filter + export .xls.
+	 */
+	public function monitoring_pmi()
+	{
+		$filter = $this->pmiFilter();
+		$all    = $this->repo->pmiRows();
+		$rows   = $filter ? $this->repo->pmiRows($filter) : $all;
+
+		$data = array(
+			'title'   => 'Monitoring PMI',
+			'active'  => 'monitoring-pmi',
+			'rows'    => $rows,
+			'options' => $this->repo->pmiOptions($all),
+			'filter'  => $filter,
+		);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('dashboard/monitoring_pmi', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	/** Filter Monitoring PMI dari query string. */
+	private function pmiFilter()
+	{
+		$f = array();
+		foreach (array('nama', 'nik', 'provinsi', 'kabupaten', 'bp3mi', 'has_akun', 'has_pen', 'has_epmi') as $key)
+		{
+			$v = trim((string) $this->input->get($key, TRUE));
+			if ($v !== '') { $f[$key] = $v; }
+		}
+		return $f;
+	}
+
+	/** Export Monitoring PMI (seluruh kolom query sumber, sesuai filter) ke .xls. */
+	public function monitoring_pmi_export()
+	{
+		$rows = $this->repo->pmiRows($this->pmiFilter());
+		$yn = function ($v) { return $v ? 'Ya' : 'Tidak'; };
+		$out = array();
+		foreach ($rows as $r)
+		{
+			$out[] = array(
+				$r['event_jenis'], $r['event_nama'], $r['bp3mi_id'], $r['bp3mi'], $r['nama'], $r['nik'],
+				$r['provinsi'], $r['kabupaten'], $r['tgl_daftar'],
+				$yn($r['has_akun']), $yn($r['has_pen']), $yn($r['has_epmi']),
+			);
+		}
+		$this->sendXls('monitoring_pmi_' . date('Ymd') . '.xls',
+			array('Jenis Event', 'Nama Event', 'ID Penyelenggara', 'Penyelenggara (BP3MI)', 'Nama PMI', 'NIK',
+				'Provinsi', 'Kabupaten/Kota', 'Tanggal Daftar', 'Akun SiskoP2MI', 'Proses Penempatan', 'E-KPMI'),
+			$out);
 	}
 
 	/**

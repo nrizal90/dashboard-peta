@@ -18,11 +18,12 @@ $kpi = isset($st['kpi']) ? $st['kpi'] : array();
 $kTotal = isset($kpi['total']) ? (int) $kpi['total'] : NULL;
 $get    = function ($k) use ($kpi) { return isset($kpi[$k]) ? $kpi[$k] : array('nilai' => NULL, 'persen' => NULL); };
 
-// 3 KPI sesuai dokumen requirement.
+// 4 KPI sesuai dokumen requirement (revisi).
 $kpis = array(
-	array('Punya Akun SiskoP2MI', $get('akun')['nilai'],       $get('akun')['persen'],       'fa-id-card',   'Peserta pelatihan yang telah memiliki akun SiskoP2MI.'),
-	array('Punya Penempatan',     $get('penempatan')['nilai'], $get('penempatan')['persen'], 'fa-map-signs', 'Peserta yang telah memiliki penempatan (status penempatan aktif).'),
-	array('Sudah E-KPMI',         $get('ekpmi')['nilai'],      $get('ekpmi')['persen'],      'fa-passport',  'Peserta dengan status E-KPMI.'),
+	array('Total Peserta',           $kTotal,                     NULL,                         'fa-users',     'Jumlah peserta pelatihan (distinct akun peserta).'),
+	array('Memiliki Akun SiskoP2MI', $get('akun')['nilai'],       $get('akun')['persen'],       'fa-id-card',   'Peserta pelatihan yang telah memiliki akun SiskoP2MI (distinct akun).'),
+	array('Total Proses Penempatan', $get('penempatan')['nilai'], $get('penempatan')['persen'], 'fa-map-signs', 'Peserta yang sedang/telah dalam proses penempatan.'),
+	array('Sudah E-KPMI',            $get('ekpmi')['nilai'],      $get('ekpmi')['persen'],      'fa-passport',  'Peserta dengan status E-KPMI.'),
 );
 
 // Pisah label/nilai + Top-N ("Lainnya" digabung) agar sumbu tidak penuh.
@@ -97,7 +98,7 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 	<div class="d-sm-flex align-items-center justify-content-between mb-3">
 		<div>
 			<h1 class="h4 dg-title mb-1">Monitoring Penempatan Peserta Pelatihan</h1>
-			<div class="text-muted small">Ringkasan penempatan peserta pelatihan (sumber: SISKO P2MI)</div>
+			<div class="text-muted small">Ringkasan penempatan peserta pelatihan</div>
 		</div>
 		<a href="<?= $exportUrl ?>" class="btn btn-sm btn-warning font-weight-bold mt-2 mt-sm-0">
 			<i class="fas fa-file-excel mr-1"></i> Export Excel
@@ -130,7 +131,7 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 	<!-- ===== BARIS 1: KPI ===== -->
 	<div class="row">
 		<?php foreach ($kpis as $k): ?>
-		<div class="col-lg-4 col-md-6 col-12 mb-4">
+		<div class="col-lg-3 col-md-6 col-12 mb-4">
 			<div class="card dg-card dg-kpi h-100">
 				<div class="card-body">
 					<div class="d-flex justify-content-between align-items-start mb-2">
