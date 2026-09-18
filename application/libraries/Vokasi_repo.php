@@ -993,9 +993,9 @@ class Vokasi_repo {
 		$statPenempatan = array('2','851','855','900','901','4','5','6','902','1146','1147','903','907','904','908','54','36','37');
 		$inList = "'" . implode("','", $statPenempatan) . "'";
 
-		$rows = $db->query(
+		$q = $db->query(
 			"SELECT
-				PESERTA.PMI_NAMA         AS nama,
+				PESERTA.PMI_NIK_NAMA     AS nama,
 				PESERTA_PROP.PROP_NAME   AS provinsi,
 				PESERTA_KAB.KAB_NAME     AS kabupaten,
 				PENYELENGGARA.M_STK_NAME AS bp3mi,
@@ -1018,7 +1018,13 @@ class Vokasi_repo {
 			LEFT JOIN R_REFERENCE JABATAN ON PEN.PEN_JOB_ID = JABATAN.REF_REFID
 			LEFT JOIN BP2_R_NEGARA NEG ON PEN.PEN_NEGARA_ID = NEG.NEG_ID
 			LEFT JOIN BP2_R_STATUS STATUS ON PEN.PEN_STATUSAKTIF = STATUS.STATUS_ID"
-		)->result_array();
+		);
+		if ($q === FALSE)
+		{
+			$e = $db->error();
+			throw new RuntimeException('Query penempatan gagal: ' . $e['message']);
+		}
+		$rows = $q->result_array();
 
 		$filter = array_filter($filter, 'strlen');
 		$out = array();
