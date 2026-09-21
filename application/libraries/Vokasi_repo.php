@@ -53,6 +53,9 @@ class Vokasi_repo {
 	/** Koneksi DB group 'sisko' (mysqli, dev_siskop2mi). Sentinel sama seperti $ci_db. */
 	private $ci_sisko = FALSE;
 
+	/** Alasan koneksi sisko gagal (untuk pesan error). */
+	private $sisko_error = '';
+
 	public function __construct()
 	{
 		$this->dir = APPPATH . 'data/vokasi/';
@@ -109,12 +112,20 @@ class Vokasi_repo {
 			$CI =& get_instance();
 			$db = @$CI->load->database('sisko', TRUE);
 			$this->ci_sisko = ($db !== FALSE && is_object($db) && ! empty($db->conn_id)) ? $db : NULL;
+			if ($this->ci_sisko === NULL)
+			{
+				// Ambil alasan gagal (mysqli_connect_error / error() driver) untuk ditampilkan.
+				$why = mysqli_connect_error();
+				if (! $why && is_object($db)) { $e = $db->error(); $why = $e['message']; }
+				$this->sisko_error = $why ?: 'tidak ada detail (cek host/port/user di config/database.php dan firewall)';
+			}
 		}
 		if ($this->ci_sisko === NULL)
 		{
-			log_message('error', 'Vokasi_repo: koneksi DB sisko gagal.');
+			log_message('error', 'Vokasi_repo: koneksi DB sisko gagal: ' . $this->sisko_error);
 			show_error(
-				'Koneksi ke database SISKO P2MI gagal. Halaman Monitoring Penempatan hanya menyajikan data dari database sumber.',
+				'Koneksi ke database SISKO P2MI gagal. Halaman Monitoring Penempatan hanya menyajikan data dari database sumber.'
+				. '<br><br><code>' . html_escape($this->sisko_error) . '</code>',
 				503,
 				'Database SISKO Tidak Tersedia'
 			);
