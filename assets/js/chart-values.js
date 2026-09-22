@@ -26,8 +26,10 @@
 			if (t === 'doughnut' || t === 'pie') {
 				o.legend = o.legend || {}; o.legend.labels = o.legend.labels || {};
 				// Chart.js selalu mengisi generateLabels bawaan; timpa hanya jika halaman tidak menyetel sendiri.
-				var def = Chart.defaults.global.legend.labels.generateLabels;
-				if (!o.legend.labels.generateLabels || o.legend.labels.generateLabels === def) { o.legend.labels.generateLabels = donutLegend; }
+				var g = o.legend.labels.generateLabels, td = Chart.defaults[t] || {};
+				var isDefault = !g || g === Chart.defaults.global.legend.labels.generateLabels ||
+					(td.legend && td.legend.labels && g === td.legend.labels.generateLabels);
+				if (isDefault) { o.legend.labels.generateLabels = donutLegend; }
 			} else if (t === 'horizontalBar' || t === 'bar' || t === 'line') {
 				o.layout = o.layout || {}; o.layout.padding = o.layout.padding || {};
 				if (typeof o.layout.padding === 'object') {
