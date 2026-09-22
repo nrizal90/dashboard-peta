@@ -32,6 +32,7 @@
 
 	<!-- Chart.js -->
 	<script src="<?= base_url('assets/vendor/chart.js/Chart.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/chart-values.js') ?>"></script>
 
 	<!-- Leaflet + plugin -->
 	<script src="<?= base_url('assets/vendor/leaflet/leaflet.js') ?>"></script>
