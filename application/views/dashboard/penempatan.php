@@ -53,7 +53,7 @@ list($penyLabels, $penyData)   = $split($topN(isset($st['bp3mi']) ? $st['bp3mi']
 list($p3miLabels, $p3miData)   = $split($topN(isset($st['p3mi'])          ? $st['p3mi']          : array(), 10));
 list($jabLabels, $jabData)     = $split($topN(isset($st['jabatan'])       ? $st['jabatan']       : array(), 10));
 list($negLabels, $negData)     = $split($topN(isset($st['negara'])        ? $st['negara']        : array(), 10));
-list($statLabels, $statData)   = $split(isset($st['status']) ? $st['status'] : array());
+list($statLabels, $statData)   = $split($topN(isset($st['status'])        ? $st['status']        : array(), 5));
 
 $rows    = isset($rows) ? $rows : array();
 $options = isset($options) ? $options : array();
@@ -231,7 +231,7 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 			<div class="card dg-card h-100">
 				<div class="card-body">
 					<div class="dg-title h6 mb-1">Peserta berdasarkan Status</div>
-					<div class="dg-sub">Komposisi status penempatan peserta.</div>
+					<div class="dg-sub">Komposisi status penempatan peserta (5 terbanyak, sisanya digabung ke "Lainnya").</div>
 					<div class="chart-box h-lg"><canvas id="chStatus"></canvas></div>
 				</div>
 			</div>
@@ -370,6 +370,7 @@ window.addEventListener('load', function () {
 		c.style.cssText = 'position:absolute;top:42%;left:0;right:0;text-align:center;pointer-events:none;transform:translateY(-50%);';
 		c.innerHTML = '<div class="dg-legend-total">' + (total === null ? '-' : fmt(total)) + '<small>' + caption + '</small></div>';
 		box.appendChild(c);
+		return c;
 	}
 
 	// Bar horizontal generik untuk 6 dimensi.
@@ -392,13 +393,17 @@ window.addEventListener('load', function () {
 
 	// Status (doughnut) + total di tengah.
 	if (DP.status.data.length) {
-		new Chart(document.getElementById('chStatus'), {
+		var chStatus = new Chart(document.getElementById('chStatus'), {
 			type: 'doughnut',
 			data: { labels: DP.status.labels,
 				datasets: [{ data: DP.status.data, backgroundColor: goldScale(DP.status.data.length), borderWidth: 2, borderColor: '#fff' }] },
 			options: donutOpts
 		});
-		centerTotal('chStatus', DP.total, 'Peserta');
+		// Taruh total tepat di tengah donut (tinggi legend bervariasi → jangan pakai % tetap).
+		var tot = centerTotal('chStatus', DP.total, 'Peserta');
+		var placeTot = function () { var a = chStatus.chartArea; tot.style.top = ((a.top + a.bottom) / 2) + 'px'; };
+		placeTot();
+		window.addEventListener('resize', function () { setTimeout(placeTot, 100); });
 	} else { emptyNote('chStatus'); }
 });
 </script>

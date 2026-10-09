@@ -47,6 +47,36 @@
 		/* Sedikit pertegas garis pemisah & heading di sidebar emas */
 		.sidebar-dark .sidebar-heading { color: rgba(255, 255, 255, .7); }
 		.sidebar-dark hr.sidebar-divider { border-top-color: rgba(255, 255, 255, .2); }
+		/* Brand 2-3 baris: tinggi mengikuti teks (default SB Admin dikunci 4.375rem → terpotong) */
+		.sidebar .sidebar-brand { height: auto; min-height: 4.375rem; padding: .9rem .75rem; }
+		.sidebar .sidebar-brand .sidebar-brand-text { font-size: .72rem; line-height: 1.3; white-space: normal; text-align: left; }
+		.sidebar .sidebar-brand .sidebar-brand-icon { flex-shrink: 0; }
+		/* Submenu: aktif & hover emas (default SB Admin biru) */
+		.sidebar .nav-item .collapse .collapse-inner .collapse-item.active,
+		.sidebar .nav-item .collapsing .collapse-inner .collapse-item.active { color: var(--dg-gold-deep); font-weight: 800; }
+		.sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
+		.sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover { background-color: #faf6e9; color: var(--dg-gold-deep); }
+		/* Desktop, sidebar terbuka: lebih lebar + submenu menyatu dgn latar emas (bukan kotak putih).
+		   Mode HP/toggled tetap popup putih bawaan SB Admin (melayang di atas konten). */
+		@media (min-width: 768px) {
+			.sidebar:not(.toggled) { width: 16.5rem !important; }
+			/* Ikon · label · panah sejajar tengah (default: panah float → jatuh ke baris terakhir label) */
+			.sidebar:not(.toggled) .nav-item .nav-link { display: flex; align-items: center; }
+			.sidebar:not(.toggled) .nav-item .nav-link i { flex-shrink: 0; }
+			.sidebar:not(.toggled) .nav-item .nav-link span { flex: 1; }
+			.sidebar:not(.toggled) .nav-item .nav-link[data-toggle=collapse]::after { float: none; flex-shrink: 0; margin-left: .5rem; }
+			.sidebar:not(.toggled) .nav-item .collapse .collapse-inner,
+			.sidebar:not(.toggled) .nav-item .collapsing .collapse-inner { background-color: rgba(0, 0, 0, .12) !important; }
+			.sidebar:not(.toggled) .nav-item .collapse .collapse-inner .collapse-item,
+			.sidebar:not(.toggled) .nav-item .collapsing .collapse-inner .collapse-item { color: rgba(255, 255, 255, .85); white-space: normal; }
+			.sidebar:not(.toggled) .nav-item .collapse .collapse-inner .collapse-item:hover,
+			.sidebar:not(.toggled) .nav-item .collapsing .collapse-inner .collapse-item:hover { background-color: rgba(255, 255, 255, .15); color: #fff; }
+			.sidebar:not(.toggled) .nav-item .collapse .collapse-inner .collapse-item.active,
+			.sidebar:not(.toggled) .nav-item .collapsing .collapse-inner .collapse-item.active { background-color: rgba(255, 255, 255, .22); color: #fff; }
+		}
+		/* Tombol cari topbar senada tema */
+		.topbar .btn-primary { background-color: var(--dg-gold-dark); border-color: var(--dg-gold-dark); }
+		.topbar .btn-primary:hover { background-color: var(--dg-gold-deep); border-color: var(--dg-gold-deep); }
 
 		#map { height: calc(100vh - 210px); min-height: 460px; width: 100%; border-radius: .35rem; z-index: 0; }
 
