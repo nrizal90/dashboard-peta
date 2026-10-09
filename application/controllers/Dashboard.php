@@ -215,7 +215,7 @@ class Dashboard extends CI_Controller {
 			);
 		}
 		$this->sendXls('penempatan_peserta_' . date('Ymd') . '.xls',
-			array('Nama PMI', 'Provinsi', 'Kabupaten/Kota', 'BP3MI', 'P3MI', 'Negara', 'Jabatan', 'Status',
+			array('Nama PMI', 'Provinsi', 'Kabupaten/Kota', 'BP3MI', 'P3MI', 'Negara', 'Jabatan', 'Status Proses Penempatan',
 				'Telah memiliki akun', 'Telah memiliki penempatan', 'Telah EKPMI'),
 			$out);
 	}

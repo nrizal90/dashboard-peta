@@ -54,7 +54,7 @@ $rows    = isset($rows) ? $rows : array();
 $options = isset($options) ? $options : array();
 $filter  = isset($filter) ? $filter : array();
 $filterLabels = array('provinsi' => 'Provinsi', 'kabupaten' => 'Kabupaten/Kota', 'bp3mi' => 'BP3MI',
-	'p3mi' => 'P3MI', 'jabatan' => 'Jabatan', 'negara' => 'Negara', 'status' => 'Status');
+	'p3mi' => 'P3MI', 'jabatan' => 'Jabatan', 'negara' => 'Negara', 'status' => 'Status Proses Penempatan');
 $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($filter) : '');
 ?>
 
@@ -236,14 +236,14 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 			<div class="card dg-card">
 				<div class="card-body">
 					<div class="d-flex justify-content-between align-items-center mb-1">
-						<div class="dg-title h6 mb-0">List Penempatan Peserta Pelatihan</div>
+						<div class="dg-title h6 mb-0">Daftar Penempatan Peserta Pelatihan</div>
 						<input type="search" class="form-control form-control-sm w-auto" id="tCari" placeholder="Cari…">
 					</div>
 					<div class="dg-sub"><?= number_format(count($rows), 0, ',', '.') ?> peserta sesuai filter.</div>
 					<div class="table-responsive">
 						<table class="table table-sm table-hover" id="tblPenempatan" style="width:100%">
 							<thead class="thead-light">
-								<tr><th>Nama PMI</th><th>Provinsi</th><th>Kabupaten/Kota</th><th>BP3MI</th><th>P3MI</th><th>Status</th></tr>
+								<tr><th>Nama PMI</th><th>Provinsi</th><th>Kabupaten/Kota</th><th>BP3MI</th><th>P3MI</th><th>Status Proses Penempatan</th></tr>
 							</thead>
 							<tbody>
 							<?php foreach ($rows as $r): ?>
