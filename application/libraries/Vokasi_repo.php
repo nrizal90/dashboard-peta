@@ -1126,40 +1126,33 @@ class Vokasi_repo {
 	}
 
 	/**
-	 * Monitoring Data PMI — sumber $db['sisko']. Query dari requirement (peserta
-	 * pelatihan + flag akun/proses penempatan/E-PMI), 1 baris per pendaftaran event.
+	 * Monitoring Data PMI / Tracking Penempatan — sumber $db['sisko']. Query dari
+	 * requirement (peserta pelatihan + flag akun/proses penempatan/E-PMI).
+	 *   versi 1: basis BP2_T_EVENT, 1 baris per pendaftaran event.
+	 *   versi 2: basis M_PMI_VOKASI (+ pelatihan vokasi); tanpa penyelenggara → bp3mi 'Tidak diisi'.
 	 * Subquery penempatan memakai DISTINCT PEN_PMI_ID agar PMI dengan >1 penempatan
-	 * tidak menggandakan baris.
+	 * tidak menggandakan baris. CASE di requirement ("CASE x WHEN x IS NOT NULL")
+	 * tidak pernah cocok di MySQL → dipakai "CASE WHEN ... IS NOT NULL".
 	 *
 	 * @param array $filter nama/nik = substring (tanpa huruf besar-kecil);
-	 *                      provinsi/kabupaten/bp3mi = sama persis;
-	 *                      has_akun/has_pen/has_epmi = '1'|'0'.
+	 *                      provinsi/bp3mi = sama persis;
+	 *                      tgl_awal/tgl_akhir = 'Y-m-d', batas tanggal daftar (inklusif).
+	 * @param int   $versi  1 = BP2_T_EVENT, 2 = M_PMI_VOKASI
 	 * @return array
 	 */
-	public function pmiRows(array $filter = array())
+	public function pmiRows(array $filter = array(), $versi = 1)
 	{
 		$db = $this->requireSisko();
-		$q = $db->query(
-			"SELECT
-				EVENT_NAME               AS event_jenis,
-				EVENT_TITLE              AS event_nama,
-				PENYELENGGARA.M_STK_ID   AS bp3mi_id,
-				PENYELENGGARA.M_STK_NAME AS bp3mi,
-				DTEVENT_USER_ID          AS user_id,
+
+		$cols = "
 				PESERTA.PMI_NIK_NAMA     AS nama,
-				PESERTA.PMI_NIK          AS nik,
+				PESERTA.PMI_NIK_NO       AS nik,
 				PESERTA_PROP.PROP_NAME   AS provinsi,
 				PESERTA_KAB.KAB_NAME     AS kabupaten,
-				DTEVENT_TGL_DAFTAR       AS tgl_daftar,
 				1 AS has_akun,
 				CASE WHEN HAS_PEN.PEN_PMI_ID  IS NOT NULL THEN 1 ELSE 0 END AS has_pen,
-				CASE WHEN HAS_EPMI.PEN_PMI_ID IS NOT NULL THEN 1 ELSE 0 END AS has_epmi
-			FROM BP2_T_EVENT
-			JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
-			JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
-			JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
-			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
-			JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID
+				CASE WHEN HAS_EPMI.PEN_PMI_ID IS NOT NULL THEN 1 ELSE 0 END AS has_epmi";
+		$joins = "
 			LEFT JOIN R_PROPINSI PESERTA_PROP ON PMI_NIK_PROP_ID = PESERTA_PROP.PROP_ID
 			LEFT JOIN R_KABUPATEN PESERTA_KAB ON PMI_NIK_KAB_ID = PESERTA_KAB.KAB_ID
 			LEFT JOIN (
@@ -1169,8 +1162,36 @@ class Vokasi_repo {
 			) HAS_PEN ON HAS_PEN.PEN_PMI_ID = PMI_ID
 			LEFT JOIN (
 				SELECT DISTINCT PEN_PMI_ID FROM BP2_T_PMI_PENEMPATAN WHERE PEN_EPMI_NO IS NOT NULL
-			) HAS_EPMI ON HAS_EPMI.PEN_PMI_ID = PMI_ID"
-		);
+			) HAS_EPMI ON HAS_EPMI.PEN_PMI_ID = PMI_ID";
+
+		$sql = ((int) $versi === 2)
+			? "SELECT
+				'PELATIHAN'                  AS event_jenis,
+				NULL                         AS event_nama,
+				NULL                         AS bp3mi_id,
+				NULL                         AS bp3mi,
+				PESERTA.PMI_ID               AS user_id,
+				TD_PEL_VOK_CREATED_TIMESTAMP AS tgl_daftar,$cols
+			FROM M_PMI_VOKASI
+			LEFT JOIN TD_PELATIHAN_VOKASI ON TD_PEL_VOK_M_PMI_VOK_ID = M_PMI_VOK_ID
+			LEFT JOIN T_PELATIHAN_VOKASI ON T_PEL_VOK_ID = TD_PEL_VOK_PEL_VOK_ID
+			JOIN BP2_M_PMI PESERTA ON PESERTA.PMI_NIK_NO = M_PMI_VOK_NIK_NO
+			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joins"
+			: "SELECT
+				EVENT_NAME               AS event_jenis,
+				EVENT_TITLE              AS event_nama,
+				PENYELENGGARA.M_STK_ID   AS bp3mi_id,
+				PENYELENGGARA.M_STK_NAME AS bp3mi,
+				DTEVENT_USER_ID          AS user_id,
+				DTEVENT_TGL_DAFTAR       AS tgl_daftar,$cols
+			FROM BP2_T_EVENT
+			JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
+			JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
+			JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
+			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
+			JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joins";
+
+		$q = $db->query($sql);
 		if ($q === FALSE)
 		{
 			$e = $db->error();
@@ -1186,12 +1207,15 @@ class Vokasi_repo {
 				$r[$key] = trim((string) $r[$key]);
 				if ($r[$key] === '') { $r[$key] = 'Tidak diisi'; }
 			}
+			$tgl = substr((string) $r['tgl_daftar'], 0, 10); // 'Y-m-d' → aman dibandingkan sebagai string
 			foreach ($filter as $key => $val)
 			{
 				if ($key === 'nama' || $key === 'nik')
 				{
 					if (stripos((string) $r[$key], $val) === FALSE) { continue 2; }
 				}
+				elseif ($key === 'tgl_awal')  { if ($tgl === '' || $tgl < $val) { continue 2; } }
+				elseif ($key === 'tgl_akhir') { if ($tgl === '' || $tgl > $val) { continue 2; } }
 				elseif (isset($r[$key]) && (string) $r[$key] !== (string) $val) { continue 2; }
 			}
 			$out[] = $r;

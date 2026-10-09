@@ -80,6 +80,8 @@ $route['penempatan-v2']        = 'dashboard/penempatan/2';
 $route['penempatan-v2/export'] = 'dashboard/penempatan_export/2';
 $route['monitoring-pmi']        = 'dashboard/monitoring_pmi';
 $route['monitoring-pmi/export'] = 'dashboard/monitoring_pmi_export';
+$route['monitoring-pmi-v2']        = 'dashboard/monitoring_pmi/2';
+$route['monitoring-pmi-v2/export'] = 'dashboard/monitoring_pmi_export/2';
 
 // Menu "Daftar Pendataan" (tabel lembaga + export)
 $route['daftar-pendataan']        = 'dashboard/daftar_pendataan';

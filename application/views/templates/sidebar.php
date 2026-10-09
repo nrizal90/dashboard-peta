@@ -27,6 +27,7 @@
 				['penempatan', 'penempatan', 'Dashboard'],
 				['penempatan-v2', 'penempatan-v2', 'Dashboard (Versi 2)'],
 				['monitoring-pmi', 'monitoring-pmi', 'Tracking Penempatan'],
+				['monitoring-pmi-v2', 'monitoring-pmi-v2', 'Tracking Penempatan (Versi 2)'],
 			]],
 		];
 		foreach ($menus as $m):

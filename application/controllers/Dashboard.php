@@ -228,15 +228,17 @@ class Dashboard extends CI_Controller {
 	 * Menu "Monitoring PMI" — tabel peserta pelatihan + flag akun/proses
 	 * penempatan/E-PMI (DB sisko, repo->pmiRows()) dengan filter + export .xls.
 	 */
-	public function monitoring_pmi()
+	public function monitoring_pmi($versi = 1)
 	{
+		$versi  = ((int) $versi === 2) ? 2 : 1;
 		$filter = $this->pmiFilter();
-		$all    = $this->repo->pmiRows();
-		$rows   = $filter ? $this->repo->pmiRows($filter) : $all;
+		$all    = $this->repo->pmiRows(array(), $versi);
+		$rows   = $filter ? $this->repo->pmiRows($filter, $versi) : $all;
 
 		$data = array(
-			'title'   => 'Monitoring PMI',
-			'active'  => 'monitoring-pmi',
+			'title'   => 'Tracking Penempatan' . ($versi === 2 ? ' (Versi 2)' : ''),
+			'active'  => $versi === 2 ? 'monitoring-pmi-v2' : 'monitoring-pmi',
+			'versi'   => $versi,
 			'rows'    => $rows,
 			'options' => $this->repo->pmiOptions($all),
 			'filter'  => $filter,
@@ -253,18 +255,24 @@ class Dashboard extends CI_Controller {
 	private function pmiFilter()
 	{
 		$f = array();
-		foreach (array('nama', 'nik', 'provinsi', 'kabupaten', 'bp3mi', 'has_akun', 'has_pen', 'has_epmi') as $key)
+		foreach (array('tgl_awal', 'tgl_akhir', 'nama', 'nik', 'provinsi', 'bp3mi') as $key)
 		{
 			$v = trim((string) $this->input->get($key, TRUE));
 			if ($v !== '') { $f[$key] = $v; }
+		}
+		// Tanggal hanya diterima dalam format input date (Y-m-d).
+		foreach (array('tgl_awal', 'tgl_akhir') as $key)
+		{
+			if (isset($f[$key]) && ! preg_match('/^\d{4}-\d{2}-\d{2}$/', $f[$key])) { unset($f[$key]); }
 		}
 		return $f;
 	}
 
 	/** Export Monitoring PMI (seluruh kolom query sumber, sesuai filter) ke .xls. */
-	public function monitoring_pmi_export()
+	public function monitoring_pmi_export($versi = 1)
 	{
-		$rows = $this->repo->pmiRows($this->pmiFilter());
+		$versi = ((int) $versi === 2) ? 2 : 1;
+		$rows = $this->repo->pmiRows($this->pmiFilter(), $versi);
 		$yn = function ($v) { return $v ? 'Ya' : 'Tidak'; };
 		$out = array();
 		foreach ($rows as $r)
@@ -275,7 +283,7 @@ class Dashboard extends CI_Controller {
 				$yn($r['has_akun']), $yn($r['has_pen']), $yn($r['has_epmi']),
 			);
 		}
-		$this->sendXls('monitoring_pmi_' . date('Ymd') . '.xls',
+		$this->sendXls('tracking_penempatan_' . ($versi === 2 ? 'v2_' : '') . date('Ymd') . '.xls',
 			array('Jenis Event', 'Nama Event', 'ID Penyelenggara', 'Penyelenggara (BP3MI)', 'Nama PMI', 'NIK',
 				'Provinsi', 'Kabupaten/Kota', 'Tanggal Daftar', 'Akun SiskoP2MI', 'Proses Penempatan', 'E-KPMI'),
 			$out);
