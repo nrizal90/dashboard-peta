@@ -7,7 +7,7 @@
 			<div class="sidebar-brand-icon rotate-n-15">
 				<i class="fas fa-map-marked-alt"></i>
 			</div>
-			<div class="sidebar-brand-text mx-3">Dashboard Peta</div>
+			<div class="sidebar-brand-text mx-3">Dashboard Pemantauan SMK Go Global</div>
 		</a>
 
 		<hr class="sidebar-divider my-0">
