@@ -192,6 +192,7 @@ $jab = isset($s['sektor']['total_jabatan']) ? $s['sektor']['total_jabatan'] : 0;
 
 								<div class="filter-group">
 									<label class="head">Sektor</label>
+									<input type="text" id="fSektorSearch" class="form-control form-control-sm mb-1" placeholder="cari sektor…">
 									<div id="fSektor" class="checklist"></div>
 								</div>
 

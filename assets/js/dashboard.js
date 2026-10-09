@@ -28,8 +28,20 @@
 		light: TEMA.gold_light || '#F2DD8E'
 	};
 
-	// Warna ownership (emas pekat vs emas muda, tetap terbedakan di peta)
-	var COLOR = { P: GOLD.deep, N: GOLD.base }; // Pemerintah / Non Pemerintah
+	// Emas tua pekat — ujung gelap gradasi (kontras tinggi vs emas pucat).
+	var GOLD_DARK = [110, 72, 8], GOLD_PALE = [243, 222, 150];
+	function goldMix(t) {
+		return 'rgb(' + GOLD_DARK.map(function (c, i) { return Math.round(c + (GOLD_PALE[i] - c) * t); }).join(',') + ')';
+	}
+	// Gradasi n warna: item pertama (terbesar, data top-N terurut menurun) paling pekat.
+	function goldScale(n) {
+		var out = [];
+		for (var i = 0; i < n; i++) { out.push(goldMix(n > 1 ? i / (n - 1) : 0)); }
+		return out;
+	}
+
+	// Warna ownership (emas tua vs emas, kontras jelas di peta & donut)
+	var COLOR = { P: goldMix(0), N: GOLD.base }; // Pemerintah / Non Pemerintah
 
 	// -----------------------------------------------------------------
 	// State filter (tersinkron ke URL)
@@ -362,12 +374,12 @@
 	Chart.defaults.global.defaultFontColor = '#8a8a95';
 	Chart.defaults.global.defaultFontFamily = 'Nunito, sans-serif';
 
-	function barChart(id, horizontal, color) {
+	function barChart(id, horizontal) {
 		var ctx = document.getElementById(id);
 		if (!ctx) return null;
 		return new Chart(ctx.getContext('2d'), {
 			type: horizontal ? 'horizontalBar' : 'bar',
-			data: { labels: [], datasets: [{ data: [], backgroundColor: color || GOLD.base }] },
+			data: { labels: [], datasets: [{ data: [], backgroundColor: GOLD.base }] },
 			options: {
 				maintainAspectRatio: false, legend: { display: false },
 				scales: {
@@ -380,9 +392,9 @@
 	}
 
 	function initCharts() {
-		charts.sektor = barChart('chartSektor', true, GOLD.base);
-		charts.jabatan = barChart('chartJabatan', true, GOLD.dark);
-		charts.provinsi = barChart('chartProvinsi', true, GOLD.deep);
+		charts.sektor = barChart('chartSektor', true);
+		charts.jabatan = barChart('chartJabatan', true);
+		charts.provinsi = barChart('chartProvinsi', true);
 		charts.ownership = new Chart(document.getElementById('chartOwnership').getContext('2d'), {
 			type: 'doughnut',
 			data: { labels: ['Pemerintah', 'Non Pemerintah'], datasets: [{ data: [0, 0], backgroundColor: [COLOR.P, COLOR.N] }] },
@@ -394,11 +406,11 @@
 			data: {
 				labels: ['Layer 1 (Legalitas)', 'Layer 2 (Fasilitas)', 'Layer 3 Program'],
 				datasets: [
-					{ label: 'Accepted', backgroundColor: GOLD.deep, data: [0, 0, 0] },
-					{ label: 'Rejected', backgroundColor: '#c9534f', data: [0, 0, 0] },
+					{ label: 'Accepted', backgroundColor: goldMix(0), data: [0, 0, 0] },
+					{ label: 'Rejected', backgroundColor: '#d9534f', data: [0, 0, 0] },
 					{ label: 'Pending', backgroundColor: GOLD.base, data: [0, 0, 0] },
-					{ label: 'Revised', backgroundColor: GOLD.light, data: [0, 0, 0] },
-					{ label: 'Not submitted', backgroundColor: '#dcdce4', data: [0, 0, 0] }
+					{ label: 'Revised', backgroundColor: '#f6e7b4', data: [0, 0, 0] },
+					{ label: 'Not submitted', backgroundColor: '#e4e4ea', data: [0, 0, 0] }
 				]
 			},
 			options: {
@@ -413,6 +425,7 @@
 		if (!chart) return;
 		chart.data.labels = labels;
 		chart.data.datasets[0].data = data;
+		chart.data.datasets[0].backgroundColor = goldScale(data.length);
 		chart.update();
 	}
 
@@ -594,6 +607,13 @@
 		document.getElementById('fJabatanSearch').addEventListener('input', debounce(function () {
 			renderJabatan(this.value);
 		}, 200));
+		// Sektor: cukup sembunyikan baris yang tidak cocok (state checkbox tetap utuh).
+		document.getElementById('fSektorSearch').addEventListener('input', function () {
+			var t = this.value.toLowerCase();
+			document.querySelectorAll('#fSektor .form-check').forEach(function (row) {
+				row.style.display = row.textContent.toLowerCase().indexOf(t) >= 0 ? '' : 'none';
+			});
+		});
 		document.getElementById('btnReset').addEventListener('click', resetFilters);
 	}
 
@@ -611,6 +631,8 @@
 		};
 		applyStateToInputs();
 		renderKota('');
+		document.getElementById('fSektorSearch').value = '';
+		document.querySelectorAll('#fSektor .form-check').forEach(function (row) { row.style.display = ''; });
 		document.querySelectorAll('#fSektor input, #fJabatan input').forEach(function (c) { c.checked = false; });
 		refresh();
 	}
