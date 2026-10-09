@@ -12,61 +12,39 @@
 
 		<hr class="sidebar-divider my-0">
 
-		<!-- Nav Item - Dashboard (ringkasan verifikasi) -->
-		<li class="nav-item <?= $active === 'dashboard' ? 'active' : '' ?>">
-			<a class="nav-link" href="<?= site_url('dashboard') ?>">
-				<i class="fas fa-fw fa-tachometer-alt"></i>
-				<span>Dashboard</span>
+<?php
+		// Menu bergrup: [id collapse, label, icon, [[active, url, label], ...]]
+		$menus = [
+			['menuVokasi', 'Monitoring Lembaga Vokasi', 'fa-school', [
+				['dashboard', 'dashboard', 'Dashboard'],
+				['peta', 'peta', 'Peta Sebaran'],
+				['daftar-pendataan', 'daftar-pendataan', 'Lembaga Vokasi'],
+			]],
+			['menuPelatihan', 'Monitoring Pelatihan', 'fa-user-graduate', [
+				['pelatihan', 'pelatihan', 'Dashboard'],
+			]],
+			['menuPenempatan', 'Monitoring Penempatan', 'fa-map-signs', [
+				['penempatan', 'penempatan', 'Dashboard'],
+				['monitoring-pmi', 'monitoring-pmi', 'Tracking Penempatan'],
+			]],
+		];
+		foreach ($menus as $m):
+			$open = in_array($active, array_column($m[3], 0), true);
+		?>
+		<li class="nav-item <?= $open ? 'active' : '' ?>">
+			<a class="nav-link <?= $open ? '' : 'collapsed' ?>" href="#" data-toggle="collapse" data-target="#<?= $m[0] ?>" aria-expanded="<?= $open ? 'true' : 'false' ?>" aria-controls="<?= $m[0] ?>">
+				<i class="fas fa-fw <?= $m[2] ?>"></i>
+				<span><?= $m[1] ?></span>
 			</a>
+			<div id="<?= $m[0] ?>" class="collapse <?= $open ? 'show' : '' ?>" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<?php foreach ($m[3] as $sub): ?>
+					<a class="collapse-item <?= $active === $sub[0] ? 'active' : '' ?>" href="<?= site_url($sub[1]) ?>"><?= $sub[2] ?></a>
+					<?php endforeach; ?>
+				</div>
+			</div>
 		</li>
-
-		<!-- Nav Item - Peta Sebaran (dashboard peta interaktif lama) -->
-		<li class="nav-item <?= $active === 'peta' ? 'active' : '' ?>">
-			<a class="nav-link" href="<?= site_url('peta') ?>">
-				<i class="fas fa-fw fa-map-marked-alt"></i>
-				<span>Peta Sebaran</span>
-			</a>
-		</li>
-
-		<!-- Nav Item - Dashboard Vokasi (ringkasan pendataan) -->
-		<!-- <li class="nav-item <?= $active === 'pendataan' ? 'active' : '' ?>">
-			<a class="nav-link" href="<?= site_url('pendataan') ?>">
-				<i class="fas fa-fw fa-chart-pie"></i>
-				<span>Dashboard Vokasi</span>
-			</a>
-		</li> -->
-
-		<!-- Nav Item - Daftar Pendataan (tabel) -->
-		<li class="nav-item <?= $active === 'daftar-pendataan' ? 'active' : '' ?>">
-			<a class="nav-link" href="<?= site_url('daftar-pendataan') ?>">
-				<i class="fas fa-fw fa-table"></i>
-				<span>Daftar Pendataan</span>
-			</a>
-		</li>
-
-		<!-- Nav Item - Monitoring Pelatihan PMI (view dashboard_pelatihan_detail) -->
-		<li class="nav-item <?= $active === 'pelatihan' ? 'active' : '' ?>">
-			<a class="nav-link" href="<?= site_url('pelatihan') ?>">
-				<i class="fas fa-fw fa-user-graduate"></i>
-				<span>Monitoring Pelatihan PMI</span>
-			</a>
-		</li>
-
-		<!-- Nav Item - Monitoring Penempatan Peserta Pelatihan (DB sisko / SISKO P2MI) -->
-		<li class="nav-item <?= $active === 'penempatan' ? 'active' : '' ?>">
-			<a class="nav-link" href="<?= site_url('penempatan') ?>">
-				<i class="fas fa-fw fa-map-signs"></i>
-				<span>Monitoring Penempatan</span>
-			</a>
-		</li>
-
-		<!-- Nav Item - Monitoring PMI (DB sisko / SISKO P2MI) -->
-		<li class="nav-item <?= $active === 'monitoring-pmi' ? 'active' : '' ?>">
-			<a class="nav-link" href="<?= site_url('monitoring-pmi') ?>">
-				<i class="fas fa-fw fa-users"></i>
-				<span>Monitoring PMI</span>
-			</a>
-		</li>
+		<?php endforeach; ?>
 
 		<hr class="sidebar-divider">
 

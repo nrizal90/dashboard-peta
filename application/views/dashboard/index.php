@@ -23,23 +23,22 @@ $goldLight = $tema['gold_light'];
 $fmtNum = function ($v) { return ($v === NULL) ? '-' : number_format($v, 0, ',', '.'); };
 $fmtPct = function ($v) { return ($v === NULL) ? '-' : ((int) $v) . '%'; };
 
-// Kartu sambutan — terverifikasi legalitas, unik per email (DB); fallback '-'.
-$h = isset($header) ? $header : array();
-$verifLegalitas = isset($h['terverifikasi_legalitas']) ? (int) $h['terverifikasi_legalitas'] : NULL;
-
 // KPI atas — angka NYATA dari DB (view dashboard_vokasi_detail); fallback '-'.
 $kv = isset($kpi) ? $kpi : array();
 $kvGet = function ($key) use ($kv) {
 	return isset($kv[$key]) ? array((int) $kv[$key]['nilai'], (int) $kv[$key]['persen']) : array(NULL, NULL);
 };
+$kTot = $kvGet('total');
+$kLeg = $kvGet('legalitas');
 $kFas = $kvGet('fasilitas');
 $kPro = $kvGet('program');
-$kKes = $kvGet('keseluruhan');
 
+// Total mendaftar tanpa badge persen (selalu 100%).
 $kpis = array(
+	array('Total Mendaftar',           $kTot[0], NULL,     'Jumlah Lembaga yang Telah Mendaftar.'),
+	array('Terverifikasi Legalitas',   $kLeg[0], $kLeg[1], 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Legalitas.'),
 	array('Terverifikasi Fasilitas',   $kFas[0], $kFas[1], 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Fasilitas.'),
 	array('Terverifikasi Program',     $kPro[0], $kPro[1], 'Jumlah Lembaga yang Telah Lulus Verifikasi Data Program Pelatihan.'),
-	array('Terverifikasi Keseluruhan', $kKes[0], $kKes[1], 'Jumlah Lembaga yang Telah Lulus Seluruh Tahapan Verifikasi.'),
 );
 
 $km = isset($komposisi) ? $komposisi : array();
@@ -122,8 +121,6 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 	/* Kartu sambutan */
 	.dg-hero { background: #fff; }
 	.dg-hero-logo { width: 92px; height: 92px; object-fit: contain; }
-	.dg-hero .stat-num { font-size: 1.6rem; font-weight: 800; color: #2b2b33; }
-	.dg-hero .stat-lbl { font-size: .72rem; color: #9a9aa6; text-transform: none; font-weight: 700; }
 
 	/* KPI */
 	.dg-kpi .kpi-name { font-size: .82rem; color: #6b6b76; font-weight: 700; }
@@ -155,7 +152,6 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 	@media (max-width: 575.98px) {
 		.dg-card .card-body { padding: 1rem 1.05rem; }
 		.dg-hero-logo { width: 60px; height: 60px; }
-		.dg-hero .stat-num { font-size: 1.35rem; }
 		.dg-kpi .kpi-num { font-size: 1.6rem; }
 		.dg-legend-total { font-size: 1.6rem; }
 		#dgMap { height: 300px; }
@@ -172,7 +168,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 		<!-- Kartu sambutan -->
 		<div class="col-xl-4 col-lg-5 mb-4">
 			<div class="card dg-card dg-hero h-100">
-				<div class="card-body d-flex flex-column">
+				<div class="card-body d-flex flex-column justify-content-center">
 					<div class="d-flex align-items-center justify-content-between">
 						<div>
 							<h5 class="dg-title mb-1">Hi, Admin Pusdatin <span style="font-size:1rem;">👋</span></h5>
@@ -182,21 +178,15 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 						</div>
 						<img src="<?= base_url('assets/img/logo-color.webp') ?>" alt="Logo" class="dg-hero-logo">
 					</div>
-					<div class="row mt-auto pt-3">
-						<div class="col-12">
-							<div class="stat-lbl">Terverifikasi Legalitas</div>
-							<div class="stat-num"><?= $fmtNum($verifLegalitas) ?></div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- 3 KPI -->
+		<!-- 4 KPI -->
 		<div class="col-xl-8 col-lg-7 mb-4">
 			<div class="row h-100">
 				<?php foreach ($kpis as $k): ?>
-				<div class="col-xl-4 col-sm-4 col-12 mb-3 mb-xl-0">
+				<div class="col-xl-3 col-sm-6 col-12 mb-3 mb-xl-0">
 					<div class="card dg-card dg-kpi h-100">
 						<div class="card-body">
 							<div class="d-flex justify-content-between align-items-start mb-2">
@@ -204,7 +194,7 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 							</div>
 							<div class="d-flex align-items-center justify-content-between">
 								<span class="kpi-num"><?= $fmtNum($k[1]) ?></span>
-								<span class="dg-badge"><?= $fmtPct($k[2]) ?></span>
+								<?php if ($k[2] !== NULL): ?><span class="dg-badge"><?= $fmtPct($k[2]) ?></span><?php endif; ?>
 							</div>
 							<div class="kpi-desc"><?= html_escape($k[3]) ?></div>
 						</div>
@@ -319,11 +309,15 @@ window.DG = {
 window.addEventListener('load', function () {
 	var DG = window.DG;
 
-	// --- Palet emas bertingkat untuk deret bar ---
+	// --- Palet emas bertingkat (kontras tinggi): batang pertama/terbesar paling pekat,
+	// lalu memudar linear hingga emas pucat. Data bar sudah terurut menurun dari DB.
+	var GOLD_DARK = [110, 72, 8], GOLD_PALE = [243, 222, 150];
+	function mix(t) {
+		return 'rgb(' + GOLD_DARK.map(function (c, i) { return Math.round(c + (GOLD_PALE[i] - c) * t); }).join(',') + ')';
+	}
 	function goldScale(n) {
-		var stops = [DG.gold, '#DDB646', DG.goldDark, '#B78B24', DG.goldDeep];
 		var out = [];
-		for (var i = 0; i < n; i++) { out.push(stops[Math.min(i, stops.length - 1)]); }
+		for (var i = 0; i < n; i++) { out.push(mix(n > 1 ? i / (n - 1) : 0)); }
 		return out;
 	}
 
@@ -353,7 +347,7 @@ window.addEventListener('load', function () {
 		new Chart(document.getElementById('chStatus'), {
 			type: 'doughnut',
 			data: { labels: DG.status.labels,
-				datasets: [{ data: DG.status.data, backgroundColor: [DG.gold, DG.goldLight, DG.goldDeep], borderWidth: 0 }] },
+				datasets: [{ data: DG.status.data, backgroundColor: [mix(0), DG.gold, '#E6E1D3'], borderWidth: 0 }] },
 			options: {
 				maintainAspectRatio: false, cutoutPercentage: 72,
 				legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12 } }
@@ -382,7 +376,7 @@ window.addEventListener('load', function () {
 		new Chart(document.getElementById('chProvinsi'), {
 			type: 'bar',
 			data: { labels: DG.provinsi.labels,
-				datasets: [{ data: DG.provinsi.data, backgroundColor: DG.gold, borderRadius: 6 }] },
+				datasets: [{ data: DG.provinsi.data, backgroundColor: goldScale(DG.provinsi.data.length), borderRadius: 6 }] },
 			options: vBarOpts
 		});
 
@@ -390,7 +384,7 @@ window.addEventListener('load', function () {
 		new Chart(document.getElementById('chJenis'), {
 			type: 'bar',
 			data: { labels: DG.jenis.labels,
-				datasets: [{ data: DG.jenis.data, backgroundColor: DG.gold, borderRadius: 6 }] },
+				datasets: [{ data: DG.jenis.data, backgroundColor: goldScale(DG.jenis.data.length), borderRadius: 6 }] },
 			options: vBarOpts
 		});
 
@@ -421,7 +415,7 @@ window.addEventListener('load', function () {
 		function fillColor(v) {
 			if (!v) { return '#e9edf3'; }
 			var t = Math.sqrt(v) / Math.sqrt(maxV);
-			var a = [245, 224, 150], b = [150, 100, 20]; // light gold -> deep gold
+			var a = [250, 238, 196], b = [110, 72, 8]; // emas pucat -> emas tua (kontras tinggi)
 			var r = Math.round(a[0] + (b[0] - a[0]) * t);
 			var g = Math.round(a[1] + (b[1] - a[1]) * t);
 			var bl = Math.round(a[2] + (b[2] - a[2]) * t);

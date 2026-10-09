@@ -639,31 +639,13 @@ class Vokasi_repo {
 	}
 
 	/**
-	 * Angka kartu sambutan dashboard utama (redesign).
-	 *   - terverifikasi_legalitas = lembaga lulus verifikasi legalitas
-	 *     (ver_legality_status = 'accepted'), UNIK per email (vok_email) agar
-	 *     baris duplikat lembaga tidak terhitung dua kali.
-	 * "Lembaga Terdaftar" sengaja dihapus (permintaan Pusdatin).
-	 * @return array
-	 */
-	public function headerStats()
-	{
-		$row = $this->requireDb()->query(
-			"SELECT count(*) AS legal
-			FROM " . self::LEMBAGA_UNIK . "
-			WHERE ver_legality_status = 'accepted'"
-		)->row_array();
-
-		return array('terverifikasi_legalitas' => (int) $row['legal']);
-	}
-
-	/**
-	 * 3 KPI verifikasi kartu atas dashboard utama (redesign).
+	 * 4 KPI kartu atas dashboard utama (redesign).
 	 * Hanya butuh view dashboard_vokasi_detail (tanpa join) — dihitung sekali jalan
 	 * via COUNT + FILTER (PostgreSQL) agar cuma 1 round-trip ke DB.
-	 *   - fasilitas   : lulus verifikasi fasilitas  (ver_facility_status = 'accepted')
-	 *   - program     : lulus verifikasi program    (ver_program_status  = 'accepted')
-	 *   - keseluruhan : lulus SELURUH tahap         (legalitas+fasilitas+program 'accepted')
+	 *   - total     : seluruh lembaga yang mendaftar
+	 *   - legalitas : lulus verifikasi legalitas (ver_legality_status = 'accepted')
+	 *   - fasilitas : lulus verifikasi fasilitas (ver_facility_status = 'accepted')
+	 *   - program   : lulus verifikasi program   (ver_program_status  = 'accepted')
 	 * 'persen' = porsi terhadap total lembaga unik per email (dibulatkan).
 	 * @return array
 	 */
@@ -671,14 +653,12 @@ class Vokasi_repo {
 	{
 		$db = $this->requireDb();
 
-		// Lembaga UNIK per email (sama dengan headerStats & donut Status).
+		// Lembaga UNIK per email (sama dengan donut Status).
 		$sql = "SELECT
 				count(*)                                                 AS total,
+				count(*) FILTER (WHERE ver_legality_status = 'accepted') AS legalitas,
 				count(*) FILTER (WHERE ver_facility_status = 'accepted') AS fasilitas,
-				count(*) FILTER (WHERE ver_program_status  = 'accepted') AS program,
-				count(*) FILTER (WHERE ver_legality_status = 'accepted'
-				                   AND ver_facility_status = 'accepted'
-				                   AND ver_program_status  = 'accepted')                                AS keseluruhan
+				count(*) FILTER (WHERE ver_program_status  = 'accepted') AS program
 			FROM " . self::LEMBAGA_UNIK;
 
 		$row   = $db->query($sql)->row_array();
@@ -688,9 +668,10 @@ class Vokasi_repo {
 		};
 
 		return array(
-			'fasilitas'   => $pack($row['fasilitas']),
-			'program'     => $pack($row['program']),
-			'keseluruhan' => $pack($row['keseluruhan']),
+			'total'     => $pack($row['total']),
+			'legalitas' => $pack($row['legalitas']),
+			'fasilitas' => $pack($row['fasilitas']),
+			'program'   => $pack($row['program']),
 		);
 	}
 
@@ -707,7 +688,7 @@ class Vokasi_repo {
 		$db = $this->requireDb();
 
 		// Status legalitas — 3 bucket tetap, 1 query. Lembaga UNIK per email
-		// (sama dengan headerStats) agar angka donut = angka kartu sambutan.
+		// (sama dengan KPI) agar angka donut = angka kartu KPI.
 		$s = $db->query(
 			"SELECT
 				count(*)                                                 AS total,
