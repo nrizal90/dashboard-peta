@@ -76,6 +76,8 @@ $route['pendataan']         = 'dashboard/pendataan';
 $route['pelatihan']         = 'dashboard/pelatihan';
 $route['penempatan']        = 'dashboard/penempatan';
 $route['penempatan/export'] = 'dashboard/penempatan_export';
+$route['penempatan-v2']        = 'dashboard/penempatan/2';
+$route['penempatan-v2/export'] = 'dashboard/penempatan_export/2';
 $route['monitoring-pmi']        = 'dashboard/monitoring_pmi';
 $route['monitoring-pmi/export'] = 'dashboard/monitoring_pmi_export';
 

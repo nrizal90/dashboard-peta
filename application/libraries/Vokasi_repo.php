@@ -974,10 +974,14 @@ class Vokasi_repo {
 	 * (stakeholder penempatan), jabatan, negara, status, has_penempatan, has_ekpmi.
 	 * NULL/kosong → 'Tidak diisi' agar filter & chart konsisten.
 	 *
+	 * Versi 2: basis peserta dari M_PMI_VOKASI (+ pelatihan vokasi), bukan BP2_T_EVENT.
+	 * Query v2 tidak punya penyelenggara → bp3mi selalu 'Tidak diisi' (view menyembunyikannya).
+	 *
 	 * @param array $filter kunci = kolom dimensi, nilai = label yang harus sama (kosong = abaikan)
+	 * @param int   $versi  1 = BP2_T_EVENT (eksisting), 2 = M_PMI_VOKASI
 	 * @return array
 	 */
-	public function penempatanRows(array $filter = array())
+	public function penempatanRows(array $filter = array(), $versi = 1)
 	{
 		$db = $this->requireSisko();
 
@@ -985,33 +989,46 @@ class Vokasi_repo {
 		$statPenempatan = array('2','851','855','900','901','4','5','6','902','1146','1147','903','907','904','908','54','36','37');
 		$inList = "'" . implode("','", $statPenempatan) . "'";
 
-		$q = $db->query(
-			"SELECT
-				DTEVENT_USER_ID          AS user_id,
-				PESERTA.PMI_NIK_NAMA     AS nama,
-				PESERTA_PROP.PROP_NAME   AS provinsi,
-				PESERTA_KAB.KAB_NAME     AS kabupaten,
-				PENYELENGGARA.M_STK_NAME AS bp3mi,
-				P3MI.M_STK_NAME          AS p3mi,
-				JABATAN.REF_REFNAME      AS jabatan,
-				NEG.NEG_NAME             AS negara,
-				STATUS.STATUS_NAME       AS status,
-				CASE WHEN PEN.PEN_STATUSAKTIF = '40' THEN 1 ELSE 0 END AS has_ekpmi,
-				CASE WHEN PEN.PEN_STATUSAKTIF IN ($inList) THEN 1 ELSE 0 END AS has_penempatan
-			FROM BP2_T_EVENT
-			JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
-			JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
-			JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
-			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
-			JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID
+		// Join penempatan (sama untuk kedua versi).
+		$joinPen = "
 			LEFT JOIN R_PROPINSI PESERTA_PROP ON PMI_NIK_PROP_ID = PESERTA_PROP.PROP_ID
 			LEFT JOIN R_KABUPATEN PESERTA_KAB ON PMI_NIK_KAB_ID = PESERTA_KAB.KAB_ID
 			LEFT JOIN BP2_T_PMI_PENEMPATAN PEN ON PEN.PEN_PMI_ID = PMI_ID AND PEN.PEN_PENPROG_ID = 1
 			LEFT JOIN BP2_M_STAKEHOLDER P3MI ON PEN.PEN_M_STK_ID = P3MI.M_STK_ID
 			LEFT JOIN R_REFERENCE JABATAN ON PEN.PEN_JOB_ID = JABATAN.REF_REFID
 			LEFT JOIN BP2_R_NEGARA NEG ON PEN.PEN_NEGARA_ID = NEG.NEG_ID
-			LEFT JOIN BP2_R_STATUS STATUS ON PEN.PEN_STATUSAKTIF = STATUS.STATUS_ID"
-		);
+			LEFT JOIN BP2_R_STATUS STATUS ON PEN.PEN_STATUSAKTIF = STATUS.STATUS_ID";
+		$colPen = "
+				PESERTA.PMI_NIK_NAMA     AS nama,
+				PESERTA_PROP.PROP_NAME   AS provinsi,
+				PESERTA_KAB.KAB_NAME     AS kabupaten,
+				P3MI.M_STK_NAME          AS p3mi,
+				JABATAN.REF_REFNAME      AS jabatan,
+				NEG.NEG_NAME             AS negara,
+				STATUS.STATUS_NAME       AS status,
+				CASE WHEN PEN.PEN_STATUSAKTIF = '40' THEN 1 ELSE 0 END AS has_ekpmi,
+				CASE WHEN PEN.PEN_STATUSAKTIF IN ($inList) THEN 1 ELSE 0 END AS has_penempatan";
+
+		$sql = ((int) $versi === 2)
+			? "SELECT
+				PESERTA.PMI_ID           AS user_id,
+				NULL                     AS bp3mi,$colPen
+			FROM M_PMI_VOKASI
+			LEFT JOIN TD_PELATIHAN_VOKASI ON TD_PEL_VOK_M_PMI_VOK_ID = M_PMI_VOK_ID
+			LEFT JOIN T_PELATIHAN_VOKASI ON T_PEL_VOK_ID = TD_PEL_VOK_PEL_VOK_ID
+			JOIN BP2_M_PMI PESERTA ON PESERTA.PMI_NIK_NO = M_PMI_VOK_NIK_NO
+			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joinPen"
+			: "SELECT
+				DTEVENT_USER_ID          AS user_id,
+				PENYELENGGARA.M_STK_NAME AS bp3mi,$colPen
+			FROM BP2_T_EVENT
+			JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
+			JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
+			JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
+			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
+			JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joinPen";
+
+		$q = $db->query($sql);
 		if ($q === FALSE)
 		{
 			$e = $db->error();

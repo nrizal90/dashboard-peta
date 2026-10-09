@@ -145,16 +145,19 @@ class Dashboard extends CI_Controller {
 	 * Menu "Monitoring Penempatan Peserta Pelatihan" — KPI + chart penempatan.
 	 * Sumber: DB SISKO P2MI ($db['sisko']) lewat repo->penempatanStats().
 	 * Lihat dokumen "Requirement Dashboard Penempatan Peserta Pelatihan.docx".
+	 * $versi 2 (route penempatan-v2): basis peserta M_PMI_VOKASI — lihat repo->penempatanRows().
 	 */
-	public function penempatan()
+	public function penempatan($versi = 1)
 	{
+		$versi  = ((int) $versi === 2) ? 2 : 1;
 		$filter = $this->penempatanFilter();
-		$all    = $this->repo->penempatanRows();
-		$rows   = $filter ? $this->repo->penempatanRows($filter) : $all;
+		$all    = $this->repo->penempatanRows(array(), $versi);
+		$rows   = $filter ? $this->repo->penempatanRows($filter, $versi) : $all;
 
 		$data = array(
-			'title'   => 'Monitoring Penempatan Peserta Pelatihan',
-			'active'  => 'penempatan',
+			'title'   => 'Monitoring Penempatan Peserta Pelatihan' . ($versi === 2 ? ' (Versi 2)' : ''),
+			'active'  => $versi === 2 ? 'penempatan-v2' : 'penempatan',
+			'versi'   => $versi,
 			'stats'   => $this->repo->penempatanStats($rows),
 			'rows'    => $rows,
 			'options' => $this->repo->penempatanOptions($all),
@@ -201,9 +204,10 @@ class Dashboard extends CI_Controller {
 	}
 
 	/** Export detail penempatan (sesuai filter) ke .xls. */
-	public function penempatan_export()
+	public function penempatan_export($versi = 1)
 	{
-		$rows = $this->repo->penempatanRows($this->penempatanFilter());
+		$versi = ((int) $versi === 2) ? 2 : 1;
+		$rows = $this->repo->penempatanRows($this->penempatanFilter(), $versi);
 		$out = array();
 		foreach ($rows as $r)
 		{
@@ -214,7 +218,7 @@ class Dashboard extends CI_Controller {
 				$r['has_ekpmi'] ? 'Ya' : 'Tidak',
 			);
 		}
-		$this->sendXls('penempatan_peserta_' . date('Ymd') . '.xls',
+		$this->sendXls('penempatan_peserta_' . ($versi === 2 ? 'v2_' : '') . date('Ymd') . '.xls',
 			array('Nama PMI', 'Provinsi', 'Kabupaten/Kota', 'BP3MI', 'P3MI', 'Negara', 'Jabatan', 'Status Proses Penempatan',
 				'Telah memiliki akun', 'Telah memiliki penempatan', 'Telah EKPMI'),
 			$out);

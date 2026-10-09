@@ -25,6 +25,7 @@
 			]],
 			['menuPenempatan', 'Monitoring Penempatan', 'fa-map-signs', [
 				['penempatan', 'penempatan', 'Dashboard'],
+				['penempatan-v2', 'penempatan-v2', 'Dashboard (Versi 2)'],
 				['monitoring-pmi', 'monitoring-pmi', 'Tracking Penempatan'],
 			]],
 		];

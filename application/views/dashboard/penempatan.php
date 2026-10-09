@@ -11,6 +11,11 @@ $goldDark  = $tema['gold_dark'];
 $goldDeep  = $tema['gold_deep'];
 $goldLight = $tema['gold_light'];
 
+// Versi 2 (M_PMI_VOKASI) tidak punya data penyelenggara → chart/filter/kolom BP3MI disembunyikan.
+$versi = isset($versi) ? (int) $versi : 1;
+$v2    = $versi === 2;
+$base  = $v2 ? 'penempatan-v2' : 'penempatan';
+
 $fmtNum = function ($v) { return ($v === NULL) ? '-' : number_format($v, 0, ',', '.'); };
 
 $st  = isset($stats) ? $stats : array();
@@ -44,7 +49,7 @@ $topN = function ($rows, $n) {
 
 list($provLabels, $provData)   = $split($topN(isset($st['provinsi'])      ? $st['provinsi']      : array(), 12));
 list($kabLabels, $kabData)     = $split($topN(isset($st['kabupaten'])     ? $st['kabupaten']     : array(), 12));
-list($penyLabels, $penyData)   = $split($topN(isset($st['penyelenggara']) ? $st['penyelenggara'] : array(), 10));
+list($penyLabels, $penyData)   = $split($topN(isset($st['bp3mi']) ? $st['bp3mi'] : array(), 10));
 list($p3miLabels, $p3miData)   = $split($topN(isset($st['p3mi'])          ? $st['p3mi']          : array(), 10));
 list($jabLabels, $jabData)     = $split($topN(isset($st['jabatan'])       ? $st['jabatan']       : array(), 10));
 list($negLabels, $negData)     = $split($topN(isset($st['negara'])        ? $st['negara']        : array(), 10));
@@ -55,7 +60,8 @@ $options = isset($options) ? $options : array();
 $filter  = isset($filter) ? $filter : array();
 $filterLabels = array('provinsi' => 'Provinsi', 'kabupaten' => 'Kabupaten/Kota', 'bp3mi' => 'BP3MI',
 	'p3mi' => 'P3MI', 'jabatan' => 'Jabatan', 'negara' => 'Negara', 'status' => 'Status Proses Penempatan');
-$exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($filter) : '');
+if ($v2) { unset($filterLabels['bp3mi']); }
+$exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($filter) : '');
 ?>
 
 <style>
@@ -97,7 +103,7 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 
 	<div class="d-sm-flex align-items-center justify-content-between mb-3">
 		<div>
-			<h1 class="h4 dg-title mb-1">Monitoring Penempatan Peserta Pelatihan</h1>
+			<h1 class="h4 dg-title mb-1">Monitoring Penempatan Peserta Pelatihan<?= $v2 ? ' <span class="badge badge-warning align-middle">Versi 2</span>' : '' ?></h1>
 			<div class="text-muted small">Ringkasan penempatan peserta pelatihan</div>
 		</div>
 		<a href="<?= $exportUrl ?>" class="btn btn-sm btn-warning font-weight-bold mt-2 mt-sm-0">
@@ -122,7 +128,7 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 				<?php endforeach; ?>
 				<div class="col-lg-auto col-12 mb-2 mb-lg-0">
 					<button type="submit" class="btn btn-sm btn-warning font-weight-bold mr-1"><i class="fas fa-filter mr-1"></i> Terapkan</button>
-					<a href="<?= site_url('penempatan') ?>" class="btn btn-sm btn-light">Reset</a>
+					<a href="<?= site_url($base) ?>" class="btn btn-sm btn-light">Reset</a>
 				</div>
 			</form>
 		</div>
@@ -175,6 +181,7 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 
 	<!-- ===== BARIS 3: PENYELENGGARA + P3MI ===== -->
 	<div class="row">
+		<?php if ( ! $v2): ?>
 		<div class="col-lg-6 mb-4">
 			<div class="card dg-card h-100">
 				<div class="card-body">
@@ -184,7 +191,8 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-6 mb-4">
+		<?php endif; ?>
+		<div class="<?= $v2 ? 'col-12' : 'col-lg-6' ?> mb-4">
 			<div class="card dg-card h-100">
 				<div class="card-body">
 					<div class="dg-title h6 mb-1">Peserta berdasarkan P3MI</div>
@@ -243,7 +251,7 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 					<div class="table-responsive">
 						<table class="table table-sm table-hover" id="tblPenempatan" style="width:100%">
 							<thead class="thead-light">
-								<tr><th>Nama PMI</th><th>Provinsi</th><th>Kabupaten/Kota</th><th>BP3MI</th><th>P3MI</th><th>Status Proses Penempatan</th></tr>
+								<tr><th>Nama PMI</th><th>Provinsi</th><th>Kabupaten/Kota</th><?php if ( ! $v2): ?><th>BP3MI</th><?php endif; ?><th>P3MI</th><th>Status Proses Penempatan</th></tr>
 							</thead>
 							<tbody>
 							<?php foreach ($rows as $r): ?>
@@ -251,7 +259,7 @@ $exportUrl = site_url('penempatan/export') . ($filter ? '?' . http_build_query($
 									<td><?= html_escape($r['nama']) ?></td>
 									<td><?= html_escape($r['provinsi']) ?></td>
 									<td><?= html_escape($r['kabupaten']) ?></td>
-									<td><?= html_escape($r['bp3mi']) ?></td>
+									<?php if ( ! $v2): ?><td><?= html_escape($r['bp3mi']) ?></td><?php endif; ?>
 									<td><?= html_escape($r['p3mi']) ?></td>
 									<td><?= html_escape($r['status']) ?></td>
 								</tr>
@@ -377,7 +385,7 @@ window.addEventListener('load', function () {
 
 	hbar('chProv', DP.prov);
 	hbar('chKab',  DP.kab);
-	hbar('chPeny', DP.peny);
+	if (document.getElementById('chPeny')) { hbar('chPeny', DP.peny); }
 	hbar('chP3mi', DP.p3mi);
 	hbar('chJab',  DP.jab);
 	hbar('chNeg',  DP.neg);
