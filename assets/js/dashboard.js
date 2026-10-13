@@ -217,7 +217,7 @@
 
 	function statusBadge(label, v) {
 		var cls = { accepted: 'success', rejected: 'danger', pending: 'warning', revised: 'info', not_submitted: 'secondary' }[v] || 'secondary';
-		return '<span class="badge badge-' + cls + '">' + label + ': ' + (v || 'n/a') + '</span>';
+		return '<span class="badge badge-' + cls + '">' + label + ': ' + esc(v || 'n/a') + '</span>';
 	}
 
 	// -----------------------------------------------------------------
@@ -554,9 +554,9 @@
 			var wrap = document.createElement('div');
 			wrap.className = 'form-check';
 			var checked = state[stateKey].indexOf(o[valKey]) >= 0 ? 'checked' : '';
-			wrap.innerHTML = '<input class="form-check-input" type="checkbox" value="' + o[valKey] +
-				'" id="' + id + '_' + o[valKey] + '" ' + checked + '>' +
-				'<label class="form-check-label" for="' + id + '_' + o[valKey] + '">' +
+			wrap.innerHTML = '<input class="form-check-input" type="checkbox" value="' + esc(o[valKey]) +
+				'" id="' + id + '_' + esc(o[valKey]) + '" ' + checked + '>' +
+				'<label class="form-check-label" for="' + id + '_' + esc(o[valKey]) + '">' +
 				esc(o[labelKey]) + (countKey && o[countKey] != null ? ' <span class="text-muted">(' + o[countKey] + ')</span>' : '') + '</label>';
 			wrap.querySelector('input').addEventListener('change', function () {
 				toggleArray(stateKey, o[valKey], this.checked);
@@ -576,9 +576,9 @@
 				var wrap = document.createElement('div');
 				wrap.className = 'form-check';
 				var checked = state.jabatan_slug.indexOf(j.slug) >= 0 ? 'checked' : '';
-				wrap.innerHTML = '<input class="form-check-input" type="checkbox" value="' + j.slug +
-					'" id="jab_' + j.slug + '" ' + checked + '>' +
-					'<label class="form-check-label" for="jab_' + j.slug + '">' + esc(j.nama) +
+				wrap.innerHTML = '<input class="form-check-input" type="checkbox" value="' + esc(j.slug) +
+					'" id="jab_' + esc(j.slug) + '" ' + checked + '>' +
+					'<label class="form-check-label" for="jab_' + esc(j.slug) + '">' + esc(j.nama) +
 					' <span class="text-muted">(' + (j.jumlah_lembaga || 0) + ')</span></label>';
 				wrap.querySelector('input').addEventListener('change', function () {
 					toggleArray('jabatan_slug', j.slug, this.checked);

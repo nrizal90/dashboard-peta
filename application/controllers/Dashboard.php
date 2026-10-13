@@ -188,6 +188,17 @@ class Dashboard extends CI_Controller {
 	 * dependency; Excel/LibreOffice membukanya langsung.
 	 * ponytail: bukan xlsx asli — pakai PhpSpreadsheet bila butuh styling/formula.
 	 */
+	/**
+	 * Cegah formula/CSV injection: sel teks berawalan = + - @ TAB CR diberi
+	 * awalan apostrof agar Excel/LibreOffice menganggapnya teks, bukan formula.
+	 * Angka (mis. "-5") dibiarkan.
+	 */
+	private static function safeCell($v)
+	{
+		$v = (string) $v;
+		return ($v !== '' && strpos("=+-@\t\r", $v[0]) !== FALSE && ! is_numeric($v)) ? "'" . $v : $v;
+	}
+
 	private function sendXls($filename, array $head, array $rows)
 	{
 		$this->output->set_content_type('application/vnd.ms-excel; charset=utf-8');
@@ -195,7 +206,7 @@ class Dashboard extends CI_Controller {
 
 		$td = function ($cells, $tag) {
 			$h = '';
-			foreach ($cells as $c) { $h .= "<$tag>" . html_escape((string) $c) . "</$tag>"; }
+			foreach ($cells as $c) { $h .= "<$tag>" . html_escape(self::safeCell($c)) . "</$tag>"; }
 			return "<tr>$h</tr>\n";
 		};
 		$html = "<html><head><meta charset=\"utf-8\"></head><body><table border=\"1\">\n" . $td($head, 'th');
@@ -353,12 +364,12 @@ class Dashboard extends CI_Controller {
 		fputcsv($out, array('ID', 'Nama Lembaga', 'Email', 'Provinsi', 'Kabupaten/Kota', 'Jenis Lembaga', 'Kepemilikan', 'Kapasitas', 'Status e-Vokasi'));
 		foreach ($rows as $r)
 		{
-			fputcsv($out, array(
+			fputcsv($out, array_map(array(__CLASS__, 'safeCell'), array(
 				$r['id'], $r['nama'], $r['email'], $r['provinsi'], $r['kota'],
 				$r['jenis'], $r['ownership'],
 				$r['kapasitas'] === NULL ? '' : $r['kapasitas'],
 				$r['evokasi'],
-			));
+			)));
 		}
 		rewind($out);
 		$this->output->set_output(stream_get_contents($out));

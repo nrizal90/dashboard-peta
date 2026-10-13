@@ -125,7 +125,8 @@ class Vokasi_repo {
 			log_message('error', 'Vokasi_repo: koneksi DB sisko gagal: ' . $this->sisko_error);
 			show_error(
 				'Koneksi ke database SISKO P2MI gagal. Halaman Monitoring Penempatan hanya menyajikan data dari database sumber.'
-				. '<br><br><code>' . html_escape($this->sisko_error) . '</code>',
+				// Detail koneksi (host/user/driver) hanya ditampilkan di development; produksi cukup di log.
+				. (ENVIRONMENT === 'development' ? '<br><br><code>' . html_escape($this->sisko_error) . '</code>' : ''),
 				503,
 				'Database SISKO Tidak Tersedia'
 			);

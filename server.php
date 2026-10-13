@@ -8,15 +8,16 @@
  *
  * Lalu buka http://localhost:8080/
  *
- * File statis (assets/*) disajikan langsung; request lain diarahkan
- * ke index.php (front controller CodeIgniter) sehingga clean URL jalan.
+ * Hanya file statis di assets/ yang disajikan langsung; request lain
+ * (termasuk .git/, dokumen/, sql/) diarahkan ke index.php (front controller
+ * CodeIgniter) — sama dengan aturan .htaccess.
  */
 
 $uri  = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 $file = __DIR__ . $uri;
 
-// Sajikan file statis apa adanya (css, js, gambar, dsb.)
-if ($uri !== '/' && is_file($file)) {
+// Sajikan file statis apa adanya (css, js, gambar, dsb.) — hanya di assets/.
+if (strpos($uri, '/assets/') === 0 && strpos($uri, '..') === FALSE && is_file($file)) {
 	return false;
 }
 

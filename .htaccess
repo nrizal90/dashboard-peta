@@ -2,14 +2,39 @@
 	RewriteEngine On
 	RewriteBase /
 
-	# Biarkan file & folder yang benar-benar ada diakses langsung (assets, dsb.)
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-
-	# Selain itu, arahkan semua request ke index.php (front controller CI3)
+	# Hanya file di assets/ yang disajikan langsung. Semua path lain (termasuk
+	# .git/, dokumen/, sql/, composer.json, dsb.) diarahkan ke front controller
+	# CI3 sehingga berakhir 404 — tidak pernah terunduh mentah.
+	RewriteCond $1 !^(index\.php|assets/)
 	RewriteRule ^(.*)$ index.php/$1 [L]
+
+	# File/folder di assets/ yang tidak ada → tetap ke CI (404 rapi).
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(assets/.*)$ index.php/$1 [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
 	ErrorDocument 404 /index.php
+</IfModule>
+
+# Jangan pernah menyajikan dotfile (.git, .env, .htaccess) walau mod_rewrite mati.
+<FilesMatch "^\.">
+	<IfModule authz_core_module>
+		Require all denied
+	</IfModule>
+	<IfModule !authz_core_module>
+		Deny from all
+	</IfModule>
+</FilesMatch>
+<IfModule mod_alias.c>
+	RedirectMatch 404 /\.git
+</IfModule>
+
+<IfModule mod_headers.c>
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set X-Frame-Options "SAMEORIGIN"
+	Header always set Referrer-Policy "strict-origin-when-cross-origin"
+	Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+	Header always unset X-Powered-By
+	Header unset X-Powered-By
 </IfModule>
