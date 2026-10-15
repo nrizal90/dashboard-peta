@@ -163,6 +163,10 @@ class Dashboard extends CI_Controller {
 			'options' => $this->repo->penempatanOptions($all),
 			'filter'  => $filter,
 		);
+		// echo "data:<pre>";
+		// print_r($data);
+		// echo "</pre>";
+		// die();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -188,17 +192,6 @@ class Dashboard extends CI_Controller {
 	 * dependency; Excel/LibreOffice membukanya langsung.
 	 * ponytail: bukan xlsx asli — pakai PhpSpreadsheet bila butuh styling/formula.
 	 */
-	/**
-	 * Cegah formula/CSV injection: sel teks berawalan = + - @ TAB CR diberi
-	 * awalan apostrof agar Excel/LibreOffice menganggapnya teks, bukan formula.
-	 * Angka (mis. "-5") dibiarkan.
-	 */
-	private static function safeCell($v)
-	{
-		$v = (string) $v;
-		return ($v !== '' && strpos("=+-@\t\r", $v[0]) !== FALSE && ! is_numeric($v)) ? "'" . $v : $v;
-	}
-
 	private function sendXls($filename, array $head, array $rows)
 	{
 		$this->output->set_content_type('application/vnd.ms-excel; charset=utf-8');
@@ -206,7 +199,7 @@ class Dashboard extends CI_Controller {
 
 		$td = function ($cells, $tag) {
 			$h = '';
-			foreach ($cells as $c) { $h .= "<$tag>" . html_escape(self::safeCell($c)) . "</$tag>"; }
+			foreach ($cells as $c) { $h .= "<$tag>" . html_escape((string) $c) . "</$tag>"; }
 			return "<tr>$h</tr>\n";
 		};
 		$html = "<html><head><meta charset=\"utf-8\"></head><body><table border=\"1\">\n" . $td($head, 'th');
@@ -254,6 +247,10 @@ class Dashboard extends CI_Controller {
 			'options' => $this->repo->pmiOptions($all),
 			'filter'  => $filter,
 		);
+		// echo "rows:<pre>";
+		// print_r($rows);
+		// echo "</pre>";
+		// die();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -286,16 +283,29 @@ class Dashboard extends CI_Controller {
 		$rows = $this->repo->pmiRows($this->pmiFilter(), $versi);
 		$yn = function ($v) { return $v ? 'Ya' : 'Tidak'; };
 		$out = array();
+		// diganti export tanpa NIK
+		// foreach ($rows as $r)
+		// {
+		// 	$out[] = array(
+		// 		$r['event_jenis'], $r['event_nama'], $r['bp3mi_id'], $r['bp3mi'], $r['nama'], $r['nik'],
+		// 		$r['provinsi'], $r['kabupaten'], $r['tgl_daftar'],
+		// 		$yn($r['has_akun']), $yn($r['has_pen']), $yn($r['has_epmi']),
+		// 	);
+		// }
+		// $this->sendXls('tracking_penempatan_' . ($versi === 2 ? 'v2_' : '') . date('Ymd') . '.xls',
+		// 	array('Jenis Event', 'Nama Event', 'ID Penyelenggara', 'Penyelenggara (BP3MI)', 'Nama PMI', 'NIK',
+		// 		'Provinsi', 'Kabupaten/Kota', 'Tanggal Daftar', 'Akun SiskoP2MI', 'Proses Penempatan', 'E-KPMI'),
+		// 	$out);
 		foreach ($rows as $r)
 		{
 			$out[] = array(
-				$r['event_jenis'], $r['event_nama'], $r['bp3mi_id'], $r['bp3mi'], $r['nama'], $r['nik'],
+				$r['event_jenis'], $r['event_nama'], $r['bp3mi_id'], $r['bp3mi'], $r['nama'],
 				$r['provinsi'], $r['kabupaten'], $r['tgl_daftar'],
 				$yn($r['has_akun']), $yn($r['has_pen']), $yn($r['has_epmi']),
 			);
 		}
 		$this->sendXls('tracking_penempatan_' . ($versi === 2 ? 'v2_' : '') . date('Ymd') . '.xls',
-			array('Jenis Event', 'Nama Event', 'ID Penyelenggara', 'Penyelenggara (BP3MI)', 'Nama PMI', 'NIK',
+			array('Jenis Event', 'Nama Event', 'ID Penyelenggara', 'Penyelenggara (BP3MI)', 'Nama PMI',
 				'Provinsi', 'Kabupaten/Kota', 'Tanggal Daftar', 'Akun SiskoP2MI', 'Proses Penempatan', 'E-KPMI'),
 			$out);
 	}
@@ -364,12 +374,12 @@ class Dashboard extends CI_Controller {
 		fputcsv($out, array('ID', 'Nama Lembaga', 'Email', 'Provinsi', 'Kabupaten/Kota', 'Jenis Lembaga', 'Kepemilikan', 'Kapasitas', 'Status e-Vokasi'));
 		foreach ($rows as $r)
 		{
-			fputcsv($out, array_map(array(__CLASS__, 'safeCell'), array(
+			fputcsv($out, array(
 				$r['id'], $r['nama'], $r['email'], $r['provinsi'], $r['kota'],
 				$r['jenis'], $r['ownership'],
 				$r['kapasitas'] === NULL ? '' : $r['kapasitas'],
 				$r['evokasi'],
-			)));
+			));
 		}
 		rewind($out);
 		$this->output->set_output(stream_get_contents($out));

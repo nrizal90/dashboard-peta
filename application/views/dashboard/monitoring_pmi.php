@@ -62,10 +62,6 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 						<label class="small font-weight-bold mb-1" for="f_nama">Nama</label>
 						<input type="text" class="form-control form-control-sm" id="f_nama" name="nama" value="<?= html_escape($fv('nama')) ?>" placeholder="Masukkan nama peserta">
 					</div>
-					<div class="col-md-4 col-sm-6 col-12 mb-2">
-						<label class="small font-weight-bold mb-1" for="f_nik">NIK</label>
-						<input type="text" class="form-control form-control-sm" id="f_nik" name="nik" value="<?= html_escape($fv('nik')) ?>" placeholder="Masukkan NIK">
-					</div>
 					<?php foreach ($selects as $key => $s): ?>
 					<div class="col-md-4 col-sm-6 col-12 mb-2">
 						<label class="small font-weight-bold mb-1" for="f_<?= $key ?>"><?= $s[0] ?></label>
@@ -99,21 +95,24 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 				<table class="table table-sm table-hover" id="tblPmi" style="width:100%">
 					<thead class="thead-light">
 						<tr>
-							<th>No</th><th>Nama</th><th>NIK</th><th>Provinsi</th>
+							<th>No</th><th>Nama</th><th>Provinsi</th>
 							<?php if ( ! $v2): ?><th>BP3MI</th><?php endif; ?>
 							<th class="text-center">Akun Sisko P2MI</th><th class="text-center">Proses Penempatan</th><th class="text-center">EPMI</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php foreach ($rows as $i => $r): ?>
+					    <?php
+					        // Jika sudah E-PMI, otomatis dianggap sudah penempatan
+					        $has_pen = ($r['has_epmi'] == 1) ? 1 : $r['has_pen'];
+					    ?>
 						<tr>
 							<td><?= $i + 1 ?></td>
 							<td><?= html_escape($r['nama']) ?></td>
-							<td><?= html_escape($r['nik']) ?></td>
 							<td><?= html_escape($r['provinsi']) ?></td>
 							<?php if ( ! $v2): ?><td><?= html_escape($r['bp3mi']) ?></td><?php endif; ?>
 							<td class="text-center" data-order="<?= (int) $r['has_akun'] ?>"><?= $flag($r['has_akun']) ?></td>
-							<td class="text-center" data-order="<?= (int) $r['has_pen'] ?>"><?= $flag($r['has_pen']) ?></td>
+							<td class="text-center" data-order="<?= (int) $has_pen ?>"><?= $flag($has_pen) ?></td>
 							<td class="text-center" data-order="<?= (int) $r['has_epmi'] ?>"><?= $flag($r['has_epmi']) ?></td>
 						</tr>
 					<?php endforeach; ?>

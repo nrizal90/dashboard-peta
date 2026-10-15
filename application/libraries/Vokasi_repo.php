@@ -125,8 +125,7 @@ class Vokasi_repo {
 			log_message('error', 'Vokasi_repo: koneksi DB sisko gagal: ' . $this->sisko_error);
 			show_error(
 				'Koneksi ke database SISKO P2MI gagal. Halaman Monitoring Penempatan hanya menyajikan data dari database sumber.'
-				// Detail koneksi (host/user/driver) hanya ditampilkan di development; produksi cukup di log.
-				. (ENVIRONMENT === 'development' ? '<br><br><code>' . html_escape($this->sisko_error) . '</code>' : ''),
+				. '<br><br><code>' . html_escape($this->sisko_error) . '</code>',
 				503,
 				'Database SISKO Tidak Tersedia'
 			);
@@ -987,7 +986,7 @@ class Vokasi_repo {
 		$db = $this->requireSisko();
 
 		// Status penempatan (PEN_STATUSAKTIF) dari dokumen requirement.
-		$statPenempatan = array('2','851','855','900','901','4','5','6','902','1146','1147','903','907','904','908','54','36','37');
+		$statPenempatan = array('2','851','855','900','901','4','5','6','902','1146','1147','903','907','904','908','54','36','37','40');
 		$inList = "'" . implode("','", $statPenempatan) . "'";
 
 		// Join penempatan (sama untuk kedua versi).
@@ -1009,6 +1008,17 @@ class Vokasi_repo {
 				STATUS.STATUS_NAME       AS status,
 				CASE WHEN PEN.PEN_STATUSAKTIF = '40' THEN 1 ELSE 0 END AS has_ekpmi,
 				CASE WHEN PEN.PEN_STATUSAKTIF IN ($inList) THEN 1 ELSE 0 END AS has_penempatan";
+		$colPen = "
+				M_PMI_VOKASI.M_PMI_VOK_NAMA     AS nama,
+				M_PMI_VOKASI.M_PMI_VOK_NIK_NO       AS nik,
+				PESERTA_PROP.PROP_NAME   AS provinsi,
+				PESERTA_KAB.KAB_NAME     AS kabupaten,
+				P3MI.M_STK_NAME          AS p3mi,
+				JABATAN.REF_REFNAME      AS jabatan,
+				NEG.NEG_NAME             AS negara,
+				STATUS.STATUS_NAME       AS status,
+				CASE WHEN PEN.PEN_STATUSAKTIF = '40' THEN 1 ELSE 0 END AS has_ekpmi,
+				CASE WHEN PEN.PEN_STATUSAKTIF IN ($inList) THEN 1 ELSE 0 END AS has_penempatan";
 
 		$sql = ((int) $versi === 2)
 			? "SELECT
@@ -1017,8 +1027,8 @@ class Vokasi_repo {
 			FROM M_PMI_VOKASI
 			LEFT JOIN TD_PELATIHAN_VOKASI ON TD_PEL_VOK_M_PMI_VOK_ID = M_PMI_VOK_ID
 			LEFT JOIN T_PELATIHAN_VOKASI ON T_PEL_VOK_ID = TD_PEL_VOK_PEL_VOK_ID
-			JOIN BP2_M_PMI PESERTA ON PESERTA.PMI_NIK_NO = M_PMI_VOK_NIK_NO
-			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joinPen"
+			LEFT JOIN BP2_M_PMI PESERTA ON PESERTA.PMI_NIK_NO = M_PMI_VOK_NIK_NO
+			LEFT JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joinPen"
 			: "SELECT
 				DTEVENT_USER_ID          AS user_id,
 				PENYELENGGARA.M_STK_NAME AS bp3mi,$colPen
@@ -1026,9 +1036,10 @@ class Vokasi_repo {
 			JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
 			JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
 			JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
-			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
-			JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joinPen";
+			LEFT JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
+			LEFT JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joinPen";
 
+			// print_r($sql);die();
 		$q = $db->query($sql);
 		if ($q === FALSE)
 		{
@@ -1088,7 +1099,8 @@ class Vokasi_repo {
 	public function penempatanStats(array $rows)
 	{
 		// Total peserta = distinct DTEVENT_USER_ID (1 orang bisa ikut >1 event).
-		$total = count(array_unique(array_column($rows, 'user_id')));
+		// $total = count(array_unique(array_column($rows, 'user_id'))); //diganti uniq by NIK
+		$total = count(array_unique(array_column($rows, 'nik')));
 		$penempatan = 0;
 		$ekpmi = 0;
 		$dims = array_fill_keys(self::$penempatanDims, array());
@@ -1145,21 +1157,72 @@ class Vokasi_repo {
 	{
 		$db = $this->requireSisko();
 
+		// $cols = "
+		// 		PESERTA.PMI_NIK_NAMA     AS nama,
+		// 		PESERTA.PMI_NIK_NO       AS nik,
+		// 		PESERTA_PROP.PROP_NAME   AS provinsi,
+		// 		PESERTA_KAB.KAB_NAME     AS kabupaten,
+		// 		1 AS has_akun,
+		// 		CASE WHEN HAS_PEN.PEN_PMI_ID  IS NOT NULL THEN 1 ELSE 0 END AS has_pen,
+		// 		CASE WHEN HAS_EPMI.PEN_PMI_ID IS NOT NULL THEN 1 ELSE 0 END AS has_epmi";
+
+		// $joins = "
+		// 	LEFT JOIN R_PROPINSI PESERTA_PROP ON PMI_NIK_PROP_ID = PESERTA_PROP.PROP_ID
+		// 	LEFT JOIN R_KABUPATEN PESERTA_KAB ON PMI_NIK_KAB_ID = PESERTA_KAB.KAB_ID
+		// 	LEFT JOIN (
+		// 		-- mulai lolos verifikasi OP P3MI hingga OPP
+		// 		SELECT DISTINCT PEN_PMI_ID FROM BP2_T_PMI_PENEMPATAN
+		// 		WHERE PEN_PENPROG_ID = 1 AND PEN_STATUSAKTIF IN (851,54,36,37,40)
+		// 	) HAS_PEN ON HAS_PEN.PEN_PMI_ID = PMI_ID
+		// 	LEFT JOIN (
+		// 		SELECT DISTINCT PEN_PMI_ID FROM BP2_T_PMI_PENEMPATAN WHERE PEN_EPMI_NO IS NOT NULL
+		// 	) HAS_EPMI ON HAS_EPMI.PEN_PMI_ID = PMI_ID";
+				
+
+		// $sql = ((int) $versi === 2)
+		// 	? "SELECT
+		// 		'PELATIHAN'                  AS event_jenis,
+		// 		NULL                         AS event_nama,
+		// 		NULL                         AS bp3mi_id,
+		// 		NULL                         AS bp3mi,
+		// 		PESERTA.PMI_ID               AS user_id,
+		// 		TD_PEL_VOK_CREATED_TIMESTAMP AS tgl_daftar,$cols
+		// 	FROM M_PMI_VOKASI
+		// 	LEFT JOIN TD_PELATIHAN_VOKASI ON TD_PEL_VOK_M_PMI_VOK_ID = M_PMI_VOK_ID
+		// 	LEFT JOIN T_PELATIHAN_VOKASI ON T_PEL_VOK_ID = TD_PEL_VOK_PEL_VOK_ID
+		// 	LEFT JOIN BP2_M_PMI PESERTA ON PESERTA.PMI_NIK_NO = M_PMI_VOK_NIK_NO
+		// 	LEFT JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joins"
+		// 	: "SELECT
+		// 		EVENT_NAME               AS event_jenis,
+		// 		EVENT_TITLE              AS event_nama,
+		// 		PENYELENGGARA.M_STK_ID   AS bp3mi_id,
+		// 		PENYELENGGARA.M_STK_NAME AS bp3mi,
+		// 		DTEVENT_USER_ID          AS user_id,
+		// 		DTEVENT_TGL_DAFTAR       AS tgl_daftar,$cols
+		// 	FROM BP2_T_EVENT
+		// 	JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
+		// 	JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
+		// 	JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
+		// 	LEFT JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
+		// 	LEFT JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joins";
+
+
 		$cols = "
-				PESERTA.PMI_NIK_NAMA     AS nama,
-				PESERTA.PMI_NIK_NO       AS nik,
+				M_PMI_VOKASI.M_PMI_VOK_NAMA     AS nama,
+				M_PMI_VOKASI.M_PMI_VOK_NIK_NO       AS nik,
 				PESERTA_PROP.PROP_NAME   AS provinsi,
 				PESERTA_KAB.KAB_NAME     AS kabupaten,
-				1 AS has_akun,
+				CASE WHEN PESERTA_AKUN.UAC_USER_ID  IS NOT NULL THEN 1 ELSE 0 END AS has_akun,
 				CASE WHEN HAS_PEN.PEN_PMI_ID  IS NOT NULL THEN 1 ELSE 0 END AS has_pen,
 				CASE WHEN HAS_EPMI.PEN_PMI_ID IS NOT NULL THEN 1 ELSE 0 END AS has_epmi";
+
 		$joins = "
 			LEFT JOIN R_PROPINSI PESERTA_PROP ON PMI_NIK_PROP_ID = PESERTA_PROP.PROP_ID
 			LEFT JOIN R_KABUPATEN PESERTA_KAB ON PMI_NIK_KAB_ID = PESERTA_KAB.KAB_ID
 			LEFT JOIN (
 				-- mulai lolos verifikasi OP P3MI hingga OPP
 				SELECT DISTINCT PEN_PMI_ID FROM BP2_T_PMI_PENEMPATAN
-				WHERE PEN_PENPROG_ID = 1 AND PEN_STATUSAKTIF IN (851,54,36,37)
+				WHERE PEN_PENPROG_ID = 1 AND PEN_STATUSAKTIF IN (851,54,36,37,40)
 			) HAS_PEN ON HAS_PEN.PEN_PMI_ID = PMI_ID
 			LEFT JOIN (
 				SELECT DISTINCT PEN_PMI_ID FROM BP2_T_PMI_PENEMPATAN WHERE PEN_EPMI_NO IS NOT NULL
@@ -1167,17 +1230,67 @@ class Vokasi_repo {
 
 		$sql = ((int) $versi === 2)
 			? "SELECT
-				'PELATIHAN'                  AS event_jenis,
-				NULL                         AS event_nama,
-				NULL                         AS bp3mi_id,
-				NULL                         AS bp3mi,
-				PESERTA.PMI_ID               AS user_id,
-				TD_PEL_VOK_CREATED_TIMESTAMP AS tgl_daftar,$cols
-			FROM M_PMI_VOKASI
-			LEFT JOIN TD_PELATIHAN_VOKASI ON TD_PEL_VOK_M_PMI_VOK_ID = M_PMI_VOK_ID
-			LEFT JOIN T_PELATIHAN_VOKASI ON T_PEL_VOK_ID = TD_PEL_VOK_PEL_VOK_ID
-			JOIN BP2_M_PMI PESERTA ON PESERTA.PMI_NIK_NO = M_PMI_VOK_NIK_NO
-			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joins"
+			    'PELATIHAN' AS event_jenis,
+			    NULL AS event_nama,
+			    NULL AS bp3mi_id,
+			    NULL AS bp3mi,
+
+			    PESERTA.PMI_ID AS user_id,
+			    TD_PEL.TD_PEL_VOK_CREATED_TIMESTAMP AS tgl_daftar,
+
+			    VOK.M_PMI_VOK_NAMA AS nama,
+			    VOK.M_PMI_VOK_NIK_NO AS nik,
+
+			    PROP.PROP_NAME AS provinsi,
+			    KAB.KAB_NAME AS kabupaten,
+
+			    -- Status kepemilikan akun
+			    CASE
+			        WHEN EXISTS (
+			            SELECT 1
+			            FROM BP2_UAC_USER U
+			            WHERE U.UAC_USER_M_USER_ID = PESERTA.PMI_ID
+			        )
+			        THEN 1 ELSE 0
+			    END AS has_akun,
+
+			    -- Status penempatan
+			    CASE
+			        WHEN EXISTS (
+			            SELECT 1
+			            FROM BP2_T_PMI_PENEMPATAN PEN
+			            WHERE PEN.PEN_PMI_ID = PESERTA.PMI_ID
+			              AND PEN.PEN_PENPROG_ID = 1
+			              AND PEN.PEN_STATUSAKTIF IN (851, 54, 36, 37, 40)
+			        )
+			        THEN 1 ELSE 0
+			    END AS has_pen,
+
+			    -- Status e-PMI
+			    CASE
+			        WHEN EXISTS (
+			            SELECT 1
+			            FROM BP2_T_PMI_PENEMPATAN EPMI
+			            WHERE EPMI.PEN_PMI_ID = PESERTA.PMI_ID
+			              AND EPMI.PEN_EPMI_NO IS NOT NULL
+										AND YEAR(EPMI.PEN_EPMI_DATE) >= 2026
+			        )
+			        THEN 1 ELSE 0
+			    END AS has_epmi
+
+			FROM M_PMI_VOKASI VOK
+
+			LEFT JOIN TD_PELATIHAN_VOKASI TD_PEL
+			    ON TD_PEL.TD_PEL_VOK_M_PMI_VOK_ID = VOK.M_PMI_VOK_ID
+
+			LEFT JOIN BP2_M_PMI PESERTA
+			    ON PESERTA.PMI_NIK_NO = VOK.M_PMI_VOK_NIK_NO
+
+			LEFT JOIN R_PROPINSI PROP
+			    ON PROP.PROP_ID = PESERTA.PMI_NIK_PROP_ID
+
+			LEFT JOIN R_KABUPATEN KAB
+			    ON KAB.KAB_ID = PESERTA.PMI_NIK_KAB_ID;"
 			: "SELECT
 				EVENT_NAME               AS event_jenis,
 				EVENT_TITLE              AS event_nama,
@@ -1189,8 +1302,10 @@ class Vokasi_repo {
 			JOIN BP2_R_EVENT ON EVENT_JNS_EVENT_ID = JNS_EVENT_ID
 			JOIN BP2_TD_EVENT ON EVENT_ID = DTEVENT_EVENT_ID AND DTEVENT_STATUSAKTIF = 1
 			JOIN BP2_M_STAKEHOLDER PENYELENGGARA ON PENYELENGGARA.M_STK_ID = EVENT_STK_ID
-			JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
-			JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joins";
+			LEFT JOIN BP2_UAC_USER PESERTA_AKUN ON PESERTA_AKUN.UAC_USER_ID = DTEVENT_USER_ID
+			LEFT JOIN BP2_M_PMI PESERTA ON PESERTA_AKUN.UAC_USER_M_USER_ID = PESERTA.PMI_ID$joins";
+
+		// print_r($sql);die();
 
 		$q = $db->query($sql);
 		if ($q === FALSE)
