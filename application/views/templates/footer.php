@@ -32,7 +32,7 @@
 
 	<!-- Chart.js -->
 	<script src="<?= base_url('assets/vendor/chart.js/Chart.min.js') ?>"></script>
-	<script src="<?= base_url('assets/js/chart-values.js') ?>"></script>
+	<script src="<?= base_url('assets/js/chart-values.js') ?>?v=<?= @filemtime(FCPATH . 'assets/js/chart-values.js') ?>"></script>
 
 	<!-- Leaflet + plugin -->
 	<script src="<?= base_url('assets/vendor/leaflet/leaflet.js') ?>"></script>
@@ -53,7 +53,7 @@
 	</script>
 
 	<!-- Logika dashboard (map cluster, filter, chart) -->
-	<script src="<?= base_url('assets/js/dashboard.js') ?>"></script>
+	<script src="<?= base_url('assets/js/dashboard.js') ?>?v=<?= @filemtime(FCPATH . 'assets/js/dashboard.js') ?>"></script>
 
 </body>
 </html>

@@ -182,9 +182,11 @@ usort($gap, function ($a, $b) { return $b['sektor_tersedia'] - $a['sektor_tersed
 		apiBase: '<?= site_url('api') ?>',
 		mapCenter: <?= json_encode($map_center) ?>,
 		mapZoom: <?= (int) $map_zoom ?>,
-		rotateMs: <?= (int) $rotate_ms ?>
+		rotateMs: <?= (int) $rotate_ms ?>,
+		// Basemap GeoJSON provinsi (pengganti tile CARTO yang kini butuh API key).
+		geojsonUrl: '<?= base_url('assets/vendor/geojson/indonesia-provinsi.json') ?>'
 	};
 </script>
-<script src="<?= base_url('assets/js/wall.js') ?>"></script>
+<script src="<?= base_url('assets/js/wall.js') ?>?v=<?= @filemtime(FCPATH . 'assets/js/wall.js') ?>"></script>
 </body>
 </html>

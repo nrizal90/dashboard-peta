@@ -15,10 +15,23 @@
 	// -----------------------------------------------------------------
 	// Peta + cluster (dibuat sekali)
 	// -----------------------------------------------------------------
-	var map = L.map('map', { zoomControl: true }).setView(window.WALL.mapCenter, window.WALL.mapZoom);
-	L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-		maxZoom: 19, attribution: '&copy; OpenStreetMap &copy; CARTO'
+	// Tanpa tileLayer, minZoom/maxZoom WAJIB eksplisit agar markercluster berfungsi
+	// (lihat catatan di dashboard.js).
+	var map = L.map('map', { zoomControl: true, attributionControl: false, minZoom: 4, maxZoom: 18 })
+		.setView(window.WALL.mapCenter, window.WALL.mapZoom);
+
+	// Basemap: polygon provinsi (lokal) di atas latar gelap #map — menggantikan tile
+	// CARTO dark_all yang kini menampilkan watermark "API KEY REQUIRED".
+	var basemap = L.geoJSON(null, {
+		interactive: false,
+		style: function () {
+			return { fillColor: '#1c2142', color: '#2e3561', weight: 1, fillOpacity: 1 };
+		}
 	}).addTo(map);
+	fetch(window.WALL.geojsonUrl).then(function (r) { return r.json(); }).then(function (gj) {
+		basemap.addData(gj);
+		basemap.bringToBack();
+	}).catch(function () { /* basemap gagal dimuat — marker tetap tampil */ });
 
 	var cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 55 });
 	map.addLayer(cluster);
