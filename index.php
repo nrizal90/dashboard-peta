@@ -53,7 +53,19 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	// Default AMAN: 'production' (error tidak ditampilkan ke pengunjung). 'development'
+	// hanya otomatis untuk CLI / localhost; selain itu set CI_ENV secara eksplisit.
+	if (isset($_SERVER['CI_ENV']))
+	{
+		define('ENVIRONMENT', $_SERVER['CI_ENV']);
+	}
+	else
+	{
+		$ci_host = isset($_SERVER['SERVER_NAME']) ? strtolower($_SERVER['SERVER_NAME']) : '';
+		define('ENVIRONMENT', (PHP_SAPI === 'cli' || in_array($ci_host, array('localhost', '127.0.0.1', '::1'), TRUE))
+			? 'development' : 'production');
+		unset($ci_host);
+	}
 
 /*
  *---------------------------------------------------------------

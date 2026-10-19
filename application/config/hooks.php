@@ -11,3 +11,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/userguide3/general/hooks.html
 |
 */
+
+// Header keamanan dikirim dari PHP — production memakai nginx yang mengabaikan
+// .htaccess, jadi header di .htaccess saja tidak cukup.
+$hook['pre_system'][] = array(
+	'class'    => '',
+	'function' => 'security_headers',
+	'filename' => 'Security_headers.php',
+	'filepath' => 'hooks',
+);
