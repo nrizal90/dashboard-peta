@@ -260,16 +260,32 @@
 		});
 	}
 
+	// Paginasi client-side untuk modal List Lembaga.
+	var listRows = [], listPage = 1, LIST_PER = 25;
+
 	function renderList(rows) {
+		listRows = rows || [];
+		listPage = 1;
+		renderListPage();
+	}
+
+	function renderListPage() {
 		var body = document.getElementById('listBody');
-		if (!rows || !rows.length) {
+		var rows = listRows;
+		var totalPage = Math.max(1, Math.ceil(rows.length / LIST_PER));
+		if (listPage > totalPage) listPage = totalPage;
+		document.getElementById('listPage').textContent = listPage + ' / ' + totalPage;
+		document.getElementById('listPrev').disabled = listPage <= 1;
+		document.getElementById('listNext').disabled = listPage >= totalPage;
+		if (!rows.length) {
 			body.innerHTML = '<tr><td colspan="8" class="text-center text-muted py-4">Tidak ada data.</td></tr>';
 			document.getElementById('listTotal').textContent = '0';
 			return;
 		}
-		body.innerHTML = rows.map(function (r, i) {
+		var start = (listPage - 1) * LIST_PER;
+		body.innerHTML = rows.slice(start, start + LIST_PER).map(function (r, i) {
 			return '<tr>' +
-				'<td class="text-center">' + (i + 1) + '</td>' +
+				'<td class="text-center">' + (start + i + 1) + '</td>' +
 				'<td>' + esc(r.nama) + '</td>' +
 				'<td>' + esc(r.provinsi || '-') + '</td>' +
 				'<td>' + esc(r.kota || '-') + '</td>' +
@@ -281,6 +297,9 @@
 		}).join('');
 		document.getElementById('listTotal').textContent = numfmt(rows.length);
 	}
+
+	document.getElementById('listPrev').addEventListener('click', function () { if (listPage > 1) { listPage--; renderListPage(); } });
+	document.getElementById('listNext').addEventListener('click', function () { listPage++; renderListPage(); });
 
 	// Buka modal Detail Lembaga Vokasi (3 seksi: Lembaga · Sektor&Jabatan · Katalog).
 	function openDetail(id) {

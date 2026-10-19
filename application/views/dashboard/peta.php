@@ -294,6 +294,11 @@ $jab = isset($s['sektor']['total_jabatan']) ? $s['sektor']['total_jabatan'] : 0;
 						</div>
 						<div class="modal-footer py-2 justify-content-between">
 							<small class="text-muted">Total data: <b id="listTotal">0</b> lembaga</small>
+							<div class="btn-group btn-group-sm" role="group" aria-label="Paginasi">
+								<button type="button" class="btn btn-outline-secondary" id="listPrev" aria-label="Sebelumnya">&laquo;</button>
+								<span class="btn btn-outline-secondary disabled" id="listPage">1 / 1</span>
+								<button type="button" class="btn btn-outline-secondary" id="listNext" aria-label="Berikutnya">&raquo;</button>
+							</div>
 							<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
 						</div>
 					</div>
