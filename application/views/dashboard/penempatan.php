@@ -53,7 +53,7 @@ list($penyLabels, $penyData)   = $split($topN(isset($st['bp3mi']) ? $st['bp3mi']
 list($p3miLabels, $p3miData)   = $split($topN(isset($st['p3mi'])          ? $st['p3mi']          : array(), 10));
 list($jabLabels, $jabData)     = $split($topN(isset($st['jabatan'])       ? $st['jabatan']       : array(), 10));
 list($negLabels, $negData)     = $split($topN(isset($st['negara'])        ? $st['negara']        : array(), 10));
-list($statLabels, $statData)   = $split(isset($st['status']) ? $st['status'] : array());
+list($statLabels, $statData)   = $split($topN(isset($st['status'])        ? $st['status']        : array(), 5));
 
 $rows    = isset($rows) ? $rows : array();
 $options = isset($options) ? $options : array();
