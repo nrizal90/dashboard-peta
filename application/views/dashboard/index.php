@@ -171,7 +171,6 @@ $mapChoropleth = ( ! empty($sb['choropleth'])) ? $sb['choropleth'] : array(
 				<div class="card-body d-flex flex-column justify-content-center">
 					<div class="d-flex align-items-center justify-content-between">
 						<div>
-							<h5 class="dg-title mb-1">Hi, Admin Pusdatin <span style="font-size:1rem;">👋</span></h5>
 							<div class="text-muted small font-italic mb-0" id="dgClock">
 								<?= $tanggalID ?> pukul <?= date('h.i A') ?>
 							</div>

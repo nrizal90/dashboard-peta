@@ -126,12 +126,14 @@ class Dashboard extends CI_Controller {
 	 * Menu "Monitoring Pelatihan PMI" — KPI + chart peserta pelatihan PMI.
 	 * Seluruh angka dari view dashboard_pelatihan_detail (repo->pelatihanStats()).
 	 */
-	public function pelatihan()
+	public function pelatihan($versi = 1)
 	{
-		$data = array(
-			'title'  => 'Monitoring Pelatihan PMI',
+		$versi = ((int) $versi === 2) ? 2 : 1;
+		$data  = array(
+			'title'  => 'Monitoring Pelatihan PMI' . ($versi === 2 ? ' (Versi 2)' : ''),
 			'active' => 'pelatihan',
-			'stats'  => $this->repo->pelatihanStats(),
+			'versi'  => $versi,
+			'stats'  => $this->repo->pelatihanStats($versi),
 		);
 
 		$this->load->view('templates/header', $data);

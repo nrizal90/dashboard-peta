@@ -856,7 +856,8 @@ class Vokasi_repo {
 
 	/**
 	 * Agregat menu "Monitoring Pelatihan PMI" — SELURUHNYA dari view
-	 * dashboard_pelatihan_detail (1 baris = 1 pendaftaran pelatihan PMI).
+	 * dashboard_pelatihan_detail (1 baris = 1 pendaftaran pelatihan PMI);
+	 * $versi 2 → view dashboard_pelatihan_detail_manual.
 	 *
 	 *   kpi     : total peserta, terverifikasi (train_directorate_verification
 	 *             = 'accepted'), tersertifikasi (train_certified = 'finish').
@@ -873,9 +874,11 @@ class Vokasi_repo {
 	 *             label 'YYYY-MM' + label Indonesia ('Jul 2026').
 	 * @return array
 	 */
-	public function pelatihanStats()
+	public function pelatihanStats($versi = 1)
 	{
 		$db = $this->requireDb();
+		// Versi 2: sumber data input manual (kolom identik dgn view versi 1).
+		$src = ($versi === 2) ? 'dashboard_pelatihan_detail_manual' : 'dashboard_pelatihan_detail';
 
 		$pack = function ($rows) {
 			$out = array();
@@ -892,21 +895,21 @@ class Vokasi_repo {
 				count(*)                                                          AS total,
 				count(*) FILTER (WHERE train_directorate_verification = 'accepted') AS terverifikasi,
 				count(*) FILTER (WHERE train_certified = 'finish')                 AS tersertifikasi
-			FROM dashboard_pelatihan_detail"
+			FROM {$src}"
 		)->row_array();
 		$total = (int) $k['total'];
 		$pct   = function ($n) use ($total) { return $total > 0 ? (int) round($n / $total * 100) : 0; };
 
 		$negara = $db->query(
 			"SELECT coalesce(nullif(trim(train_requested_country), ''), 'Tidak diisi') AS label, count(*) AS value
-			FROM dashboard_pelatihan_detail
+			FROM {$src}
 			GROUP BY 1
 			ORDER BY value DESC, label ASC"
 		)->result_array();
 
 		$status = $db->query(
 			"SELECT coalesce(nullif(trim(train_status), ''), 'unknown') AS label, count(*) AS value
-			FROM dashboard_pelatihan_detail
+			FROM {$src}
 			GROUP BY 1
 			ORDER BY value DESC"
 		)->result_array();
@@ -914,7 +917,7 @@ class Vokasi_repo {
 		$sektor = $db->query(
 			"SELECT coalesce(s.sector_name, 'Sektor #' || p.train_sectoral_id::text, 'Tidak diisi') AS label,
 				count(*) AS value
-			FROM dashboard_pelatihan_detail p
+			FROM {$src} p
 			LEFT JOIN (SELECT DISTINCT sector_id, trim(sector_name) AS sector_name
 			           FROM dashboard_vokasi_detail_sektor) s
 			  ON s.sector_id = p.train_sectoral_id
@@ -924,14 +927,14 @@ class Vokasi_repo {
 
 		$gender = $db->query(
 			"SELECT coalesce(nullif(initcap(trim(train_pmi_gender)), ''), 'Tidak diisi') AS label, count(*) AS value
-			FROM dashboard_pelatihan_detail
+			FROM {$src}
 			GROUP BY 1
 			ORDER BY value DESC"
 		)->result_array();
 
 		$tren = $db->query(
 			"SELECT to_char(train_created_at, 'YYYY-MM') AS label, count(*) AS value
-			FROM dashboard_pelatihan_detail
+			FROM {$src}
 			WHERE train_created_at IS NOT NULL
 			GROUP BY 1
 			ORDER BY 1 ASC"

@@ -13,6 +13,7 @@ $goldLight = $tema['gold_light'];
 
 $fmtNum = function ($v) { return ($v === NULL) ? '-' : number_format($v, 0, ',', '.'); };
 
+$v2  = isset($versi) && $versi === 2;
 $st  = isset($stats) ? $stats : array();
 $kpi = isset($st['kpi']) ? $st['kpi'] : array();
 $kTotal = isset($kpi['total']) ? (int) $kpi['total'] : NULL;
@@ -110,8 +111,13 @@ $isEmpty = ($kTotal === NULL || $kTotal === 0);
 
 	<div class="d-sm-flex align-items-center justify-content-between mb-3">
 		<div>
-			<h1 class="h4 dg-title mb-1">Monitoring Pelatihan PMI</h1>
+			<h1 class="h4 dg-title mb-1">Monitoring Pelatihan PMI<?= $v2 ? ' <span class="badge badge-warning align-middle">Versi 2</span>' : '' ?></h1>
 			<div class="text-muted small">Ringkasan peserta pelatihan Pekerja Migran Indonesia</div>
+		</div>
+		<!-- Toggle versi: 1 = dashboard_pelatihan_detail, 2 = dashboard_pelatihan_detail_manual -->
+		<div class="btn-group btn-group-sm mt-2 mt-sm-0" role="group" aria-label="Pilih versi dashboard">
+			<a href="<?= site_url('pelatihan') ?>" class="btn <?= $v2 ? 'btn-outline-warning' : 'btn-warning font-weight-bold' ?>"<?= $v2 ? '' : ' aria-current="page"' ?>>Versi 1</a>
+			<a href="<?= site_url('pelatihan-v2') ?>" class="btn <?= $v2 ? 'btn-warning font-weight-bold' : 'btn-outline-warning' ?>"<?= $v2 ? ' aria-current="page"' : '' ?>>Versi 2</a>
 		</div>
 	</div>
 
