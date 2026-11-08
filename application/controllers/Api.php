@@ -27,9 +27,13 @@ class Api extends CI_Controller {
 	// Helpers
 	// ---------------------------------------------------------------------
 
-	/** Kirim array/objek sebagai JSON. */
+	/**
+	 * Kirim array/objek sebagai JSON. Satu pintu keluar API → masking guest
+	 * (nik/telepon/alamat/paspor, by nama kolom) cukup di sini.
+	 */
 	private function json($data, $status = 200)
 	{
+		if ( ! pdp_is_admin()) { $data = pdp_mask_deep($data); }
 		$this->output
 			->set_status_header($status)
 			->set_content_type('application/json', 'utf-8')

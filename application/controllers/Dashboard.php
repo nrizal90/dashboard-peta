@@ -156,12 +156,15 @@ class Dashboard extends CI_Controller {
 		$all    = $this->repo->penempatanRows(array(), $versi);
 		$rows   = $filter ? $this->repo->penempatanRows($filter, $versi) : $all;
 
+		// Stats dihitung dari data asli (distinct NIK) SEBELUM masking.
+		$stats = $this->repo->penempatanStats($rows);
+
 		$data = array(
 			'title'   => 'Monitoring Penempatan Peserta Pelatihan' . ($versi === 2 ? ' (Versi 2)' : ''),
 			'active'  => $versi === 2 ? 'penempatan-v2' : 'penempatan',
 			'versi'   => $versi,
-			'stats'   => $this->repo->penempatanStats($rows),
-			'rows'    => $rows,
+			'stats'   => $stats,
+			'rows'    => $this->maskPmi($rows),
 			'options' => $this->repo->penempatanOptions($all),
 			'filter'  => $filter,
 		);
@@ -175,6 +178,16 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('dashboard/penempatan', $data);
 		$this->load->view('templates/footer', $data);
+	}
+
+	/** Guest: masking data pribadi PMI (UU PDP). Admin: apa adanya. */
+	private function maskPmi(array $rows)
+	{
+		if (pdp_is_admin()) { return $rows; }
+		return pdp_mask_rows($rows, array(
+			'nama' => 'nama', 'nik' => 'nik', 'telepon' => 'telp',
+			'alamat' => 'alamat', 'no_paspor' => 'paspor',
+		));
 	}
 
 	/** Filter penempatan dari query string (hanya dimensi yang dikenal, nilai kosong dibuang). */
@@ -245,7 +258,7 @@ class Dashboard extends CI_Controller {
 			'title'   => 'Tracking Penempatan' . ($versi === 2 ? ' (Versi 2)' : ''),
 			'active'  => $versi === 2 ? 'monitoring-pmi-v2' : 'monitoring-pmi',
 			'versi'   => $versi,
-			'rows'    => $rows,
+			'rows'    => $this->maskPmi($rows),
 			'options' => $this->repo->pmiOptions($all),
 			'filter'  => $filter,
 		);
@@ -265,7 +278,12 @@ class Dashboard extends CI_Controller {
 	private function pmiFilter()
 	{
 		$f = array();
-		foreach (array('tgl_awal', 'tgl_akhir', 'nama', 'nik', 'provinsi', 'bp3mi') as $key)
+		// Guest tidak boleh mencari by nama/NIK: hasil pencarian = konfirmasi
+		// bahwa orang tsb. peserta, walau kolomnya dimasking.
+		$keys = pdp_is_admin()
+			? array('tgl_awal', 'tgl_akhir', 'nama', 'nik', 'provinsi', 'bp3mi')
+			: array('tgl_awal', 'tgl_akhir', 'provinsi', 'bp3mi');
+		foreach ($keys as $key)
 		{
 			$v = trim((string) $this->input->get($key, TRUE));
 			if ($v !== '') { $f[$key] = $v; }
@@ -350,7 +368,7 @@ class Dashboard extends CI_Controller {
 		$data = array(
 			'title'  => 'Detail: ' . $row['nama'],
 			'active' => 'daftar-pendataan',
-			'row'    => $row,
+			'row'    => pdp_is_admin() ? $row : pdp_mask_deep($row),
 			'sektor' => $this->repo->sektorOf($id),
 			'from'   => $this->input->get('from', TRUE),
 		);

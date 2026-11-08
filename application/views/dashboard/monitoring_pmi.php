@@ -58,10 +58,12 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 						<label class="small font-weight-bold mb-1" for="f_tgl_akhir">Tanggal Akhir</label>
 						<input type="date" class="form-control form-control-sm" id="f_tgl_akhir" name="tgl_akhir" value="<?= html_escape($fv('tgl_akhir')) ?>">
 					</div>
+					<?php if (pdp_is_admin()): // guest tidak boleh cari by nama (UU PDP) ?>
 					<div class="col-md-4 col-sm-6 col-12 mb-2">
 						<label class="small font-weight-bold mb-1" for="f_nama">Nama</label>
 						<input type="text" class="form-control form-control-sm" id="f_nama" name="nama" value="<?= html_escape($fv('nama')) ?>" placeholder="Masukkan nama peserta">
 					</div>
+					<?php endif; ?>
 					<?php foreach ($selects as $key => $s): ?>
 					<div class="col-md-4 col-sm-6 col-12 mb-2">
 						<label class="small font-weight-bold mb-1" for="f_<?= $key ?>"><?= $s[0] ?></label>
@@ -87,9 +89,11 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 		<div class="card-body">
 			<div class="d-flex justify-content-between align-items-center mb-3">
 				<input type="search" class="form-control form-control-sm w-auto" id="tCari" placeholder="Cari…">
+				<?php if (pdp_is_admin()): ?>
 				<a href="<?= $exportUrl ?>" class="btn btn-sm btn-warning font-weight-bold">
 					<i class="fas fa-file-excel mr-1"></i> Export Excel
 				</a>
+				<?php endif; ?>
 			</div>
 			<div class="table-responsive">
 				<table class="table table-sm table-hover" id="tblPmi" style="width:100%">

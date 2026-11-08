@@ -24,9 +24,11 @@ ksort($optProv); ksort($optJenis); ksort($optOwn); ksort($optEv);
 			<h1 class="h3 mb-0 text-gray-800">Daftar Pendataan</h1>
 			<p class="mb-0 text-muted small"><strong><?= number_format(count($rows),0,',','.') ?></strong> lembaga vokasi dari database.</p>
 		</div>
+		<?php if (pdp_is_admin()): ?>
 		<a href="<?= site_url('daftar-pendataan/export') ?>" class="btn btn-sm btn-success shadow-sm">
 			<i class="fas fa-file-excel fa-sm"></i> Unduh Excel
 		</a>
+		<?php endif; ?>
 	</div>
 
 	<div class="alert alert-info py-2 small mb-3">

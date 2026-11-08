@@ -20,3 +20,12 @@ $hook['pre_system'][] = array(
 	'filename' => 'Security_headers.php',
 	'filepath' => 'hooks',
 );
+
+// Tanpa login = guest (data pribadi dimasking). Method *_export wajib login
+// admin. Lihat hooks/Auth_guard.php.
+$hook['post_controller_constructor'][] = array(
+	'class'    => 'Auth_guard',
+	'function' => 'check',
+	'filename' => 'Auth_guard.php',
+	'filepath' => 'hooks',
+);
