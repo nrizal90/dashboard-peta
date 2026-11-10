@@ -82,7 +82,8 @@ ksort($optProv); ksort($optJenis); ksort($optOwn); ksort($optEv);
 	<div class="card shadow mb-4">
 		<div class="card-body">
 			<div class="table-responsive">
-				<table class="table table-bordered table-hover table-sm" id="tblPendataan" width="100%" cellspacing="0">
+				<div id="tblLoading" class="text-center text-muted py-4"><i class="fas fa-spinner fa-spin mr-1"></i> Memuat data…</div>
+				<table class="table table-bordered table-hover table-sm d-none" id="tblPendataan" width="100%" cellspacing="0">
 					<thead class="thead-light">
 						<tr>
 							<th>Nama Lembaga</th>
@@ -128,8 +129,9 @@ ksort($optProv); ksort($optJenis); ksort($optOwn); ksort($optEv);
 <script>
 window.DP_BASE = '<?= base_url() ?>';
 
-window.addEventListener('load', function () {
-	// jQuery sudah tersedia (dimuat di footer). Muat DataTables berurutan lalu init.
+document.addEventListener('DOMContentLoaded', function () {
+	// jQuery sudah tersedia (dimuat sinkron di footer). Muat DataTables berurutan lalu init.
+	// Tabel disembunyikan sampai DataTables siap agar semua baris tidak sempat tampil.
 	function loadScript(src, cb) { var s = document.createElement('script'); s.src = src; s.onload = cb; document.body.appendChild(s); }
 
 	loadScript(window.DP_BASE + 'assets/vendor/datatables/jquery.dataTables.min.js', function () {
@@ -138,6 +140,8 @@ window.addEventListener('load', function () {
 
 	function initTable() {
 		var $ = window.jQuery;
+		$('#tblPendataan').removeClass('d-none');
+		$('#tblLoading').remove();
 		var dt = $('#tblPendataan').DataTable({
 			pageLength: 25,
 			lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],

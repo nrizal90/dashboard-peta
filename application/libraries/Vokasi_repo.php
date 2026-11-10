@@ -85,10 +85,19 @@ class Vokasi_repo {
 		}
 
 		$CI =& get_instance();
+		error_clear_last();
 		$db = @$CI->load->database('default', TRUE);
 		$this->ci_db = ($db !== FALSE && is_object($db) && ! empty($db->conn_id))
 			? $db
 			: NULL;
+
+		if ($this->ci_db === NULL)
+		{
+			// '@' menelan warning pg_connect → catat alasan aslinya ke log
+			// (tidak ditampilkan ke pengunjung: bisa memuat host/user DB).
+			$err = error_get_last();
+			log_message('error', 'Koneksi PostgreSQL gagal: ' . ($err ? $err['message'] : 'tanpa detail'));
+		}
 
 		return $this->ci_db;
 	}

@@ -96,7 +96,8 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 				<?php endif; ?>
 			</div>
 			<div class="table-responsive">
-				<table class="table table-sm table-hover" id="tblPmi" style="width:100%">
+				<div id="tblLoading" class="text-center text-muted py-4"><i class="fas fa-spinner fa-spin mr-1"></i> Memuat data…</div>
+				<table class="table table-sm table-hover d-none" id="tblPmi" style="width:100%">
 					<thead class="thead-light">
 						<tr>
 							<th>No</th><th>Nama</th><th>Provinsi</th>
@@ -132,12 +133,15 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 <!-- DataTables CSS (page-specific) -->
 <link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 <script>
-window.addEventListener('load', function () {
+document.addEventListener('DOMContentLoaded', function () {
+	// Tabel disembunyikan sampai DataTables siap agar semua baris tidak sempat tampil.
 	var base = '<?= base_url() ?>';
 	function loadScript(src, cb) { var s = document.createElement('script'); s.src = src; s.onload = cb; document.body.appendChild(s); }
 	loadScript(base + 'assets/vendor/datatables/jquery.dataTables.min.js', function () {
 		loadScript(base + 'assets/vendor/datatables/dataTables.bootstrap4.min.js', function () {
 			var $ = window.jQuery;
+			$('#tblPmi').removeClass('d-none');
+			$('#tblLoading').remove();
 			var dt = $('#tblPmi').DataTable({
 				pageLength: 25,
 				lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
