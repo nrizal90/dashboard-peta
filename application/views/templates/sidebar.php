@@ -66,6 +66,21 @@
 			</a>
 		</li>
 
+		<?php if (auth_can('user.manage') || auth_can('role.manage')): ?>
+		<hr class="sidebar-divider">
+		<div class="sidebar-heading">Pengaturan</div>
+		<?php if (auth_can('user.manage')): ?>
+		<li class="nav-item <?= $active === 'users' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('users') ?>"><i class="fas fa-fw fa-users-cog"></i><span>Kelola User</span></a>
+		</li>
+		<?php endif; ?>
+		<?php if (auth_can('role.manage')): ?>
+		<li class="nav-item <?= $active === 'roles' ? 'active' : '' ?>">
+			<a class="nav-link" href="<?= site_url('roles') ?>"><i class="fas fa-fw fa-user-tag"></i><span>Kelola Role</span></a>
+		</li>
+		<?php endif; ?>
+		<?php endif; ?>
+
 		<hr class="sidebar-divider d-none d-md-block">
 
 		<div class="text-center d-none d-md-inline">

@@ -106,7 +106,7 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 			<h1 class="h4 dg-title mb-1">Monitoring Penempatan Peserta Pelatihan<?= $v2 ? ' <span class="badge badge-warning align-middle">Versi 2</span>' : '' ?></h1>
 			<div class="text-muted small">Ringkasan penempatan peserta pelatihan</div>
 		</div>
-		<?php if (pdp_is_admin()): ?>
+		<?php if (auth_can('data.export')): ?>
 		<a href="<?= $exportUrl ?>" class="btn btn-sm btn-warning font-weight-bold mt-2 mt-sm-0">
 			<i class="fas fa-file-excel mr-1"></i> Export Excel
 		</a>

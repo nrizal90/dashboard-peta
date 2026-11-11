@@ -89,7 +89,7 @@ $exportUrl = site_url($base . '/export') . ($filter ? '?' . http_build_query($fi
 		<div class="card-body">
 			<div class="d-flex justify-content-between align-items-center mb-3">
 				<input type="search" class="form-control form-control-sm w-auto" id="tCari" placeholder="Cari…">
-				<?php if (pdp_is_admin()): ?>
+				<?php if (auth_can('data.export')): ?>
 				<a href="<?= $exportUrl ?>" class="btn btn-sm btn-warning font-weight-bold">
 					<i class="fas fa-file-excel mr-1"></i> Export Excel
 				</a>

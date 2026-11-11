@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Login/logout dashboard. Akun tetap (admin & guest) di config/auth.php —
- * tanpa DB. Satu-satunya controller yang dikecualikan Auth_guard.
+ * Login/logout dashboard. Akun di tabel users (DB 'auth', MySQL) — dikelola
+ * lewat menu Pengaturan > User. Pengaturan lockout di config/auth.php.
  */
 class Auth extends CI_Controller {
 
@@ -17,7 +17,7 @@ class Auth extends CI_Controller {
 	/** GET: form login. POST: proses login. */
 	public function login()
 	{
-		if ($this->session->userdata('role'))
+		if (auth_user() !== NULL)
 		{
 			redirect('');
 		}
@@ -63,11 +63,11 @@ class Auth extends CI_Controller {
 			return 'Terlalu banyak percobaan gagal. Coba lagi dalam ' . ceil($lockout / 60) . ' menit.';
 		}
 
-		$users = (array) $this->config->item('auth_users');
 		$key   = strtolower(trim($username));
-		$user  = isset($users[$key]) ? $users[$key] : NULL;
+		$q     = auth_db()->query('SELECT id, password_hash FROM users WHERE username = ? AND is_active = 1', array($key));
+		$user  = $q ? $q->row_array() : NULL;
 		// Tetap jalankan password_verify walau user tak ada → waktu respons seragam.
-		$hash  = $user ? $user['hash'] : '$2y$12$8LzP7eRzoneVdiHK2a0.iuHQsys85qSeCr6jrI0LkfSDFSLQJSS9y';
+		$hash  = $user ? $user['password_hash'] : '$2y$12$8LzP7eRzoneVdiHK2a0.iuHQsys85qSeCr6jrI0LkfSDFSLQJSS9y';
 		$ok    = password_verify($password, $hash) && $user !== NULL;
 
 		if ( ! $ok)
@@ -79,7 +79,8 @@ class Auth extends CI_Controller {
 
 		$this->cache->delete($lockKey);
 		$this->session->sess_regenerate(TRUE); // cegah session fixation
-		$this->session->set_userdata(array('username' => $key, 'role' => $user['role']));
+		$this->session->set_userdata(array('user_id' => (int) $user['id'], 'username' => $key));
+		auth_db()->query('UPDATE users SET last_login_at = NOW() WHERE id = ?', array($user['id']));
 		return NULL;
 	}
 }

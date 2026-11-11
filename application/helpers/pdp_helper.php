@@ -9,11 +9,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * di DevTools.
  */
 
-/** TRUE hanya bila sesi login ber-role admin. Selain itu (termasuk tanpa sesi) = guest. */
+/** TRUE bila user login punya permission 'data.full' (lihat data tanpa masking). Selain itu = masking. */
 function pdp_is_admin()
 {
-	$CI =& get_instance();
-	return isset($CI->session) && $CI->session->userdata('role') === 'admin';
+	return auth_can('data.full');
 }
 
 /**

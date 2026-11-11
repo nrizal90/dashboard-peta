@@ -23,7 +23,7 @@ $tema = $this->config->item('tema');
 			<div class="text-center mb-4">
 				<i class="fas fa-map-marked-alt fa-2x mb-2" style="color: <?= $tema['gold'] ?>"></i>
 				<h1 class="h5 text-gray-900 font-weight-bold mb-0">Dashboard Peta Vokasi</h1>
-				<div class="small text-muted">Login admin — akses data lengkap &amp; export</div>
+				<div class="small text-muted">Login untuk akses data sesuai hak akses</div>
 			</div>
 
 			<?php if ($error): ?>

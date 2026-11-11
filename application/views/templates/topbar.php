@@ -30,11 +30,12 @@
 						</a>
 					</li>
 
-					<!-- Admin: nama + logout. Guest (tanpa login): badge + tombol login. -->
+					<!-- Login: nama + role + logout. Guest (tanpa login): badge + tombol login. -->
 					<li class="nav-item d-flex align-items-center">
-						<?php if (pdp_is_admin()): ?>
-						<span class="small text-gray-700 mr-2 d-none d-sm-inline">
-							<i class="fas fa-user-shield mr-1"></i><?= html_escape((string) $this->session->userdata('username')) ?>
+						<?php if ($me = auth_user()): ?>
+						<span class="small text-gray-700 mr-2 d-none d-sm-inline" title="Role: <?= html_escape($me['role_name']) ?>">
+							<i class="fas fa-user-shield mr-1"></i><?= html_escape($me['full_name'] !== '' ? $me['full_name'] : $me['username']) ?>
+							<span class="badge badge-light"><?= html_escape($me['role_name']) ?></span>
 						</span>
 						<form method="post" action="<?= site_url('logout') ?>" class="m-0">
 							<input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>">
@@ -44,8 +45,8 @@
 						</form>
 						<?php else: ?>
 						<span class="badge badge-secondary mr-2 d-none d-sm-inline" title="Data pribadi disamarkan sesuai UU PDP">Mode Guest</span>
-						<a href="<?= site_url('login') ?>" class="btn btn-light btn-sm" title="Login admin">
-							<i class="fas fa-sign-in-alt fa-sm"></i><span class="d-none d-md-inline ml-1">Login Admin</span>
+						<a href="<?= site_url('login') ?>" class="btn btn-light btn-sm" title="Login">
+							<i class="fas fa-sign-in-alt fa-sm"></i><span class="d-none d-md-inline ml-1">Login</span>
 						</a>
 						<?php endif; ?>
 					</li>
